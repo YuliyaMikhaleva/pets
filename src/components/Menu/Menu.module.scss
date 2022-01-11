@@ -1,0 +1,46 @@
+@import "./src/assets/variables";
+.menu{
+  color: white;
+  border-right: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  &__logo{
+    margin-bottom: 83.13px;
+  }
+  &__list{
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+  }
+  &__item{
+    width: 60px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-radius: 13px;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 32px;
+    &:first-child{
+      background-color: $blueColor;
+    }
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.05);;
+      opacity: 50%;
+    }
+    &:first-child:hover{
+      background-color: $blueColor;
+      opacity: 100%;
+    }
+  }
+}

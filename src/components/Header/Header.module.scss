@@ -1,0 +1,56 @@
+@import "./src/assets/variables";
+.header{
+  &__title{
+    color: white;
+    font-family: Rubik;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35.55px;
+    margin: 0;
+  }
+  &__buttons{
+    display: flex;
+  }
+  &__button{
+    background: rgba(255, 255, 255, 0.05);;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+    cursor: pointer;
+    position: relative;
+    &:hover{
+      .header__notice-btn{
+        fill: $blueColor;
+      }
+    }
+  }
+  &__blue-btn{
+    background-color: $blueColor;
+  }
+  &__middle-btn{
+    margin: 0 18px 0 40px;
+  }
+  &__notice-counter{
+    background-color: #F16063;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+  }
+
+
+}

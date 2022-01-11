@@ -1,0 +1,63 @@
+@import "./src/assets/variables";
+.checkbox{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  &__input{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  &__label{
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 110px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.05);;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color 0.25s;
+    &:after{
+      content: '';
+      display: block;
+      background-image: url("../../../public/images/darkTheme.svg");
+      background-repeat: no-repeat;
+      background-position: 50%;
+      position: absolute;
+      top: 6.7px;
+      left: 5px;
+      width: 53.33px;
+      height: 32.59px;
+      background-color: $blueColor;
+      border-radius: 90px;
+      transition: 0.25s;
+      z-index: 999999;
+    }
+  }
+  &__darkTheme{
+    position: absolute;
+    z-index: 999;
+    top: 13px;
+    left: 25%;
+    cursor: pointer;
+    pointer-events:none;
+    &:hover{
+      background-color: $blueColor;
+      border-radius: 25%;
+    }
+  }
+  &__lightTheme{
+    position: absolute;
+    z-index: 999;
+    top: 13.43px;
+    right: 17%;
+    cursor: pointer;
+    pointer-events:none;
+  }
+}
+.checkbox__input:checked + .checkbox__label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+  background-image: url("../../../public/images/lightTheme.svg");
+}
