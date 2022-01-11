@@ -1,2 +1,13 @@
-$bg-dark: #0F172A;
+//тёмная тема по умолчанию
+:root {
+  --bg-dark: #0F172A;
+  --bg-button:rgba(255, 255, 255, 0.05);
+}
+//светлая тема
+[theme="light"]{
+  --bg-dark: #FFFFF;
+  --bg-button:black;
+
+}
+
 $blueColor: #4C6FFF;

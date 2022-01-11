@@ -12,7 +12,7 @@
     display: flex;
   }
   &__button{
-    background: rgba(255, 255, 255, 0.05);;
+    background-color: var(--bg-button);
     border: none;
     width: 46px;
     height: 46px;
