@@ -2,12 +2,25 @@
 :root {
   --bg-dark: #0F172A;
   --bg-button:rgba(255, 255, 255, 0.05);
+  --color-title:#EDF2F7;
+  --color-logo: #FFFFFF;
+  --color-notice:#EDF2F7;
+  --color-border:#334155;
+  --color-article: rgba(255, 255, 255, 0.05);
+  --color-text:#FFFFFF;
+  --color-diagram-part:#334155;
 }
 //светлая тема
 [theme="light"]{
-  --bg-dark: #FFFFF;
-  --bg-button:black;
-
+  --bg-dark: #EDF2F7;
+  --bg-button:#FFFFFF;
+  --color-title:#0F172A;
+  --color-logo: #0F172A;
+  --color-notice:#17171B;
+  --color-border:#CED7E0;
+  --color-article:#FFFFFF;
+  --color-text: #17171B;
+  --color-diagram-part:#EDF2F7;
 }
 
 $blueColor: #4C6FFF;

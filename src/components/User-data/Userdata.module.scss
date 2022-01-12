@@ -1,8 +1,9 @@
+@import "./src/assets/variables";
 .article{
   border-radius: 16px;
   padding: 30px;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-article);
   &:nth-child(2){
     margin: 0 40px;
   }
@@ -25,7 +26,6 @@
     line-height: 28px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
   }
   &__text{
     font-family: Rubik;
@@ -49,17 +49,32 @@
   }
   &__block-diagram{
     width: 50%;
+    position: relative;
+  }
+  &__percent{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 47px;
+    color: var(--color-text);
+  }
+  &__diagram-part{
+    stroke: var(--color-diagram-part);
   }
   &__diagram-text{
-    color: white;
+    color: var(--color-text);
     font-family: Rubik;
   }
   &__diagram-title{
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 17.5px;
     line-height: 21px;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px 40px;
   }
   &__diagram-list{
     list-style: none;
@@ -74,11 +89,28 @@
     &::before{
       display: block;
       content: "";
-      border: 1px solid white;
       border-radius: 50px;
       width: 15px;
       height: 15px;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: 50%;
     }
+  }
+  &__diagram-item:nth-child(1)::before{
+    background-color: #F16063;
+    background-image: url("../../../public/images/no-check.png");
+  }
+  &__diagram-item:nth-child(2)::before{
+    background-color: #66CB9F;
+    background-image: url("../../../public/images/check.png");
+  }
+  &__diagram-item:nth-child(3)::before{
+    background-color: #FFC542;
+    background-image: url("../../../public/images/check.png");
+  }
+  &__diagram-item:nth-child(4)::before{
+    background-color: $blueColor;
   }
 
 }

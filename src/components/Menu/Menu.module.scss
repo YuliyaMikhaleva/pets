@@ -1,7 +1,7 @@
 @import "./src/assets/variables";
 .menu{
   color: white;
-  border-right: 1px solid #334155;
+  border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -42,5 +42,11 @@
       background-color: $blueColor;
       opacity: 100%;
     }
+  }
+  &__img{
+    stroke: var(--color-title);
+  }
+  &__img-fill{
+    fill: var(--color-title);
   }
 }

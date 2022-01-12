@@ -1,6 +1,14 @@
 @import "./src/assets/variables";
-.logo:hover{
-  .logo__path{
-    fill: $blueColor;
+.logo{
+  &__path{
+    fill: var(--color-logo);
+  }
+  &__color{
+    fill: var(--bg-dark);
+  }
+  &:hover{
+    .logo__path{
+      fill: #CED7E0;
+    }
   }
 }
