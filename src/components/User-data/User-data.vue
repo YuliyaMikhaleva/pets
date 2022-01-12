@@ -27,12 +27,46 @@
 
       </div>
     </article>
+    <div class="user-data__articles">
+      <article class="article article__time">
+        <div class="article__wrp">
+          <div class="article__clock">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 6V12L16 14" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>На часах у нас</span>
+        </div>
+        <span class="article__time-data">{{time}}</span>
+      </article>
+      <article class="article article__time">
+        <div class="article__wrp">
+          <div class="article__clock">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.8333 1.33333H3.16667C2.24619 1.33333 1.5 2.07952 1.5 2.99999V14.6667C1.5 15.5871 2.24619 16.3333 3.16667 16.3333H14.8333C15.7538 16.3333 16.5 15.5871 16.5 14.6667V2.99999C16.5 2.07952 15.7538 1.33333 14.8333 1.33333Z" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>На календаре у нас</span>
+        </div>
+        <span class="article__time-data">{{date}}</span>
+      </article>
+    </div>
+
   </section>
 </template>
 
 <script>
 export default {
-  name: "UserData"
+  name: "UserData",
+  computed: {
+    time(){
+      return new Date().toLocaleTimeString().slice(0,-3)
+    },
+    date(){
+      return new Date().toLocaleDateString()
+    }
+  }
 }
 </script>
 
