@@ -22,7 +22,7 @@ export default {
   .posts{
     margin-bottom: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 23% 23% 14% 39.4%;
     grid-gap: 40px;
   }
 </style>

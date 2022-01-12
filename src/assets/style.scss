@@ -11,14 +11,15 @@ body{
 .main{
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 4fr 4fr 4fr 4fr 4fr;
+  grid-template-columns: 100px 3fr 3fr 3fr 3fr;
   grid-template-rows: 1fr 4fr 4fr 4fr;
   grid-template-areas:
-    "menu header header header header header"
-    "menu userData userData userData userData userData"
-    "menu row3 row3 row3 row3 row3"
-    "menu row4 row4 row4 row4 row4";
-  grid-gap: 40px;
+    "menu header header header header"
+    "menu userData userData userData userData"
+    "menu message message message message"
+    "menu posts posts posts posts";
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
   height: 100vh;
   &__header{
     display: flex;
@@ -28,14 +29,17 @@ body{
     grid-area: header;
   }
   &__menu{
-    padding: 35.6px 29px 32px 20px;
+    padding: 35.6px 20px 32px 20px;
     grid-area: menu;
   }
   &__user-data{
     grid-area: userData;
   }
   &__message-articles{
-    grid-area: row3;
+    grid-area: message;
+  }
+  &__posts{
+    grid-area: posts;
   }
 
 }

@@ -6,9 +6,8 @@
   padding: 30px;
   box-sizing: border-box;
   background: var(--color-article);
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 66px;
+  display: flex;
+  justify-content: space-between;
   &__block{
     display: flex;
     flex-direction: column;

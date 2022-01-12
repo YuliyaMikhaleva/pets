@@ -1,7 +1,11 @@
 <template>
   <article class="post">
-    <img class="post__img" v-if="name=='Bob'" src="images/petBob.png" alt="photo">
-    <img class="post__img" v-if="name=='Loki'" src="images/petLoki.png" alt="photo">
+    <div class="post__img-container" v-if="name=='Bob'">
+      <img class="post__img"  src="images/petBob.png" alt="photo">
+    </div>
+    <div class="post__img-container" v-if="name=='Loki'">
+      <img class="post__img" src="images/petLoki.png" alt="photo">
+    </div>
     <span class="post__title">{{ name }}</span>
     <div class="post__text">
       <div class="post__tag">{{ tag }}</div>

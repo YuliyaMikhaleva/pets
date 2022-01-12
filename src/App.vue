@@ -4,7 +4,7 @@
     <Header class="main__header"/>
     <UserData class="main__user-data"></UserData>
     <MessageArticles class="main__message-articles" />
-    <Posts/>
+    <Posts class="main__posts"/>
   </div>
 </template>
 

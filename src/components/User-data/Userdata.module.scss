@@ -47,7 +47,7 @@
 .user-data{
   display: grid;
   grid-gap: 40px;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 48.5% 32% 10%;
   margin-right: 30px;
   &__hello{
     min-height: 314px;
@@ -84,7 +84,6 @@
     width: 560px;
     height: 314px;
     display: flex;
-    margin: 0 40px;
   }
   &__block-diagram{
     width: 50%;

@@ -30,8 +30,9 @@
     line-height: 19px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: var(--color-text);
     margin: 0;
+    cursor: pointer;
     &:nth-child(2){
       background: linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%);
     }
@@ -46,7 +47,7 @@
     }
     &:nth-child(6){
       background: none;
-      border: 1px dashed #FFFFFF;
+      border: 1px dashed var(--color-text);
       font-weight: 400;
     }
   }
@@ -60,12 +61,13 @@
     flex-grow: 0;
     padding: 11.5px 44.5px;
     box-sizing: border-box;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     color: white;
     &:hover{
       background-color: white;
       color: $blueColor;
+      border: 1px solid $blueColor;
       transition: background-color 0.3s, color 0.3s;
     }
   }
