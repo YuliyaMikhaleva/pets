@@ -31,8 +31,11 @@ body{
     padding: 35.6px 29px 32px 20px;
     grid-area: menu;
   }
-  &__userData{
+  &__user-data{
     grid-area: userData;
+  }
+  &__message-articles{
+    grid-area: row3;
   }
 
 }
