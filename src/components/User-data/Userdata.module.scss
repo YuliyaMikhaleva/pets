@@ -51,8 +51,7 @@
   margin-right: 30px;
   &__hello{
     min-height: 314px;
-    background-image: url("../../../public/images/bg-article.jpg");
-    background-repeat: no-repeat;
+    background: linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%);
     position: relative;
   }
   &__title{
@@ -81,7 +80,7 @@
     right: 0;
   }
   &__progress{
-    width: 560px;
+    //width: 560px;
     height: 314px;
     display: flex;
   }
@@ -99,6 +98,9 @@
     font-size: 40px;
     line-height: 47px;
     color: var(--color-text);
+  }
+  &__img{
+    width: 100%;
   }
   &__diagram-part{
     stroke: var(--color-diagram-part);
