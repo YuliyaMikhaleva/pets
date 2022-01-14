@@ -9,9 +9,7 @@
         </svg>
         <div class="header__notice-counter"></div>
       </button>
-      <button class="header__button header__blue-btn">
-        JD
-      </button>
+      <Avatar name="JD" bgColor="#4C6FFF" class="header__button"/>
     </div>
 
   </div>
@@ -19,9 +17,10 @@
 
 <script>
 import ThemeCheckbox from "@/components/Theme-checkbox/Theme-checkbox";
+import Avatar from "@/components/Avatar/Avatar";
 export default {
   name: 'Header',
-  components: {ThemeCheckbox},
+  components: {Avatar, ThemeCheckbox},
 }
 </script>
 

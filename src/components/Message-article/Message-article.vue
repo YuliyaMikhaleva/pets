@@ -1,6 +1,6 @@
 <template>
   <article class="article">
-    <div class="article__avatar">{{author.substr(0,1)}}</div>
+    <Avatar :name="author.substr(0,1)" :bg-color="bg"/>
     <div class="article__title-wrp">
       <span class="article__author">{{ author }}</span>
       <span class="article__time">{{ time }}</span>
@@ -15,8 +15,10 @@
 </template>
 
 <script>
+import Avatar from "@/components/Avatar/Avatar";
 export default {
   name: "Message-article",
+  components: {Avatar},
   props:{
     author:{
       type:String,
@@ -39,6 +41,10 @@ export default {
       required: false
     },
     txt3:{
+      type:String,
+      required: false
+    },
+    bg:{
       type:String,
       required: false
     }

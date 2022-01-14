@@ -1,20 +1,22 @@
 <template>
   <article class="new-post">
-    <ul class="new-post__wrp">
-      <li class="new-post__item">R</li>
-      <li class="new-post__item">T</li>
-      <li class="new-post__item">Q</li>
-      <li class="new-post__item">Y</li>
-      <li class="new-post__item">J</li>
-      <li class="new-post__item">+</li>
-    </ul>
+    <div class="new-post__wrp">
+      <Avatar class="new-post__item" name="R" bg="red"/>
+      <Avatar class="new-post__item" name="T" bg="red"/>
+      <Avatar class="new-post__item" name="Q" bg="red"/>
+      <Avatar class="new-post__item" name="Y" bg="red"/>
+      <Avatar class="new-post__item" name="J" bg="red"/>
+      <Avatar class="new-post__item" name="+" bg="transparent"/>
+    </div>
     <button class="new-post__btn">Напиши сейчас</button>
   </article>
 </template>
 
 <script>
+import Avatar from "@/components/Avatar/Avatar";
 export default {
-  name: "New-post"
+  name: "New-post",
+  components: {Avatar}
 }
 </script>
 

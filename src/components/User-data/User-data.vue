@@ -8,15 +8,9 @@
     </article>
     <article class="article user-data__progress">
       <div class="user-data__block-diagram">
-        <span class="user-data__percent">62%</span>
+
         <Chart/>
-<!--        <Diagram/>-->
-<!--        <svg class="user-data__img" width="254" height="254" viewBox="0 0 254 254" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--          <circle class="user-data__diagram-part" cx="127" cy="127" r="117" stroke="#EDF2F7" stroke-width="20"/>-->
-<!--          <path d="M209.731 209.731C198.867 220.596 185.969 229.214 171.774 235.094C157.579 240.974 142.365 244 127 244C111.635 244 96.4209 240.974 82.2258 235.094C68.0307 229.214 55.1327 220.596 44.2683 209.731" stroke="#F16063" stroke-width="20" stroke-linecap="round"/>-->
-<!--          <path d="M244 127C244 142.365 240.974 157.579 235.094 171.774C229.214 185.969 220.596 198.867 209.731 209.731C198.867 220.596 185.969 229.214 171.774 235.094C157.579 240.974 142.365 244 127 244" stroke="#FFC542" stroke-width="20" stroke-linecap="round"/>-->
-<!--          <path d="M127 10C142.365 10 157.579 13.0263 171.774 18.9061C185.969 24.7859 198.867 33.4041 209.732 44.2685C220.596 55.133 229.214 68.031 235.094 82.2261C240.974 96.4211 244 111.635 244 127" stroke="#66CB9F" stroke-width="20" stroke-linecap="round"/>-->
-<!--        </svg>-->
+
       </div>
       <div class="user-data__diagram-text">
         <h2 class="user-data__diagram-title">Ежедневный прогресс</h2>
@@ -40,18 +34,21 @@
           </div>
           <span>На часах у нас</span>
         </div>
-        <span class="article__time-data">{{time}}</span>
+        <span class="article__time-data">{{timeNow}}</span>
       </article>
       <article class="article article__time">
         <div class="article__wrp">
           <div class="article__clock">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.8333 1.33333H3.16667C2.24619 1.33333 1.5 2.07952 1.5 2.99999V14.6667C1.5 15.5871 2.24619 16.3333 3.16667 16.3333H14.8333C15.7538 16.3333 16.5 15.5871 16.5 14.6667V2.99999C16.5 2.07952 15.7538 1.33333 14.8333 1.33333Z" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.8333 3.33333H4.16667C3.24619 3.33333 2.5 4.07952 2.5 4.99999V16.6667C2.5 17.5871 3.24619 18.3333 4.16667 18.3333H15.8333C16.7538 18.3333 17.5 17.5871 17.5 16.6667V4.99999C17.5 4.07952 16.7538 3.33333 15.8333 3.33333Z" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.3334 1.66667V5.00001" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.66663 1.66667V5.00001" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.5 8.33333H17.5" stroke="#EDF2F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <span>На календаре у нас</span>
         </div>
-        <span class="article__time-data">{{date}}</span>
+        <span class="article__time-data">{{dateNow}}</span>
       </article>
     </div>
 
@@ -59,20 +56,34 @@
 </template>
 
 <script>
-// import Diagram from "@/components/Diagram/Diagram";
+import moment from "moment"
 import Chart from "@/components/Chart/Chart";
 export default {
   name: "UserData",
   components: {Chart},
-  // components: {Diagram},
-  computed: {
-    time(){
-      return new Date().toLocaleTimeString().slice(0,-3)
+  data(){
+    return{
+      timeNow:"",
+      dateNow:""
+    }
+  },
+  methods:{
+    moment,
+    time() {
+      let self = this
+      this.timeNow = moment().lang('ru').format('LTS');
+      setTimeout(self.time, 1000)
     },
     date(){
-      return new Date().toLocaleDateString()
+      let self = this
+      this.dateNow = moment().locale('ru').format('DD.MM.YYYY')
+      setTimeout(self.date, 1000)
     }
-  }
+  },
+  mounted: function() {
+    this.time();
+    this.date();
+  },
 }
 </script>
 

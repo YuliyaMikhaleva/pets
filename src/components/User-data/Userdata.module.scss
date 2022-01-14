@@ -88,17 +88,6 @@
     width: 50%;
     position: relative;
   }
-  &__percent{
-    position: absolute;
-    top: 40%;
-    left: 35%;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    line-height: 47px;
-    color: var(--color-text);
-  }
   &__img{
     width: 100%;
   }
@@ -139,15 +128,15 @@
   }
   &__diagram-item:nth-child(1)::before{
     background-color: #F16063;
-    background-image: url("../../../public/images/no-check.png");
+    background-image: url("../../../public/images/no-check.svg");
   }
   &__diagram-item:nth-child(2)::before{
     background-color: #66CB9F;
-    background-image: url("../../../public/images/check.png");
+    background-image: url("../../../public/images/check.svg");
   }
   &__diagram-item:nth-child(3)::before{
     background-color: #FFC542;
-    background-image: url("../../../public/images/check.png");
+    background-image: url("../../../public/images/check.svg");
   }
   &__diagram-item:nth-child(4)::before{
     background-color: $blueColor;

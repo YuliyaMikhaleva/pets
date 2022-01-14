@@ -6,6 +6,7 @@
   padding: 30px;
   box-sizing: border-box;
   background: var(--color-article);
+  margin: 0 40px;
   &__wrp{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
