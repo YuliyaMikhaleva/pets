@@ -5,7 +5,7 @@
       <Header class="main__header"/>
       <UserData class="main__user-data"></UserData>
       <MessageArticles class="main__message-articles" />
-      <Posts class="main__posts"/>
+      <Posts class="main__posts" :posts="articles"/>
     </div>
   </div>
 </template>
@@ -16,6 +16,7 @@
   import UserData from "./components/User-data/User-data";
   import MessageArticles from "./components/Message-articles/Message-articles";
   import Posts from "./components/Posts/Posts";
+  import {mapGetters} from "vuex";
 
 export default {
   name: 'App',
@@ -25,6 +26,13 @@ export default {
     UserData,
     Menu,
     Header
+  },
+  computed:{
+    ...mapGetters('postsModule',['getPosts']),
+    articles(){
+      return this.getPosts
+    }
+
   }
 }
 </script>

@@ -24,7 +24,7 @@
       </div>
     </article>
     <TimeDate class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
-    <TimeDate class="user-data__date" text="На часах у нас" :time-date="dateNow" img="images/calendar.svg"/>
+    <TimeDate class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
   </section>
 </template>
 

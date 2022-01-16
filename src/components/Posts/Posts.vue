@@ -1,23 +1,8 @@
 <template>
   <section class="posts">
     <swiper :class="swiper" :options="swiperOption" class="posts__slider">
-      <swiper-slide>
-        <Post name="Bob" tag="Котенок" likes="326 лайка" img="images/petBob.png"/>
-      </swiper-slide>
-      <swiper-slide>
-        <Post name="Loki" tag="Кот" likes="11 лайков" img="images/petLoki.png"/>
-      </swiper-slide>
-      <swiper-slide>
-        <Post name="Bob" tag="Котенок" likes="326 лайка" img="images/petBob.png"/>
-      </swiper-slide>
-      <swiper-slide>
-        <Post name="Loki" tag="Кот" likes="11 лайков" img="images/petLoki.png"/>
-      </swiper-slide>
-      <swiper-slide>
-        <Post name="Bob" tag="Котенок" likes="326 лайка" img="images/petBob.png"/>
-      </swiper-slide>
-      <swiper-slide>
-        <Post name="Loki" tag="Кот" likes="11 лайков" img="images/petLoki.png"/>
+      <swiper-slide v-for="post of posts" :key="post.name">
+        <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img"/>
       </swiper-slide>
     </swiper>
     <NewPost class="posts__new-post"/>
@@ -31,6 +16,7 @@ import 'swiper/css/swiper.css'
 import Post from "@/components/Post/Post";
 import NewPost from "@/components/New-post/New-post";
 import Statistic from "@/components/Statistic/Statistic";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "Posts",
   components: {Statistic, NewPost, Post, Swiper, SwiperSlide},
@@ -39,7 +25,23 @@ export default {
       slidesPerView: 2,
       spaceBetween: 40,
     }
-  })
+  }),
+  props:{
+    posts:{
+      type: Array,
+      required:true,
+      default:() => [],
+    }
+  },
+  mounted() {
+    this.loadPosts;
+  },
+  computed:{
+    ...mapActions('postsModule',['loadPosts']),
+    ...mapGetters('postsModule',['getPosts']),
+
+  },
+
 }
 </script>
 
