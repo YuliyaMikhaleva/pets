@@ -1,4 +1,7 @@
 .message-articles{
-  display: flex;
   margin-right: 30px;
+  &__wrp{
+    grid-area: articles;
+    margin: 0;
+  }
 }

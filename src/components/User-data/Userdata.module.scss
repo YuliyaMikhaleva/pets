@@ -1,58 +1,15 @@
 @import "./src/assets/variables";
-.article{
-  border-radius: 16px;
-  padding: 30px;
-  box-sizing: border-box;
-  background: var(--color-article);
-  &__clock{
-    background-color: #4C6FFF;
-    border-radius: 8px;
-    padding: 6px;
-    box-sizing: border-box;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-  }
-  &__time{
-    width: 260px;
-    height: 137px;
-    display: flex;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 32px;
-    color: var(--color-text);
-    display: flex;
-    flex-direction: column;
-    &:first-child{
-      margin-bottom: 40px;
-    }
-  }
-  &__time-data{
-    font-family: Rubik;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 32px;
-  }
-  &__wrp{
-    display: flex;
-    margin-bottom: 13px;
-  }
-}
-
 .user-data{
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: 48.5% 32% 10%;
-  margin-right: 30px;
   &__hello{
+    border-radius: 16px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: var(--color-article);
     min-height: 314px;
     background: linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%);
     position: relative;
+    grid-area: hello;
+
   }
   &__title{
     font-family: Rubik;
@@ -80,9 +37,13 @@
     right: 0;
   }
   &__progress{
-    //width: 560px;
+    grid-area: chart;
     height: 314px;
     display: flex;
+    border-radius: 16px;
+    padding: 30px;
+    box-sizing: border-box;
+    background: var(--color-article);
   }
   &__block-diagram{
     width: 50%;
@@ -141,10 +102,10 @@
   &__diagram-item:nth-child(4)::before{
     background-color: $blueColor;
   }
-  &__articles{
-    display: flex;
-    flex-direction: column;
+  &__time{
+    grid-area: time;
   }
-
-
+  &__date{
+    grid-area: date;
+  }
 }

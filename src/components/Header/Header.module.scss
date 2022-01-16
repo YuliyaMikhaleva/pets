@@ -7,9 +7,14 @@
     font-size: 30px;
     line-height: 35.55px;
     margin: 0;
+    grid-area: title;
+  }
+  &__checkbox{
+    grid-area: checkbox;
   }
   &__buttons{
     display: flex;
+    grid-area: buttons;
   }
   &__button{
     background-color: var(--bg-button);
@@ -37,7 +42,7 @@
     }
   }
   &__middle-btn{
-    margin: 0 18px 0 40px;
+    margin: 0 18px 0 0;
   }
   &__notice-btn{
     fill: var(--color-notice);

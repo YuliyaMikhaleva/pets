@@ -4,7 +4,6 @@
   padding: 30px;
   box-sizing: border-box;
   background: var(--color-article);
-  //width: 410px;
   height: 210px;
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -14,8 +13,7 @@
   "avatar description"
   "text text"
   "text text"
-  "text text"
-;
+  "text text";
   &__title-wrp{
     display: flex;
     justify-content: space-between;
@@ -69,7 +67,7 @@
     font-size: 14px;
     line-height: 17px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex: none;
     order: 0;
     flex-grow: 0;

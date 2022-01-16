@@ -23,7 +23,6 @@ export default {
     width: 48px;
     height: 48px;
     border-radius: 32.5px;
-    //background: linear-gradient(224.47deg, #FF92AE 8.18%, #FF3D9A 95.84%);
     display: flex;
     justify-content: center;
     line-height: 48px;
@@ -33,7 +32,5 @@ export default {
     font-weight: bold;
     font-size: 16px;
     color: #FFFFFF;
-    //grid-area: avatar;
-    margin-right: 17px;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <section class="message-articles">
       <swiper
-          class="swiper"
+          class="swiper message-articles__wrp"
           :options="swiperOption"
       >
         <swiper-slide>

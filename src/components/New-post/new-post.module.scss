@@ -1,18 +1,14 @@
 @import "./src/assets/variables";
 .new-post{
-  width: 260px;
-  height: 290px;
   border-radius: 16px;
   padding: 30px;
   box-sizing: border-box;
   background: var(--color-article);
-  margin: 0 40px;
   &__wrp{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 35px;
-    height: 155px;
     margin: 0;
     padding: 0;
   }
