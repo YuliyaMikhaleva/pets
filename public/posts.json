@@ -29,7 +29,7 @@
     "-MZRJNWOFGNQaAUo3Lwi" : {
       "about" : "qwe",
       "age" : "1211-12-12",
-      "groupID" : 3,
+      "groupD" : 3,
       "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2F2.jpg?alt=media&token=4942a283-0bc7-4cfa-98fa-8471ecdfa95f",
       "likes" : 3,
       "location" : "Германия, Гамбург",

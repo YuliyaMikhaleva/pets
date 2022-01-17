@@ -57,10 +57,10 @@ body{
 
 @media (max-width: 375px) {
   .main{
-    margin: 20px 30px 30px 28px;
+    margin: 20px 30px 30px 30px;
     display: flex;
     justify-content: space-between;
-    //grid-gap: 0;
+    grid-gap: 0;
     &__mobile-menu{
       display: flex;
       flex-direction: column;
