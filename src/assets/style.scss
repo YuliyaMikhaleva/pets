@@ -14,6 +14,9 @@ body{
   grid-template-columns: 100px auto;
   grid-column-gap: 30px;
   height: 100vh;
+  &__mobile-menu{
+    display: none;
+  }
   &__header{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -51,3 +54,38 @@ body{
   }
 
 }
+
+@media (max-width: 375px) {
+  .main{
+    margin: 20px 30px 30px 28px;
+    display: flex;
+    justify-content: space-between;
+    //grid-gap: 0;
+    &__mobile-menu{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+    }
+    &__menu{
+      display: none !important;
+    }
+    &__header{
+      display: flex;
+      margin: 0;
+      grid-gap: 0;
+    }
+    &__user-data{
+      display: none;
+    }
+    &__message-articles{
+      display: none;
+    }
+    &__posts{
+      display: none;
+    }
+  }
+}
+

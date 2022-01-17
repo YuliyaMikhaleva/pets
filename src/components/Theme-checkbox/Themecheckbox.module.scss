@@ -42,9 +42,13 @@
     left: 25%;
     cursor: pointer;
     pointer-events:none;
+    transition: stroke 0.3s;
+    width: 20px;
+    height: 20px;
     &:hover{
       .checkbox__path{
         stroke: black;
+        transition: stroke 0.3s;
       }
     }
   }
@@ -55,10 +59,36 @@
     right: 17%;
     cursor: pointer;
     pointer-events:none;
+    width: 21px;
+    height: 20px;
   }
 }
 .checkbox__input:checked + .checkbox__label:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
   background-image: url("../../../public/images/lightTheme.svg");
+}
+@media (max-width: 375px) {
+  .checkbox{
+    &__label{
+      width: 77px;
+      height: 32px;
+    }
+    &__label::after{
+      width: 37px;
+      height: 22.02px;
+      background-size: 12.55px 12.55px;
+      top: 4.7px;
+    }
+    &__darkTheme{
+      width: 12.55px;
+      height: 12.55px;
+      top: 21%;
+    }
+    &__lightTheme{
+      width: 13px;
+      height: 12px;
+      top: 21%;
+    }
+  }
 }

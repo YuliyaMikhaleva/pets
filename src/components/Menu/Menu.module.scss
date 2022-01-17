@@ -27,6 +27,7 @@
     align-items: center;
     cursor: pointer;
     margin-bottom: 32px;
+    transition: background-color 0.3s, opacity 0.3s;
     &:first-child{
       background-color: $blueColor;
     }
@@ -35,12 +36,14 @@
       margin-bottom: 0;
     }
     &:hover{
-      background-color: rgba(255, 255, 255, 0.05);;
+      background-color: rgba(255, 255, 255, 0.05);
       opacity: 50%;
+      transition: background-color 0.3s, opacity 0.3s;
     }
     &:first-child:hover{
       background-color: $blueColor;
       opacity: 100%;
+      transition: background-color 0.3s, opacity 0.3s;
     }
   }
   &__img{

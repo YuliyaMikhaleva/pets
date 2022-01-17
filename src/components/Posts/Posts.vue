@@ -2,8 +2,9 @@
   <section class="posts">
     <swiper :class="swiper" :options="swiperOption" class="posts__slider">
       <swiper-slide v-for="post of posts" :key="post.name">
-        <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img"/>
+        <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
       </swiper-slide>
+      <div class="swiper-button-next posts__arrow" slot="button-next"></div>
     </swiper>
     <NewPost class="posts__new-post"/>
     <Statistic class="posts__graphic"/>
@@ -24,6 +25,9 @@ export default {
     swiperOption: {
       slidesPerView: 2,
       spaceBetween: 40,
+      navigation: {
+        nextEl: '.swiper-button-next',
+      }
     }
   }),
   props:{
@@ -39,7 +43,6 @@ export default {
   computed:{
     ...mapActions('postsModule',['loadPosts']),
     ...mapGetters('postsModule',['getPosts']),
-
   },
 
 }
@@ -59,6 +62,25 @@ export default {
     &__graphic{
       grid-area: graphic;
       height: 290px;
+    }
+    &__arrow{
+      width: 46px;
+      height: 46px;
+      right: 0;
+      background-color: #333333;
+      border-radius: 100px;
+    }
+    &__arrow::after{
+      content: "";
+      display: block;
+      width: 10.17px;
+      height: 10.17px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 40%;
+      left: 30%;
     }
   }
 </style>

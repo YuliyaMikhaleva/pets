@@ -38,6 +38,7 @@
     &:hover{
       .header__notice-btn{
         fill: $blueColor;
+        transition: fill 0.3s;
       }
     }
   }
@@ -47,6 +48,7 @@
   &__notice-btn{
     fill: var(--color-notice);
     stroke: var(--color-notice);
+    transition: fill 0.3s;
   }
   &__notice-counter{
     background-color: #F16063;
@@ -59,4 +61,21 @@
   }
 
 
+}
+@media (max-width: 375px) {
+  .header{
+    &__title{
+      display: none;
+    }
+    &__button{
+      width: 32px !important;
+      height: 32px !important;
+    }
+    &__buttons{
+      margin-left: 40px;
+    }
+    //&__middle-btn {
+    //  margin: 0 40px 0 18px;
+    //}
+  }
 }

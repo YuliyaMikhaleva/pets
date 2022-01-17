@@ -45,11 +45,15 @@
     margin-right: 15px;
   }
   &__like{
+    transition: fill 0.3s;
     &:hover{
       fill: #F16063;
       cursor: pointer;
       transition: fill 0.3s;
     }
+  }
+  &__active-like{
+    fill: #F16063;
   }
   &__img{
     border-radius: 16px 16px 0 0;
