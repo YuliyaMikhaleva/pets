@@ -11,6 +11,8 @@
   --color-diagram-part:#334155;
   --color-statistic-part:#2A3C44;
   --color-mobile-line:#F6FBFD;
+  --color1-slider-shadow:rgba(27, 35, 53, 0);
+  --color2-slider-shadow:rgba(15, 23, 42, 1.99);
 }
 //светлая тема
 [theme="light"]{
@@ -25,6 +27,8 @@
   --color-diagram-part:#EDF2F7;
   --color-statistic-part:#EDF2F7;
   --color-mobile-line:#0F172A;
+  --color1-slider-shadow:rgba(255, 255, 255, 0);
+  --color2-slider-shadow:#EDF2F7;
 }
 
 $blueColor: #4C6FFF;

@@ -15,8 +15,8 @@
             :bg="article.bgColor"
         />
       </swiper-slide>
-      <div class="swiper-button-next message-articles__arrow" slot="button-next"></div>
-      <div class="swiper-button-prev message-articles__arrow-left" slot="button-prev"></div>
+      <div v-if="this.width>375" class="swiper-button-next message-articles__arrow" slot="button-next"></div>
+      <div v-if="this.width>375" class="swiper-button-prev message-articles__arrow-left" slot="button-prev"></div>
     </swiper>
   </section>
 </template>

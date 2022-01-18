@@ -7,8 +7,8 @@
       <swiper-slide v-for="post of posts" :key="post.name">
         <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
       </swiper-slide>
-      <div class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
-      <div class="swiper-button-next posts__arrow" slot="button-next"></div>
+      <div v-if="this.width>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
+      <div v-if="this.width>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
     </swiper>
     <NewPost class="posts__new-post"/>
     <Statistic class="posts__graphic"/>
@@ -72,12 +72,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "./src/assets/variables";
   .posts{
     margin-bottom: 30px;
     &__slider{
       grid-area: posts;
       margin: 0;
       position: relative;
+    }
+    &__slider::before{
+      content: "";
+      display: block;
+      width: 180px;
+      height: 100vh;
+      background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
+      position: absolute;
+      top: 0;
+      right:0;
+      z-index: 99;
     }
     &__new-post{
       grid-area: new-post;
@@ -91,8 +103,13 @@ export default {
       width: 46px;
       height: 46px;
       left: 0;
-      background-color: #333333;
+      background-color: rgba(255, 255, 255, 0.12);
       border-radius: 100px;
+      transition: opacity 0.3s;
+      &:hover{
+        opacity: 50%;
+        transition: opacity 0.3s;
+      }
     }
     &__arrow-left::after{
       content: "";
@@ -110,8 +127,14 @@ export default {
       width: 46px;
       height: 46px;
       right: 0;
-      background-color: #333333;
+      background-color: rgba(255, 255, 255, 0.12);
       border-radius: 100px;
+      z-index: 99999;
+      transition: opacity 0.3s;
+      &:hover{
+        opacity: 50%;
+        transition: opacity 0.3s;
+      }
     }
     &__arrow::after{
       content: "";
@@ -124,16 +147,7 @@ export default {
       position: absolute;
       top: 40%;
       left: 30%;
-    }
-    &__arrow::before{
-      content: "";
-      display: block;
-      width: 180px;
-      height: 100vh;
-      background: linear-gradient(89.87deg, rgba(27, 35, 53, 0) 6.42%, rgba(15, 23, 42, 0.99) 92.23%);
-      position: absolute;
-      top: -300%;
-      left: -120px;
+      transition: border 0.3s;
     }
   }
   //скрытие кнопки навигации, если в данном направлении изображений больше нет
@@ -144,9 +158,13 @@ export default {
   @media (max-width: 375px) {
     .posts{
       margin-bottom:22px;
+      &__graphic{
+        display: none;
+      }
+      &__slider::before{
+        display: none;
+      }
     }
-    .posts__graphic{
-      display: none;
-    }
+
   }
 </style>

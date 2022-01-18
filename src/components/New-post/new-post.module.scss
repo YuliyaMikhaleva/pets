@@ -29,11 +29,6 @@
     color: var(--color-text);
     margin: 0;
     cursor: pointer;
-    &:last-child{
-      background: none;
-      border: 1px dashed var(--color-text);
-      font-weight: 400;
-    }
   }
   &__btn{
     display: block;
@@ -55,6 +50,27 @@
       color: var(--color-text);
       border: 1px solid black;
       transition: background-color 0.3s, opacity 0.3s, border 0.3s, color 0.3s;
+    }
+  }
+  &__circle{
+    stroke: var(--color-text);
+    transition: stroke 0.3s;
+  }
+  &__plus{
+    fill: var(--color-text);
+    transition: fill 0.3s;
+  }
+  &__add{
+    cursor: pointer;
+    &:hover{
+      .new-post__circle{
+        stroke: $blueColor;
+        transition: stroke 0.3s;
+      }
+      .new-post__plus{
+        fill: $blueColor;
+        transition: fill 0.3s;
+      }
     }
   }
 }

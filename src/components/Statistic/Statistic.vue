@@ -1,7 +1,28 @@
 <template>
   <article class="statistic">
     <div class="statistic__block">
-      <img class="statistic__img" src="images/cat.jpg" alt="photo">
+      <div class="statistic__img">
+        <swiper :options="swiperOption" class="statistic__slider">
+          <swiper-slide class="statistic__slide">
+            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          </swiper-slide>
+          <swiper-slide class="statistic__slide">
+            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          </swiper-slide>
+          <swiper-slide>
+            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          </swiper-slide>
+          <div class="swiper-button-prev statistic__arrow-left" slot="button-prev"></div>
+          <div class="swiper-button-next statistic__arrow-right" slot="button-next"></div>
+        </swiper>
+      </div>
+
       <div class="statistic__txt">
         <span class="statistic__title">Johny</span>
         <span>3 лайка</span>
@@ -38,12 +59,26 @@
 
 <script>
 import StatisticDiagram from "@/components/Statistic-diagram/Statistic-diagram";
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 export default {
   name: "Statistic",
-  components: {StatisticDiagram}
+  components: {StatisticDiagram, Swiper, SwiperSlide},
+  data:() => ({
+    swiperOption: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    },
+  })
 }
 </script>
 
 <style lang="scss" scoped>
   @import "Statistic.module";
+  .swiper-button-disabled{
+    display:none;
+  }
 </style>
