@@ -7,6 +7,13 @@
             <span>{{ text }}</span>
         </div>
         <span class="article__time-data">{{timeDate}}</span>
+      <div class="article__wrp" v-if="text2">
+        <div class="article__clock">
+          <img :src="img2" alt="icon">
+        </div>
+        <span>{{ text2 }}</span>
+      </div>
+      <span class="article__time-data">{{timeDate2}}</span>
     </article>
 </template>
 
@@ -25,6 +32,18 @@
             img:{
                 type:String,
                 required:true
+            },
+            text2:{
+              type:String,
+              required:false
+            },
+            timeDate2:{
+              type:String,
+              required:false
+            },
+            img2:{
+              type:String,
+              required:false
             },
         }
     }
@@ -75,5 +94,20 @@
             display: flex;
             margin-bottom: 13px;
         }
+    }
+
+    @media (max-width: 375px) {
+      .article{
+        &__time{
+          width: 100%;
+          height: 100%;
+        }
+        &__time-data{
+          font-size: 24px;
+        }
+        &__time-data:nth-child(2){
+          margin-bottom: 15px;
+        }
+      }
     }
 </style>

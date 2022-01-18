@@ -55,3 +55,12 @@
 .chart__svgt.blue .chart__circle {
   stroke: #4C6FFF;
 }
+
+
+@media (max-width: 375px) {
+  .chart{
+    &__svg{
+      max-width: 100%;
+    }
+  }
+}

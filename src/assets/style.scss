@@ -57,35 +57,51 @@ body{
 
 @media (max-width: 375px) {
   .main{
-    margin: 20px 30px 30px 30px;
+    margin: 20px 30px 8px 30px;
     display: flex;
     justify-content: space-between;
     grid-gap: 0;
+    height: 100%;
     &__mobile-menu{
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-    }
-    &__menu{
-      display: none !important;
     }
     &__header{
       display: flex;
+      justify-content: flex-end;
       margin: 0;
       grid-gap: 0;
     }
     &__user-data{
-      display: none;
+      display: flex;
+      flex-direction: column;
+      margin: 40px 0 0 0;
+      grid-gap: 25px;
     }
     &__message-articles{
-      display: none;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: "articles";
+      margin: 25px 0 0 0;
+
     }
     &__posts{
-      display: none;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas:
+        "posts"
+        "new-post";
+      margin: 0;
+      grid-gap: 25px;
+    }
+    &__line-bottom{
+      width: 148px;
+      height: 5px;
+      background: var(--color-mobile-line);
+      border-radius: 100px;
+      margin: 0 auto;
     }
   }
 }
+
 

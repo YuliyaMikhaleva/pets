@@ -1,6 +1,6 @@
 <template>
   <article class="article">
-    <Avatar :name="author.substr(0,1)" :bg-color="bg"/>
+    <Avatar class="article__avatar" :name="author.substr(0,1)" :bg-color="bg"/>
     <div class="article__title-wrp">
       <span class="article__author">{{ author }}</span>
       <span class="article__time">{{ time }}</span>

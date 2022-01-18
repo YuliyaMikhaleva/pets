@@ -14,6 +14,11 @@
   "text text"
   "text text"
   "text text";
+  &__avatar{
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
   &__title-wrp{
     display: flex;
     justify-content: space-between;
@@ -71,5 +76,14 @@
     flex: none;
     order: 0;
     flex-grow: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .article{
+    height: 100%;
+    &__avatar{
+      margin: 0 17px 0 15px;
+    }
   }
 }

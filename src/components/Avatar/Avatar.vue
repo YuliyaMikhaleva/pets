@@ -20,8 +20,6 @@ export default {
 
 <style lang="scss" scoped>
   .avatar{
-    width: 48px;
-    height: 48px;
     border-radius: 32.5px;
     display: flex;
     justify-content: center;
@@ -30,7 +28,6 @@ export default {
     font-family: Rubik;
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
     color: #FFFFFF;
   }
 </style>

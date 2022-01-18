@@ -109,3 +109,49 @@
     grid-area: date;
   }
 }
+
+@media (max-width: 375px) {
+  .user-data{
+    &__picture{
+      display: none;
+    }
+    &__hello{
+      min-height: 167px;
+    }
+    &__title{
+      font-size: 18px;
+      line-height: 21.33px;
+      margin: 0;
+    }
+    &__text{
+      margin: 21px 0 14px 0;
+    }
+    &__text:nth-of-type(2){
+      margin: 0;
+    }
+    &__progress{
+      height: 183px;
+      padding: 17.48px 25px;
+      justify-content: space-between;
+    }
+    &__diagram-title{
+      font-size: 12px;
+      line-height: 14.22px;
+      margin: 0 0 20px 20px;
+    }
+    &__diagram-list{
+      padding-left: 20px;
+      box-sizing: border-box;
+    }
+    &__diagram-item{
+      font-size: 12px;
+      line-height: 14.22px;
+      margin-bottom: 5px;
+    }
+    &__block-diagram{
+      width: 39%;
+      margin-top:4%
+    }
+
+  }
+}

@@ -23,8 +23,19 @@
 
       </div>
     </article>
-    <TimeDate class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
-    <TimeDate class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
+    <TimeDate v-if="width>375" class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
+    <TimeDate v-if="width>375" class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
+    <TimeDate
+        v-if="width<=375"
+        class="user-data__time"
+        text="На часах у нас"
+        :time-date="timeNow"
+        img="images/clock.svg"
+        text2="На календаре у нас"
+        :time-date2="dateNow"
+        img2="images/calendar.svg"
+    />
+
   </section>
 </template>
 
@@ -38,7 +49,8 @@ export default {
   data(){
     return{
       timeNow:"",
-      dateNow:""
+      dateNow:"",
+      width:null
     }
   },
   methods:{
@@ -52,7 +64,14 @@ export default {
       let self = this
       this.dateNow = moment().locale('ru').format('DD.MM.YYYY')
       setTimeout(self.date, 1000)
-    }
+    },
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.updateWidth);
+    this.updateWidth();
   },
   mounted: function() {
     this.time();

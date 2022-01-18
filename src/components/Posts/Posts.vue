@@ -1,9 +1,13 @@
 <template>
   <section class="posts">
-    <swiper :class="swiper" :options="swiperOption" class="posts__slider">
+    <swiper
+        :class="swiper"
+        :options="(this.width>375) ? swiperOption : swiperOption375"
+        class="posts__slider">
       <swiper-slide v-for="post of posts" :key="post.name">
         <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
       </swiper-slide>
+      <div class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
       <div class="swiper-button-next posts__arrow" slot="button-next"></div>
     </swiper>
     <NewPost class="posts__new-post"/>
@@ -27,8 +31,18 @@ export default {
       spaceBetween: 40,
       navigation: {
         nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
-    }
+    },
+    swiperOption375:{
+      slidesPerView: 1,
+      spaceBetween: 40,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+    },
+    width:null
   }),
   props:{
     posts:{
@@ -36,6 +50,15 @@ export default {
       required:true,
       default:() => [],
     }
+  },
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.updateWidth);
+    this.updateWidth();
   },
   mounted() {
     this.loadPosts;
@@ -54,6 +77,7 @@ export default {
     &__slider{
       grid-area: posts;
       margin: 0;
+      position: relative;
     }
     &__new-post{
       grid-area: new-post;
@@ -62,6 +86,25 @@ export default {
     &__graphic{
       grid-area: graphic;
       height: 290px;
+    }
+    &__arrow-left{
+      width: 46px;
+      height: 46px;
+      left: 0;
+      background-color: #333333;
+      border-radius: 100px;
+    }
+    &__arrow-left::after{
+      content: "";
+      display: block;
+      width: 10.17px;
+      height: 10.17px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 40%;
+      right: 30%;
     }
     &__arrow{
       width: 46px;
@@ -81,6 +124,29 @@ export default {
       position: absolute;
       top: 40%;
       left: 30%;
+    }
+    &__arrow::before{
+      content: "";
+      display: block;
+      width: 180px;
+      height: 100vh;
+      background: linear-gradient(89.87deg, rgba(27, 35, 53, 0) 6.42%, rgba(15, 23, 42, 0.99) 92.23%);
+      position: absolute;
+      top: -300%;
+      left: -120px;
+    }
+  }
+  //скрытие кнопки навигации, если в данном направлении изображений больше нет
+  .swiper-button-disabled{
+    display:none;
+  }
+  
+  @media (max-width: 375px) {
+    .posts{
+      margin-bottom:22px;
+    }
+    .posts__graphic{
+      display: none;
     }
   }
 </style>
