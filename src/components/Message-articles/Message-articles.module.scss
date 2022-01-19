@@ -66,6 +66,14 @@
     top: 40%;
     left: 30%;
   }
+  &__new-post{
+    grid-area: new-post;
+    height: 260px;
+  }
+  &__time-date{
+    grid-area: time-date;
+    height: 260px;
+  }
 }
 .swiper-button-disabled{
   display:none;

@@ -2,15 +2,15 @@
   <section class="posts">
     <swiper
         :class="swiper"
-        :options="(this.width>375) ? swiperOption : swiperOption375"
+        :options="(actualWidth<=375) ? swiperOption375: swiperOption"
         class="posts__slider">
       <swiper-slide v-for="post of posts" :key="post.name">
         <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
       </swiper-slide>
-      <div v-if="this.width>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
-      <div v-if="this.width>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
+      <div v-if="actualWidth>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
+      <div v-if="actualWidth>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
     </swiper>
-    <NewPost class="posts__new-post"/>
+    <NewPost v-if="actualWidth<=375 || actualWidth>1280" class="posts__new-post"/>
     <Statistic class="posts__graphic"/>
   </section>
 </template>
@@ -42,6 +42,14 @@ export default {
         prevEl: '.swiper-button-prev'
       },
     },
+    swiperOption1280:{
+      slidesPerView: 2,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+    },
     width:null
   }),
   props:{
@@ -66,6 +74,9 @@ export default {
   computed:{
     ...mapActions('postsModule',['loadPosts']),
     ...mapGetters('postsModule',['getPosts']),
+    actualWidth(){
+      return this.width
+    }
   },
 
 }
@@ -88,16 +99,18 @@ export default {
       background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
       position: absolute;
       top: 0;
-      right:0;
+      right:-2px;
       z-index: 99;
     }
     &__new-post{
       grid-area: new-post;
       height: 290px;
+      min-width: 210px;
     }
     &__graphic{
       grid-area: graphic;
       height: 290px;
+      min-width: 555px;
     }
     &__arrow-left{
       width: 46px;
@@ -165,6 +178,5 @@ export default {
         display: none;
       }
     }
-
   }
 </style>

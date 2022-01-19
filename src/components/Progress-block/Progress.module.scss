@@ -1,0 +1,90 @@
+@import "./src/assets/variables";
+
+.progress-block{
+  grid-area: chart;
+  height: 314px;
+  display: flex;
+  border-radius: 16px;
+  padding: 30px;
+  box-sizing: border-box;
+  background: var(--color-article);
+  //min-width: 380px;
+  &__diagram{
+    width: 50%;
+    position: relative;
+  }
+  &__text{
+    color: var(--color-text);
+    font-family: Rubik;
+  }
+  &__title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17.5px;
+    line-height: 21px;
+    margin: 0 0 20px 40px;
+  }
+  &__list{
+    list-style: none;
+  }
+  &__item {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 10px;
+    display: flex;
+
+    &::before {
+      display: block;
+      content: "";
+      border-radius: 50px;
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+    }
+  }
+  &__item:nth-child(1)::before{
+    background-color: #F16063;
+    background-image: url("../../../public/images/no-check.svg");
+  }
+  &__item:nth-child(2)::before{
+    background-color: #66CB9F;
+    background-image: url("../../../public/images/check.svg");
+  }
+  &__item:nth-child(3)::before{
+    background-color: #FFC542;
+    background-image: url("../../../public/images/check.svg");
+  }
+  &__item:nth-child(4)::before{
+    background-color: $blueColor;
+  }
+}
+
+@media (max-width: 375px) {
+  .progress-block{
+    height: 183px;
+    padding: 17.48px 25px;
+    justify-content: space-between;
+    &__title{
+      font-size: 12px;
+      line-height: 14.22px;
+      margin: 0 0 20px 20px;
+    }
+    &__list{
+      padding-left: 20px;
+      box-sizing: border-box;
+    }
+    &__item{
+      font-size: 12px;
+      line-height: 14.22px;
+      margin-bottom: 5px;
+    }
+    &__diagram{
+      width: 39%;
+      margin-top:4%
+    }
+  }
+}

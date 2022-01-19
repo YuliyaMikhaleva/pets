@@ -6,6 +6,9 @@
   background: var(--color-article);
   display: flex;
   justify-content: space-between;
+  &__slide{
+    height: 180px;
+  }
 
   &__block{
     display: flex;
@@ -14,7 +17,7 @@
   }
   &__img{
     width: 180px;
-    border-radius: 16px;
+    height: 180px;
     cursor: pointer;
     position: relative;
     &:hover{
@@ -35,6 +38,10 @@
   &__img-cat{
     border-radius: 16px;
     transition: filter 0.3s;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
   }
   &__txt{
     display: flex;
@@ -127,6 +134,18 @@
       z-index: 99999999999999999;
       transition: display 0.3s;
 
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .statistic{
+    &__txt{
+      margin: 20px 0;
+    }
+    &__img{
+      margin: 0 auto;
+      width: 265px;
     }
   }
 }

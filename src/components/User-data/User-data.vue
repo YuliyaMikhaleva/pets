@@ -1,56 +1,57 @@
 <template>
   <section class="user-data">
     <article class="user-data__hello">
-      <h1 class="user-data__title">С возвращением, Владимир</h1>
-      <p class="user-data__text">Не забудь покормить своего питомца</p>
-      <p class="user-data__text">Хорошего дня!</p>
-      <img class="user-data__picture" src="images/poligons.svg" alt="photo">
-    </article>
-    <article class="user-data__progress">
-      <div class="user-data__block-diagram">
-
-        <Chart/>
-
-      </div>
-      <div class="user-data__diagram-text">
-        <h2 class="user-data__diagram-title">Ежедневный прогресс</h2>
-        <ul class="user-data__diagram-list">
-          <li class="user-data__diagram-item">Прогулка в парке</li>
-          <li class="user-data__diagram-item">Обед</li>
-          <li class="user-data__diagram-item">Перекус 1/2</li>
-          <li class="user-data__diagram-item">Игры</li>
-        </ul>
-
+      <div class="user-data__wrp">
+        <h1 class="user-data__title">С возвращением, Владимир</h1>
+        <p class="user-data__text">Не забудь покормить своего питомца</p>
+        <p class="user-data__text">Хорошего дня!</p>
+        <img class="user-data__picture" src="images/poligons.svg" alt="photo">
+        <img class="user-data__photo" src="images/picture-bg.png" alt="photo">
       </div>
     </article>
-    <TimeDate v-if="width>375" class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
-    <TimeDate v-if="width>375" class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
-    <TimeDate
-        v-if="width<=375"
-        class="user-data__time"
-        text="На часах у нас"
-        :time-date="timeNow"
-        img="images/clock.svg"
-        text2="На календаре у нас"
-        :time-date2="dateNow"
-        img2="images/calendar.svg"
-    />
-
+    <ProgressBlock v-if="actualWidth>375"/>
+    <TimeDate v-if="actualWidth>1280" class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
+    <TimeDate v-if="actualWidth>1280" class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
+    <swiper v-if="actualWidth<=375" :class="swiper" :options="swiperOption" class="user-data__slider">
+      <swiper-slide>
+        <TimeDate
+            class="user-data__time"
+            text="На часах у нас"
+            :time-date="timeNow"
+            img="images/clock.svg"
+            text2="На календаре у нас"
+            :time-date2="dateNow"
+            img2="images/calendar.svg"
+        />
+      </swiper-slide>
+      <swiper-slide>
+        <ProgressBlock/>
+      </swiper-slide>
+    </swiper>
   </section>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import moment from "moment"
-import Chart from "@/components/Chart/Chart";
 import TimeDate from "../Time-date/Time-date";
+import ProgressBlock from "@/components/Progress-block/Progress-block";
 export default {
   name: "UserData",
-  components: {TimeDate, Chart},
+  components: {ProgressBlock, TimeDate, Swiper, SwiperSlide},
   data(){
     return{
       timeNow:"",
       dateNow:"",
-      width:null
+      width:null,
+      swiperOption: {
+        slidesPerView: 1,
+        spaceBetween: 40,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      },
     }
   },
   methods:{
@@ -77,6 +78,11 @@ export default {
     this.time();
     this.date();
   },
+  computed:{
+    actualWidth(){
+      return this.width
+    }
+  }
 }
 </script>
 

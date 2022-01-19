@@ -68,10 +68,39 @@
     border-radius: 16px 16px 0 0;
   }
 }
+@media (max-width: 1640px) {
+  .post{
+    &__likes{
+      display: none;
+    }
+    &__text{
+      flex-direction: column;
+      align-items: center;
+    }
+    &__tag{
+      margin-bottom: 10px;
+    }
+  }
+}
+@media (max-width: 1280px) {
+  .post{
+    &__likes{
+      display: flex;
+    }
+    &__text{
+      flex-direction: row;
+      align-items: center;
+    }
+    &__tag{
+      margin-bottom: 0;
+    }
+  }
 
+}
 @media (max-width: 375px) {
   .post{
     width: 100%;
     height: 100%;
   }
 }
+

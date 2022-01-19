@@ -1,13 +1,15 @@
 <template>
   <div id="app" class="main">
-    <Menu v-if="width>375" class="main__menu"/>
-    <MobileMenu v-if="width<=375" class="main__mobile-menu"/>
+    <Menu v-if="actualWidth>375" class="main__menu"/>
+    <MobileMenu v-if="actualWidth<=375" class="main__mobile-menu"/>
     <div>
       <Header class="main__header"/>
       <UserData class="main__user-data"></UserData>
-      <MessageArticles class="main__message-articles" :articles="messagesArticles" />
+      <Statistic v-if="actualWidth<=375" class="main__statistic"/>
+      <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
       <Posts class="main__posts" :posts="postsArticles"/>
-      <div v-if="width<=375" class="main__line-bottom"></div>
+      <div v-if="actualWidth<=375" class="main__line-bottom"></div>
+      <MessageArticles v-if="actualWidth==1280" class="main__message-articles" :articles="messagesArticles" />
     </div>
   </div>
 </template>
@@ -21,10 +23,12 @@
   import Posts from "./components/Posts/Posts";
   import {mapGetters} from "vuex";
   import MobileMenu from "@/components/Mobile-menu/Mobile-menu";
+  import Statistic from "@/components/Statistic/Statistic";
 
 export default {
   name: 'App',
   components: {
+    Statistic,
     MobileMenu,
     Posts,
     MessageArticles,
@@ -55,6 +59,9 @@ export default {
     messagesArticles(){
       return this.getArticles
     },
+    actualWidth(){
+      return this.width
+    }
   }
 }
 </script>

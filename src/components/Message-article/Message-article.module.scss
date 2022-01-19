@@ -78,6 +78,11 @@
     flex-grow: 0;
   }
 }
+@media (max-width: 1280px) {
+  .article{
+    height: 260px;
+  }
+}
 
 @media (max-width: 375px) {
   .article{

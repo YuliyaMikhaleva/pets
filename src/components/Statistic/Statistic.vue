@@ -4,19 +4,19 @@
       <div class="statistic__img">
         <swiper :options="swiperOption" class="statistic__slider">
           <swiper-slide class="statistic__slide">
-            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+              <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
           <swiper-slide class="statistic__slide">
-            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+            <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
-          <swiper-slide>
-            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          <swiper-slide class="statistic__slide">
+            <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
-          <swiper-slide>
-            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          <swiper-slide class="statistic__slide">
+            <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
-          <swiper-slide>
-            <img class="statistic__img-cat" src="images/cat.jpg" alt="photo">
+          <swiper-slide class="statistic__slide">
+            <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
           <div class="swiper-button-prev statistic__arrow-left" slot="button-prev"></div>
           <div class="swiper-button-next statistic__arrow-right" slot="button-next"></div>
@@ -66,13 +66,23 @@ export default {
   data:() => ({
     swiperOption: {
       slidesPerView: 1,
-      spaceBetween: 30,
+      spaceBetween: 100,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       }
     },
-  })
+    width:null
+  }),
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.updateWidth);
+    this.updateWidth();
+  },
 }
 </script>
 

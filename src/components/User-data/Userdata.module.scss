@@ -9,7 +9,9 @@
     background: linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%);
     position: relative;
     grid-area: hello;
-
+    display: flex;
+    justify-content: space-between;
+    min-width: 620px;
   }
   &__title{
     font-family: Rubik;
@@ -20,6 +22,8 @@
     display: flex;
     align-items: center;
     color: white;
+    white-space: nowrap;
+    margin: 77px 0 0 0;
   }
   &__text{
     font-family: Rubik;
@@ -35,72 +39,24 @@
     position: absolute;
     top: 0;
     right: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
   }
-  &__progress{
-    grid-area: chart;
-    height: 314px;
-    display: flex;
-    border-radius: 16px;
-    padding: 30px;
-    box-sizing: border-box;
-    background: var(--color-article);
+  &__photo-wrp{
+    width: 100%;
   }
-  &__block-diagram{
-    width: 50%;
-    position: relative;
+  &__photo{
+    position: absolute;
+    top: 33px;
+    right: 0;
+    //width: 31%
   }
   &__img{
     width: 100%;
   }
   &__diagram-part{
     stroke: var(--color-diagram-part);
-  }
-  &__diagram-text{
-    color: var(--color-text);
-    font-family: Rubik;
-  }
-  &__diagram-title{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17.5px;
-    line-height: 21px;
-    margin: 0 0 20px 40px;
-  }
-  &__diagram-list{
-    list-style: none;
-  }
-  &__diagram-item{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    margin-bottom: 10px;
-    display: flex;
-    &::before{
-      display: block;
-      content: "";
-      border-radius: 50px;
-      width: 15px;
-      height: 15px;
-      margin-right: 10px;
-      background-repeat: no-repeat;
-      background-position: 50%;
-    }
-  }
-  &__diagram-item:nth-child(1)::before{
-    background-color: #F16063;
-    background-image: url("../../../public/images/no-check.svg");
-  }
-  &__diagram-item:nth-child(2)::before{
-    background-color: #66CB9F;
-    background-image: url("../../../public/images/check.svg");
-  }
-  &__diagram-item:nth-child(3)::before{
-    background-color: #FFC542;
-    background-image: url("../../../public/images/check.svg");
-  }
-  &__diagram-item:nth-child(4)::before{
-    background-color: $blueColor;
   }
   &__time{
     grid-area: time;
@@ -129,29 +85,11 @@
     &__text:nth-of-type(2){
       margin: 0;
     }
-    &__progress{
-      height: 183px;
-      padding: 17.48px 25px;
-      justify-content: space-between;
+    &__slider{
+      width: 315px;
     }
-    &__diagram-title{
-      font-size: 12px;
-      line-height: 14.22px;
-      margin: 0 0 20px 20px;
+    &__photo{
+      display: none;
     }
-    &__diagram-list{
-      padding-left: 20px;
-      box-sizing: border-box;
-    }
-    &__diagram-item{
-      font-size: 12px;
-      line-height: 14.22px;
-      margin-bottom: 5px;
-    }
-    &__block-diagram{
-      width: 39%;
-      margin-top:4%
-    }
-
   }
 }

@@ -96,8 +96,22 @@
         }
     }
 
+    @media (max-width: 1280px) {
+      .article{
+        &__time-data{
+          margin-bottom: 52.48px;
+        }
+      }
+    }
     @media (max-width: 375px) {
       .article{
+        padding: 15px;
+        &__wrp{
+          margin-bottom: 5px;
+        }
+        &__time:first-child{
+          margin-bottom: 0;
+        }
         &__time{
           width: 100%;
           height: 100%;
