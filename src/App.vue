@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="main">
-    <Menu v-if="actualWidth>375" class="main__menu"/>
-    <MobileMenu v-if="actualWidth<=375" class="main__mobile-menu"/>
+    <Menu v-if="actualWidth>800" class="main__menu"/>
+    <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
     <div>
       <Header class="main__header"/>
       <UserData class="main__user-data"></UserData>
@@ -9,7 +9,7 @@
       <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
       <Posts class="main__posts" :posts="postsArticles"/>
       <div v-if="actualWidth<=375" class="main__line-bottom"></div>
-      <MessageArticles v-if="actualWidth==1280" class="main__message-articles" :articles="messagesArticles" />
+      <MessageArticles v-if="actualWidth<=1280" class="main__message-articles" :articles="messagesArticles" />
     </div>
   </div>
 </template>

@@ -5,6 +5,7 @@
   background: var(--color-article);
   padding-bottom: 30px;
   box-sizing: border-box;
+  height: 290px;
   &__title{
     color: var(--color-text);
     font-family: Rubik;
@@ -78,6 +79,9 @@
     }
     &__tag{
       margin-bottom: 10px;
+    }
+    &__title{
+      margin: 15px 30px 15px 30px;
     }
   }
 }

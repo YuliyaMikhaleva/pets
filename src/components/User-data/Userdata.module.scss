@@ -11,7 +11,7 @@
     grid-area: hello;
     display: flex;
     justify-content: space-between;
-    //min-width: 620px;
+    min-width: 631px;
   }
   &__title{
     font-family: Rubik;
@@ -48,7 +48,7 @@
   }
   &__photo{
     position: absolute;
-    top: 33px;
+    top: 0%;
     right: 0;
     //width: 31%
   }
@@ -63,6 +63,17 @@
   }
   &__date{
     grid-area: date;
+  }
+  &__progress{
+    min-width: 410px;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-data{
+    &__hello{
+      min-width: 0;
+    }
   }
 }
 
