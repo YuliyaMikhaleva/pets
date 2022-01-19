@@ -104,8 +104,7 @@ body{
 @media (max-width: 375px) {
   .main{
     margin: 20px 30px 8px 30px;
-    display: flex;
-    justify-content: space-between;
+    grid-template-columns: 100%;
     grid-gap: 0;
     height: 100%;
     &__mobile-menu{

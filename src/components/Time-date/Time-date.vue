@@ -106,6 +106,9 @@
     @media (max-width: 375px) {
       .article{
         padding: 15px;
+        &__time-data{
+            margin-bottom: 0;
+        }
         &__wrp{
           margin-bottom: 5px;
         }
