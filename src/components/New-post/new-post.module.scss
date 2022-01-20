@@ -81,6 +81,15 @@
     }
   }
 }
+
+@media (max-width: 1280px) {
+  .new-post{
+    &__btn{
+      padding: 11.5px 19.5px;
+      margin: 20px auto 0;
+    }
+  }
+}
 @media (max-width: 768px) {
   .new-post{
     &__wrp{

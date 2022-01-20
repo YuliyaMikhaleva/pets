@@ -12,11 +12,11 @@
   &__checkbox{
     grid-area: checkbox;
     transition: all 0.3s;
-    &:hover{
-      background: rgba(255, 255, 255, 0.05);
-      opacity: 80%;
-      transition: all 0.3s;
-    }
+    //&:hover{
+    //  background: rgba(255, 255, 255, 0.05);
+    //  opacity: 80%;
+    //  transition: all 0.3s;
+    //}
   }
   &__buttons{
     display: flex;
