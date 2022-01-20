@@ -103,6 +103,13 @@
         }
       }
     }
+    @media (max-width: 768px) {
+      .article{
+        &__wrp{
+          justify-content: center;
+        }
+      }
+    }
     @media (max-width: 375px) {
       .article{
         padding: 15px;
@@ -110,6 +117,7 @@
             margin-bottom: 0;
         }
         &__wrp{
+          justify-content: flex-start;
           margin-bottom: 5px;
         }
         &__time:first-child{

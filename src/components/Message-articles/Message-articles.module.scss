@@ -1,6 +1,5 @@
 @import "./src/assets/variables";
 .message-articles{
-  margin-right: 30px;
   &__wrp{
     grid-area: articles;
     margin: 0;
@@ -68,7 +67,8 @@
   }
   &__new-post{
     grid-area: new-post;
-    height: 260px;
+    min-height: 260px;
+    min-width: 210px;
   }
   &__time-date{
     grid-area: time-date;
@@ -77,6 +77,18 @@
 }
 .swiper-button-disabled{
   display:none;
+}
+
+@media (max-width: 768px) {
+  .message-articles{
+    &__new-post{
+      min-height: 180px;
+    }
+    &__time-date{
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 @media (max-width: 375px) {
   .message-articles{

@@ -48,9 +48,9 @@
   }
   &__photo{
     position: absolute;
-    top: 0%;
+    top: 5%;
     right: 0;
-    //width: 31%
+    height: 90%;
   }
   &__img{
     width: 100%;
@@ -74,6 +74,12 @@
     &__hello{
       min-width: 0;
     }
+  }
+}
+
+@media (max-width: 670px) {
+  .user-data__photo{
+    display: none;
   }
 }
 

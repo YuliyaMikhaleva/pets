@@ -66,11 +66,16 @@
 
 
 }
-@media (max-width: 375px) {
+
+@media (max-width: 768px) {
   .header{
     &__title{
       display: none;
     }
+  }
+}
+@media (max-width: 375px) {
+  .header{
     &__button{
       width: 32px;
       height: 32px;

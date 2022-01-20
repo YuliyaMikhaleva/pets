@@ -2,10 +2,10 @@
   <article class="new-post">
     <div class="new-post__wrp">
       <Avatar class="new-post__item" name="R" bg-color="linear-gradient(225deg, #FFEF5E 0%, #F7936F 100%);"/>
-      <Avatar v-if="actualWidth>=1870 || actualWidth<=375" class="new-post__item" name="T" bg-color="linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)"/>
+      <Avatar v-if="actualWidth>=1870 || actualWidth<=768" class="new-post__item" name="T" bg-color="linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)"/>
       <Avatar class="new-post__item" name="Q" bg-color="linear-gradient(225deg, #FFC656 0%, #F16063 100%)"/>
-      <Avatar v-if="actualWidth<=375" class="new-post__item" name="J" bg-color="linear-gradient(225deg, #67E9F1 0%, #24E795 100%)"/>
-      <Avatar v-if="actualWidth>=1870 || actualWidth<=375" class="new-post__item" name="Y" bg-color="linear-gradient(224.47deg, #FF92AE 8.18%, #FF3D9A 95.84%)"/>
+      <Avatar v-if="actualWidth<=768" class="new-post__item" name="J" bg-color="linear-gradient(225deg, #67E9F1 0%, #24E795 100%)"/>
+      <Avatar v-if="actualWidth>=1870 || actualWidth<=768" class="new-post__item" name="Y" bg-color="linear-gradient(224.47deg, #FF92AE 8.18%, #FF3D9A 95.84%)"/>
       <Avatar class="new-post__item" name="J" bg-color="linear-gradient(225deg, #67E9F1 0%, #24E795 100%)"/>
       <svg class="new-post__add" width="60" height="60" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect class="new-post__circle" x="1.00391" y="1" width="60" height="60" rx="30" stroke="white" stroke-dasharray="8 8"/>

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="main">
-    <Menu v-if="actualWidth>800" class="main__menu"/>
+    <Menu v-if="actualWidth>768" class="main__menu"/>
     <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
     <div>
       <Header class="main__header"/>

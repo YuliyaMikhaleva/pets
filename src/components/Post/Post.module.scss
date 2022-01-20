@@ -42,6 +42,9 @@
     justify-items: end;
     justify-content: flex-end;
     margin-left: auto;
+    margin-right: 5px;
+  }
+  &__likes-word{
     margin-right: 15px;
   }
   &__like{
@@ -70,12 +73,11 @@
 }
 @media (max-width: 1640px) {
   .post{
-    &__likes{
+    &__likes-word{
       display: none;
     }
     &__text{
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
     }
     &__tag{
       margin-bottom: 10px;

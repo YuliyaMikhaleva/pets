@@ -109,8 +109,8 @@ export default {
     }
     &__graphic{
       grid-area: graphic;
-      height: 290px;
-      min-width: 555px;
+      height: auto;
+      min-width: 512px;
     }
     &__arrow-left{
       width: 46px;
@@ -167,7 +167,7 @@ export default {
   .swiper-button-disabled{
     display:none;
   }
-  
+
   @media (max-width: 375px) {
     .posts{
       margin-bottom:22px;

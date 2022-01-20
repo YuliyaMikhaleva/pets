@@ -25,7 +25,7 @@ export default {
       required:true
     },
     time:{
-      type:String,
+      // type:String,
       required: true
     },
     description:{

@@ -90,8 +90,8 @@ export default {
 @import "./src/assets/variables";
   .mobile-menu{
     &__icon{
-      width: 32px;
-      height: 32px;
+      width: 46px;
+      height: 46px;
       border-radius: 7px;
       background-color: #4C6FFF;
       display: flex;
@@ -229,4 +229,12 @@ export default {
     }
   }
 
+@media (max-width: 375px) {
+  .mobile-menu {
+    &__icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
 </style>
