@@ -2,7 +2,7 @@
   <section class="posts">
     <swiper
         :class="swiper"
-        :options="(actualWidth<=375) ? swiperOption375: swiperOption"
+        :options="(actualWidth<=375) ? swiperOption375: ((actualWidth>375 && actualWidth<=768)? swiperOption1280 : swiperOption)"
         class="posts__slider">
       <swiper-slide v-for="post of posts" :key="post.name">
         <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
@@ -109,7 +109,7 @@ export default {
     }
     &__graphic{
       grid-area: graphic;
-      height: auto;
+      height: 290px;
       min-width: 512px;
     }
     &__arrow-left{

@@ -10,7 +10,6 @@ export const articlesModule = {
          * @returns {Array} - массив объектов статей
          */
         getArticles(state){
-            console.log('Статьи', state.articles)
             return state.articles;
         },
     },
@@ -30,8 +29,6 @@ export const articlesModule = {
             return fetch('message-articles.json')
                 .then(response => response.json())
                 .then(result => {
-                    // let array = Object.values(result.animals)
-                    console.log('Результат:',result)
                     commit('setArticles',result);
                 })
         },

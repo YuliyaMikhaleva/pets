@@ -10,7 +10,6 @@ export const postsModule = {
          * @returns {Array} - массив объектов постов
          */
         getPosts(state){
-            console.log('Посты', state.posts)
             return state.posts;
         },
     },
@@ -31,7 +30,6 @@ export const postsModule = {
                 .then(response => response.json())
                 .then(result => {
                     let array = Object.values(result.animals)
-                    console.log(array)
                     commit('setPosts',array);
                 })
         },

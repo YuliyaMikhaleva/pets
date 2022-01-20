@@ -38,7 +38,6 @@ export default {
   },
   computed: {
     indexes(){
-      console.log(this.maxPercent)
       return this.sections.map((el) => this.sections.indexOf(el))
     },
     number() {
@@ -54,7 +53,6 @@ export default {
     },
     maxPercent(){
       let element = this.number[0];
-      console.log('element',element)
       return element
     }
   }

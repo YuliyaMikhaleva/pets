@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1 class="header__title">Home</h1>
+    <h1 class="header__title">{{ $route.name }}</h1>
     <ThemeCheckbox class="header__checkbox"/>
     <div class="header__buttons">
       <button class="header__button header__middle-btn">

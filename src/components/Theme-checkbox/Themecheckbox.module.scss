@@ -17,7 +17,7 @@
     display: block;
     border-radius: 100px;
     position: relative;
-    transition: background-color 0.25s;
+    transition: all 0.3s;
     &:after{
       content: '';
       display: block;
@@ -45,12 +45,6 @@
     transition: stroke 0.3s;
     width: 20px;
     height: 20px;
-    &:hover{
-      .checkbox__path{
-        stroke: black;
-        transition: stroke 0.3s;
-      }
-    }
   }
   &__lightTheme{
     position: absolute;
@@ -62,6 +56,7 @@
     width: 21px;
     height: 20px;
   }
+
 }
 .checkbox__input:checked + .checkbox__label:after {
   left: calc(100% - 5px);

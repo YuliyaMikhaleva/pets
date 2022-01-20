@@ -13,6 +13,8 @@
   --color-mobile-line:#F6FBFD;
   --color1-slider-shadow:rgba(27, 35, 53, 0);
   --color2-slider-shadow:rgba(15, 23, 42, 1.99);
+  --color-error-title:#FFFFFF;
+  --color-error-text:rgba(255, 255, 255, 0.69);
 }
 //светлая тема
 [theme="light"]{
@@ -29,6 +31,8 @@
   --color-mobile-line:#0F172A;
   --color1-slider-shadow:rgba(255, 255, 255, 0);
   --color2-slider-shadow:#EDF2F7;
+  --color-error-title: #1C3177;;
+  --color-error-text:rgba(40, 68, 149, 0.69);;
 }
 
 $blueColor: #4C6FFF;

@@ -79,11 +79,7 @@
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 20px;
     }
-    &__btn{
-      margin: 20px auto 0;
-    }
   }
-
 }
 @media (max-width: 768px) {
   .new-post{

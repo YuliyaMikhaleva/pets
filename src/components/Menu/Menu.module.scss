@@ -17,6 +17,7 @@
     justify-content: space-between;
     margin: 0;
   }
+
   &__item{
     width: 60px;
     height: 58px;
@@ -28,10 +29,6 @@
     cursor: pointer;
     margin-bottom: 32px;
     transition: background-color 0.3s, opacity 0.3s;
-    &:first-child{
-      background-color: $blueColor;
-    }
-
     &:last-child{
       margin-bottom: 0;
     }
@@ -40,16 +37,25 @@
       opacity: 50%;
       transition: background-color 0.3s, opacity 0.3s;
     }
-    &:first-child:hover{
+  }
+  &__item-active{
+    background-color: $blueColor;
+    &:hover{
       background-color: $blueColor;
       opacity: 100%;
-      transition: background-color 0.3s, opacity 0.3s;
     }
   }
+
   &__img{
     stroke: var(--color-title);
   }
   &__img-fill{
     fill: var(--color-title);
+  }
+  &__active-fill{
+    fill:  #EDF2F7;
+  }
+  &__active-stroke{
+    stroke:  #EDF2F7;
   }
 }

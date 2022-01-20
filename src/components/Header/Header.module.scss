@@ -11,6 +11,12 @@
   }
   &__checkbox{
     grid-area: checkbox;
+    transition: all 0.3s;
+    &:hover{
+      background: rgba(255, 255, 255, 0.05);
+      opacity: 80%;
+      transition: all 0.3s;
+    }
   }
   &__buttons{
     display: flex;
@@ -36,8 +42,11 @@
     cursor: pointer;
     position: relative;
     &:hover{
+      background-color: rgba(255, 255, 255, 0.05);
+      opacity: 80%;
+      transition: background-color 0.3s, opacity 0.3s;
       .header__notice-btn{
-        fill: $blueColor;
+        fill: rgba(255, 255, 255, 0.05);
         transition: fill 0.3s;
       }
     }
