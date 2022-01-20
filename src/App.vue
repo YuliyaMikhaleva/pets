@@ -9,7 +9,7 @@
       <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
       <Posts class="main__posts" :posts="postsArticles"/>
       <div v-if="actualWidth<=375" class="main__line-bottom"></div>
-      <MessageArticles v-if="actualWidth<=1280" class="main__message-articles" :articles="messagesArticles" />
+      <MessageArticles v-if="actualWidth<=1280 && actualWidth>375" class="main__message-articles" :articles="messagesArticles" />
     </div>
   </div>
 </template>
