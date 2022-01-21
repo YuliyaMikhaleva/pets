@@ -14,7 +14,7 @@
       <path d="M17.2729 15.0039C16.9448 14.6914 16.4156 14.6914 16.0875 15.0039C15.7594 15.3164 15.7594 15.8203 16.0875 16.1328L16.752 16.7656C17.0801 17.0781 17.6092 17.0781 17.9373 16.7656C18.2655 16.4531 18.2655 15.9492 17.9373 15.6367L17.2729 15.0039Z" fill="#CED7E0"/>
       <path d="M4.39395 4.99609C4.72207 5.30859 5.25117 5.30859 5.5793 4.99609C5.90742 4.68359 5.90742 4.17969 5.5793 3.86719L4.91484 3.23438C4.58672 2.92187 4.05762 2.92187 3.72949 3.23438C3.40137 3.54688 3.40137 4.05078 3.72949 4.36328L4.39395 4.99609Z" fill="#CED7E0"/>
     </svg>
-    <input class="checkbox__input" type="checkbox" id="switch" v-model="darkMode"/>
+    <input class="checkbox__input" type="checkbox" id="switch" v-model="darkMode" checked/>
     <label class="checkbox__label" for="switch">Toggle</label>
   </div>
 </template>
@@ -28,13 +28,18 @@ export default {
     }
   },
   mounted() {
+    // document.querySelector(".checkbox__input").checked = true
     let bodyElement = document.body;
     bodyElement.classList.add("app-background");
+
+     if (localStorage.theme === 'light'){
+      this.darkMode = true;
+      document.querySelector(".checkbox__input").checked = true
+    }
   },
   watch: {
     darkMode: function () {
       let htmlElement = document.documentElement;
-
       if (!this.darkMode) {
         localStorage.setItem("theme", 'dark');
         htmlElement.setAttribute('theme', 'dark');

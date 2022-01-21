@@ -1,11 +1,11 @@
 <template>
         <div class="home">
-          <UserData class="main__user-data"></UserData>
-          <Statistic v-if="actualWidth<=375" class="main__statistic"/>
+          <UserData class="main__user-data container"></UserData>
+          <Statistic v-if="actualWidth<=375" class="main__statistic container"/>
           <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
           <Posts class="main__posts" :posts="postsArticles"/>
-          <div v-if="actualWidth<=375" class="main__line-bottom"></div>
-          <MessageArticles v-if="actualWidth<=1280 && actualWidth>375" class="main__message-articles" :articles="messagesArticles" />
+          <div v-if="actualWidth<=375" class="main__line-bottom container"></div>
+          <MessageArticles v-if="actualWidth<=1280 && actualWidth>375" class="main__message-articles container" :articles="messagesArticles" />
 
         </div>
 </template>

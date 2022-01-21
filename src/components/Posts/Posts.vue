@@ -1,10 +1,9 @@
 <template>
   <section class="posts">
     <swiper
-        :class="swiper"
-        :options="(actualWidth<=375) ? swiperOption375: ((actualWidth>375 && actualWidth<=768)? swiperOption1280 : swiperOption)"
-        class="posts__slider">
-      <swiper-slide v-for="post of posts" :key="post.name">
+        :options="swiperOption"
+        class="posts__slider swiper">
+      <swiper-slide class="posts__slide" v-for="post of posts" :key="post.name">
         <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
       </swiper-slide>
       <div v-if="actualWidth>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
@@ -32,23 +31,23 @@ export default {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
-      }
-    },
-    swiperOption375:{
-      slidesPerView: 1,
-      spaceBetween: 40,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
       },
-    },
-    swiperOption1280:{
-      slidesPerView: 2,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+      breakpoints: {
+        320: {
+          slidesPerView: 'auto',
+          spaceBetween: 13,
+          centeredSlides:true
+        },
+        768: {
+          slidesPerView: 1.5,
+          spaceBetween: 20
+        },
+        1281:{
+          slidesPerView: 2,
+          spaceBetween: 40
+        }
       },
+
     },
     width:null
   }),
@@ -70,6 +69,12 @@ export default {
   },
   mounted() {
     this.loadPosts;
+
+    // let posts = document.querySelectorAll('.post');
+    // let activeBlock = blocks.filter((el) => e)
+    //
+    // console.log(blocks)
+
   },
   computed:{
     ...mapActions('postsModule',['loadPosts']),
@@ -84,8 +89,9 @@ export default {
 
 <style lang="scss" scoped>
   @import "./src/assets/variables";
+  @import "./src/components/Post/Post.module.scss";
   .posts{
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
     &__slider{
       grid-area: posts;
       margin: 0;
@@ -106,6 +112,7 @@ export default {
       grid-area: new-post;
       height: 290px;
       min-width: 210px;
+      margin: 0;
     }
     &__graphic{
       grid-area: graphic;
@@ -177,6 +184,48 @@ export default {
       &__slider::before{
         display: none;
       }
+      &__slider{
+        margin-top: auto;
+        height: 280px;
+        //transform: translate(34px, 10px);
+        //margin-left: 13px;
+      }
+      &__slide{
+        width: 315px;
+      }
+      &__new-post{
+        justify-items: flex-end;
+        margin-top: auto;
+      }
     }
+    //.swiper-slide{
+    //  width: 315px;
+    //}
+    .swiper-slide-next{
+      height: 220px;
+      margin: auto;
+      //margin-top: 35px;
+      transition: all 0.3s;
+    }
+    .swiper-slide-prev{
+      height: 220px;
+      margin: auto;
+      transition: all 0.3s;
+    }
+    .swiper-slider-active{
+      height: 290px;
+      transition: all 0.3s;
+    }
+    .swiper-slide{
+      //width: 315px;
+      transition: all 0.3s;
+    }
+  }
+
+  .swiper-slide > .post > .post__text{
+    display: none;
+  }
+  .swiper-slider-active > .post > .post__text{
+    display: flex;
   }
 </style>

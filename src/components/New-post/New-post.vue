@@ -1,5 +1,5 @@
 <template>
-  <article class="new-post">
+  <article class="new-post container">
     <div class="new-post__wrp">
       <Avatar class="new-post__item" name="R" bg-color="linear-gradient(225deg, #FFEF5E 0%, #F7936F 100%);"/>
       <Avatar v-if="actualWidth>=1870 || actualWidth<=768" class="new-post__item" name="T" bg-color="linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)"/>

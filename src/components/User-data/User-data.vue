@@ -12,7 +12,7 @@
     <ProgressBlock v-if="actualWidth>375" class="user-data__progress"/>
     <TimeDate v-if="actualWidth>1280" class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
     <TimeDate v-if="actualWidth>1280" class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
-    <swiper v-if="actualWidth<=375" :class="swiper" :options="swiperOption" class="user-data__slider">
+    <swiper v-if="actualWidth<=375" :options="swiperOption" class="user-data__slider swiper">
       <swiper-slide>
         <TimeDate
             class="user-data__time"

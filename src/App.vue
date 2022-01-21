@@ -3,7 +3,7 @@
     <Menu v-if="actualWidth>768" class="main__menu"/>
     <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
     <div>
-      <Header class="main__header"/>
+      <Header class="main__header container"/>
       <router-view  class="router-view"/>
     </div>
   </div>

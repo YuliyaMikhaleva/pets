@@ -45,6 +45,7 @@
     margin-right: 5px;
   }
   &__likes-word{
+    color: var(--color-text);
     margin-right: 15px;
   }
   &__like{
@@ -104,8 +105,12 @@
 }
 @media (max-width: 375px) {
   .post{
-    width: 100%;
+    //width: 100%;
     height: 100%;
+    //margin-left: 13px;
+    margin-top: auto;
+    //margin-top: 35px;
+    width: 315px;
   }
 }
 

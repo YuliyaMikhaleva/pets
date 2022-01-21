@@ -2,7 +2,7 @@
   <section class="message-articles">
     <swiper
         class="swiper message-articles__wrp"
-        :options="(actualWidth<=375) ? swiperOption375: ((actualWidth<=1280) ? swiperOption1280 : swiperOption)"
+        :options="swiperOption"
     >
       <swiper-slide class="message-articles__slide" v-for="article of articles" :key="article.id">
         <MessageArticle
@@ -63,21 +63,23 @@ export default {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
-    },
-    swiperOption375:{
-      slidesPerView: 1,
-      spaceBetween: 40,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-    },
-    swiperOption1280:{
-      slidesPerView: 2,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 'auto',
+          spaceBetween: 13,
+          centeredSlides:true
+        },
+        // when window width is >= 768px
+        768: {
+          slidesPerView:1.9,
+          spaceBetween: 20
+        },
+        // when window width is >= 1281px
+        1281: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
       },
     },
     width: null,
@@ -122,5 +124,27 @@ export default {
 
 <style lang="scss" scoped>
 @import "Message-articles.module";
+@media (max-width: 375px) {
+  .swiper-slide-next{
+    height: 180px;
+    margin: auto;
+    //margin-top: 35px;
+    transition: all 0.3s;
+  }
+  .swiper-slide-prev{
+    height: 180px;
+    margin: auto;
+    transition: all 0.3s;
+  }
+  .swiper-slider-active{
+    height: 250px;
+    transition: all 0.3s;
+  }
+  .swiper-slide{
+    //width: 315px;
+    transition: all 0.3s;
+  }
+}
+
 </style>
 

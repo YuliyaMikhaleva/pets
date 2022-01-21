@@ -17,11 +17,12 @@
     display: block;
     border-radius: 100px;
     position: relative;
+    //border: 1px solid black;
     transition: all 0.3s;
-    &:hover{
-        background: rgba(255, 255, 255, 0.05);
-        opacity: 80%;
-        transition: all 0.3s;    }
+    //&:hover{
+    //  border: 1px solid var(--bg-button);
+    //  ransition: all 0.3s;
+    //}
     &:after{
       content: '';
       display: block;
@@ -36,7 +37,7 @@
       background-color: $blueColor;
       border-radius: 90px;
       transition: 0.25s;
-      z-index: 999999;
+      z-index: 9999;
     }
   }
   &__darkTheme{
