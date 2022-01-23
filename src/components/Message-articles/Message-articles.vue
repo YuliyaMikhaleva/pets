@@ -128,7 +128,6 @@ export default {
   .swiper-slide-next{
     height: 180px;
     margin: auto;
-    //margin-top: 35px;
     transition: all 0.3s;
   }
   .swiper-slide-prev{
@@ -141,7 +140,6 @@ export default {
     transition: all 0.3s;
   }
   .swiper-slide{
-    //width: 315px;
     transition: all 0.3s;
   }
 }

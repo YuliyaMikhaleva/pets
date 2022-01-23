@@ -91,7 +91,6 @@ export default {
   @import "./src/assets/variables";
   @import "./src/components/Post/Post.module.scss";
   .posts{
-    //margin-bottom: 30px;
     &__slider{
       grid-area: posts;
       margin: 0;
@@ -187,24 +186,20 @@ export default {
       &__slider{
         margin-top: auto;
         height: 280px;
-        //transform: translate(34px, 10px);
-        //margin-left: 13px;
       }
       &__slide{
-        width: 315px;
+        width: 325px;
       }
       &__new-post{
         justify-items: flex-end;
         margin-top: auto;
+        margin-left: 25px;
+        margin-right: 25px;
       }
     }
-    //.swiper-slide{
-    //  width: 315px;
-    //}
     .swiper-slide-next{
       height: 220px;
       margin: auto;
-      //margin-top: 35px;
       transition: all 0.3s;
     }
     .swiper-slide-prev{
@@ -217,7 +212,6 @@ export default {
       transition: all 0.3s;
     }
     .swiper-slide{
-      //width: 315px;
       transition: all 0.3s;
     }
   }

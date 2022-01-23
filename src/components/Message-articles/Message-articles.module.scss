@@ -93,10 +93,8 @@
 }
 @media (max-width: 375px) {
   .message-articles{
-    //margin: 25px 0 25px 0;
     &__slide{
-      //width: 100%;
-      width: 315px;
+      width: 325px;
     }
     &__wrp:before{
       display: none;

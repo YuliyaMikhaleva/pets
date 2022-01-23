@@ -13,7 +13,10 @@
     <TimeDate v-if="actualWidth>1280" class="user-data__time" text="На часах у нас" :time-date="timeNow" img="images/clock.svg" />
     <TimeDate v-if="actualWidth>1280" class="user-data__date" text="На календаре у нас" :time-date="dateNow" img="images/calendar.svg"/>
     <swiper v-if="actualWidth<=375" :options="swiperOption" class="user-data__slider swiper">
-      <swiper-slide>
+      <swiper-slide class="user-data__slide">
+        <ProgressBlock/>
+      </swiper-slide>
+      <swiper-slide class="user-data__slide">
         <TimeDate
             class="user-data__time"
             text="На часах у нас"
@@ -23,9 +26,6 @@
             :time-date2="dateNow"
             img2="images/calendar.svg"
         />
-      </swiper-slide>
-      <swiper-slide>
-        <ProgressBlock/>
       </swiper-slide>
     </swiper>
   </section>
@@ -45,12 +45,13 @@ export default {
       dateNow:"",
       width:null,
       swiperOption: {
-        slidesPerView: 1,
-        spaceBetween: 40,
+        slidesPerView: 'auto',
+        spaceBetween: 13,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
-        }
+        },
+        centeredSlides:true
       },
     }
   },

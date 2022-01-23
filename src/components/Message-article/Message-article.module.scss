@@ -93,6 +93,7 @@
 
 @media (max-width: 375px) {
   .article{
+    min-height: 0;
     height: 100%;
     &__avatar{
       margin: 0 17px 0 15px;
