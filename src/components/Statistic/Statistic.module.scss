@@ -95,15 +95,17 @@
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: 24px;
+    grid-column-gap: 28px;
     font-family: Rubik;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
+    text-transform: uppercase;
+    width: 12px;
   }
   &__date-numbers{
-    margin: 27.5px 0 0 0;
+    //margin: 27.5px 0 0 0;
     color: var(--color-text);
   }
   &__date-days{
@@ -136,6 +138,9 @@
       transition: display 0.3s;
 
     }
+  }
+  &__diagram{
+    width: 253.74px;
   }
 }
 

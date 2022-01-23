@@ -10,7 +10,7 @@
       <div v-if="actualWidth>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
     </swiper>
     <NewPost v-if="actualWidth<=375 || actualWidth>1280" class="posts__new-post"/>
-    <Statistic class="posts__graphic"/>
+    <Statistic class="posts__graphic" name="Johny" likes="3"/>
   </section>
 </template>
 
@@ -49,7 +49,21 @@ export default {
       },
 
     },
-    width:null
+    width:null,
+    cats:[
+      {
+        name:'Johny',
+        likes: 3
+      },
+      {
+        name:'Loki',
+        likes: 2
+      },
+      {
+        name:'Bob',
+        likes: 1
+      },
+    ]
   }),
   props:{
     posts:{
