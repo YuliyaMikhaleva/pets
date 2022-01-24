@@ -3,6 +3,7 @@
     <swiper
         class="swiper message-articles__wrp"
         :options="swiperOption"
+        ref="swiperMessages"
     >
       <swiper-slide class="message-articles__slide" v-for="article of articles" :key="article.id">
         <MessageArticle
@@ -110,6 +111,8 @@ export default {
     this.loadArticles;
     this.time();
     this.date();
+    window.addEventListener('resize', this.$refs.swiperMessages.$swiper.update());
+
   },
   computed:{
     ...mapActions('articlesModule',['loadArticles']),

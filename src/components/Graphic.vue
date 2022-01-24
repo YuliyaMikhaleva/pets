@@ -1,8 +1,8 @@
 <template>
     <div class="graphic">
 <!--        <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">-->
-        <div class="graphic__block" v-for="element in newArray" v-bind:key="element.index">
-            <GraphicsItem v-show="item.likes==likesCount" v-for="item of element" :likes="item.likes" :views="item.views" v-bind:key="item.id" :maxCount="maxItem(element)+2"/>
+        <div :activeSlide="slide" v-show="(index)==+activeSlide" class="graphic__block" v-for="(element,index) in newArray" v-bind:key="index" :id="index">
+            <GraphicsItem v-for="item of element" :likes="item.likes" :views="item.views" v-bind:key="item.id" :maxCount="maxItem(element)+2"/>
 <!--            <span v-show="item.likes==likesCount" v-for="(index) in 7" :key="index">{{ index + 16 }}</span>-->
 <!--            <span v-show="item.likes==likesCount"  v-for="item of days" :key="item">{{ item }}</span>-->
        </div>
@@ -15,13 +15,13 @@
         name: "Graphic",
         components: {GraphicsItem},
         props:{
-            likesCount:{
+            // likesCount:{
+            //     type:String,
+            //     required:true
+            // },
+            activeSlide:{
                 type:Number,
                 required:true
-            },
-            activeSlide:{
-                // type:Number,
-                // required:true
             },
         },
         data(){
@@ -137,7 +137,81 @@
                             views: 5,
                             likes: 1
                         },
-                    ]
+                    ],
+                  [
+                    {
+                      id: 1,
+                      views: 2,
+                      likes: 2
+                    },
+                    {
+                      id: 2,
+                      views: 1,
+                      likes: 2
+                    },
+                    {
+                      id: 3,
+                      views: 6,
+                      likes: 2
+                    },
+                    {
+                      id: 4,
+                      views: 7,
+                      likes: 2
+                    },
+                    {
+                      id: 5,
+                      views: 5,
+                      likes: 2
+                    },
+                    {
+                      id: 6,
+                      views: 2,
+                      likes: 2
+                    },
+                    {
+                      id: 7,
+                      views: 5,
+                      likes: 2
+                    },
+                  ],
+                  [
+                    {
+                      id: 1,
+                      views: 5,
+                      likes: 1
+                    },
+                    {
+                      id: 2,
+                      views: 3,
+                      likes: 1
+                    },
+                    {
+                      id: 3,
+                      views: 4,
+                      likes: 1
+                    },
+                    {
+                      id: 4,
+                      views: 7,
+                      likes: 1
+                    },
+                    {
+                      id: 5,
+                      views: 5,
+                      likes: 1
+                    },
+                    {
+                      id: 6,
+                      views: 2,
+                      likes: 1
+                    },
+                    {
+                      id: 7,
+                      views: 5,
+                      likes: 1
+                    },
+                  ]
                 ],
                 days:['пн','вт','ср','чт','пт','сб','вс']
             }
@@ -151,6 +225,12 @@
                 return maxCount
             }
         },
+        computed:{
+            slide(){
+              console.log('!!!', this.activeSlide)
+              return this.activeSlide
+            }
+          }
     }
 </script>
 

@@ -10,6 +10,9 @@
   "dependencies": {
     "apexcharts": "^3.33.0",
     "core-js": "^3.6.5",
+    "css": "^3.0.0",
+    "file-loader": "^6.2.0",
+    "loader": "^2.1.1",
     "moment": "^2.29.1",
     "sass": "^1.47.0",
     "swiper": "^5.4.5",
@@ -28,8 +31,10 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^7.0.1",
     "sass-loader": "^8.0.2",
+    "url-loader": "^4.1.1",
     "vue-router": "^3.5.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,

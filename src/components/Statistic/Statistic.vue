@@ -2,7 +2,7 @@
   <article class="statistic">
     <div class="statistic__block">
       <div class="statistic__img">
-        <swiper :options="swiperOption" class="statistic__slider">
+        <swiper :options="swiperOption" class="statistic__slider" ref="swiper" @slideChange="updateSlide">
           <swiper-slide class="statistic__slide" id="1">
               <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
           </swiper-slide>
@@ -18,14 +18,14 @@
           <swiper-slide class="statistic__slide" id="5">
             <img class="statistic__img-cat"  src="images/cat2.jpg" alt="photo">
           </swiper-slide>
-          <div class="swiper-button-prev statistic__arrow-left" slot="button-prev" @click="updateSlide()"></div>
-          <div class="swiper-button-next statistic__arrow-right" slot="button-next" @click="updateSlide()"></div>
+          <div class="swiper-button-prev statistic__arrow-left" slot="button-prev"></div>
+          <div class="swiper-button-next statistic__arrow-right" slot="button-next"></div>
         </swiper>
       </div>
 
       <div class="statistic__txt">
-        <span class="statistic__title">{{ name }}</span>
-        <span> <span>{{likes}} </span> лайка</span>
+        <span class="statistic__title">{{cats[actualSlide].name}}</span>
+        <span> <span>{{ cats[actualSlide].likes }} </span> лайка</span>
       </div>
     </div>
     <div class="statistic__diagram">
@@ -33,7 +33,7 @@
         <span class="statistic__data-item">Лайки</span>
         <span class="statistic__data-item">Просмотры</span>
       </div>
-      <Graphic :likesCount="likes" :activeSlide="slide"/>
+      <Graphic :activeSlide="actualSlide"/>
       <!--      <StatisticDiagram/>-->
       <ul class="statistic__dates statistic__date-numbers">
         <li class="statistic__dates statistic__date-numbers" v-for="index in 7" :key="index">{{ index + 16 }}</li>
@@ -70,51 +70,64 @@ export default {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
-      }
+      },
+      // on:{
+      //   slideChange(){
+      //     // this.$refs.swiper.$swiper.realIndex;
+      //     // let slide = document.querySelector('.statistic__slide.swiper-slide.swiper-slide-next');
+      //     // console.log(slide)
+      //     // let activeId = slide.getAttribute('id');
+      //     // this.actualSlide = activeId;
+      //     // console.log(t)
+      //     console.log(this.$refs.swiper)
+      //   }
+      // }
     },
     width:null,
     days:['пн','вт','ср','чт','пт','сб','вс'],
     actualSlide:1,
+    cats:[
+      {
+        name:'Johny',
+        likes: 3
+      },
+      {
+        name:'Loki',
+        likes: 2
+      },
+      {
+        name:'Bob',
+        likes: 1
+      },
+      {
+        name:'Murka',
+        likes: 3
+      },
+      {
+        name:'Vasya',
+        likes: 2
+      },
+    ]
   }),
   methods: {
     updateWidth() {
       this.width = window.innerWidth;
     },
-    updateSlide() {
-      let slide = document.querySelector('.statistic__slide.swiper-slide.swiper-slide-active');
-      console.log(slide)
-      let activeId = slide.getAttribute('id');
-      console.log('Активный ID:',activeId);
-      this.actualSlide = activeId;
-      // console.log(slide.getAttribute('id'))
+    updateSlide(){
+      this.actualSlide = this.$refs.swiper.$swiper.realIndex
 
-    },
+      // console.log(this.$refs.swiper)
+    }
   },
   created() {
     window.addEventListener('resize', this.updateWidth);
     this.updateWidth();
   },
-  mounted() {
-    this.updateSlide();
-  },
   computed:{
     slide(){
-      // let slides = document.querySelectorAll('.statistic__slide');
-      // this.updateSlide();
-      console.log('Активный слайд', this.actualSlide)
+      console.log('Активный слайд:', this.actualSlide);
       return this.actualSlide
-    }
-    // activeBlock(){
-    //   let slider = document.querySelector('.statistic')
-    //   console.log(slider)
-    //   // return slider
-    //   let activeSlide = slider.querySelector('.swiper-slide-active');
-    //   console.log(activeSlide)
-    //   // return activeSlide
-    //   let activeId = activeSlide.getAttribute('id')
-    //   console.log(activeId)
-    //   return activeId
-    // }
+    },
   }
 }
 </script>
