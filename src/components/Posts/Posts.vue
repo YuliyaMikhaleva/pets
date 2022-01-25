@@ -91,8 +91,8 @@ export default {
 
   },
   computed:{
-    ...mapActions('postsModule',['loadPosts']),
-    ...mapGetters('postsModule',['getPosts']),
+    ...mapActions('filtersModule',['loadPosts']),
+    ...mapGetters('filtersModule',['getPosts']),
     actualWidth(){
       return this.width
     }

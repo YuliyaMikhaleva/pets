@@ -3,8 +3,8 @@
     <FilterBlock v-for="(item,index) in pets"
                  :key="index"
                  :item="item.name"
-                 @add="addFilter(item.name)"
-                 @remove="removeFilter(item.name)"
+                 @add="addFilter(item)"
+                 @remove="removeFilter(item)"
     >
       <img :src="item.img" alt="photo">
     </FilterBlock>
@@ -18,9 +18,9 @@ export default {
   name: "Pets-filters",
   components: {FilterBlock},
   computed: {
-    ...mapGetters('filtersModule', ['getPets','getFilterPets']),
+    ...mapGetters('filtersModule', ['getFilterItems','getFilteredPets']),
     pets() {
-      return this.getPets
+      return this.getFilterItems
     },
   },
   methods:{

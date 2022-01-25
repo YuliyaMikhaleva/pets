@@ -38,7 +38,7 @@ export default {
     this.updateWidth();
   },
   computed:{
-    ...mapGetters('postsModule',['getPosts']),
+    ...mapGetters('filtersModule',['getPosts']),
     ...mapGetters('articlesModule',['getArticles']),
     postsArticles(){
       return this.getPosts

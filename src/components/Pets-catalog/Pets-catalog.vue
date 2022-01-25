@@ -1,9 +1,9 @@
 <template>
   <masonry-wall
-      :items="items"
-      :column-width="columnWidth"
+      :items="cats"
+      :column-width="335"
       :gap="gap">
-    <template #default="{ imgHeight,item, index }">
+    <template #default="{ item, index }">
       <div
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
@@ -11,11 +11,11 @@
       >
         <Post
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-            name="1"
-            tag="123"
-            :likes="5"
-            img="images/petBob.png"
-            bg="blue"
+            :name="item.name"
+            :tag="item.type"
+            :likes="item.likes"
+            :img="item.img"
+            :bg="item.bgColor"
             style="height: 100%"
             :imgHeight="(index % 2 === 0) ? 181 : 250" />
       </div>
@@ -34,8 +34,6 @@ export default {
   components: {Post},
   data() {
     return {
-      items: [290, 359, 290, 359, 290, 359, 290, 359,290, 359, 290, 359],
-      posts:this.cats,
       columnWidth: 335,
       gap: 40,
       rtl: false,
@@ -43,12 +41,14 @@ export default {
   },
   mounted() {
     this.loadPosts;
+    this.loadFilteredPets;
   },
   computed: {
-    ...mapGetters('postsModule', ['getPosts']),
-    ...mapActions('postsModule',['loadPosts']),
+    ...mapGetters('filtersModule', ['getPosts', 'getFilteredPets']),
+    ...mapActions('filtersModule',['loadPosts','loadFilteredPets']),
     cats() {
       return this.getPosts
+      // return this.getFilteredPets
     },
   },
 

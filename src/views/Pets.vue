@@ -14,15 +14,6 @@
 export default {
         name: "Pets",
   components: {PetsCatalog, PetsFilters},
-      data(){
-          return{
-            filters:['Коты', 'Собаки', 'Птицы', 'Зайцы', 'Мыши', 'Другие']
-
-          }
-      },
-      // mounted(){
-      //   document.querySelectorAll(".pets__filter-input").forEach((el) => el.checked = true);
-      // }
     }
 </script>
 
@@ -33,7 +24,7 @@ export default {
     grid-template-columns: 260px auto;
     grid-column-gap: 40px;
     margin-top: 85px;
-    margin-right: 40px;
+    margin-right: 30px;
     //height: 90%;
     &__filters{
       //border: 1px solid white;
