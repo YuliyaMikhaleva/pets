@@ -1,6 +1,6 @@
 <template>
   <article class="post">
-    <div class="post__img-container">
+    <div class="post__img-container"  :style="`height: ${imgHeight}px;`">
       <img class="post__img"  :src="img" alt="photo">
     </div>
     <span class="post__title">{{ name }}</span>
@@ -38,6 +38,10 @@ export default {
       type:String,
       required:true
     },
+    imgHeight:{
+      type:Number,
+      required:false
+    },
   },
   data(){
     return{
@@ -46,6 +50,7 @@ export default {
   },
   computed: {
     word() {
+      console.log('imgHeight',this.imgHeight)
       let el = this.likes.toString().slice(-2)
       if (el == 1) {
         return " лайк "

@@ -1,40 +1,28 @@
 <template>
         <div class="pets">
-          <div class="pets__filters">
-
-            <div class="pets__filter-block" v-for="(item,index) in filters" :key="index">
-              <label :for="'check'+index" class="filter__label">
-                <div class="pets__filter">
-                  <div class="pets__wrp-img">
-                    <FilterCats class="pets__filter-img"/>
-                  </div>
-                  <span>{{item}}</span>
-                </div>
-              </label>
-              <input class="pets__filter-input" :id="'check'+index" type="checkbox">
-            </div>
-
+          <div>
+            <PetsFilters/>
           </div>
+          <PetsCatalog class="pets__catalog"/>
 
-          <div class="pets__catalog"></div>
         </div>
 </template>
 
 <script>
-import FilterCats from "../../public/images/Filter-cats.svg";
-    export default {
+    import PetsFilters from "@/components/Pets-filters/Pets-filters";
+    import PetsCatalog from "@/components/Pets-catalog/Pets-catalog";
+export default {
         name: "Pets",
-      components:{FilterCats},
+  components: {PetsCatalog, PetsFilters},
       data(){
           return{
             filters:['Коты', 'Собаки', 'Птицы', 'Зайцы', 'Мыши', 'Другие']
 
           }
       },
-      mounted(){
-        document.querySelectorAll(".pets__filter-input").forEach((el) => el.checked = true);
-
-      }
+      // mounted(){
+      //   document.querySelectorAll(".pets__filter-input").forEach((el) => el.checked = true);
+      // }
     }
 </script>
 
@@ -44,12 +32,14 @@ import FilterCats from "../../public/images/Filter-cats.svg";
     display: grid;
     grid-template-columns: 260px auto;
     grid-column-gap: 40px;
+    margin-top: 85px;
+    margin-right: 40px;
     //height: 90%;
     &__filters{
       //border: 1px solid white;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 20px;
+      //display: grid;
+      //grid-template-columns: 1fr 1fr 1fr;
+      //grid-gap: 20px;
     }
     &__filter{
       width: 73px;

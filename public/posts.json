@@ -71,7 +71,7 @@
     "0ed45997-a013-00ca-6e9f-243228216256" : {
       "about" : "Любит спать, кушать и вставать в всратые позы",
       "age" : "2019-02-13",
-      "groupID" : 2,
+
       "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2Fphoto_2021-01-28_17-26-17.jpg?alt=media&token=a96303d9-aaba-4d5f-b3b7-f58c99b41306",
       "likes" : 999,
       "location" : "Россия, Пермь",

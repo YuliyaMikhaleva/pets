@@ -72,3 +72,18 @@
     }
   }
 }
+
+.menu__item-active > a > svg > path{
+  fill: #EDF2F7;
+}
+.menu__item-active > a > svg > g > path{
+  stroke: #EDF2F7;
+}
+.menu__item:nth-child(3).menu__item-active > a > svg > path{
+  stroke: #EDF2F7;
+  fill: none;
+}
+.menu__item:nth-child(4).menu__item-active > a > svg > path{
+  stroke: #EDF2F7;
+  fill: #EDF2F7;
+}
