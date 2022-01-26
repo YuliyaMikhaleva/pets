@@ -1,9 +1,10 @@
 <template>
         <div class="pets">
           <div>
-            <PetsFilters/>
+            <PetsFilters class="pets__filters pets__container"/>
           </div>
-          <PetsCatalog class="pets__catalog"/>
+          <PetsCatalog class="pets__container"/>
+          <div class="pets__footer"></div>
 
         </div>
 </template>
@@ -24,65 +25,61 @@ export default {
     grid-template-columns: 260px auto;
     grid-column-gap: 40px;
     margin-top: 85px;
-    margin-right: 30px;
-    //height: 90%;
+    &__container{
+      margin-right: 30px;
+    }
     &__filters{
-      //border: 1px solid white;
-      //display: grid;
-      //grid-template-columns: 1fr 1fr 1fr;
-      //grid-gap: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px;
     }
-    &__filter{
-      width: 73px;
-      height: 73px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      display: flex;
-      color: white;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: Rubik;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 10px;
-      line-height: 12px;
+    &__footer{
+      width: 100%;
+      height: 32px;
+      background-color: var(--bg-dark);
+      position: fixed;
+      bottom: 0;
     }
-    &__catalog{
-      //border: 1px solid white;
-    }
+  }
+  @media (max-width: 1280px) {
+    .pets{
+      grid-template-columns: 95px auto;
+      grid-column-gap: 20px;
 
-    &__title{
-      color: var(--color-text);
+      &__container{
+        margin-right: 25px;
+      }
+      &__filters{
+        grid-template-columns: 1fr;
+      }
     }
-    &__filter-input{
-      //display: none;
-    }
-    &__filter-input:checked ~ label>div{
-      transform: scale(2);
-      //display: none;
-    }
-    &__filter-img{
-      display: flex;
-      justify-content: center;
-      margin: 0;
-    }
-    &__filter-block{
-      width: 73px;
-      height: 73px;
-    }
-    &__wrp-img{
-      width: 42px;
-      height: 42px;
-      background: #4C6FFF;
-      border-radius: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  }
+  @media (max-width: 768px) {
+    .pets{
+      grid-template-columns: auto;
+      margin-top: 41px;
+      &__container{
+        margin-left: 24px;
+        margin-right: 24px;
+      }
+      &__wrp{
+        min-width: 720px;
+      }
+      &__filters{
+        grid-template-columns: repeat(6, 1fr);
+        margin-bottom: 30px;
+        grid-gap: 30px;
+        min-width: 720px;
+      }
     }
   }
 
-  .pets__filter-block input[type="checkbox"]:checked + label{
-    background: green;
+
+  @media (max-width: 375px) {
+    .pets{
+      margin-top: 40px;
+
+    }
   }
+
 </style>

@@ -18,17 +18,9 @@
     margin: 0;
   }
 
+
   &__item{
     margin-bottom: 32px;
-    //transition: background-color 0.3s, opacity 0.3s;
-    //&:last-child{
-    //  margin-bottom: 0;
-    //}
-    //&:hover{
-    //  background-color: rgba(255, 255, 255, 0.05);
-    //  opacity: 50%;
-    //  transition: background-color 0.3s, opacity 0.3s;
-    //}
   }
   &__item-active{
     border-radius: 16px;
@@ -38,7 +30,12 @@
       opacity: 100%;
     }
   }
-
+  &__logout{
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    margin-bottom: 0;
+  }
   &__img{
     stroke: var(--color-title);
   }

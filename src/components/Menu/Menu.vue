@@ -5,12 +5,15 @@
     </router-link>
     <ul class="menu__list">
       <div class="menu__wrp">
-        <li class="menu__item" @click="active='home'" :class="{'menu__item-active':active==='home'}">
-          <router-link to="/" class="menu__link">
+        <li class="menu__item">
+          <router-link
+              class="menu__link"
+              exact-active-class="menu__item-active"
+              to="/">
             <HomeIcon/>
           </router-link>
         </li>
-        <li class="menu__item" @click="active='pets'" :class="{'menu__item-active':active=='pets'}">
+        <li class="menu__item">
           <router-link
               class="menu__link"
               active-class="menu__item-active"
@@ -19,24 +22,40 @@
             <PetsIcon/>
           </router-link>
         </li>
-        <li class="menu__item" @click="active='blog'" :class="{'menu__item-active':active=='blog'}">
-          <router-link to="/blog" class="menu__link">
+        <li class="menu__item">
+          <router-link
+              class="menu__link"
+              active-class="menu__item-active"
+              exact-active-class="menu__item-active"
+              to="/blog">
             <BlogIcon/>
           </router-link>
         </li>
-        <li class="menu__item" @click="active='chat'" :class="{'menu__item-active':active=='chat'}">
-          <router-link to="/chat" class="menu__link">
+        <li class="menu__item">
+          <router-link
+              class="menu__link"
+              active-class="menu__item-active"
+              exact-active-class="menu__item-active"
+              to="/chat">
             <ChatIcon/>
           </router-link>
         </li>
-        <li class="menu__item" @click="active='person-frame'" :class="{'menu__item-active':active=='person-frame'}">
-          <router-link to="/person-frame" class="menu__link">
+        <li class="menu__item">
+          <router-link
+              class="menu__link"
+              active-class="menu__item-active"
+              exact-active-class="menu__item-active"
+              to="/person-frame">
             <PersonIcon/>
           </router-link>
         </li>
       </div>
-      <li class="menu__item" @click="active='logout'" :class="{'menu__item-active':active=='logout'}">
-        <router-link to="/logout" class="menu__link">
+      <li class="menu__item menu__logout">
+        <router-link
+            class="menu__link"
+            active-class="menu__item-active"
+            exact-active-class="menu__item-active"
+            to="/logout">
           <LogoutIcon/>
         </router-link>
       </li>
@@ -56,19 +75,16 @@ import LogoutIcon from "@/../public/images/logoutIcon.svg?inline";
 export default {
   name: "Menu",
   components: {Logo, PetsIcon, HomeIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
-  data(){
-    return{
-      active: 'home',
-    }
-  },
-  computed:{
-    isActive(){
-      return this.active()
-    }
-  },
-  mounted() {
-    console.log(this.$route)
-  }
+  // data(){
+  //   return{
+  //     active: 'home',
+  //   }
+  // },
+  // computed:{
+  //   isActive(){
+  //     return this.active()
+  //   }
+  // },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="pets-filters">
+  <div>
     <FilterBlock v-for="(item,index) in pets"
                  :key="index"
                  :item="item.name"
@@ -30,9 +30,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .pets-filters{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-  }
+
 </style>

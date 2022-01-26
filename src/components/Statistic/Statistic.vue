@@ -49,7 +49,7 @@
 <script>
 // import StatisticDiagram from "@/components/Statistic-diagram/Statistic-diagram";
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import Graphic from "../Graphic";
+import Graphic from "../Graphic/Graphic";
 export default {
   name: "Statistic",
   components: {Graphic, Swiper, SwiperSlide},

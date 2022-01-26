@@ -1,4 +1,3 @@
-import store from '@/store';
 export const filtersModule = {
     namespaced: true,
     state:{
@@ -33,10 +32,10 @@ export const filtersModule = {
                 name:'Другие',
                 img:'images/Filter-others.svg'
             },
-        ],//все виды животных (коты, собаки, птицы и тд)
+        ],//меню фильтров (коты, собаки, птицы и тд)
         filteredPets: [],//фильтрованные животные
         filters:[],//отмеченные параметры фильтрации с id
-        posts:[],//каталог всех постов
+        catalog:[],//каталог всех постов
     },
     getters:{
         getFilterItems(state){
@@ -46,15 +45,23 @@ export const filtersModule = {
             return state.filters;
         },
         getFilteredPets(state){
-            return state.filteredPets;
+            if (!state.filters.length){
+                return state.filteredPets
+            } else {
+                return state.filteredPets.filter((el) => {
+                    return state.filters.filter((item) => {
+                        return item.id == el.groupID
+                    }).length
+                })
+            }
         },
         /**
          * Получение постов
          * @param {Object} state - общее хранилище модуля
          * @returns {Array} - массив объектов постов
          */
-        getPosts(state){
-            return state.posts;
+        getCatalog(state){
+            return state.catalog;
         },
     },
     mutations:{
@@ -78,26 +85,9 @@ export const filtersModule = {
          * @param state
          * @param payload
          */
-        setPosts(state, payload){state.posts = [ ...payload]},
-
-        addFilteredPets(state){
-            state.filteredPets.push(1)
-            console.log('!',state.posts)
-            console.log(store.getters['filtersModule/getPosts'])
-            // if (state.filters.length == 0){
-            //     console.log('1')
-            //     state.filteredPets = [...state.posts];
-            //     console.log(state.posts, state)
-            //
-            // } else {
-            //     console.log('2')
-            //     console.log(state)
-            //     state.filteredPets = state.posts.filter((el) => {
-            //         return state.filters.filter((item) => {
-            //             return item.id == el.id
-            //         }).length
-            //     })
-            // }
+        setCatalog(state, payload){state.catalog = [ ...payload]},
+        setFilteredPets(state, payload ){
+            state.filteredPets.push(...payload)
         },
 
     },
@@ -122,20 +112,14 @@ export const filtersModule = {
         /**
          * Загрузка постов с API
          */
-        loadPosts({commit}) {
-            return fetch('posts.json')
+        loadCatalog({commit}) {
+            return fetch('catalog.json')
                 .then(response => response.json())
                 .then(result => {
                     let array = Object.values(result.animals)
-                    commit('setPosts',array);
+                    commit('setCatalog',array);
+                    commit('setFilteredPets',array);
                 })
-        },
-        /**
-         * Экшен для фильтрации
-         * @param state
-         */
-        loadFilteredPets({commit}) {
-            commit('addFilteredPets')
         },
     }
 }

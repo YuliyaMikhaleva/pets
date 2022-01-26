@@ -115,6 +115,9 @@ body{
     grid-template-columns: 100%;
     grid-gap: 0;
     height: 100%;
+    &__menu{
+      display: none;
+    }
     &__header{
       margin-top: 20px;
     }

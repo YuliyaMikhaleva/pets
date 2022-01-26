@@ -1,8 +1,8 @@
 <template>
   <masonry-wall
-      :items="cats"
-      :column-width="335"
-      :gap="gap">
+      :items="pets"
+      :column-width="actualColumnWidth"
+      :gap="actualGap">
     <template #default="{ item, index }">
       <div
           class="item"
@@ -17,7 +17,7 @@
             :img="item.img"
             :bg="item.bgColor"
             style="height: 100%"
-            :imgHeight="(index % 2 === 0) ? 181 : 250" />
+            :imgHeight="(index % 2 === 0)  ? 181 : 250" />
       </div>
     </template>
   </masonry-wall>
@@ -27,31 +27,62 @@
 import {mapActions, mapGetters} from "vuex";
 import Post from "@/components/Post/Post";
 
-console.info()
-
 export default {
   name: "Pets-catalog",
   components: {Post},
   data() {
     return {
-      columnWidth: 335,
-      gap: 40,
-      rtl: false,
+      width: null
     }
   },
   mounted() {
-    this.loadPosts;
-    this.loadFilteredPets;
+    this.loadCatalog;
   },
-  computed: {
-    ...mapGetters('filtersModule', ['getPosts', 'getFilteredPets']),
-    ...mapActions('filtersModule',['loadPosts','loadFilteredPets']),
-    cats() {
-      return this.getPosts
-      // return this.getFilteredPets
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
     },
   },
-
+  created() {
+    window.addEventListener('resize', this.updateWidth);
+    this.updateWidth();
+  },
+  computed: {
+    ...mapGetters('filtersModule', ['getFilteredPets']),
+    ...mapActions('filtersModule',['loadCatalog']),
+    pets(){
+      return this.getFilteredPets
+    },
+    actualWidth(){
+      return this.width
+    },
+    actualGap(){
+      if (this.actualWidth >= 1281){
+        return 40
+      } else if (this.actualWidth > 768 && this.actualWidth <=1280){
+        return 20
+      } else if (this.actualWidth > 375 && this.actualWidth <=768){
+        return 30
+      } else {
+        return 20
+      }
+    },
+    actualColumnWidth(){
+      if (this.actualWidth >= 1281){
+        console.log(335)
+        return 335
+      } else if (this.actualWidth > 768 && this.actualWidth <=1280){
+        console.log(325)
+        return 325
+      } else if (this.actualWidth > 375 && this.actualWidth <=768){
+        console.log(345)
+        return 345
+      } else {
+        console.log(325)
+        return 325
+      }
+    }
+  },
 }
 </script>
 

@@ -50,7 +50,6 @@ export default {
   },
   computed: {
     word() {
-      console.log('imgHeight',this.imgHeight)
       let el = this.likes.toString().slice(-2)
       if (el == 1) {
         return " лайк "

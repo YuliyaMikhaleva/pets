@@ -27,7 +27,6 @@
                return this.views*100/this.maxCount
              },
              likesPercent(){
-                 console.log(this.maxCount)
                  return this.likes*100/this.maxCount
              }
 

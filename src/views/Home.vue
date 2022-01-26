@@ -35,7 +35,7 @@
           this.updateWidth();
         },
         computed:{
-          ...mapGetters('filtersModule',['getPosts']),
+          ...mapGetters('postsModule',['getPosts']),
           ...mapGetters('articlesModule',['getArticles']),
           postsArticles(){
             return this.getPosts

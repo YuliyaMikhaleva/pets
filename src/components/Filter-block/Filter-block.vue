@@ -1,18 +1,19 @@
 <template>
   <div class="filter-block">
     <label :for="item" class="filter-block__label">
-      <div class="filter-block__filter" :class="{'filter-block__active': active}">
-        <div class="filter-block__wrp-img">
-          <slot class="filter-block__filter-img"/>
+      <div class="filter-block__filter">
+        <div class="filter-block__wrp-img" :class="{'filter-block__wrpImg-active': active}">
+          <div class="filter-block__filter-img" :class="{'filter-block__img-active': active}">
+            <slot />
+          </div>
         </div>
-        <span class="filter-block__txt">{{item}}</span>
+        <span class="filter-block__txt"  :class="{'filter-block__text-active': active}" >{{item}}</span>
       </div>
     </label>
     <input
         class="filter-block__filter-input"
         :id="item" type="checkbox"
         @change="func()"
-
     >
   </div>
 </template>
@@ -43,12 +44,17 @@ export default {
 <style lang="scss" scoped>
 @import "./src/assets/variables";
 .filter-block{
-  width: 73px;
-  height: 73px;
+  transition: all 0.25s;
+
   &__txt{
     color: var(--color-text);
+    transition: all 0.25s;
+    position: absolute;
+    bottom: 10%;
   }
-
+  &__text-active{
+    color: #EDF2F7;
+  }
 
   &__filter{
     width: 73px;
@@ -66,6 +72,12 @@ export default {
     font-size: 10px;
     line-height: 12px;
     cursor: pointer;
+    position: relative;
+    transition: all 0.25s;
+    &:hover{
+      opacity: 40%;
+      transition: background 0.25s, opacity 0.25s;
+    }
   }
   &__wrp-img{
     width: 42px;
@@ -77,20 +89,44 @@ export default {
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    transition: all 0.25s;
   }
-  &__active{
-    background: #4C6FFF;
+  &__wrpImg-active{
+    //padding-bottom: 20%;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    border-radius: 16px;
+    transition: all 0.25s;
   }
+
   &__filter-img{
     display: flex;
     justify-content: center;
     margin: 0;
+    transition: all 0.25s;
+  }
+  &__img-active{
+    margin-bottom: 18.5%;
+    transition: all 0.25s;
   }
   &__filter-input{
     display: none;
   }
 
+}
+
+@media (max-width: 1280px) {
+  .filter-block{
+    &__filter {
+      width: 95px;
+      height: 91px;
+    }
+    //&__txt{
+    //  margin-bottom: 20%;
+    //}
+  }
 }
 
 </style>
