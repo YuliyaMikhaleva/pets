@@ -1,5 +1,12 @@
 <template>
         <div class="pets">
+            <swiper v-if="actualWidth<=375" :options="swiperOption" class="swiper">
+                <swiper-slide v-for="item of pets" :key="item.name" class="pets__slide-filter">
+                    <FilterBlock :item="item.name">
+                        <img :src="item.img" alt="photo">
+                    </FilterBlock>
+                </swiper-slide>
+            </swiper>
           <div>
             <PetsFilters class="pets__filters pets__container"/>
           </div>
@@ -10,11 +17,41 @@
 </template>
 
 <script>
+    import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+    import 'swiper/css/swiper.css'
     import PetsFilters from "@/components/Pets-filters/Pets-filters";
     import PetsCatalog from "@/components/Pets-catalog/Pets-catalog";
+    import {mapGetters} from "vuex";
+    import FilterBlock from "../components/Filter-block/Filter-block";
 export default {
         name: "Pets",
-  components: {PetsCatalog, PetsFilters},
+  components: {FilterBlock, PetsCatalog, PetsFilters, Swiper, SwiperSlide},
+    data:() => ({
+        swiperOption: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            // centeredSlides:true
+        },
+        width:null,
+    }),
+    methods: {
+        updateWidth() {
+            this.width = window.innerWidth;
+        },
+    },
+    created() {
+        window.addEventListener('resize', this.updateWidth);
+        this.updateWidth();
+    },
+    computed:{
+        ...mapGetters('filtersModule', ['getFilterItems','getFilteredPets']),
+        pets() {
+            return this.getFilterItems
+        },
+        actualWidth(){
+            return this.width
+        }
+    }
     }
 </script>
 
@@ -62,14 +99,10 @@ export default {
         margin-left: 24px;
         margin-right: 24px;
       }
-      &__wrp{
-        min-width: 720px;
-      }
       &__filters{
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(auto-fill, 95px);
         margin-bottom: 30px;
-        grid-gap: 30px;
-        min-width: 720px;
+        justify-content: space-between;
       }
     }
   }
@@ -78,7 +111,14 @@ export default {
   @media (max-width: 375px) {
     .pets{
       margin-top: 40px;
-
+      &__filters{
+          display: none;
+          /*grid-template-columns: repeat(6, 95px);*/
+      }
+      &__slide-filter{
+          width: 95px;
+          margin-bottom: 20px;
+      }
     }
   }
 
