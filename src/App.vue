@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     updateWidth() {
-      this.width = window.innerWidth;
+      this.width = document.body.clientWidth;
     },
   },
   created() {

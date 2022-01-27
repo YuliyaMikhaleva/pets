@@ -34,7 +34,12 @@ export default {
       },
       breakpoints: {
         320: {
-          slidesPerView: 'auto',
+          slidesPerView: 1.15,
+          spaceBetween: 13,
+          centeredSlides:true
+        },
+        376: {
+          slidesPerView: 1,
           spaceBetween: 13,
           centeredSlides:true
         },
@@ -74,7 +79,7 @@ export default {
   },
   methods: {
     updateWidth() {
-      this.width = window.innerWidth;
+      this.width = document.body.clientWidth;
     },
   },
   created() {

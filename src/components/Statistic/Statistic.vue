@@ -111,7 +111,7 @@ export default {
   }),
   methods: {
     updateWidth() {
-      this.width = window.innerWidth;
+      this.width = document.body.clientWidth;
     },
     updateSlide(){
       this.actualSlide = this.$refs.swiper.$swiper.realIndex

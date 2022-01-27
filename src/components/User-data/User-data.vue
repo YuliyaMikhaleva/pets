@@ -68,7 +68,7 @@ export default {
       setTimeout(self.date, 1000)
     },
     updateWidth() {
-      this.width = window.innerWidth;
+      this.width = document.body.clientWidth;
     },
   },
   created() {

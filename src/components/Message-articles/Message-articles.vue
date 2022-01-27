@@ -66,8 +66,13 @@ export default {
       },
       breakpoints: {
         // when window width is >= 320px
-        320: {
-          slidesPerView: 'auto',
+        320:{
+          slidesPerView: 1.15,
+          spaceBetween: 13,
+          centeredSlides:true
+        },
+        376: {
+          slidesPerView: 1,
           spaceBetween: 13,
           centeredSlides:true
         },
@@ -89,7 +94,7 @@ export default {
   }),
   methods: {
     updateWidth() {
-      this.width = window.innerWidth;
+      this.width = document.body.clientWidth;
     },
     moment,
     time() {
