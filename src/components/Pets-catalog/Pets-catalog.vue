@@ -2,7 +2,8 @@
   <masonry-wall
       :items="pets"
       :column-width="actualColumnWidth"
-      :gap="actualGap">
+      :gap="actualGap"
+  >
     <template #default="{ item, index }">
       <div
           class="item"
@@ -87,8 +88,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  //.item{
-  //  background: #66CB9F;
-  //  border: 1px solid white;
-  //}
+
 </style>
