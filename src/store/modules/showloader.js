@@ -1,7 +1,7 @@
 export const showloaderModule = {
     namespaced: true,
     state:{
-        showloader:true,
+        showloader:false,
     },
     getters:{
         /**
@@ -19,7 +19,6 @@ export const showloaderModule = {
          * @param state
          */
         turnOnShowloader(state){
-            console.log('Загрузка')
             state.showloader = true;
         },
         /**

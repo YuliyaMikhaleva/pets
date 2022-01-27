@@ -70,16 +70,12 @@ export default {
     },
     actualColumnWidth(){
       if (this.actualWidth >= 1281){
-        console.log(335)
         return 335
       } else if (this.actualWidth > 768 && this.actualWidth <=1280){
-        console.log(325)
         return 325
       } else if (this.actualWidth > 375 && this.actualWidth <=768){
-        console.log(345)
         return 345
       } else {
-        console.log(325)
         return 325
       }
     }

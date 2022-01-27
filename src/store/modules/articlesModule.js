@@ -1,3 +1,4 @@
+import store from '@/store'
 export const articlesModule = {
     namespaced: true,
     state:{
@@ -26,10 +27,14 @@ export const articlesModule = {
          * Загрузка статей с API
          */
         loadArticles({commit}) {
+            store.commit('showloaderModule/turnOnShowloader');
             return fetch('message-articles.json')
                 .then(response => response.json())
                 .then(result => {
                     commit('setArticles',result);
+                })
+                .then(() => {
+                    store.commit('showloaderModule/turnOfShowloader');
                 })
         },
     }

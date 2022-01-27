@@ -1,3 +1,4 @@
+import store from '@/store'
 export const filtersModule = {
     namespaced: true,
     state:{
@@ -113,12 +114,16 @@ export const filtersModule = {
          * Загрузка постов с API
          */
         loadCatalog({commit}) {
+            store.commit('showloaderModule/turnOnShowloader');
             return fetch('catalog.json')
                 .then(response => response.json())
                 .then(result => {
                     let array = Object.values(result.animals)
                     commit('setCatalog',array);
                     commit('setFilteredPets',array);
+                })
+                .then(() => {
+                    store.commit('showloaderModule/turnOfShowloader');
                 })
         },
     }

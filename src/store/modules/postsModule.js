@@ -35,7 +35,7 @@ export const postsModule = {
                     commit('setPosts',array);
                 })
                 .then(() => {
-                    // store.commit('showloaderModule/turnOfShowloader');
+                    store.commit('showloaderModule/turnOfShowloader');
                 })
         },
     }
