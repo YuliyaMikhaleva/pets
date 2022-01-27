@@ -1,3 +1,4 @@
+import store from '@/store'
 export const postsModule = {
     namespaced: true,
     state:{
@@ -26,11 +27,15 @@ export const postsModule = {
          * Загрузка постов с API
          */
         loadPosts({commit}) {
+            store.commit('showloaderModule/turnOnShowloader');
             return fetch('posts.json')
                 .then(response => response.json())
                 .then(result => {
                     let array = Object.values(result.animals)
                     commit('setPosts',array);
+                })
+                .then(() => {
+                    // store.commit('showloaderModule/turnOfShowloader');
                 })
         },
     }

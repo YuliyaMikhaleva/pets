@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import {articlesModule} from "./modules/articlesModule";
 import {filtersModule} from "@/store/modules/filtersModule";
 import {postsModule} from "@/store/modules/postsModule";
+import {showloaderModule} from "@/store/modules/showloader";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     modules: {
         articlesModule,
         filtersModule,
-        postsModule
+        postsModule,
+        showloaderModule
     },
 });

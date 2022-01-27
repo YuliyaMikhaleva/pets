@@ -75,16 +75,7 @@ import LogoutIcon from "@/../public/images/logoutIcon.svg?inline";
 export default {
   name: "Menu",
   components: {Logo, PetsIcon, HomeIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
-  // data(){
-  //   return{
-  //     active: 'home',
-  //   }
-  // },
-  // computed:{
-  //   isActive(){
-  //     return this.active()
-  //   }
-  // },
+
 }
 </script>
 

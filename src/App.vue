@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="main">
+    <Loader v-if="getShowloader"/>
     <Menu v-if="actualWidth>768" class="main__menu"/>
     <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
     <div>
@@ -15,10 +16,12 @@
   import Menu from "./components/Menu/Menu";
   import {mapGetters} from "vuex";
   import MobileMenu from "@/components/Mobile-menu/Mobile-menu";
+  import Loader from "@/components/Loader/Loader";
 
 export default {
   name: 'App',
   components: {
+    Loader,
     MobileMenu,
     Menu,
     Header
@@ -38,6 +41,7 @@ export default {
     this.updateWidth();
   },
   computed:{
+    ...mapGetters('showloaderModule',['getShowloader']),
     ...mapGetters('postsModule',['getPosts']),
     ...mapGetters('articlesModule',['getArticles']),
     postsArticles(){
