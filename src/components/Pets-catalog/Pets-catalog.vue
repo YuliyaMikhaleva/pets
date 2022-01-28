@@ -8,7 +8,6 @@
       <div
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-          :style="`height: ${item}px;`"
       >
         <Post
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"

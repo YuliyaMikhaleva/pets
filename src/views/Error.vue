@@ -19,7 +19,6 @@
     &__img{
       width: 100%;
       max-width: 517px;
-      //height: 418px;
       display: block;
       margin: 0 auto;
     }

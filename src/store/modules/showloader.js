@@ -1,7 +1,7 @@
 export const showloaderModule = {
     namespaced: true,
     state:{
-        showloader:false,
+        showloader:true,
     },
     getters:{
         /**
@@ -30,11 +30,11 @@ export const showloaderModule = {
         },
     },
     actions:{
-        addShowloader({commit}){
-            commit('turnOnShowloader')
-        },
-        deleteShowloader({commit}){
-            commit('turnOfShowloader')
-        },
+        // addShowloader({commit}){
+        //     commit('turnOnShowloader')
+        // },
+        // deleteShowloader({commit}){
+        //     commit('turnOfShowloader')
+        // },
     }
 }

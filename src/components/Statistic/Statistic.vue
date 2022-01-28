@@ -1,3 +1,4 @@
+<!--Должны выводиться в цикле и брать данные из файла!-->
 <template>
   <article class="statistic">
     <div class="statistic__block">
@@ -56,11 +57,11 @@ export default {
   props:{
     likes:{
       type:String,
-      required:true
+      required:false
     },
     name:{
       type:String,
-      required:true
+      required:false
     },
   },
   data:() => ({
@@ -71,17 +72,6 @@ export default {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
-      // on:{
-      //   slideChange(){
-      //     // this.$refs.swiper.$swiper.realIndex;
-      //     // let slide = document.querySelector('.statistic__slide.swiper-slide.swiper-slide-next');
-      //     // console.log(slide)
-      //     // let activeId = slide.getAttribute('id');
-      //     // this.actualSlide = activeId;
-      //     // console.log(t)
-      //     console.log(this.$refs.swiper)
-      //   }
-      // }
     },
     width:null,
     days:['пн','вт','ср','чт','пт','сб','вс'],
@@ -115,8 +105,6 @@ export default {
     },
     updateSlide(){
       this.actualSlide = this.$refs.swiper.$swiper.realIndex
-
-      // console.log(this.$refs.swiper)
     }
   },
   created() {

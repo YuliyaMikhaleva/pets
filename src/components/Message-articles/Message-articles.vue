@@ -1,5 +1,11 @@
 <template>
   <section class="message-articles">
+    <div class="message-articles__shadowRight">
+      <div v-if="actualWidth>375" class="swiper-button-next message-articles__arrow" slot="button-next"></div>
+    </div>
+    <div class="message-articles__shadowLeft">
+      <div v-if="actualWidth>375" class="swiper-button-prev message-articles__arrow-left" slot="button-prev"></div>
+    </div>
     <swiper
         class="swiper message-articles__wrp"
         :options="swiperOption"
@@ -16,8 +22,6 @@
             :bg="article.bgColor"
         />
       </swiper-slide>
-      <div v-if="actualWidth>375" class="swiper-button-next message-articles__arrow" slot="button-next"></div>
-      <div v-if="actualWidth>375" class="swiper-button-prev message-articles__arrow-left" slot="button-prev"></div>
     </swiper>
     <NewPost v-if="actualWidth <=1280 && actualWidth>375" class="message-articles__new-post"/>
     <TimeDate v-if="actualWidth <=1280 && actualWidth>375"
@@ -61,8 +65,8 @@ export default {
       slidesPerView: 4,
       spaceBetween: 40,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.message-articles .message-articles__shadowRight',
+        prevEl: '.message-articles .message-articles__shadowLeft'
       },
       breakpoints: {
         // when window width is >= 320px
@@ -117,14 +121,13 @@ export default {
     this.time();
     this.date();
     window.addEventListener('resize', this.$refs.swiperMessages.$swiper.update());
-
   },
   computed:{
     ...mapActions('articlesModule',['loadArticles']),
     ...mapGetters('articlesModule',['getArticles']),
     actualWidth(){
       return this.width
-    }
+    },
   }
 
 }

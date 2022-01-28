@@ -1,20 +1,28 @@
 @import "./src/assets/variables";
 .message-articles{
+  position: relative;
   &__wrp{
     grid-area: articles;
     margin: 0;
     position: relative;
   }
-  &__wrp:before{
-    content: "";
-    display: block;
-    width: 180px;
-    height: 100vh;
-    background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
+  &__shadowRight{
     position: absolute;
     top: 0;
-    right:0;
-    z-index: 99;
+    right: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
+    z-index: $zIndex1;
+  }
+  &__shadowLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(89.87deg, var(--color2-slider-shadow) 6.42%, var(--color1-slider-shadow) 75.23%);
+    z-index: $zIndex1;
   }
   &__arrow{
     width: 46px;
@@ -22,7 +30,7 @@
     right: 0;
     background-color: rgba(255, 255, 255, 0.12);
     border-radius: 100px;
-    z-index: 99999;
+    z-index: $zIndex2;
     transition: opacity 0.3s;
     &:hover{
       opacity: 50%;
@@ -36,6 +44,7 @@
     background-color: rgba(255, 255, 255, 0.12);
     border-radius: 100px;
     transition: opacity 0.3s;
+    z-index: $zIndex2;
     &:hover{
       opacity: 50%;
       transition: opacity 0.3s;
@@ -80,6 +89,13 @@
   display:none;
 }
 
+@media (max-width: 1280px) {
+  .message-articles{
+    &__shadowRight{
+      right: 45%;
+    }
+  }
+}
 @media (max-width: 768px) {
   .message-articles{
     &__new-post{
@@ -89,6 +105,13 @@
       width: 100%;
       text-align: center;
     }
+    &__shadowRight{
+      height: 38%;
+      right: 0%;
+    }
+    &__shadowLeft{
+      height: 38%;
+    }
   }
 }
 @media (max-width: 375px) {
@@ -96,7 +119,10 @@
     &__slide{
       width: 325px;
     }
-    &__wrp:before{
+    &__shadowRight{
+      display: none;
+    }
+    &__shadowLeft{
       display: none;
     }
   }

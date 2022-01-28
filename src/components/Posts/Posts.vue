@@ -1,14 +1,21 @@
 <template>
   <section class="posts">
-    <swiper
-        :options="swiperOption"
-        class="posts__slider swiper">
-      <swiper-slide class="posts__slide" v-for="post of posts" :key="post.name">
-        <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
-      </swiper-slide>
-      <div v-if="actualWidth>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
-      <div v-if="actualWidth>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
-    </swiper>
+    <div class="posts__slider">
+      <div class="posts__shadowRight">
+        <div v-if="actualWidth>375" class="swiper-button-next posts__arrow" slot="button-next"></div>
+      </div>
+      <div class="posts__shadowLeft">
+        <div v-if="actualWidth>375" class="swiper-button-prev posts__arrow-left" slot="button-prev"></div>
+      </div>
+      <swiper
+          :options="swiperOption"
+          class=" swiper">
+        <swiper-slide class="posts__slide" v-for="post of posts" :key="post.name">
+          <Post :name="post.name" :tag="post.type" :likes="post.likes" :img="post.img" :bg="post.bgColor"/>
+        </swiper-slide>
+      </swiper>
+
+    </div>
     <NewPost v-if="actualWidth<=375 || actualWidth>1280" class="posts__new-post"/>
     <Statistic class="posts__graphic" name="Johny" likes="3"/>
   </section>
@@ -29,8 +36,8 @@ export default {
       slidesPerView: 2,
       spaceBetween: 40,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.posts__slider .posts__shadowRight',
+        prevEl: '.posts__slider .posts__shadowLeft'
       },
       breakpoints: {
         320: {
@@ -88,12 +95,6 @@ export default {
   },
   mounted() {
     this.loadPosts;
-
-    // let posts = document.querySelectorAll('.post');
-    // let activeBlock = blocks.filter((el) => e)
-    //
-    // console.log(blocks)
-
   },
   computed:{
     ...mapActions('postsModule',['loadPosts']),
@@ -110,21 +111,28 @@ export default {
   @import "./src/assets/variables";
   @import "./src/components/Post/Post.module.scss";
   .posts{
+    &__shadowRight{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 180px;
+      height: 100%;
+      background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
+      z-index: $zIndex1;
+    }
+    &__shadowLeft{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      background: linear-gradient(89.87deg, var(--color2-slider-shadow) 6.42%, var(--color1-slider-shadow) 75.23%);
+      z-index: $zIndex1;
+    }
     &__slider{
       grid-area: posts;
       margin: 0;
       position: relative;
-    }
-    &__slider::before{
-      content: "";
-      display: block;
-      width: 180px;
-      height: 100vh;
-      background: linear-gradient(89.87deg, var(--color1-slider-shadow) 6.42%, var(--color2-slider-shadow) 75.23%);
-      position: absolute;
-      top: 0;
-      right:-2px;
-      z-index: 99;
     }
     &__new-post{
       grid-area: new-post;
@@ -141,7 +149,7 @@ export default {
       width: 46px;
       height: 46px;
       left: 0;
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: var(--color-arrow-slider);
       border-radius: 100px;
       transition: opacity 0.3s;
       &:hover{
@@ -165,9 +173,9 @@ export default {
       width: 46px;
       height: 46px;
       right: 0;
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: var(--color-arrow-slider);
       border-radius: 100px;
-      z-index: 99999;
+      z-index: $zIndex2;
       transition: opacity 0.3s;
       &:hover{
         opacity: 50%;
@@ -196,6 +204,12 @@ export default {
   @media (max-width: 375px) {
     .posts{
       margin-bottom:22px;
+      &__shadowRight{
+        display: none;
+      }
+      &__shadowLeft{
+        display: none;
+      }
       &__graphic{
         display: none;
       }

@@ -1,10 +1,7 @@
 <template>
     <div class="graphic">
-<!--        <img class="statistic__img-cats" src="images/1.jpg" alt="photo">-->
         <div :activeSlide="slide" v-show="(index)==+activeSlide" class="graphic__block" v-for="(element,index) in newArray" v-bind:key="index" :id="index">
             <GraphicsItem v-for="item of element" :likes="item.likes" :views="item.views" v-bind:key="item.id" :maxCount="maxItem(element)+2"/>
-<!--            <span v-show="item.likes==likesCount" v-for="(index) in 7" :key="index">{{ index + 16 }}</span>-->
-<!--            <span v-show="item.likes==likesCount"  v-for="item of days" :key="item">{{ item }}</span>-->
        </div>
     </div>
 </template>
@@ -15,10 +12,6 @@
         name: "Graphic",
         components: {GraphicsItem},
         props:{
-            // likesCount:{
-            //     type:String,
-            //     required:true
-            // },
             activeSlide:{
                 type:Number,
                 required:true
@@ -241,7 +234,7 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             grid-column-gap: 30.99px;
-            /*margin-bottom: 20px;*/
+            margin-bottom: 27.5px;
             color: white;
         }
     }

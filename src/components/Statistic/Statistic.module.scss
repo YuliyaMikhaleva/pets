@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-right: 10px;
+    height: 234px;
   }
   &__img{
     width: 180px;
@@ -105,11 +106,9 @@
     width: 12px;
   }
   &__date-numbers{
-    //margin: 27.5px 0 0 0;
     color: var(--color-text);
   }
   &__date-days{
-    margin: 6px 0 0 0;
     color:#96A7AF;
   }
   &__arrow-left{
@@ -134,7 +133,7 @@
       width: 16px;
       height: 16px;
       transform: rotate(45deg);
-      z-index: 99999999999999999;
+      z-index: $zIndex3;
       transition: display 0.3s;
 
     }

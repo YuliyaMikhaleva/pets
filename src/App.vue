@@ -42,14 +42,6 @@ export default {
   },
   computed:{
     ...mapGetters('showloaderModule',['getShowloader']),
-    ...mapGetters('postsModule',['getPosts']),
-    ...mapGetters('articlesModule',['getArticles']),
-    postsArticles(){
-      return this.getPosts
-    },
-    messagesArticles(){
-      return this.getArticles
-    },
     actualWidth(){
       return this.width
     }

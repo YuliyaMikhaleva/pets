@@ -16,6 +16,8 @@
   </article>
 </template>
 
+<!--В идеале выводятся в цикле!!!-->
+
 <script>
 import Avatar from "@/components/Avatar/Avatar";
 export default {

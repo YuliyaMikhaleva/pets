@@ -18,12 +18,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "./src/assets/variables";
   .loader{
     background: #29272E;
     opacity: 80%;
     width: 100%;
     height: 100%;
-    z-index: 99999999999999999;
+    z-index: $zIndex4;
     position: fixed;
     top: 0;
     left: 0;

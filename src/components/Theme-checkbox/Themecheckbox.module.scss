@@ -17,12 +17,7 @@
     display: block;
     border-radius: 100px;
     position: relative;
-    //border: 1px solid black;
     transition: all 0.3s;
-    //&:hover{
-    //  border: 1px solid var(--bg-button);
-    //  ransition: all 0.3s;
-    //}
     &:after{
       content: '';
       display: block;
@@ -37,12 +32,12 @@
       background-color: $blueColor;
       border-radius: 90px;
       transition: 0.25s;
-      z-index: 9999;
+      z-index: $zIndex1;
     }
   }
   &__darkTheme{
     position: absolute;
-    z-index: 999;
+    z-index: $zIndex1;
     top: 13px;
     left: 25%;
     cursor: pointer;
@@ -53,7 +48,6 @@
   }
   &__lightTheme{
     position: absolute;
-    //z-index: 999;
     top: 13.43px;
     right: 17%;
     cursor: pointer;

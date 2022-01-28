@@ -35,10 +35,11 @@
 </script>
 
 <style lang="scss" scoped>
+@import "./src/assets/variables";
     .graphics-item{
         width: 9.68px;
         height: 138.38px;
-        background-color: #2A3C44;
+        background-color: var(--color-graphic-block);
         border-radius: 6px;
         display: flex;
         flex-direction: column;
