@@ -1,23 +1,10 @@
-<!--Должны выводиться в цикле и брать данные из файла!-->
 <template>
   <article class="statistic">
     <div class="statistic__block">
       <div class="statistic__img">
         <swiper :options="swiperOption" class="statistic__slider" ref="swiper" @slideChange="updateSlide">
-          <swiper-slide class="statistic__slide" id="1">
-              <img class="statistic__img-cat" src="images/cat2.jpg" alt="photo">
-          </swiper-slide>
-          <swiper-slide class="statistic__slide" id="2" >
-            <img class="statistic__img-cat" src="images/petBob.png" alt="photo">
-          </swiper-slide>
-          <swiper-slide class="statistic__slide" id="3">
-            <img class="statistic__img-cat"  src="images/cat2.jpg" alt="photo">
-          </swiper-slide>
-          <swiper-slide class="statistic__slide" id="4">
-            <img class="statistic__img-cat"  src="images/petBob.png" alt="photo">
-          </swiper-slide>
-          <swiper-slide class="statistic__slide" id="5">
-            <img class="statistic__img-cat"  src="images/cat2.jpg" alt="photo">
+          <swiper-slide class="statistic__slide" v-for="item of cats" :key="item.name">
+            <img class="statistic__img-cat" :src="item.img" alt="photo">
           </swiper-slide>
           <div class="swiper-button-prev statistic__arrow-left" slot="button-prev"></div>
           <div class="swiper-button-next statistic__arrow-right" slot="button-next"></div>
@@ -26,7 +13,7 @@
 
       <div class="statistic__txt">
         <span class="statistic__title">{{cats[actualSlide].name}}</span>
-        <span> <span>{{ cats[actualSlide].likes }} </span> лайка</span>
+        <span> <span>{{ cats[actualSlide].likes }} </span> {{word}} </span>
       </div>
     </div>
     <div class="statistic__diagram">
@@ -34,13 +21,12 @@
         <span class="statistic__data-item">Лайки</span>
         <span class="statistic__data-item">Просмотры</span>
       </div>
-      <Graphic :activeSlide="actualSlide"/>
-      <!--      <StatisticDiagram/>-->
+      <Graphic :activeSlide="actualSlide" :array="this.getGraphics"/>
       <ul class="statistic__dates statistic__date-numbers">
-        <li class="statistic__dates statistic__date-numbers" v-for="index in 7" :key="index">{{ index + 16 }}</li>
+        <li class="statistic__dates statistic__date-numbers" v-for="item of weekDays" :key="item">{{ item }}</li>
       </ul>
       <ul class="statistic__dates statistic__date-days">
-        <li class="statistic__dates statistic__date-days" v-for="item of days" :key="item">{{ item }}</li>
+        <li class="statistic__dates statistic__date-days" v-for="day of namesOfDays" :key="day">{{ day }}</li>
       </ul>
     </div>
   </article>
@@ -48,9 +34,10 @@
 </template>
 
 <script>
-// import StatisticDiagram from "@/components/Statistic-diagram/Statistic-diagram";
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import Graphic from "../Graphic/Graphic";
+import moment from "moment";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "Statistic",
   components: {Graphic, Swiper, SwiperSlide},
@@ -74,30 +61,11 @@ export default {
       },
     },
     width:null,
-    days:['пн','вт','ср','чт','пт','сб','вс'],
     actualSlide:1,
-    cats:[
-      {
-        name:'Johny',
-        likes: 3
-      },
-      {
-        name:'Loki',
-        likes: 2
-      },
-      {
-        name:'Bob',
-        likes: 1
-      },
-      {
-        name:'Murka',
-        likes: 3
-      },
-      {
-        name:'Vasya',
-        likes: 2
-      },
-    ]
+    dateNow:"",//сегодняшнее число (начало этой недели)
+    dateEnd:"",//конец недели число (конец этой недели)
+    weekDays:[],//числа недели начиная с сегодняшнего
+    namesOfDays:[],//названия дней недели начиная с сегодняшнего
   }),
   methods: {
     updateWidth() {
@@ -105,17 +73,52 @@ export default {
     },
     updateSlide(){
       this.actualSlide = this.$refs.swiper.$swiper.realIndex
-    }
+    },
+    moment,
+    date(){
+      this.dateNow = +(moment().locale('ru').format('L').slice(0,2));
+    },
+    weekEnd(){
+      this.dateEnd = +(moment().add('days', 6).locale('ru').format('L').slice(0,2));
+    },
+    weekArr(){
+      for (let i = 0; i<=6; i++){
+        let day = +(moment().add('days', i).locale('ru').format('L').slice(0,2))
+        let nameOfDay = moment().day(i).locale('ru').format('dd').toUpperCase()
+        this.weekDays.push(day);
+        this.namesOfDays.push(nameOfDay)
+      }
+    },
   },
   created() {
     window.addEventListener('resize', this.updateWidth);
     this.updateWidth();
   },
   computed:{
+    ...mapActions('statisticsModule',['loadStatistic']),
+    ...mapGetters('statisticsModule',['getStatistic', 'getGraphics']),
     slide(){
-      console.log('Активный слайд:', this.actualSlide);
       return this.actualSlide
     },
+    cats(){
+      return this.getStatistic
+    },
+    word() {
+      let el = this.cats[this.slide].likes
+      if (el == 1) {
+        return " лайк "
+      } else if (el == 2 || el == 3 || el == 4){
+        return " лайка "
+      } else {
+        return " лайков "
+      }
+    },
+  },
+  mounted() {
+    this.date();
+    this.weekEnd();
+    this.weekArr();
+    this.loadStatistic;
   }
 }
 </script>
