@@ -9,8 +9,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 13.46px;
     left: 30px;
     transition: all 0.3s;
     cursor: pointer;
@@ -136,6 +136,8 @@
     &__icon {
       width: 32px;
       height: 32px;
+      top: 20px;
+      left: 25px;
     }
   }
 }

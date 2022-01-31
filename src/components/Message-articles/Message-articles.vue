@@ -23,8 +23,8 @@
         />
       </swiper-slide>
     </swiper>
-    <NewPost v-if="actualWidth <=1280 && actualWidth>375" class="message-articles__new-post"/>
-    <TimeDate v-if="actualWidth <=1280 && actualWidth>375"
+    <NewPost v-if="actualWidth <=1280 && actualWidth>768" class="message-articles__new-post"/>
+    <TimeDate v-if="actualWidth <=1280 && actualWidth>768"
         class="message-articles__time-date"
         text="На часах у нас"
         :time-date="timeNow"

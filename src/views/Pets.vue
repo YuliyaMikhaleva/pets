@@ -34,7 +34,6 @@ export default {
     display: grid;
     grid-template-columns: 260px auto;
     grid-column-gap: 40px;
-    margin-top: 85px;
 
     &__container{
       margin-right: 30px;
@@ -68,7 +67,6 @@ export default {
   @media (max-width: 768px) {
     .pets{
       grid-template-columns: auto;
-      margin-top: 41px;
       &__container{
         margin-left: 24px;
         margin-right: 24px;
@@ -82,7 +80,6 @@ export default {
   }
   @media (max-width: 375px) {
     .pets{
-      margin-top: 40px;
       &__filters{
           grid-template-columns: repeat(6, 95px);
       }

@@ -17,7 +17,7 @@
 
     </div>
     <NewPost v-if="actualWidth<=375 || actualWidth>1280" class="cards__new-post"/>
-    <Statistic class="cards__graphic" name="Johny" likes="3"/>
+    <Statistic v-if="actualWidth<=375 || actualWidth>768" class="cards__graphic" name="Johny" likes="3"/>
   </section>
 </template>
 

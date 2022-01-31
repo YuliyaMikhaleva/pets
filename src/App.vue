@@ -4,8 +4,8 @@
     <Menu v-if="actualWidth>768" class="main__menu"/>
     <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
     <div>
-      <Header class="main__header container"/>
-      <router-view  class="router-view"/>
+      <Header class="main__header"/>
+      <router-view  class="router-view main__router-view"/>
     </div>
   </div>
 </template>
