@@ -133,7 +133,7 @@
       width: 16px;
       height: 16px;
       transform: rotate(45deg);
-      z-index: $zIndex3;
+      z-index: var(--zIndex3);
       transition: display 0.3s;
 
     }
@@ -153,4 +153,8 @@
       width: 265px;
     }
   }
+}
+
+.swiper-button-disabled{
+  display:none;
 }

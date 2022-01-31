@@ -35,23 +35,5 @@
 </script>
 
 <style lang="scss" scoped>
-@import "./src/assets/variables";
-    .graphics-item{
-        width: 9.68px;
-        height: 138.38px;
-        background-color: var(--color-graphic-block);
-        border-radius: 6px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        &__views{
-            background-color: #66CB9F;
-            border-radius: 6px;
-        }
-        &__likes{
-            background-color: #F16063;
-            border-radius: 6px;
-            margin-bottom: 3.82px;
-        }
-    }
+  @import "Graphics-item.module";
 </style>

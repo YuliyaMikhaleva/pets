@@ -5,48 +5,13 @@
     </router-link>
     <ul class="menu__list">
       <div class="menu__wrp">
-        <li class="menu__item">
+
+        <li class="menu__item" v-for="item of menuLinks" :key="item.path">
           <router-link
               class="menu__link"
               exact-active-class="menu__item-active"
-              to="/">
-            <HomeIcon/>
-          </router-link>
-        </li>
-        <li class="menu__item">
-          <router-link
-              class="menu__link"
-              active-class="menu__item-active"
-              exact-active-class="menu__item-active"
-              to="/pets">
-            <PetsIcon/>
-          </router-link>
-        </li>
-        <li class="menu__item">
-          <router-link
-              class="menu__link"
-              active-class="menu__item-active"
-              exact-active-class="menu__item-active"
-              to="/blog">
-            <BlogIcon/>
-          </router-link>
-        </li>
-        <li class="menu__item">
-          <router-link
-              class="menu__link"
-              active-class="menu__item-active"
-              exact-active-class="menu__item-active"
-              to="/chat">
-            <ChatIcon/>
-          </router-link>
-        </li>
-        <li class="menu__item">
-          <router-link
-              class="menu__link"
-              active-class="menu__item-active"
-              exact-active-class="menu__item-active"
-              to="/person-frame">
-            <PersonIcon/>
+              :to="item.path">
+            <component :is="item.meta.icon"/>
           </router-link>
         </li>
       </div>
@@ -74,7 +39,12 @@ import PersonIcon from "@/../public/images/personIcon.svg?inline";
 import LogoutIcon from "@/../public/images/logoutIcon.svg?inline";
 export default {
   name: "Menu",
-  components: {Logo, PetsIcon, HomeIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
+  components: {Logo,HomeIcon, PetsIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
+  computed:{
+    menuLinks(){
+      return this.$router.options.routes.filter(el => el.meta && el.meta.menu)
+    }
+  }
 
 }
 </script>

@@ -111,7 +111,7 @@ export const filtersModule = {
         },
 
         /**
-         * Загрузка постов с API
+         * Загрузка каталога с API
          */
         loadCatalog({commit}) {
             store.commit('showloaderModule/turnOnShowloader');

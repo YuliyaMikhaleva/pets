@@ -17,6 +17,11 @@
   --color-error-text:rgba(255, 255, 255, 0.69);
   --color-arrow-slider:rgba(255, 255, 255, 0.12);//цвет стрелок слайдера с котиками
   --color-graphic-block:#2A3C44;
+  --blueColor:#4C6FFF;
+  --zIndex1:10;
+  --zIndex2:50;
+  --zIndex3:100;
+  --zIndex4:1000;
 }
 //светлая тема
 [theme="light"]{
@@ -39,8 +44,10 @@
   --color-graphic-block:#EDF2F7;
 }
 
-$blueColor: #4C6FFF;
-$zIndex1:999;
-$zIndex2:999999;
-$zIndex3:999999999999;
-$zIndex4:99999999999999999;
+
+
+//$blueColor: #4C6FFF;
+//$zIndex1:10;
+//$zIndex2:50;
+//$zIndex3:100;
+//$zIndex4:1000;

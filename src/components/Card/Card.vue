@@ -1,22 +1,23 @@
 <template>
-  <article class="post">
-    <div class="post__img-container"  :style="`height: ${imgHeight}px;`">
-      <img class="post__img"  :src="img" alt="photo">
+  <article class="card">
+    <div class="card__img-container"  :style="`height: ${imgHeight}px;`">
+      <img class="card__img"  :src="img" alt="photo">
     </div>
-    <span class="post__title">{{ name }}</span>
-    <div class="post__text">
-      <div class="post__tag" :style="'background-color:'+ bg">{{ tag }}</div>
-      <span class="post__likes">{{ likes }}</span><span class="post__likes-word"> {{word}}</span>
-      <svg :class="{'post__active-like':isActive}" class="post__like" @click="changeNumber" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.99609 15.5C8.99609 15.5 16.9961 9.93631 16.9961 4.66032C16.9961 -0.615631 9.89511 -1.01304 8.99609 4.26976C8.09704 -1.01304 0.996094 -0.60878 0.996094 5.07143C0.996094 10.7517 8.99609 15.5 8.99609 15.5Z" stroke="#F16063" stroke-linejoin="round"/>
-      </svg>
+    <span class="card__title">{{ name }}</span>
+    <div class="card__text">
+      <div class="card__tag" :style="'background-color:'+ bg">{{ tag }}</div>
+      <span class="card__likes">{{ likes }}</span><span class="card__likes-word"> {{word}}</span>
+      <Like :class="{'card__active-like':isActive}" class="card__like" @click="changeNumber" />
     </div>
   </article>
 </template>
 
 <script>
+import Like from "@/../public/images/like.svg?inline";
+
 export default {
-  name: "Post",
+  name: "Card",
+  components:{Like},
   props:{
     name:{
       type:String,
@@ -75,5 +76,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "Post.module";
+  @import "Card.module";
 </style>

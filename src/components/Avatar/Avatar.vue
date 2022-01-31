@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar" :style="'background:'+ bgColor">{{name}}</div>
+  <div class="avatar" :style="'background:'+ bgColor">{{names}}</div>
 </template>
 
 <script>
@@ -14,20 +14,16 @@ export default {
       type:String,
       required:true
     }
+  },
+  computed:{
+    names(){
+      let names = this.name.match(/\b(\w)/g);
+      return names.join('').substr(0,2)
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .avatar{
-    border-radius: 32.5px;
-    display: flex;
-    justify-content: center;
-    line-height: 48px;
-    text-transform: uppercase;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: bold;
-    color: #FFFFFF;
-  }
+  @import "Avatar.module";
 </style>

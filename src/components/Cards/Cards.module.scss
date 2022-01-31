@@ -1,11 +1,6 @@
 @import "./src/assets/variables";
-.message-articles{
-  position: relative;
-  &__wrp{
-    grid-area: articles;
-    margin: 0;
-    position: relative;
-  }
+@import "../Card/Card.module";
+.cards{
   &__shadowRight{
     position: absolute;
     top: 0;
@@ -26,28 +21,29 @@
     z-index: var(--zIndex1);
     pointer-events: none;
   }
-  &__arrow{
-    width: 46px;
-    height: 46px;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: 100px;
-    z-index: var(--zIndex2);
-    transition: opacity 0.3s;
-    pointer-events: all;
-    &:hover{
-      opacity: 50%;
-      transition: opacity 0.3s;
-    }
+  &__slider{
+    grid-area: posts;
+    margin: 0;
+    position: relative;
+  }
+  &__new-post{
+    grid-area: new-post;
+    height: 290px;
+    min-width: 210px;
+    margin: 0;
+  }
+  &__graphic{
+    grid-area: graphic;
+    height: 290px;
+    min-width: 512px;
   }
   &__arrow-left{
     width: 46px;
     height: 46px;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: var(--color-arrow-slider);
     border-radius: 100px;
     transition: opacity 0.3s;
-    z-index: var(--zIndex2);
     pointer-events: all;
     &:hover{
       opacity: 50%;
@@ -66,6 +62,20 @@
     top: 40%;
     right: 30%;
   }
+  &__arrow{
+    width: 46px;
+    height: 46px;
+    right: 0;
+    background-color: var(--color-arrow-slider);
+    border-radius: 100px;
+    z-index: var(--zIndex2);
+    transition: opacity 0.3s;
+    pointer-events: all;
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
+  }
   &__arrow::after{
     content: "";
     display: block;
@@ -77,80 +87,65 @@
     position: absolute;
     top: 40%;
     left: 30%;
-  }
-  &__new-post{
-    grid-area: new-post;
-    min-height: 260px;
-    min-width: 210px;
-    margin: 0;
-  }
-  &__time-date{
-    grid-area: time-date;
-    height: 260px;
+    transition: border 0.3s;
   }
 }
+//скрытие кнопки навигации, если в данном направлении изображений больше нет
 .swiper-button-disabled{
   display:none;
 }
 
-@media (max-width: 1280px) {
-  .message-articles{
+@media (max-width: 375px) {
+  .cards{
+    margin-bottom:22px;
     &__shadowRight{
-      right: 45%;
-    }
-  }
-}
-@media (max-width: 768px) {
-  .message-articles{
-    &__new-post{
-      min-height: 180px;
-    }
-    &__time-date{
-      width: 100%;
-      text-align: center;
-    }
-    &__shadowRight{
-      height: 38%;
-      right: 0%;
+      display: none;
     }
     &__shadowLeft{
-      height: 38%;
+      display: none;
     }
-  }
-}
-@media (max-width: 375px) {
-  .message-articles{
+    &__graphic{
+      display: none;
+    }
+    &__slider::before{
+      display: none;
+    }
+    &__slider{
+      margin-top: auto;
+      height: 280px;
+    }
     &__slide{
       width: 325px;
     }
-    &__shadowRight{
-      display: none;
-    }
-    &__shadowLeft{
-      display: none;
+    &__new-post{
+      justify-items: flex-end;
+      margin-top: auto;
+      margin-left: 25px;
+      margin-right: 25px;
     }
   }
-  .swiper-slide{
-    width: 325px;
-  }
-}
-
-@media (max-width: 375px) {
   .swiper-slide-next{
-    height: 180px;
+    height: 220px;
     margin: auto;
     transition: all 0.3s;
   }
   .swiper-slide-prev{
-    height: 180px;
+    height: 220px;
     margin: auto;
     transition: all 0.3s;
   }
   .swiper-slider-active{
-    height: 250px;
+    height: 290px;
     transition: all 0.3s;
   }
   .swiper-slide{
     transition: all 0.3s;
   }
+}
+
+.swiper-slide > .cards > .card__text{
+  display: none;
+}
+.swiper-slider-active > .card > .card__text{
+  display: flex;
 }

@@ -17,8 +17,9 @@
   import {mapGetters} from "vuex";
   import MobileMenu from "@/components/Mobile-menu/Mobile-menu";
   import Loader from "@/components/Loader/Loader";
+  import { Mixin } from "@/assets/Mixin";
 
-export default {
+  export default {
   name: 'App',
   components: {
     Loader,
@@ -26,26 +27,10 @@ export default {
     Menu,
     Header
   },
-  data(){
-    return {
-      width: null
-    };
-  },
-  methods: {
-    updateWidth() {
-      this.width = document.body.clientWidth;
-    },
-  },
-  created() {
-    window.addEventListener('resize', this.updateWidth);
-    this.updateWidth();
-  },
-  computed:{
+    mixins:[Mixin],
+    computed:{
     ...mapGetters('showloaderModule',['getShowloader']),
-    actualWidth(){
-      return this.width
-    }
-  }
+  },
 }
 </script>
 

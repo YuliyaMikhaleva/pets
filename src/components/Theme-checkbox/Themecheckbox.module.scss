@@ -29,15 +29,15 @@
       left: 5px;
       width: 53.33px;
       height: 32.59px;
-      background-color: $blueColor;
+      background-color: var(--blueColor);
       border-radius: 90px;
       transition: 0.25s;
-      z-index: $zIndex1;
+      z-index: var(--zIndex1);
     }
   }
   &__darkTheme{
     position: absolute;
-    z-index: $zIndex1;
+    z-index: var(--zIndex1);
     top: 13px;
     left: 25%;
     cursor: pointer;

@@ -58,7 +58,7 @@
     background-image: url("../../../public/images/check.svg");
   }
   &__item:nth-child(4)::before{
-    background-color: $blueColor;
+    background-color: var(--blueColor);
   }
 }
 

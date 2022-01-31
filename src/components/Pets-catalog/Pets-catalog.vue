@@ -9,7 +9,7 @@
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
       >
-        <Post
+        <Card
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
             :name="item.name"
             :tag="item.type"
@@ -25,27 +25,18 @@
 
 <script>
 import {mapActions, mapGetters} from "vuex";
-import Post from "@/components/Post/Post";
+import Card from "@/components/Card/Card";
+import { Mixin } from "@/assets/Mixin";
+
 
 export default {
   name: "Pets-catalog",
-  components: {Post},
-  data() {
-    return {
-      width: null
-    }
-  },
+  components: {Card},
+  mixins:[Mixin],
   mounted() {
-    this.loadCatalog;
-  },
-  methods: {
-    updateWidth() {
-      this.width = document.body.clientWidth;
-    },
-  },
-  created() {
-    window.addEventListener('resize', this.updateWidth);
-    this.updateWidth();
+    if (!this.pets.length){
+      this.loadCatalog;
+    }
   },
   computed: {
     ...mapGetters('filtersModule', ['getFilteredPets']),

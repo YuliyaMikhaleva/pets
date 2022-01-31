@@ -32,7 +32,7 @@
   &__btn{
     display: block;
     margin: 35px auto 0;
-    background: $blueColor;
+    background: var(--blueColor);
     border-radius: 10px;
     flex: none;
     order: 2;
@@ -63,11 +63,11 @@
     cursor: pointer;
     &:hover{
       .new-post__circle{
-        stroke: $blueColor;
+        stroke: var(--blueColor);
         transition: stroke 0.3s;
       }
       .new-post__plus{
-        fill: $blueColor;
+        fill: var(--blueColor);
         transition: fill 0.3s;
       }
     }

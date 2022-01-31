@@ -231,15 +231,5 @@
 </script>
 
 <style lang="scss" scoped>
-    .graphic{
-
-        &__block{
-            width: 253.74px;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-column-gap: 30.99px;
-            margin-bottom: 27.5px;
-            color: white;
-        }
-    }
+  @import "Graphic.module";
 </style>

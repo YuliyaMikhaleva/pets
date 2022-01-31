@@ -60,7 +60,6 @@ export default {
         prevEl: '.swiper-button-prev'
       },
     },
-    width:null,
     actualSlide:1,
     dateNow:"",//сегодняшнее число (начало этой недели)
     dateEnd:"",//конец недели число (конец этой недели)
@@ -68,9 +67,6 @@ export default {
     namesOfDays:[],//названия дней недели начиная с сегодняшнего
   }),
   methods: {
-    updateWidth() {
-      this.width = document.body.clientWidth;
-    },
     updateSlide(){
       this.actualSlide = this.$refs.swiper.$swiper.realIndex
     },
@@ -89,10 +85,6 @@ export default {
         this.namesOfDays.push(nameOfDay)
       }
     },
-  },
-  created() {
-    window.addEventListener('resize', this.updateWidth);
-    this.updateWidth();
   },
   computed:{
     ...mapActions('statisticsModule',['loadStatistic']),
@@ -125,7 +117,4 @@ export default {
 
 <style lang="scss" scoped>
   @import "Statistic.module";
-  .swiper-button-disabled{
-    display:none;
-  }
 </style>

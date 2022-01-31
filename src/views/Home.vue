@@ -3,10 +3,9 @@
           <UserData class="main__user-data"></UserData>
           <Statistic v-if="actualWidth<=375" class="main__statistic container"/>
           <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
-          <Posts class="main__posts" :posts="postsArticles"/>
+          <Cards class="main__cards" :posts="postsArticles"/>
           <div v-if="actualWidth<=375" class="main__line-bottom container"></div>
           <MessageArticles v-if="actualWidth<=1280 && actualWidth>375" class="main__message-articles container" :articles="messagesArticles" />
-
         </div>
 </template>
 
@@ -15,42 +14,28 @@
     import UserData from "@/components/User-data/User-data";
     import Statistic from "@/components/Statistic/Statistic";
     import MessageArticles from "@/components/Message-articles/Message-articles";
-    import Posts from "@/components/Posts/Posts";
-
+    import Cards from "@/components/Cards/Cards";
+    import { Mixin } from "@/assets/Mixin";
     export default {
         name: "Home",
-      components: {Posts, MessageArticles, Statistic, UserData},
-      data(){
-          return {
-            width: null
-          };
-        },
-        methods: {
-          updateWidth() {
-            this.width = document.body.clientWidth;
-          },
-        },
-        created() {
-          window.addEventListener('resize', this.updateWidth);
-          this.updateWidth();
-        },
+      components: {Cards, MessageArticles, Statistic, UserData},
+      mixins:[Mixin],
         computed:{
-          ...mapGetters('postsModule',['getPosts']),
+          ...mapGetters('cardsModule',['getCards']),
           ...mapGetters('articlesModule',['getArticles']),
           postsArticles(){
-            return this.getPosts
+            return this.getCards
           },
           messagesArticles(){
             return this.getArticles
           },
-          actualWidth(){
-            return this.width
-          }
         }
 
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .home{
+    margin-top: 156px;
+  }
 </style>

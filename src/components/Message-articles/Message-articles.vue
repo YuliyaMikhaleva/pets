@@ -44,6 +44,7 @@ import {mapActions, mapGetters} from "vuex";
 import NewPost from "@/components/New-post/New-post";
 import TimeDate from "@/components/Time-date/Time-date";
 import moment from "moment"
+import { Mixin } from "@/assets/Mixin";
 export default {
   name: "Message-articles",
   components: {
@@ -53,6 +54,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  mixins:[Mixin],
   props:{
     articles:{
       type: Array,
@@ -92,14 +94,10 @@ export default {
         },
       },
     },
-    width: null,
     timeNow:"",
     dateNow:""
   }),
   methods: {
-    updateWidth() {
-      this.width = document.body.clientWidth;
-    },
     moment,
     time() {
       let self = this
@@ -112,10 +110,6 @@ export default {
       setTimeout(self.date, 1000)
     },
   },
-  created() {
-    window.addEventListener('resize', this.updateWidth);
-    this.updateWidth();
-  },
   mounted() {
     this.loadArticles;
     this.time();
@@ -125,9 +119,6 @@ export default {
   computed:{
     ...mapActions('articlesModule',['loadArticles']),
     ...mapGetters('articlesModule',['getArticles']),
-    actualWidth(){
-      return this.width
-    },
   }
 
 }
@@ -135,25 +126,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "Message-articles.module";
-@media (max-width: 375px) {
-  .swiper-slide-next{
-    height: 180px;
-    margin: auto;
-    transition: all 0.3s;
-  }
-  .swiper-slide-prev{
-    height: 180px;
-    margin: auto;
-    transition: all 0.3s;
-  }
-  .swiper-slider-active{
-    height: 250px;
-    transition: all 0.3s;
-  }
-  .swiper-slide{
-    transition: all 0.3s;
-  }
-}
-
 </style>
 

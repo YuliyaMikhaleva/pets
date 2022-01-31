@@ -36,14 +36,15 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import moment from "moment"
 import TimeDate from "../Time-date/Time-date";
 import ProgressBlock from "@/components/Progress-block/Progress-block";
+import { Mixin } from "@/assets/Mixin";
 export default {
   name: "UserData",
   components: {ProgressBlock, TimeDate, Swiper, SwiperSlide},
+  mixins:[Mixin],
   data(){
     return{
       timeNow:"",
       dateNow:"",
-      width:null,
       swiperOption: {
         slidesPerView: 'auto',
         spaceBetween: 13,
@@ -67,23 +68,12 @@ export default {
       this.dateNow = moment().locale('ru').format('DD.MM.YYYY')
       setTimeout(self.date, 1000)
     },
-    updateWidth() {
-      this.width = document.body.clientWidth;
-    },
   },
-  created() {
-    window.addEventListener('resize', this.updateWidth);
-    this.updateWidth();
-  },
+
   mounted: function() {
     this.time();
     this.date();
   },
-  computed:{
-    actualWidth(){
-      return this.width
-    }
-  }
 }
 </script>
 
