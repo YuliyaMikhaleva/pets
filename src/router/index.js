@@ -6,6 +6,7 @@ import Error from "@/views/Error/Error";
 import Blog from "@/views/Blog/Blog";
 import Chat from "@/views/Chat/Chat";
 import Profile from "@/views/Profile/Profile";
+import Pet from "@/views/Pet/Pet";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
             icon:'PetsIcon',
             menu:true
         }
+    },
+    {
+        path: '/pets/:name',
+        name: "Pets",
+        component: Pet,
     },
     {
         path: '/blog',

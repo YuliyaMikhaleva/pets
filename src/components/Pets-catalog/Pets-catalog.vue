@@ -9,15 +9,17 @@
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
       >
-        <Card
-            :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-            :name="item.name"
-            :tag="item.type"
-            :likes="item.likes"
-            :img="item.img"
-            :bg="item.bgColor"
-            style="height: 100%"
-            :imgHeight="(index % 2 === 0)  ? 181 : 250" />
+        <router-link :to="'/pets/'+item.name" class="pets-catalog__link">
+          <Card
+              :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
+              :name="item.name"
+              :tag="item.type"
+              :likes="item.likes"
+              :img="item.img"
+              :bg="item.bgColor"
+              style="height: 100%"
+              :imgHeight="(index % 2 === 0)  ? 181 : 250"/>
+        </router-link>
       </div>
     </template>
   </masonry-wall>
@@ -74,5 +76,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  @import "Pets-catalog.module";
 </style>

@@ -9,6 +9,9 @@
     margin: 0;
     grid-area: title;
   }
+  &__arrow{
+    margin-right: 35px;
+  }
   &__checkbox{
     grid-area: checkbox;
     transition: all 0.3s;

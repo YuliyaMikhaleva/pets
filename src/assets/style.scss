@@ -33,10 +33,19 @@ body{
   &__header{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-areas: "title . . . . . . . . . checkbox buttons";
+    grid-template-areas: "title title title . . . . . . . checkbox buttons";
     grid-gap: 40px;
     padding: 30px 30px 30px 0;
     position: fixed;
+    background-color: var(--bg-dark);
+    z-index: var(--zIndex2);
+  }
+  &__header2{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "title title title . . . . . . . checkbox buttons";
+    grid-gap: 40px;
+    padding: 30px 30px 30px 0;
     background-color: var(--bg-dark);
     z-index: var(--zIndex2);
   }
