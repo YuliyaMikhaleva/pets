@@ -92,11 +92,30 @@
 }
 @media (max-width: 768px) {
   .new-post{
+    padding: 30px 25px;
     &__wrp{
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
+      grid-row-gap: 50px;
+    }
+    &__btn{
+      margin: 50px auto 0;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .new-post{
+    padding: 30px 27.5px;
+    &__wrp{
+      grid-column-gap: 10px;
+      grid-row-gap: 35px;
       justify-content: center;
-      grid-column-gap:5px;
+    }
+    &__btn{
+      margin: 35px auto 0;
+      width: 100%;
     }
   }
 }

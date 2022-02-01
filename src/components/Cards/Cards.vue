@@ -17,7 +17,7 @@
 
     </div>
     <NewPost v-if="actualWidth<=375 || actualWidth>1280" class="cards__new-post"/>
-    <Statistic v-if="actualWidth<=375 || actualWidth>768" class="cards__graphic" name="Johny" likes="3"/>
+    <Statistic v-if="actualWidth<=375 || actualWidth>768" class="cards__graphic"/>
   </section>
 </template>
 
@@ -48,13 +48,8 @@ export default {
           centeredSlides:true
         },
         376: {
-          slidesPerView: 1,
-          spaceBetween: 13,
-          centeredSlides:true
-        },
-        768: {
-          slidesPerView: 1.5,
-          spaceBetween: 20
+          slidesPerView: 1.67,
+          spaceBetween: 30
         },
         1281:{
           slidesPerView: 2,

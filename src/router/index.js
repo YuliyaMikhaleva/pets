@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from "@/views/Home";
-import Pets from "@/views/Pets";
-import Error from "@/views/Error";
-import Blog from "@/views/Blog";
-import Chat from "@/views/Chat";
-import Profile from "@/views/Profile";
+import Home from "@/views/Home/Home";
+import Pets from "@/views/Pets/Pets";
+import Error from "@/views/Error/Error";
+import Blog from "@/views/Blog/Blog";
+import Chat from "@/views/Chat/Chat";
+import Profile from "@/views/Profile/Profile";
 
 Vue.use(VueRouter);
 

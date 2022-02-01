@@ -5,7 +5,7 @@
           <MessageArticles v-if="actualWidth>1280 || actualWidth<=375" class="main__message-articles" :articles="messagesArticles" />
           <Cards v-if="actualWidth<=375 || actualWidth>768" class="main__cards" :posts="postsArticles"/>
           <div v-if="actualWidth<=375" class="main__line-bottom container"></div>
-          <div v-if="actualWidth>375 && actualWidth <=768" class="main__statistic-wrp">
+          <div v-if="actualWidth>375 && actualWidth <=768" class="main__statistic-wrp container">
               <Statistic class="main__statistic-graphic"/>
               <TimeDate
                         class="main__statistic-time"
@@ -31,8 +31,8 @@
     import MessageArticles from "@/components/Message-articles/Message-articles";
     import Cards from "@/components/Cards/Cards";
     import { Mixin } from "@/assets/Mixin";
-    import TimeDate from "../components/Time-date/Time-date";
-    import NewPost from "../components/New-post/New-post";
+    import TimeDate from "../../components/Time-date/Time-date";
+    import NewPost from "../../components/New-post/New-post";
     import moment from "moment";
     export default {
         name: "Home",
@@ -58,7 +58,7 @@
             moment,
             time() {
                 let self = this
-                this.timeNow = moment().lang('ru').format('LTS');
+                this.timeNow = moment().locale('ru').format('LTS');
                 setTimeout(self.time, 1000)
             },
             date(){
@@ -76,7 +76,5 @@
 </script>
 
 <style lang="scss" scoped>
-  /*.home{*/
-  /*  margin-top: 156px;*/
-  /*}*/
+
 </style>

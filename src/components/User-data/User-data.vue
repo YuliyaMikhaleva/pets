@@ -60,7 +60,7 @@ export default {
     moment,
     time() {
       let self = this
-      this.timeNow = moment().lang('ru').format('LTS');
+      this.timeNow = moment().locale('ru').format('LTS');
       setTimeout(self.time, 1000)
     },
     date(){

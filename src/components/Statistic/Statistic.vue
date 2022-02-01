@@ -1,5 +1,5 @@
 <template>
-  <article class="statistic">
+  <article class="statistic" v-if="cats.length">
     <div class="statistic__block">
       <div class="statistic__img">
         <swiper :options="swiperOption" class="statistic__slider" ref="swiper" @slideChange="updateSlide">
@@ -21,7 +21,7 @@
         <span class="statistic__data-item">Лайки</span>
         <span class="statistic__data-item">Просмотры</span>
       </div>
-      <Graphic :activeSlide="actualSlide" :array="this.getGraphics"/>
+      <Graphic :activeSlide="actualSlide" :array="this.getGraphics" class="statistic__graphic"/>
       <ul class="statistic__dates statistic__date-numbers">
         <li class="statistic__dates statistic__date-numbers" v-for="item of weekDays" :key="item">{{ item }}</li>
       </ul>
@@ -41,16 +41,6 @@ import {mapActions, mapGetters} from "vuex";
 export default {
   name: "Statistic",
   components: {Graphic, Swiper, SwiperSlide},
-  props:{
-    likes:{
-      type:String,
-      required:false
-    },
-    name:{
-      type:String,
-      required:false
-    },
-  },
   data:() => ({
     swiperOption: {
       slidesPerView: 1,
@@ -60,7 +50,7 @@ export default {
         prevEl: '.swiper-button-prev'
       },
     },
-    actualSlide:1,
+    actualSlide:0,
     dateNow:"",//сегодняшнее число (начало этой недели)
     dateEnd:"",//конец недели число (конец этой недели)
     weekDays:[],//числа недели начиная с сегодняшнего
@@ -75,12 +65,12 @@ export default {
       this.dateNow = +(moment().locale('ru').format('L').slice(0,2));
     },
     weekEnd(){
-      this.dateEnd = +(moment().add('days', 6).locale('ru').format('L').slice(0,2));
+      this.dateEnd = +(moment().add(6, 'days').locale('ru').format('L').slice(0,2));
     },
     weekArr(){
       for (let i = 0; i<=6; i++){
-        let day = +(moment().add('days', i).locale('ru').format('L').slice(0,2))
-        let nameOfDay = moment().day(i).locale('ru').format('dd').toUpperCase()
+        let day = +(moment().add(i, 'days').locale('ru').format('L').slice(0,2))
+        let nameOfDay = moment().day(day+1).locale('ru').format('dd').toUpperCase()
         this.weekDays.push(day);
         this.namesOfDays.push(nameOfDay)
       }
@@ -89,14 +79,11 @@ export default {
   computed:{
     ...mapActions('statisticsModule',['loadStatistic']),
     ...mapGetters('statisticsModule',['getStatistic', 'getGraphics']),
-    slide(){
-      return this.actualSlide
-    },
     cats(){
       return this.getStatistic
     },
     word() {
-      let el = this.cats[this.slide].likes
+      let el = this.cats[this.actualSlide].likes
       if (el == 1) {
         return " лайк "
       } else if (el == 2 || el == 3 || el == 4){

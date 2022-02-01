@@ -8,3 +8,13 @@
     color: white;
   }
 }
+@media (max-width: 768px) {
+  .graphic__block{
+    grid-column-gap: 42.1px
+  }
+}
+@media (max-width: 375px) {
+  .graphic__block{
+    grid-column-gap: 30.99px
+  }
+}

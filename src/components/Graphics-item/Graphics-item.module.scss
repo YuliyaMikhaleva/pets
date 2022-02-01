@@ -17,3 +17,14 @@
     margin-bottom: 3.82px;
   }
 }
+@media (max-width: 768px) {
+  .graphics-item{
+    width: 13.16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .graphics-item{
+    width: 9.69px;
+  }
+}

@@ -143,6 +143,25 @@
   }
 }
 
+@media (max-width: 768px) {
+  .statistic{
+    &__block{
+      width: 100%;
+      margin-right: 0;
+    }
+    &__img{
+      margin: 0 auto;
+      width: 360px;
+    }
+    &__dates{
+      grid-column-gap: 44.6px;
+    }
+    &__graphic{
+      margin-right: 6.98px;
+    }
+  }
+}
+
 @media (max-width: 375px) {
   .statistic{
     &__txt{
@@ -151,6 +170,9 @@
     &__img{
       margin: 0 auto;
       width: 265px;
+    }
+    &__dates{
+      grid-column-gap: 28.67px;
     }
   }
 }

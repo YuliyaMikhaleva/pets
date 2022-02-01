@@ -53,8 +53,19 @@
 }
 @media (max-width: 768px) {
   .article{
+    padding: 15px;
+    &__time{
+      height: 100%;
+      width: 100%;
+    }
     &__wrp{
-      justify-content: center;
+      margin-bottom: 5px;
+    }
+    &__time-data{
+      margin-bottom: 15px;
+    }
+    &__time-data:nth-child(4){
+      margin-bottom: 0;
     }
   }
 }

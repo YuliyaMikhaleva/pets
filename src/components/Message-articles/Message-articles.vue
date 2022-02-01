@@ -77,15 +77,10 @@ export default {
           spaceBetween: 13,
           centeredSlides:true
         },
+        // when window width is >= 376px
         376: {
-          slidesPerView: 1,
-          spaceBetween: 13,
-          centeredSlides:true
-        },
-        // when window width is >= 768px
-        768: {
-          slidesPerView:1.9,
-          spaceBetween: 20
+          slidesPerView:1.67,
+          spaceBetween: 30
         },
         // when window width is >= 1281px
         1281: {
@@ -101,7 +96,7 @@ export default {
     moment,
     time() {
       let self = this
-      this.timeNow = moment().lang('ru').format('LTS');
+      this.timeNow = moment().locale('ru').format('LTS');
       setTimeout(self.time, 1000)
     },
     date(){

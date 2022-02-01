@@ -24,7 +24,6 @@ body{
   display: grid;
   grid-template-columns: 100px auto;
   grid-column-gap: 30px;
-  //height: 100vh;
   &__mobile-menu{
     display: none;
   }
@@ -35,9 +34,7 @@ body{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: "title . . . . . . . . . checkbox buttons";
-    //height: 46px;
     grid-gap: 40px;
-    //margin-top: 35px;
     padding: 30px 30px 30px 0;
     position: fixed;
     background-color: var(--bg-dark);
@@ -98,7 +95,6 @@ body{
       grid-template-areas: "title . . . . . . . checkbox buttons";
       grid-gap: 20px;
       padding: 25px 25px 25px 0;
-      //margin-top: 30px;
     }
     &__user-data{
       grid-template-columns: repeat(10, 1fr);
@@ -126,7 +122,7 @@ body{
 }
 @media (max-width: 768px) {
   body{
-    min-width: 626px;
+    min-width: 720px;
   }
 
   .container{
@@ -144,6 +140,7 @@ body{
               "graphic new-post";
       grid-column-gap: 30px;
       grid-row-gap: 40px;
+      margin-top: 40px;
     }
     &__statistic-graphic{
       grid-area: graphic;
@@ -164,7 +161,6 @@ body{
       display: none;
     }
     &__header{
-      //margin-top: 20px;
       padding: 13.46px 30px 54.54px 0;
     }
     &__mobile-menu{
@@ -211,9 +207,7 @@ body{
 
     &__header{
       padding: 20px 25px 20px 0;
-      //display: flex;
       justify-content: flex-end;
-      //margin-top: 20px;
       grid-gap: 0;
     }
     &__user-data{
