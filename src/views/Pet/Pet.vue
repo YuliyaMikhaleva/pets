@@ -1,6 +1,13 @@
 <template>
   <div class="pet">
-    <PetCard class="pet__pet-card"/>
+    <PetCard class="pet__pet-card"
+             :img="img"
+             :location="location"
+             :likes="likes"
+             :sex="sex"
+             :images="images"
+             :name="name"
+    />
   </div>
 </template>
 
@@ -9,9 +16,16 @@ import PetCard from "@/components/Pet-card/Pet-card";
 export default {
   name: "Pet",
   components: {PetCard},
-  props:['location','img'],
+  props:{
+    name:String,
+    location:String,
+    img:String,
+    likes:Number,
+    sex:Boolean,
+    images:Array
+  },
   mounted() {
-    console.log('location', this.location)
+    console.log('props', this.props)
     console.log('img', this.img)
     console.log(this.$route)
     console.log(this.$router)

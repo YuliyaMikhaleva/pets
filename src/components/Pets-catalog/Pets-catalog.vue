@@ -16,7 +16,8 @@
               location:item.location,
               img:item.img,
               likes:item.likes,
-              sex:item.sex
+              sex:item.sex,
+              images:item.images
             }}"
             class="pets-catalog__link">
           <Card

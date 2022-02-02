@@ -38,7 +38,7 @@ const routes = [
         meta:{
             namePage:'Pets/name'
         },
-        props: { default: true, props: true }
+        props: true
     },
     {
         path: '/blog',

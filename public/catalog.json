@@ -5,6 +5,7 @@
       "age" : "2022-01-20",
       "groupID" : 1,
       "img" : "images/catalog/cats/0.jpg",
+      "images": ["images/catalog/cats/0.jpg", "images/catalog/cats/1.jpg", "images/catalog/cats/2.jpg"],
       "likes" : 326,
       "location" : "Германия, Гамбург",
       "name" : "Bob",

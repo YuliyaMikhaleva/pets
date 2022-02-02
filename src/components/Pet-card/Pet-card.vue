@@ -2,31 +2,18 @@
   <div class="pet-card">
     <div class="pet-card__slider">
       <swiper class="swiper pet-card__wrp" :options="swiperOption" :effect="'cards'">
-<!--        <swiper-slide class="pet-card__photo-wrp">-->
-<!--            <img class="pet-card__photo" :src="$route.params.img" alt="photo">-->
-<!--        </swiper-slide>-->
-<!--        <swiper-slide class="pet-card__photo-wrp">-->
-<!--          <img class="pet-card__photo" :src="$route.params.img" alt="photo">-->
-<!--        </swiper-slide>-->
-<!--        <swiper-slide class="pet-card__photo-wrp">-->
-<!--          <img class="pet-card__photo" :src="`@/public/${$route.params.img}`" alt="photo">-->
-<!--        </swiper-slide>-->
-        <swiper-slide class="pet-card__photo-wrp">
-          <img class="pet-card__photo" :src="$route.params.img" alt="photo">
+        <swiper-slide  class="pet-card__photo-wrp" v-for="picture of pictures" :key="picture">
+            <img class="pet-card__photo" :src="'/'+picture" alt="photo">
         </swiper-slide>
-<!--        <swiper-slide class="pet-card__photo-wrp">-->
-<!--          <img class="pet-card__photo" src="@/../public/images/catalog/birds/4.jpg" alt="photo">-->
-<!--        </swiper-slide>-->
-<!--        <div class="swiper-pagination swiper-pagination-v" slot="pagination"></div>-->
       </swiper>
     </div>
     <div class="pet-card__description">
-      <h1 class="pet-card__title">{{$route.params.name}},
+      <h1 class="pet-card__title">{{name}},
         <Gps/>
-        <span class="pet-card__country">{{$route.params.location}}</span></h1>
+        <span class="pet-card__country">{{location}}</span></h1>
       <span class="pet-card__kind">Британский короткошорстный</span><span class="pet-card__type">Кот</span>
       <div class="pet-card__data">
-        <span class="pet-card__likes">{{$route.params.likes}} Лайка</span>
+        <span class="pet-card__likes">{{likes}} Лайка</span>
         <span class="pet-card__price">5000 P</span>
       </div>
       <div class="pet-card__params">
@@ -57,7 +44,14 @@ import {mapGetters} from "vuex";
 export default {
   name: "Pet-card",
   components:{Button, Gps, Swiper, SwiperSlide},
-  props: ['location','img'],
+  props:{
+    name:String,
+    location:String,
+    img:String,
+    likes:Number,
+    sex:Boolean,
+    images:Array
+  },
   data(){
     return{
       swiperOption: {
@@ -69,6 +63,7 @@ export default {
           dynamicBullets: true,
         },
       },
+      id:this.$route.params.img
     }
   },
   computed: {
@@ -76,7 +71,13 @@ export default {
     pets() {
       return this.getCatalog
     },
-
+    pictures(){
+      if (this.images){
+        return this.images
+      } else {
+        return [this.img]
+      }
+    }
   },
 }
 </script>
