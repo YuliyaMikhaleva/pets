@@ -1,5 +1,5 @@
 <template>
-        <div class="pets">
+        <div class="pets pets__wrp">
           <div class="pets__filter-wrp">
             <PetsFilters class="pets__filters pets__container"/>
           </div>
@@ -16,6 +16,7 @@
 export default {
         name: "Pets",
   components: {PetsCatalog, PetsFilters},
+  props:['id'],
     methods: {
         ...mapActions('filtersModule', ['addFilter','removeFilter']),
     },
@@ -24,7 +25,11 @@ export default {
         pets() {
             return this.getFilterItems
         },
-    }
+    },
+  mounted() {
+    console.log(this.$route)
+    console.log(this.$router)
+  }
     }
 </script>
 

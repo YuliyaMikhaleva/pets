@@ -3,6 +3,9 @@
   display: grid;
   grid-template-columns: 260px auto;
   grid-column-gap: 40px;
+  &__wrp{
+    margin-top: 156px;
+  }
 
   &__container{
     margin-right: 30px;
@@ -45,10 +48,16 @@
       margin-bottom: 30px;
       justify-content: space-between;
     }
+    &__wrp{
+      margin-top: 114px;
+    }
   }
 }
 @media (max-width: 375px) {
   .pets{
+    &__wrp{
+      margin-top: 92px;
+    }
     &__filters{
       grid-template-columns: repeat(6, 95px);
     }

@@ -11,7 +11,7 @@
       <Avatar v-if="actualWidth>768 || actualWidth<=375" class="new-post__item" name="J" bg-color="linear-gradient(225deg, #67E9F1 0%, #24E795 100%)"/>
       <NewPost class="new-post__add"/>
     </div>
-    <button class="new-post__btn">Напиши сейчас</button>
+    <Button class="new-post__btn" title="Напиши сейчас"/>
   </article>
 </template>
 
@@ -21,9 +21,10 @@
 import NewPost from "@/../public/images/new-post.svg?inline";
 import { Mixin } from "@/assets/Mixin";
 import Avatar from "@/components/Avatar/Avatar";
+import Button from "@/components/Button/Button";
 export default {
   name: "New-post",
-  components: {Avatar, NewPost},
+  components: {Button, Avatar, NewPost},
   mixins:[Mixin],
 }
 </script>

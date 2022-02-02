@@ -2,11 +2,13 @@
 :root {
   --bg-dark: #0F172A;
   --bg-button:rgba(255, 255, 255, 0.05);
+  --color-card-text:#EDF2F7;//цвет текста карточки
+  --color-pet-type:#D5D5DC;//цвет породы
   --color-title:#EDF2F7;
   --color-logo: #FFFFFF;
   --color-notice:#EDF2F7;
   --color-border:#334155;
-  --color-article: rgba(255, 255, 255, 0.05);
+  --color-article:     rgba(255, 255, 255, 0.05);
   --color-text:#FFFFFF;
   --color-diagram-part:#334155;
   --color-statistic-part:#2A3C44;
@@ -27,6 +29,8 @@
 [theme="light"]{
   --bg-dark: #EDF2F7;
   --bg-button:#FFFFFF;
+  --color-card-text:#334155;
+  --color-pet-type:#334155;//цвет породы
   --color-title:#0F172A;
   --color-logo: #0F172A;
   --color-notice:#17171B;

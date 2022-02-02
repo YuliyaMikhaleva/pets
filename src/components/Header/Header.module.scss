@@ -8,6 +8,8 @@
     line-height: 35.55px;
     margin: 0;
     grid-area: title;
+    display: flex;
+    align-items: center;
   }
   &__arrow{
     margin-right: 35px;

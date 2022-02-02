@@ -27,12 +27,18 @@ const routes = [
         meta:{
             icon:'PetsIcon',
             menu:true
-        }
+        },
+        props:true
+
     },
     {
         path: '/pets/:name',
-        name: "Pets",
+        name: "Pets\\",
         component: Pet,
+        meta:{
+            namePage:'Pets/name'
+        },
+        props: { default: true, props: true }
     },
     {
         path: '/blog',

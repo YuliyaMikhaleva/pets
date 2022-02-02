@@ -9,7 +9,16 @@
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
       >
-        <router-link :to="'/pets/'+item.name" class="pets-catalog__link">
+        <router-link
+            :to="{name:'Pets\\',
+            params:{
+              name:item.name,
+              location:item.location,
+              img:item.img,
+              likes:item.likes,
+              sex:item.sex
+            }}"
+            class="pets-catalog__link">
           <Card
               :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
               :name="item.name"

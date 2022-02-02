@@ -30,26 +30,9 @@
     cursor: pointer;
   }
   &__btn{
-    display: block;
     margin: 35px auto 0;
-    background: var(--blueColor);
-    border-radius: 10px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
     padding: 11.5px 44.5px;
     box-sizing: border-box;
-    border: 1px solid transparent;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s, opacity 0.3s, border 0.3s, color 0.3s;
-    &:hover{
-      background-color: rgba(255, 255, 255, 0.05);
-      opacity: 50%;
-      color: var(--color-text);
-      border: 1px solid black;
-      transition: background-color 0.3s, opacity 0.3s, border 0.3s, color 0.3s;
-    }
   }
   &__circle{
     stroke: var(--color-text);

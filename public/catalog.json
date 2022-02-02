@@ -29,7 +29,7 @@
     "-MZRJNWOFGNQaAUo3Lwi" : {
       "about" : "Шпиц",
       "age" : "2021-06-12",
-      "groupD" : 2,
+      "groupID" : 2,
       "img" : "images/catalog/dogs/1.jpg",
       "likes" : 3,
       "location" : "Австрия, Зальцбург",

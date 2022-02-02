@@ -1,11 +1,10 @@
 <template>
   <div class="header">
     <h1 class="header__title">
-      <RouterLink to="/pets" v-if="$route.name=='Pets'" class="header__arrow">
+      <RouterLink to="/pets" v-if="$route.meta.namePage =='Pets/name'" class="header__arrow">
         <PetsArrow/>
       </RouterLink>
-
-      {{ $route.name + ($route.params.name ? "\\"+ $route.params.name : "") }}</h1>
+      {{ $route.name + ($route.params.name ? $route.params.name : "") }}</h1>
     <ThemeCheckbox class="header__checkbox"/>
     <div class="header__buttons">
       <button class="header__button header__middle-btn">

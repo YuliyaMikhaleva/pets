@@ -20,6 +20,6 @@ export default new Vuex.Store({
         filtersModule,
         cardsModule,
         showloaderModule,
-        statisticsModule
+        statisticsModule,
     },
 });

@@ -6,7 +6,7 @@
     <div>
       <Header class="main__header" v-if="$route.matched[0].path!=='/pets/:name'"/>
       <Header v-if="$route.matched[0].path=='/pets/:name'" class="main__header2"/>
-      <router-view  class="router-view main__router-view"/>
+      <router-view  class="router-view"/>
     </div>
   </div>
 </template>

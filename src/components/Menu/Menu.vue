@@ -10,7 +10,7 @@
           <router-link
               class="menu__link"
               exact-active-class="menu__item-active"
-              :to="item.path">
+              :to="{path:item.path, params:{id:1}}">
             <component :is="item.meta.icon"/>
           </router-link>
         </li>
