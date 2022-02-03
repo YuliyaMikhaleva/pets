@@ -5,7 +5,11 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "slider slider slider slider slider txt txt txt txt txt txt txt";
   grid-column-gap: 40px;
-  &__svg-path{
+  &__pagination{
+    left: 50%;
+    bottom: 30px;
+  }
+  &__arrow-svg{
     fill: var(--color-card-text);
     stroke: var(--color-card-text);
   }

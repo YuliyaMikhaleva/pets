@@ -64,6 +64,9 @@ export const filtersModule = {
         getCatalog(state){
             return state.catalog;
         },
+        getInfo: state => id => {
+            return state.catalog.filter((item) => item.id === id)
+        },
     },
     mutations:{
         /**

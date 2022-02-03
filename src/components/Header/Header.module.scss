@@ -14,6 +14,9 @@
   &__arrow{
     margin-right: 35px;
   }
+  &__arrow-svg{
+    fill: var(--color-title);;
+  }
   &__checkbox{
     grid-area: checkbox;
     transition: all 0.3s;

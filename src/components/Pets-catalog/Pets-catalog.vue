@@ -13,11 +13,7 @@
             :to="{name:'Pets\\',
             params:{
               name:item.name,
-              location:item.location,
-              img:item.img,
-              likes:item.likes,
-              sex:item.sex,
-              images:item.images
+              id:item.id
             }}"
             class="pets-catalog__link">
           <Card

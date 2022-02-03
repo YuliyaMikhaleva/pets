@@ -1,12 +1,8 @@
 <template>
   <div class="pet">
     <PetCard class="pet__pet-card"
-             :img="img"
-             :location="location"
-             :likes="likes"
-             :sex="sex"
-             :images="images"
              :name="name"
+             :id="id"
     />
   </div>
 </template>
@@ -18,11 +14,7 @@ export default {
   components: {PetCard},
   props:{
     name:String,
-    location:String,
-    img:String,
-    likes:Number,
-    sex:Boolean,
-    images:Array
+    id:Number
   },
   mounted() {
     console.log('props', this.props)
