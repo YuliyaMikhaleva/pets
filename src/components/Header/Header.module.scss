@@ -13,6 +13,11 @@
   }
   &__arrow{
     margin-right: 35px;
+    transition: opacity 0.3s;
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
   }
   &__arrow-svg{
     fill: var(--color-title);;

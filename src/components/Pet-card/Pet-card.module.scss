@@ -6,12 +6,66 @@
   grid-template-areas: "slider slider slider slider slider txt txt txt txt txt txt txt";
   grid-column-gap: 40px;
   &__pagination{
-    left: 50%;
+    left: 45%;
     bottom: 30px;
   }
   &__arrow-svg{
     fill: var(--color-card-text);
     stroke: var(--color-card-text);
+  }
+  &__arrow-next{
+    width: 46px;
+    height: 46px;
+    background-color: var(--blueColor);
+    border-radius: 100px;
+    right: 36px;
+    transition: opacity 0.3s;
+
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
+    &::after{
+      content: "";
+      display: block;
+      width: 10.17px;
+      height: 10.17px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      transition: border 0.3s;
+    }
+
+  }
+  &__arrow-prev{
+    width: 46px;
+    height: 46px;
+    background-color: var(--blueColor);
+    border-radius: 100px;
+    left: 36px;
+    transition: opacity 0.3s;
+
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
+    &::after{
+      content: "";
+      display: block;
+      width: 10.17px;
+      height: 10.17px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 40%;
+      right: 30%;
+      //left: 5%;
+    }
+
   }
   &__slider{
     //border: 1px solid white;
@@ -152,6 +206,7 @@
     font-size: 32px;
     line-height: 140%;
     color: #EDF2F7;
+    margin-right: 30px;
   }
   &__txt-title{
     margin: 0 0 15px 0;
@@ -165,6 +220,8 @@
     padding: 14px 104px;
     font-size: 24px;
     line-height: 28px;
+    margin-top: 40px;
+
   }
 
 }
@@ -193,4 +250,18 @@
 }
 .pet-card__wrp{
   position: relative;
+}
+
+
+.swiper-pagination ::v-deep{
+  .swiper-pagination-bullet{
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    background-color: #4C6FFF;
+  }
+}
+//скрытие кнопки навигации, если в данном направлении изображений больше нет
+.swiper-button-disabled{
+  display:none;
 }
