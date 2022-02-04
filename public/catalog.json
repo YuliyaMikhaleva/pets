@@ -6,7 +6,7 @@
       "age" : "2022-01-20",
       "groupID" : 1,
       "img" : "images/catalog/cats/0.jpg",
-      "images": ["images/catalog/cats/0.jpg", "images/catalog/cats/1.jpg", "images/catalog/cats/2.jpg"],
+      "images": ["images/catalog/cats/0.jpg","images/catalog/cats/britishCat/1.jpg", "images/catalog/cats/britishCat/2.jpg","images/catalog/cats/britishCat/3.jpg", "images/catalog/cats/britishCat/4.jpg", "images/catalog/cats/britishCat/5.jpg"],
       "likes" : 326,
       "location" : "Германия, Гамбург",
       "name" : "Bob",
@@ -15,7 +15,8 @@
       "weight" : "0.75",
       "bgColor": "#4C6FFF",
       "price": 5000,
-      "breed": "Британский короткошёрстный"
+      "breed": "Британский короткошёрстный",
+      "button": "Купить - 5 000 ₽"
     },
     "-AMSAQMDMDDMy3Vas": {
       "id": 2,
@@ -23,6 +24,7 @@
       "age" : "2020-12-12",
       "groupID" : 1,
       "img" : "images/catalog/cats/1.jpg",
+      "images": ["images/catalog/cats/scotlandCat/1.jpg", "images/catalog/cats/scotlandCat/2.jpg","images/catalog/cats/scotlandCat/3.jpg"],
       "likes" : 11,
       "location" : "Великобритания, Лондон",
       "name" : "Loki",
@@ -30,8 +32,8 @@
       "type" : "Котенок",
       "weight" : "0.85",
       "bgColor": "#FCC064",
-      "price": 1000,
-      "breed": "Шотландский вислоухий"
+      "breed": "Шотландский вислоухий",
+      "button": "Приютить"
     },
     "-MZRJNWOFGNQaAUo3Lwi" : {
       "id": 3,
@@ -47,7 +49,8 @@
       "weight" : "1",
       "bgColor": "#66CB9F",
       "price": 4500,
-      "breed": "Померанский шпиц"
+      "breed": "Померанский шпиц",
+      "button": "Купить - 4 500 ₽"
     },
     "-MbHbGSKEqCohGc2DxuV" : {
       "id": 4,
@@ -65,8 +68,8 @@
       },
       "weight" : "2",
       "bgColor": "purple",
-      "price": 1000,
-      "breed": "Простая сибирская"
+      "breed": "Простая сибирская",
+      "button": "Приютить"
     },
     "-MbHdFVybFafcm3LwF38" : {
       "id": 5,
@@ -82,7 +85,8 @@
       "weight" : "12",
       "bgColor": "darkblue",
       "price": 1500,
-      "breed": "Простая нарисованная"
+      "breed": "Простая нарисованная",
+      "button": "Купить - 1500 ₽"
     },
     "0ed45997-a013-00ca-6e9f-243228216256" : {
       "id": 6,
@@ -101,8 +105,8 @@
       },
       "weight" : 3,
       "bgColor": "#F16063",
-      "price": 500,
-      "breed": "Простой орущий"
+      "breed": "Простой орущий",
+      "button": "Приютить"
     },
     "44687922-b26f-1427-a5f3-15c2e55eea73" : {
       "id": 7,
@@ -122,7 +126,9 @@
       "weight" : "2",
       "bgColor": "green",
       "price": 200,
-      "breed": "Большой и страшный"
+      "breed": "Большой и страшный",
+      "button": "Купить - 200 ₽"
+
     },
     "-DJDJHDJHEhdjhdkskd" : {
       "id": 8,
@@ -137,8 +143,9 @@
       "type" : "Щенок",
       "weight" : "12",
       "bgColor": "darkblue",
-      "price": 3000,
-      "breed": "Самоедская собака"
+      "breed": "Самоедская собака",
+      "button": "Приютить"
+
     },
     "-WHDJHDJHhsgdhgshgHG" : {
       "id": 9,
@@ -154,7 +161,9 @@
       "weight" : "12",
       "bgColor": "yellow",
       "price": 6000,
-      "breed": "Джек-рассел-терьер"
+      "breed": "Джек-рассел-терьер",
+      "button": "Купить - 6 000 ₽"
+
     },
     "-DKJKDJKEJdjshdjsh" : {
       "id": 10,
@@ -169,8 +178,9 @@
       "type" : "Щенок",
       "weight" : "12",
       "bgColor": "yellow",
-      "price": 3500,
-      "breed": "Смешной языкастый"
+      "breed": "Смешной языкастый",
+      "button": "Приютить"
+
     },
     "-WOPOWEPOWDJHDhsdfh" : {
       "id": 11,
@@ -186,7 +196,9 @@
       "weight" : "12",
       "bgColor": "darkgreen",
       "price": 4000,
-      "breed": "Английский Бульдог"
+      "breed": "Английский Бульдог",
+      "button": "Купить - 4000 ₽"
+
     },
     "-WLKDLKWLKDLnDJJDHjh" : {
       "id": 12,
@@ -201,8 +213,9 @@
       "type" : "Птица",
       "weight" : "12",
       "bgColor": "darkgreen",
-      "price": 2000,
-      "breed": "Обыкновенная иволга"
+      "breed": "Обыкновенная иволга",
+      "button": "Приютить"
+
     },
     "-WKJEOWIEOKCkjdksjdks" : {
       "id": 13,
@@ -218,7 +231,9 @@
       "weight" : "12",
       "bgColor": "darkgreen",
       "price": 7000,
-      "breed": "Большой тукан"
+      "breed": "Большой тукан",
+      "button": "Купить - 7000 ₽"
+
     },
     "-WLKDLWKLKDdjsjhd" : {
       "id": 14,
@@ -233,8 +248,9 @@
       "type" : "Птичка",
       "weight" : "12",
       "bgColor": "orange",
-      "price": 1500,
-      "breed": "Обыкновенный зимородок"
+      "breed": "Обыкновенный зимородок",
+      "button": "Приютить"
+
     },
     "-WWKLKFEPOefkdlf" : {
       "id": 15,
@@ -250,7 +266,9 @@
       "weight" : "12",
       "bgColor": "orange",
       "price": 8000,
-      "breed": "Многоцветный лорикет"
+      "breed": "Многоцветный лорикет",
+      "button": "Купить - 8000 ₽"
+
     },
     "-EWOPOWPOdkjkdjdfdg" : {
       "id": 16,
@@ -265,8 +283,9 @@
       "type" : "Птица",
       "weight" : "12",
       "bgColor": "orange",
-      "price": 1500,
-      "breed": "Сизый голубь"
+      "breed": "Сизый голубь",
+      "button": "Приютить"
+
     },
     "-LOEKDELKDhjdhjshd" : {
       "id": 17,
@@ -282,7 +301,9 @@
       "weight" : "12",
       "bgColor": "grey",
       "price": 2500,
-      "breed": "Заяц обыкновенный"
+      "breed": "Заяц обыкновенный",
+      "button": "Купить - 2 500 ₽"
+
     },
     "-LEKLDKELKJSHJHjshjhs" : {
       "id": 18,
@@ -297,8 +318,8 @@
       "type" : "Заяц",
       "weight" : "12",
       "bgColor": "grey",
-      "price": 2200,
-      "breed": "Чернохвостый заяц"
+      "breed": "Чернохвостый заяц",
+      "button": "Приютить"
     },
     "-podposjhdejhjheSJKEE" : {
       "id": 19,
@@ -314,7 +335,9 @@
       "weight" : "12",
       "bgColor": "grey",
       "price": 4000,
-      "breed": "Дикий кролик"
+      "breed": "Дикий кролик",
+      "button": "Купить - 4 000 ₽"
+
     },
     "-LEKLDKELKJksjkjfkrkj" : {
       "id": 20,
@@ -329,8 +352,9 @@
       "type" : "Заяц",
       "weight" : "12",
       "bgColor": "grey",
-      "price": 5000,
-      "breed": "Арктический беляк"
+      "breed": "Арктический беляк",
+      "button": "Приютить"
+
     },
     "-DJKJDKJjhjshdsj" : {
       "id": 21,
@@ -346,7 +370,9 @@
       "weight" : "12",
       "bgColor": "grey",
       "price": 3000,
-      "breed": "Заячьи кенгуру"
+      "breed": "Заячьи кенгуру",
+      "button": "Купить - 3 000 ₽"
+
     },
     "-JHEJHJEHFBSSFGFgsdsgf" : {
       "id": 22,
@@ -361,8 +387,9 @@
       "type" : "Мышь",
       "weight" : "12",
       "bgColor": "#FF92AE",
-      "price": 6000,
-      "breed": "Интеллегентная мышь"
+      "breed": "Интеллегентная мышь",
+      "button": "Приютить"
+
     },
     "-ODIEIDHJEHdhsjhdjsh" : {
       "id": 23,
@@ -378,7 +405,9 @@
       "weight" : "12",
       "bgColor": "#FF92AE",
       "price": 2000,
-      "breed": "Мышь-болтун"
+      "breed": "Мышь-болтун",
+      "button": "Купить - 2 000 ₽"
+
     },
     "-WJKWJKDJghgshdg" : {
       "id": 24,
@@ -393,8 +422,9 @@
       "type" : "Мышь",
       "weight" : "12",
       "bgColor": "#FF92AE",
-      "price": 4000,
-      "breed": "Землеройковая крыса"
+      "breed": "Землеройковая крыса",
+      "button": "Приютить"
+
     },
     "-WLKLKDLEKhsjdhjshd" : {
       "id": 25,
@@ -410,7 +440,9 @@
       "weight" : "12",
       "bgColor": "#FF92AE",
       "price": 1000,
-      "breed": "Мышь Делакура"
+      "breed": "Мышь Делакура",
+      "button": "Купить - 1 000 ₽"
+
     },
     "-WKDLKWLKjhjdhd" : {
       "id": 26,
@@ -425,8 +457,9 @@
       "type" : "Мышь",
       "weight" : "12",
       "bgColor": "#FF92AE",
-      "price": 1750,
-      "breed": "Алтайская пищуха"
+      "breed": "Алтайская пищуха",
+      "button": "Приютить"
+
     },
     "-WPOWPOdkllskPW" : {
       "id": 27,
@@ -442,7 +475,9 @@
       "weight" : "12",
       "bgColor": "#FF92AE",
       "price": 3200,
-      "breed": "Енот-полоскун"
+      "breed": "Енот-полоскун",
+      "button": "Купить - 3 200 ₽"
+
     },
     "-EKLLKSDkjdskjf" : {
       "id": 28,
@@ -457,8 +492,9 @@
       "type" : "чудик",
       "weight" : "12",
       "bgColor": "#FF92AE",
-      "price": 4000,
-      "breed": "Кошачий лемур"
+      "breed": "Кошачий лемур",
+      "button": "Приютить"
+
     },
     "-SKJKDJKWEshjds" : {
       "id": 29,
@@ -474,7 +510,9 @@
       "weight" : "12",
       "bgColor": "#FF92AE",
       "price": 5720,
-      "breed": "Мексиканский глазоух"
+      "breed": "Мексиканский глазоух",
+      "button": "Купить - 5 720 ₽"
+
     },
     "-WJKDKJEWJsdd" : {
       "id": 30,
@@ -489,8 +527,9 @@
       "type" : "Я мать!",
       "weight" : "12",
       "bgColor": "#FF92AE",
-      "price": 10000,
-      "breed": "Тигролев"
+      "breed": "Тигролев",
+      "button": "Приютить"
+
     },
     "-KJDKJWKJhsdghgs" : {
       "id": 31,
@@ -506,7 +545,8 @@
       "weight" : "12",
       "bgColor": "#FF92AE",
       "price": 4000,
-      "breed": "Долгопятообразный"
+      "breed": "Долгопятообразный",
+      "button": "Купить - 4 000 ₽"
     }
 
   }

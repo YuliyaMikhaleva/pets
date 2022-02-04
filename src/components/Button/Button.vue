@@ -1,16 +1,12 @@
 <template>
-  <button class="button">{{ title }}</button>
+  <button class="button">
+    <slot/>
+  </button>
 </template>
 
 <script>
 export default {
   name: "Button",
-  props:{
-    title:{
-      type:String,
-      required:true
-    },
-  }
 }
 </script>
 

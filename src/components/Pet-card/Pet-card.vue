@@ -8,7 +8,7 @@
           <div class="swiper-button-next pet-card__arrow-next" slot="button-next"></div>
           <div class="swiper-button-prev pet-card__arrow-prev" slot="button-prev"></div>
       </swiper>
-      <div v-if="pictures.length>1" class="swiper-pagination swiper-pagination-v pet-card__pagination" slot="pagination">
+      <div v-if="pictures.length>1" class="swiper-pagination swiper-pagination-v pet-card__pagination swiper-pagination-bullets" slot="pagination">
       </div>
 
     </div>
@@ -19,15 +19,17 @@
       <span class="pet-card__kind">{{info.breed}}</span><span class="pet-card__type">{{ info.type }}</span>
       <div class="pet-card__data">
         <span class="pet-card__likes">{{info.likes}} {{likeWord}}</span>
-        <span class="pet-card__price">{{info.price}} P</span>
+        <span class="pet-card__price" v-if="info.price">{{info.price}} ₽</span>
       </div>
       <div class="pet-card__params">
-        <span class="pet-card__param">Возраст</span>
-        <span class="pet-card__param">Вес</span>
-        <span class="pet-card__param">Пол</span>
-        <span class="pet-card__param"> {{ageNow}}</span>
-        <span class="pet-card__param">{{ info.weight }} кг</span>
-        <span class="pet-card__param">{{ gender }}</span>
+        <div v-for="item of parametrs" :key="item">
+          <div class="pet-card__param">{{item}}</div>
+          <div v-if="item=='Возраст'">{{ageNow}}</div>
+          <div v-if="item=='Вес'">{{info.weight}} кг</div>
+          <div v-if="item=='Пол'">{{gender}}</div>
+        </div>
+        <div>
+        </div>
       </div>
       <div class="pet-card__txt">
         <h3 class="pet-card__txt-title">Описание</h3>
@@ -35,7 +37,7 @@
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
         </vue-custom-scrollbar>
       </div>
-      <Button class="pet-card__button" :title="'Купить - '+info.price+' Р'"/>
+      <Button class="pet-card__button">{{info.button}}</Button>
 
 
     </div>
@@ -64,11 +66,10 @@ export default {
         slidesPerView: 'auto',
         spaceBetween: 49,
         centeredSlides:true,
+        // watchOverflow: true,
         pagination: {
           el: ".swiper-pagination",
           dynamicBullets: true,
-          clickable:true,
-          watchOverflow: true
         },
         navigation: {
           nextEl: '.swiper-button-next',
@@ -85,7 +86,20 @@ export default {
         suppressScrollY: false,
         suppressScrollX: false,
         wheelPropagation: false
-      }
+      },
+      parametrs:['Возраст', 'Вес', 'Пол'],
+      breakpoints: {
+        769: {
+          slidesPerView: 'auto',
+          spaceBetween: 23,
+          // centeredSlides:true,
+        },
+        1281:{
+          slidesPerView: 'auto',
+          spaceBetween: 49,
+          // centeredSlides:true,
+        }
+      },
     }
   },
   methods:{
@@ -142,6 +156,11 @@ export default {
     if (this.id){
       localStorage.setItem('PetId', String(this.id));
     }
+    if (!this.info.images){
+      let element = document.querySelector('.pet-card__photo-wrp');
+      element.classList.add('pet-card__photo-wrp1')
+      console.log('element', element)
+    }
   },
 
 }
@@ -149,16 +168,5 @@ export default {
 
 <style lang="scss" scoped>
   @import "Pet-card.module";
-  .scroll-area {
-    position: relative;
-    margin: auto;
-    width: 100%;
-    height: 283px;
-  }
-  .scroll-area ::v-deep{
-    .ps__thumb-y{
-      background-color: #4C6FFF;
-      width: 4px;
-    }
-  }
+
 </style>
