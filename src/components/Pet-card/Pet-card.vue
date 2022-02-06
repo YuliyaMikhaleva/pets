@@ -35,9 +35,10 @@
         <h3 class="pet-card__txt-title">Описание</h3>
         <vue-custom-scrollbar class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
+          <Button class="pet-card__button">{{info.button}}</Button>
+
         </vue-custom-scrollbar>
       </div>
-      <Button class="pet-card__button">{{info.button}}</Button>
 
 
     </div>
@@ -89,15 +90,15 @@ export default {
       },
       parametrs:['Возраст', 'Вес', 'Пол'],
       breakpoints: {
-        769: {
-          slidesPerView: 'auto',
+        768: {
+          slidesPerView: 1,
           spaceBetween: 23,
           // centeredSlides:true,
         },
-        1281:{
+        1280:{
           slidesPerView: 'auto',
           spaceBetween: 49,
-          // centeredSlides:true,
+          centeredSlides:true,
         }
       },
     }

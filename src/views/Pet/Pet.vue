@@ -30,6 +30,31 @@ export default {
     &__pet-card{
       margin-top: 50px;
       margin-bottom: 124px;
+      padding-right: 30px;
+      min-width: 1702px;
     }
+  }
+
+  @media (max-width: 1280px) {
+    .pet{
+      &__pet-card{
+        padding-right: 25px;
+        box-sizing: border-box;
+        margin-bottom: 160px;
+        min-width: 1130px;
+
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pet{
+      &__pet-card{
+        padding-right: 0;
+        min-width: 0;
+
+      }
+    }
+
   }
 </style>
