@@ -93,7 +93,6 @@ export default {
         768: {
           slidesPerView: 1,
           spaceBetween: 23,
-          // centeredSlides:true,
         },
         1280:{
           slidesPerView: 'auto',
