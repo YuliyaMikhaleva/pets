@@ -42,7 +42,6 @@ export default {
         box-sizing: border-box;
         margin-bottom: 160px;
         min-width: 1130px;
-
       }
     }
   }
@@ -50,11 +49,13 @@ export default {
   @media (max-width: 768px) {
     .pet{
       &__pet-card{
-        padding-right: 0;
+        padding-right: 24px;
         min-width: 0;
-
+        margin-top: 324px;
+        padding-left: 24px;
+        box-sizing: border-box;
+        margin-bottom: 8px;
       }
     }
-
   }
 </style>

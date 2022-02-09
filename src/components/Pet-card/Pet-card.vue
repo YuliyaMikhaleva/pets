@@ -5,11 +5,14 @@
         <swiper-slide  class="pet-card__photo-wrp" v-for="picture of pictures" :key="picture">
             <img class="pet-card__photo" :src="'/'+picture" alt="photo">
         </swiper-slide>
-          <div class="swiper-button-next pet-card__arrow-next" slot="button-next"></div>
-          <div class="swiper-button-prev pet-card__arrow-prev" slot="button-prev"></div>
+          <div v-if="actualWidth>768" class="swiper-button-next pet-card__arrow-next" slot="button-next"></div>
+          <div v-if="actualWidth>768" class="swiper-button-prev pet-card__arrow-prev" slot="button-prev"></div>
       </swiper>
       <div v-if="pictures.length>1" class="swiper-pagination swiper-pagination-v pet-card__pagination swiper-pagination-bullets" slot="pagination">
       </div>
+      <RouterLink to="/pets" v-if="$route.meta.namePage =='Pets/name'">
+        <div v-if="actualWidth<=768" class="pet-card__btnReturn"></div>
+      </RouterLink>
 
     </div>
     <div class="pet-card__description">
@@ -33,11 +36,15 @@
       </div>
       <div class="pet-card__txt">
         <h3 class="pet-card__txt-title">Описание</h3>
-        <vue-custom-scrollbar class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle">
+        <vue-custom-scrollbar v-if="actualWidth>768" class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
           <Button class="pet-card__button">{{info.button}}</Button>
-
         </vue-custom-scrollbar>
+        <div v-if="actualWidth<=768">
+          <p class="pet-card__txt-paragraph">{{info.about}}</p>
+          <Button class="pet-card__button">{{info.button}}</Button>
+          <div class="pet-card__mobile-line"></div>
+        </div>
       </div>
 
 
@@ -54,9 +61,11 @@ import Gps from "@/../public/images/gpsIcon.svg?inline";
 import Button from "@/components/Button/Button";
 import {mapGetters} from "vuex";
 import moment from "moment";
+import { Mixin } from "@/assets/Mixin";
 export default {
   name: "Pet-card",
   components:{Button, Gps, Swiper, SwiperSlide, vueCustomScrollbar},
+  mixins:[Mixin],
   props:{
     name:String,
     id:Number,
