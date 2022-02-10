@@ -7,6 +7,7 @@ import Blog from "@/views/Blog/Blog";
 import Chat from "@/views/Chat/Chat";
 import Profile from "@/views/Profile/Profile";
 import Pet from "@/views/Pet/Pet";
+import AuthPage from "@/views/Auth-page/Auth-page";
 
 Vue.use(VueRouter);
 
@@ -71,6 +72,11 @@ const routes = [
         path: '/404',
         name: '404',
         component: Error,
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: AuthPage,
     },
     {
         path: '*',

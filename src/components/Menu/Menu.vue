@@ -1,7 +1,8 @@
 <template>
   <nav class="menu">
     <router-link to="/">
-      <Logo class="menu__logo"/>
+      <LogoIcon class="menu__logo"/>
+<!--      <Logo class="menu__logo"/>-->
     </router-link>
     <ul class="menu__list">
       <div class="menu__wrp">
@@ -20,7 +21,7 @@
             class="menu__link"
             active-class="menu__item-active"
             exact-active-class="menu__item-active"
-            to="/logout">
+            to="/login">
           <LogoutIcon/>
         </router-link>
       </li>
@@ -30,16 +31,17 @@
 </template>
 
 <script>
-import Logo from "@/components/Logo/Logo";
+// import Logo from "@/components/Logo/Logo";
 import HomeIcon from "@/../public/images/homeIcon.svg?inline";
 import PetsIcon from "@/../public/images/petsIcon.svg?inline";
 import BlogIcon from "@/../public/images/blogIcon.svg?inline";
 import ChatIcon from "@/../public/images/chatIcon.svg?inline";
 import PersonIcon from "@/../public/images/personIcon.svg?inline";
 import LogoutIcon from "@/../public/images/logoutIcon.svg?inline";
+import LogoIcon from "@/../public/images/logo.svg?inline";
 export default {
   name: "Menu",
-  components: {Logo,HomeIcon, PetsIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
+  components: {LogoIcon,HomeIcon, PetsIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
   computed:{
     menuLinks(){
       return this.$router.options.routes.filter(el => el.meta && el.meta.menu)

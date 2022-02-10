@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import LogoIcon from "@/../public/images/logo.svg?inline";
+// import LogoIcon from "@/../public/images/logo.svg?inline";
 
 export default {
   name: "Logo",
-  components:{LogoIcon}
+  // components:{LogoIcon}
 }
 </script>
 
