@@ -17,7 +17,7 @@
     </div>
     <div class="pet-card__description">
       <h1 class="pet-card__title">{{info.name}},
-        <Gps/>
+        <Gps class="pet-card__gps-icon"/>
         <span class="pet-card__country">{{info.location.split(',')[0]}}</span></h1>
       <span class="pet-card__kind">{{info.breed}}</span><span class="pet-card__type">{{ info.type }}</span>
       <div class="pet-card__data">
@@ -40,10 +40,12 @@
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
           <Button class="pet-card__button">{{info.button}}</Button>
         </vue-custom-scrollbar>
-        <div v-if="actualWidth<=768">
+        <div v-if="actualWidth<=768" class="pet-card__text-wrp">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
           <Button class="pet-card__button">{{info.button}}</Button>
-          <div class="pet-card__mobile-line"></div>
+          <div class="pet-card__mobile-line">
+            <div class="pet-card__mobile-line"></div>
+          </div>
         </div>
       </div>
 
@@ -73,7 +75,7 @@ export default {
   data(){
     return{
       swiperOption: {
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         spaceBetween: 49,
         centeredSlides:true,
         // watchOverflow: true,
@@ -99,8 +101,13 @@ export default {
       },
       parametrs:['Возраст', 'Вес', 'Пол'],
       breakpoints: {
-        768: {
+        375: {
           slidesPerView: 1,
+          spaceBetween: 23,
+          centeredSlides:true,
+        },
+        768: {
+          slidesPerView: 'auto',
           spaceBetween: 23,
         },
         1280:{

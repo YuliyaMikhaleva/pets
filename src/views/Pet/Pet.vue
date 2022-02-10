@@ -51,7 +51,7 @@ export default {
       &__pet-card{
         padding-right: 24px;
         min-width: 0;
-        margin-top: 324px;
+        margin-top: 430px;
         padding-left: 24px;
         box-sizing: border-box;
         margin-bottom: 8px;

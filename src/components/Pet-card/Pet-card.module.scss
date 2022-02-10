@@ -5,6 +5,10 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas: "slider slider slider slider slider txt txt txt txt txt txt txt";
   grid-column-gap: 40px;
+  &__gps-icon{
+    width: 45.98px;
+    height: 64px;
+  }
   &__svg-path{
     fill: var(--color-title);
     stroke: var(--color-title);
@@ -249,6 +253,11 @@
     left: 24px;
     z-index: var(--zIndex1);
     border-radius: 52px;
+    transition: opacity 0.3s;
+    &:hover{
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
   }
   &__btnReturn:after{
     display: block;
@@ -421,9 +430,9 @@
 
 @media (max-width: 768px) {
   .pet-card{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-template-areas: "txt txt txt txt txt";
+    grid-template-areas: "txt";
     height: 100%;
     &__photo-wrp{
       width: 100%;
@@ -437,11 +446,15 @@
       height: 400px;
     }
     &__txt-paragraph{
-      margin: 0;
+      margin: 0 0 17px 0;
+      font-size: 20px;
+      line-height: 28px;
     }
     &__button{
       margin: 17px auto 21px;
       width: 100%;
+      align-items: flex-end;
+      margin-top: auto;
     }
     &__mobile-line{
       width: 148px;
@@ -450,11 +463,136 @@
       border-radius: 100px;
       margin: 0 auto;
     }
+    &__photo{
+      border-radius: 0 0 20px 20px;
+      object-position: 0% 25%;
+    }
+    &__text-wrp{
+      min-height: 265px;
+      display: flex;
+      flex-direction: column;
+    }
+    &__params{
+      font-size: 20px;
+      line-height: 21.62px;
+    }
+    &__likes{
+      font-size: 18px;
+      line-height: 19.46px;
+      margin-left: 26px;
+      margin-right: 68px;
+    }
+    &__price{
+      font-size: 18px;
+      line-height: 19.46px;
+    }
+    &__price:before{
+      left: -26px;
+    }
+    &__likes:before{
+      left: -26px;
+    }
+    &__gps-icon{
+      width: 25.15px;
+      height: 35px;
+    }
+    &__title{
+      margin-bottom: 15px;
+    }
+    &__kind{
+      font-size: 18px;
+      line-height: 21.33px;
+    }
+    &__type{
+      font-size: 18px;
+      line-height: 21.33px;
+    }
+    &__data{
+      line-height: 12px;
+    }
+    &__txt-title{
+      font-size: 20px;
+      line-height: 21.62px;
+    }
+    &__slider{
+      min-width: 0;
+    }
   }
+  //.swiper-slide-active{
+  //  width: 100%;
+  //}
   .swiper-slide-prev{
     left: 0;
   }
   .swiper-slide-next{
     left: 0;
+  }
+  .swiper-pagination ::v-deep{
+    .swiper-pagination-bullet{
+      width: 6px;
+      height: 6px;
+    }
+
+  }
+}
+
+@media (max-width: 375px) {
+  .pet-card{
+    &__title{
+      font-size: 34px;
+      line-height: 36.72px;
+    }
+    &__kind{
+      font-size: 14px;
+      line-height: 16.59px;
+    }
+    &__type{
+      font-size: 14px;
+      line-height: 16.59px;
+    }
+    &__likes{
+      font-size: 14px;
+      line-height: 15.13px;
+    }
+    &__price{
+      font-size: 14px;
+      line-height: 15.13px;
+    }
+    &__params{
+      font-size: 12px;
+      line-height: 12.97px;
+    }
+    &__likes:before{
+      width: 14px;
+      height: 13px;
+    }
+    &__price:before{
+      width: 14px;
+      height: 13px;
+    }
+    &__txt-title{
+      font-size: 12px;
+      line-height: 12.97px;
+    }
+    &__txt-paragraph{
+      font-size: 16px;
+      line-height: 22.4px;
+    }
+    &__button{
+      font-size: 13px;
+      line-height: 16.59px;
+    }
+    &__mobile-line-wrp{
+      padding: 21px 0 8px 0;
+      position: fixed;
+      bottom: 0;
+      background-color: var(--bg-dark);
+      width: 100%;
+    }
+    &__mobile-line{
+      position: absolute;
+      left: 45%;
+      transform: translateX(-50%);
+    }
   }
 }

@@ -132,7 +132,8 @@ body{
 }
 @media (max-width: 768px) {
   body{
-    min-width: 720px;
+    //min-width: 720px;
+    min-width: 375px;
   }
 
   .container{
@@ -201,6 +202,9 @@ body{
       margin-left: 24px;
       margin-right: 24px;
       margin-bottom: 24px;
+    }
+    &__header2{
+      display: none;
     }
   }
 }

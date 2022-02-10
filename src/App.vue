@@ -2,10 +2,11 @@
   <div id="app" class="main">
     <Loader v-if="getShowloader"/>
     <Menu v-if="actualWidth>768" class="main__menu"/>
-    <MobileMenu v-if="actualWidth<=768" class="main__mobile-menu"/>
+    <MobileMenu v-if="actualWidth<=768 && $route.matched[0].path!=='/pets/:name'" class="main__mobile-menu"/>
     <div>
       <Header class="main__header" v-if="$route.matched[0].path!=='/pets/:name'"/>
       <Header v-if="$route.matched[0].path=='/pets/:name'" class="main__header2"/>
+
       <router-view  class="router-view"/>
     </div>
   </div>
