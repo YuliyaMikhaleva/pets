@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="main">
     <Loader v-if="getShowloader"/>
-    <Menu v-if="actualWidth>768 && $route.matched[0].path!=='/login'" class="main__menu"/>
-    <MobileMenu v-if="actualWidth<=768 && $route.matched[0].path!=='/pets/:name'" class="main__mobile-menu"/>
+    <Menu v-if="actualWidth>768" class="main__menu" :class="{'hidden':this.block}"/>
+    <MobileMenu v-if="actualWidth<=768 && show" class="main__mobile-menu"/>
     <div>
-      <Header class="main__header" v-if="$route.matched[0].path!=='/pets/:name' && $route.matched[0].path!=='/login'"/>
+      <Header class="main__header" :class="{'hidden':this.block}" v-if="$route.matched[0].path!=='/pets/:name'"/>
       <Header v-if="$route.matched[0].path=='/pets/:name'" class="main__header2"/>
 
       <router-view  class="router-view"/>
@@ -31,7 +31,21 @@
   },
     mixins:[Mixin],
     computed:{
-    ...mapGetters('showloaderModule',['getShowloader']),
+    ...mapGetters('showloaderModule',['getShow loader']),
+      block(){
+        if (this.$route.path=='/signIn' || this.$route.path=='/signUp'){
+          return true
+        } else {
+          return  false
+        }
+      },
+      show(){
+        if (this.$route.path!=='/pets/:name' && this.$route.path !== '/signIn' && this.$route.path !== '/signUp'){
+          return true
+        } else {
+          return false
+        }
+      }
   },
 }
 </script>

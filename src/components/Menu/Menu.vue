@@ -21,7 +21,7 @@
             class="menu__link"
             active-class="menu__item-active"
             exact-active-class="menu__item-active"
-            to="/login">
+            to="/signIn">
           <LogoutIcon/>
         </router-link>
       </li>

@@ -1,0 +1,16 @@
+@import "./src/assets/variables";
+.logo{
+  &__path{
+    fill: var(--color-logo);
+    transition: fill 0.3s;
+  }
+  &__color{
+    fill: var(--bg-dark);
+  }
+  &:hover{
+    .logo__path{
+      fill: #CED7E0;
+      transition: fill 0.3s;
+    }
+  }
+}

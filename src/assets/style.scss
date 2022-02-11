@@ -50,6 +50,7 @@ body{
     z-index: var(--zIndex2);
   }
   &__menu{
+    display: flex;
     padding: 35.6px 20px 32px 20px;
     position: sticky;
     top: 0;
@@ -91,6 +92,12 @@ body{
 
 }
 
+.hidden{
+  display: none;
+}
+.transparent{
+  color: transparent;
+}
 @media (max-width: 1280px) {
   body{
     min-width: 1250px;

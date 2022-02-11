@@ -2,6 +2,8 @@
 :root {
   --bg-dark: #0F172A;
   --bg-button:rgba(255, 255, 255, 0.05);
+  --color-auth-text:#F16063;//цвет текста полей формы регистрации/авторизации
+  --color-auth-button:#334155;
   --color-card-text:#EDF2F7;//цвет текста карточки
   --color-pet-type:#D5D5DC;//цвет породы
   --color-title:#EDF2F7;
@@ -29,9 +31,11 @@
 [theme="light"]{
   --bg-dark: #EDF2F7;
   --bg-button:#FFFFFF;
+  --color-auth-text:#334155;//цвет текста полей формы регистрации/авторизации
+  --color-auth-button:#4C6FFF;
   --color-card-text:#334155;
   --color-pet-type:#334155;//цвет породы
-  --color-title:#0F172A;
+
   --color-logo: #0F172A;
   --color-notice:#17171B;
   --color-border:#CED7E0;
@@ -47,11 +51,3 @@
   --color-arrow-slider:#4C6FFF;
   --color-graphic-block:#EDF2F7;
 }
-
-
-
-//$blueColor: #4C6FFF;
-//$zIndex1:10;
-//$zIndex2:50;
-//$zIndex3:100;
-//$zIndex4:1000;

@@ -29,4 +29,5 @@ export default {
 
 <style lang="scss">
   @import "Header.module";
+  @import "Logo.module";
 </style>

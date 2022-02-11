@@ -11,7 +11,7 @@
       <Avatar v-if="actualWidth>768 || actualWidth<=375" class="new-post__item" name="J" bg-color="linear-gradient(225deg, #67E9F1 0%, #24E795 100%)"/>
       <NewPost class="new-post__add"/>
     </div>
-    <Button class="new-post__btn" title="Напиши сейчас"/>
+    <Button class="new-post__btn">Напиши сейчас</Button>
   </article>
 </template>
 

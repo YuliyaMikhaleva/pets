@@ -1,34 +1,16 @@
 <template>
-  <div class="auth-page">
-    <div>
-      <img src="images/auth-photo-1.jpg" alt="photo">
-    </div>
-    <Auth class="auth-page__text"/>
-  </div>
+  <AuthForm/>
 </template>
 
 <script>
 
-import Auth from "@/components/Auth/Auth";
+import AuthForm from "@/components/Auth-form/Auth-form";
 export default {
-  name: "Auth-page",
-  components: {Auth},
+  name: "Login-page",
+  components: {AuthForm},
 }
 </script>
 
 <style lang="scss" scoped>
-  .auth-page{
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    font-family: Rubik;
-    &__text{
-      margin-right: 250px;
-      margin-top: 218px;
-      width: 325px;
-      height: 644px;
-      border: 1px solid white;
-    }
-  }
+
 </style>

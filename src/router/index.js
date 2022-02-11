@@ -74,8 +74,13 @@ const routes = [
         component: Error,
     },
     {
-        path: '/login',
-        name: 'login',
+        path: '/signIn',
+        name: 'Вход',
+        component: AuthPage,
+    },
+    {
+        path: '/signUp',
+        name: 'Регистрация',
         component: AuthPage,
     },
     {
