@@ -5,8 +5,8 @@
         <slot/>
       </div>
     </label>
-    <input class="input-block__input" :type="type" id="data" :placeholder="placeholder"/>
-    <p class="input-block__error">Error message</p>
+    <input class="input-block__input" :type="type" id="data" :placeholder="placeholder" @input="$emit('input', $event.target.value)"/>
+    <p class="input-block__error">{{nameError}}</p>
   </div>
 </template>
 
@@ -15,7 +15,13 @@ export default {
   name: "InputBlock",
   props:{
     placeholder:{type:String},
-    type:{type:String}
+    type:{type:String},
+    word:{type:String},
+    errors:{
+      type:Array,
+      required: true,
+      default: () => [],
+    },
   },
 
   computed:{
@@ -24,6 +30,15 @@ export default {
         return true
       } else {
         return false
+      }
+    },
+    nameError(){
+      if (this.type === "text"){
+        return this.errors.find((error) => error === "Заполните имя пользователя")
+      } else if (this.type === "email"){
+        return this.errors.find((error) => error === "Заполните адрес эл. почты")
+      } else {
+        return this.errors.find((error) => error === "Заполните пароль")
       }
     }
   }

@@ -3,13 +3,33 @@
     <div v-if="actualWidth>768">
       <img :src="actualImg" alt="photo">
     </div>
-    <form class="auth-form page__text">
+    <form class="auth-form page__text" @submit="checkForm">
       <LogoIcon class="auth-form__logo"/>
       <h1 class="auth-form__title">{{$route.name}}</h1>
       <p class="auth-form__txt">Зарегистрируйтесь сейчас бесплатно и добавьте своего питомца</p>
-      <InputBlock v-if="this.$route.path=='/signUp'" class="auth-form__input-block" placeholder="Имя пользователя" type="text">Имя пользователя</InputBlock>
-      <InputBlock class="auth-form__input-block" placeholder="Адрес эл. почты" type="email">Адрес эл. почты</InputBlock>
-      <InputBlock placeholder="Пароль" type="password" class="auth-form__input-block">Повторите пароль</InputBlock>
+
+      <InputBlock
+              v-if="this.$route.path=='/signUp'"
+              class="auth-form__input-block"
+              placeholder="Имя пользователя"
+              type="text" v-model="user.name"
+              :errors="errors">Имя пользователя</InputBlock>
+
+      <InputBlock
+              class="auth-form__input-block"
+              placeholder="Адрес эл. почты"
+              type="email"
+              v-model="user.email"
+              :errors="errors">Адрес эл. почты</InputBlock>
+
+      <InputBlock
+              placeholder="Пароль"
+              type="password"
+              class="auth-form__input-block"
+              v-model="user.password"
+              :errors="errors">Повторите пароль</InputBlock>
+      <p class="auth-form__error">{{error}}</p>
+
       <a v-if="this.$route.path=='/signIn'" class="auth-form__change-password">Забыли пароль?</a>
       <Button class="auth-form__button" type="submit">{{nameButton}}</Button>
       <p class="auth-form__verification">{{verification}}</p>
@@ -26,11 +46,24 @@ import LogoIcon from "@/../public/images/logo.svg?inline";
 import InputBlock from "@/components/InputBlock/InputBlock";
 import Button from "@/components/Button/Button";
 import { Mixin } from "@/assets/Mixin";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "Auth-form",
   components: {Button, InputBlock, LogoIcon},
   mixins:[Mixin],
+  data(){
+    return{
+      user: {
+        name: "",
+        email:"",
+        password:""
+      },
+      errors:[],
+      error:""
+    }
+  },
   computed:{
+    ...mapGetters('profileModule',['getUserInUsers']),
     actualImg(){
       if (this.$route.path=="/signIn"){
         if (this.actualWidth >1280){
@@ -82,6 +115,32 @@ export default {
         return "/signIn"
       }
     },
+    item(){
+      return this.getUserInUsers
+    }
+
+  },
+  methods:{
+    ...mapActions('profileModule',['signUp', 'signIn']),
+    checkForm(e){
+      this.errors = [];
+      // if(!this.user.name) this.errors.push("Заполните имя пользователя");
+      if(!this.user.email) this.errors.push("Заполните адрес эл. почты");
+      if(!this.user.password) this.errors.push("Заполните пароль");
+      e.preventDefault();
+      if (!this.errors.length){
+        if (this.$route.path=="/signUp"){
+          this.signUp(this.user)
+        } else {
+          if (this.item(this.user)){
+            this.signIn(this.item(this.user))
+          } else {
+            this.error = "Такой пользователь еще не зарегистрирован, перейдите на страницу регистрации"
+          }
+
+        }
+      }
+    }
   }
 
 }
@@ -117,6 +176,10 @@ export default {
   .auth-form{
     display: flex;
     flex-direction: column;
+    &__error{
+      color: var(--color-auth-text);
+
+    }
     &__logo{
       width: 102.4px;
       height: 90.87px;

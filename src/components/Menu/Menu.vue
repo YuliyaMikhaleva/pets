@@ -16,12 +16,13 @@
           </router-link>
         </li>
       </div>
-      <li class="menu__item menu__logout">
+      <li class="menu__item menu__logout" @click="this.signOut">
         <router-link
             class="menu__link"
             active-class="menu__item-active"
             exact-active-class="menu__item-active"
-            to="/signIn">
+            to="/signIn"
+        >
           <LogoutIcon/>
         </router-link>
       </li>
@@ -39,6 +40,7 @@ import ChatIcon from "@/../public/images/chatIcon.svg?inline";
 import PersonIcon from "@/../public/images/personIcon.svg?inline";
 import LogoutIcon from "@/../public/images/logoutIcon.svg?inline";
 import LogoIcon from "@/../public/images/logo.svg?inline";
+import {mapActions} from "vuex";
 export default {
   name: "Menu",
   components: {LogoIcon,HomeIcon, PetsIcon, BlogIcon, ChatIcon, PersonIcon, LogoutIcon},
@@ -46,7 +48,11 @@ export default {
     menuLinks(){
       return this.$router.options.routes.filter(el => el.meta && el.meta.menu)
     }
+  },
+  methods:{
+    ...mapActions('profileModule',['signOut']),
   }
+
 
 }
 </script>
