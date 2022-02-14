@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <div v-if="actualWidth>768">
-      <img :src="actualImg" alt="photo">
+    <div v-if="actualWidth>768" class="page__img-wrp">
+      <img :src="actualImg" alt="photo" class="page__img">
     </div>
     <form class="auth-form page__text" @submit="checkForm">
       <LogoIcon class="auth-form__logo"/>
@@ -152,12 +152,17 @@ export default {
     color: white;
     display: flex;
     justify-content: space-between;
-    width: 100vw;
+    height: 100%;
+    //width: 100vw;
+    //width: 100%;
+    //max-width: 1920px;
     font-family: Rubik;
-    min-width: 1920px;
+    //min-width: 1920px;
+    align-items: center;
     &__text{
+      margin-left: 250px;
       margin-right: 250px;
-      margin-top: 218px;
+      //margin-top: 218px;
       width: 325px;
       min-width: 325px;
     }
@@ -171,6 +176,17 @@ export default {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+    }
+    &__img-wrp{
+      max-width: 855px;
+      height: 100%;
+      //background-color: white;
+      //height: 100vh;
+    }
+    &__img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
   .auth-form{
@@ -247,28 +263,32 @@ export default {
 
   @media (max-width: 1280px) {
     .page{
-      min-width: 1280px;
+      //min-width: 1280px;
+      &__img-wrp{
+        max-width: 737px;
+      }
       &__text{
         margin-right: 109px;
-        margin-top: 73px;
+        margin-left: 109px;
+        //margin-top: 73px;
       }
     }
   }
 
   @media (max-width: 768px) {
     .page{
-      min-width: 768px;
+      //min-width: 768px;
       //display: flex;
       //flex-direction: column;
-      &__text{
-        margin: 147px auto 0;
-      }
+      //&__text{
+      //  margin: 147px auto 0;
+      //}
     }
   }
 
   @media (max-width: 375px) {
     .page{
-      min-width: 375px;
+      //min-width: 375px;
     }
   }
 </style>

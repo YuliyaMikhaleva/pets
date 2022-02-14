@@ -10,7 +10,7 @@ import Pet from "@/views/Pet/Pet";
 import AuthPage from "@/views/Auth-page/Auth-page";
 
 Vue.use(VueRouter);
-
+// default layout: MainLayout
 const routes = [
     {
         path: '/',
@@ -18,7 +18,7 @@ const routes = [
         component: Home,
         meta:{
             icon:'HomeIcon',
-            menu:true
+            menu:true,
         }
     },
     {
@@ -77,11 +77,17 @@ const routes = [
         path: '/signIn',
         name: 'Вход',
         component: AuthPage,
+        meta:{
+            layout:"AuthLayout"
+        }
     },
     {
         path: '/signUp',
         name: 'Регистрация',
         component: AuthPage,
+        meta:{
+            layout:"AuthLayout"
+        }
     },
     {
         path: '*',
