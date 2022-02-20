@@ -1,4 +1,5 @@
 import store from '@/store'
+import router from "../../router";
 export const articlesModule = {
     namespaced: true,
     state:{
@@ -35,6 +36,9 @@ export const articlesModule = {
                 })
                 .then(() => {
                     store.commit('showloaderModule/turnOfShowloader');
+                    if (!store.getters['profileModule/getUser']){
+                        router.push({path:'/signIn'})
+                    }
                 })
         },
     }

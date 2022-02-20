@@ -32,6 +32,24 @@
       opacity: 100%;
     }
   }
+  &__item-active svg path {
+    stroke: white;
+  }
+  &__item-active .menu__chat {
+    fill: white;
+  }
+  &__item-active .menu__profile{
+    fill: white;
+    stroke: none;
+  }
+  &__item-active .menu__home {
+    fill: white;
+    stroke: none;
+  }
+  //&__item-active .menu__pets {
+  //  fill: none;
+  //  stroke: white;
+  //}
   &__logout{
     position: fixed;
     bottom: 10px;

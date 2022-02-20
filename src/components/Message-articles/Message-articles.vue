@@ -79,6 +79,11 @@ export default {
         },
         // when window width is >= 376px
         376: {
+          slidesPerView:1,
+          spaceBetween: 30
+        },
+        // when window width is >= 376px
+        1130: {
           slidesPerView:1.67,
           spaceBetween: 30
         },

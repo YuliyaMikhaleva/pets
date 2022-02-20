@@ -277,12 +277,12 @@ export default {
 
   @media (max-width: 768px) {
     .page{
-      //min-width: 768px;
-      //display: flex;
-      //flex-direction: column;
-      //&__text{
-      //  margin: 147px auto 0;
-      //}
+      &__img-wrp{
+        display: none;
+      }
+      &__text{
+        margin: auto;
+      }
     }
   }
 

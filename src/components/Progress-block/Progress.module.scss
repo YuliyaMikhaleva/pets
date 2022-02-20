@@ -2,7 +2,8 @@
 
 .progress-block{
   grid-area: chart;
-  height: 314px;
+  //height: 314px;
+  height: auto;
   display: flex;
   border-radius: 16px;
   padding: 30px;
@@ -62,6 +63,38 @@
   }
 }
 
+@media (max-width: 1430px) {
+  .progress-block{
+    &__diagram{
+      display: none;
+    }
+    &__title{
+      margin-left: 0;
+    }
+    &__list{
+      padding: 0;
+    }
+    &__item{
+      font-size: 12px;
+    }
+  }
+
+}
+
+@media (max-width: 1280px) {
+  .progress-block{
+    &__diagram{
+      display: block;
+    }
+  }
+}
+@media (max-width: 900px) {
+  .progress-block{
+    &__diagram{
+      display: none;
+    }
+  }
+}
 @media (max-width: 375px) {
   .progress-block{
     height: 183px;

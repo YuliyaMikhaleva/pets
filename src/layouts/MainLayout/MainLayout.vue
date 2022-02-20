@@ -3,10 +3,10 @@
     <Loader v-if="getShowloader"/>
     <Menu v-if="actualWidth>768" class="main__menu" :class="{'hidden':this.block}"/>
     <MobileMenu v-if="actualWidth<=768 && show" class="main__mobile-menu"/>
-    <div>
+    <div class="main__wrp">
       <Header class="main__header" :class="{'hidden':this.block}" v-if="$route.matched[0].path!=='/pets/:name'"/>
       <Header v-if="$route.matched[0].path=='/pets/:name'" class="main__header2"/>
-      <router-view  class="router-view"/>
+      <router-view  class="home router-view"/>
     </div>
   </div>
 </template>
@@ -49,5 +49,12 @@ export default {
 </script>
 
 <style scoped>
-
+  /*.home{*/
+  /*  max-width: 950px;*/
+  /*  !*position: absolute;*!*/
+  /*  !*top: 0;*!*/
+  /*  !*left: 0;*!*/
+  /*  !*width: 100%;*!*/
+  /*  !*height: 100%;*!*/
+  /*}*/
 </style>
