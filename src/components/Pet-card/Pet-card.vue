@@ -27,9 +27,9 @@
       <div class="pet-card__params">
         <div v-for="item of parametrs" :key="item">
           <div class="pet-card__param">{{item}}</div>
-          <div v-if="item=='Возраст'">{{ageNow}}</div>
-          <div v-if="item=='Вес'">{{info.weight}} кг</div>
-          <div v-if="item=='Пол'">{{gender}}</div>
+          <div v-if="item=='Возраст'" class="pet-card__value">{{ageNow}}</div>
+          <div v-if="item=='Вес'" class="pet-card__value">{{info.weight}} кг</div>
+          <div v-if="item=='Пол'" class="pet-card__value">{{gender}}</div>
         </div>
         <div>
         </div>
@@ -42,7 +42,6 @@
         </vue-custom-scrollbar>
         <div v-if="actualWidth<=768" class="pet-card__text-wrp">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
-          <Button class="pet-card__button">{{info.button}}</Button>
           <div class="pet-card__mobile-line">
             <div class="pet-card__mobile-line"></div>
           </div>

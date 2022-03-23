@@ -30,7 +30,7 @@
     width: 46px;
     height: 46px;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: var(--color-arrow-slider);
     border-radius: 100px;
     z-index: var(--zIndex2);
     transition: opacity 0.3s;
@@ -44,9 +44,10 @@
     width: 46px;
     height: 46px;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.12);
     border-radius: 100px;
     transition: opacity 0.3s;
+    background-color: var(--color-arrow-slider);
+
     z-index: var(--zIndex2);
     pointer-events: all;
     &:hover{

@@ -8,6 +8,7 @@
   &__gps-icon{
     width: 45.98px;
     height: 64px;
+    margin-right: 9px;
   }
   &__svg-path{
     fill: var(--color-title);
@@ -74,17 +75,14 @@
       position: absolute;
       top: 40%;
       right: 30%;
-      //left: 5%;
     }
 
   }
   &__slider{
-    //border: 1px solid white;
     width: 100%;
     height: 800px;
     grid-area: slider;
     position: relative;
-    //min-width: 670px;
     min-width: 710px;
   }
   &__photo-wrp{
@@ -104,8 +102,10 @@
   }
   &__description{
     width: 100%;
-    height: 100%;
+    height: 800px;
     grid-area: txt;
+    display: flex;
+    flex-direction: column;
   }
   &__title{
     font-family: Rubik;
@@ -114,13 +114,11 @@
     line-height: 100%;
     color: var(--blueColor);
     margin: 0;
-    white-space: nowrap;
     max-width: 100%;
     white-space: break-spaces;
   }
   &__country{
     color: var(--color-title);
-    margin-left: 9px;
   }
   &__kinds{
     display: flex;
@@ -143,6 +141,7 @@
     color: var(--color-pet-type);
     margin-left: 20px;
     position: relative;
+    white-space: nowrap;
     &:before{
       content: "";
       display: block;
@@ -181,6 +180,8 @@
   &__price{
     color: var(--color-title);
     position: relative;
+    white-space: nowrap;
+    margin-left: 40px;
     &:before{
       content: "";
       display: block;
@@ -212,9 +213,7 @@
     line-height: 38px;
     font-style: normal;
     color: var(--color-title);
-    //display: grid;
     display: flex;
-    //grid-template-columns: 132px 80px 148px;
     grid-column-gap: 30px;
     grid-row-gap: 15px;
     padding-top: 30px;
@@ -225,6 +224,9 @@
     display: block;
     margin-bottom: 15px;
   }
+  &__value{
+    white-space: nowrap;
+  }
   &__txt{
     font-family: Rubik;
     font-style: normal;
@@ -232,22 +234,26 @@
     font-size: 32px;
     line-height: 140%;
     color: #EDF2F7;
-    //margin-right: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   &__txt-title{
     margin: 0 0 15px 0;
     color: var(--color-title);
   }
   &__txt-paragraph{
-    margin: 0 30px 0 0;
+    margin: 0 30px 20px 0;
     color: var(--color-card-text);
   }
   &__button{
     padding: 14px 104px;
     font-size: 24px;
     line-height: 28px;
-    margin-top: 98px;
+    margin-top: auto;
     margin-right: auto;
+    white-space: nowrap;
   }
   &__btnReturn{
     width: 40px;
@@ -280,9 +286,6 @@
 
 
 }
-//.swiper-slide{
-//  transition: transform 2s;
-//}
 .swiper-slide-next{
   height: 670px;
   margin: auto;
@@ -330,9 +333,9 @@
 
 .scroll-area {
   position: relative;
-  margin: auto;
   width: 100%;
-  height: 379px;
+  height: 100%;
+  max-height: 379px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -345,22 +348,30 @@
   }
 }
 
-//@media (max-width: 1500px) {
-//  .pet-card{
-//    grid-template-columns: repeat(10, 1fr);
-//    grid-template-areas: "slider slider slider slider slider slider txt txt txt txt";
-//    grid-column-gap: 20px;
-//  }
-//  .pet-card__kind{
-//    display: flex;
-//    flex-direction: column;
-//  }
-//}
+@media (max-width: 1450px) {
+  .pet-card{
+    grid-template-areas: "slider slider slider slider txt txt txt txt txt txt txt";
+  }
+}
+
+@media (max-width: 1375px) {
+  .pet-card__param, .pet-card__value{
+    font-size: 20px;
+    line-height: 21.62px;
+  }
+  .pet-card__button{
+    width: calc(100% - 21px);
+    padding: 14px;
+  }
+}
 @media (max-width: 1280px) {
   .pet-card{
     grid-template-columns: repeat(10, 1fr);
     grid-template-areas: "slider slider slider slider slider slider txt txt txt txt";
     grid-column-gap: 20px;
+    &__description{
+      height: 760px;
+    }
     &__photo-wrp{
       width: 627px;
       height: 760px;
@@ -410,7 +421,6 @@
     &__txt{
       font-size: 22px;
       line-height: 140%;
-      //margin-right: 25px;
     }
     &__txt-title{
       font-size: 22px;
@@ -439,11 +449,21 @@
 
   }
   .scroll-area {
-    height: 400px;
+    max-height: 400px;
   }
 
 }
 
+@media (max-width: 1210px) {
+  .pet-card{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+  .pet-card__button{
+    margin-bottom: 20px;
+  }
+}
 @media (max-width: 768px) {
   .pet-card{
     grid-template-columns: repeat(1, 1fr);
@@ -534,9 +554,6 @@
       min-width: 0;
     }
   }
-  //.swiper-slide-active{
-  //  width: 100%;
-  //}
   .swiper-slide-prev{
     left: 0;
   }

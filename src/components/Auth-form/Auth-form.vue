@@ -122,33 +122,45 @@ export default {
   },
   methods:{
     ...mapActions('profileModule',['signUp', 'signIn']),
+    ...mapActions('showloaderModule',['addShowloader', 'deleteShowloader']),
+
     checkForm(e){
       this.errors = [];
       if(!this.user.name && this.$route.path=='/signUp'){
         document.querySelector('input[type="text"]').classList.add('input-block__input-error')
-        document.querySelector('input[type="text"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+        document.querySelector('input[type="text"]').parentElement.querySelector('label').classList.add('input-block__label-error')
         this.errors.push("Заполните имя пользователя");
       }
 
       if(!this.user.email){
         document.querySelector('input[type="email"]').classList.add('input-block__input-error')
-        document.querySelector('input[type="email"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+        document.querySelector('input[type="email"]').parentElement.querySelector('label').classList.add('input-block__label-error')
 
         this.errors.push("Заполните адрес эл. почты");
       }
       if(!this.user.password){
         document.querySelector('input[type="password"]').classList.add('input-block__input-error')
-        document.querySelector('input[type="password"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+        document.querySelector('input[type="password"]').parentElement.querySelector('label').classList.add('input-block__label-error')
 
         this.errors.push("Заполните пароль");
       }
       e.preventDefault();
       if (!this.errors.length){
         if (this.$route.path=="/signUp"){
-          this.signUp(this.user)
+          this.addShowloader();
+          setTimeout(() => {
+            this.signUp(this.user)
+            this.deleteShowloader();
+          }, 1000)
+
         } else {
           if (this.item(this.user)){
-            this.signIn(this.item(this.user))
+            this.addShowloader();
+            setTimeout(() => {
+              this.signIn(this.item(this.user))
+              this.deleteShowloader();
+            }, 1000)
+
           } else {
             this.error = "Такой пользователь еще не зарегистрирован, перейдите на страницу регистрации"
           }
@@ -168,16 +180,11 @@ export default {
     display: flex;
     justify-content: space-between;
     height: 100%;
-    //width: 100vw;
-    //width: 100%;
-    //max-width: 1920px;
     font-family: Rubik;
-    //min-width: 1920px;
     align-items: center;
     &__text{
       margin-left: 250px;
       margin-right: 250px;
-      //margin-top: 218px;
       width: 325px;
       min-width: 325px;
     }
@@ -195,8 +202,6 @@ export default {
     &__img-wrp{
       max-width: 855px;
       height: 100%;
-      //background-color: white;
-      //height: 100vh;
     }
     &__img{
       object-fit: cover;
@@ -236,10 +241,15 @@ export default {
     }
     &__button{
       padding: 13.5px 0 13.5px 0;
+      box-sizing: border-box;
       margin-top: 30px;
       margin-bottom: 20px;
       background-color: var(--color-auth-button);
       font-size: 18px;
+    }
+    &__button:hover{
+      background-color: var(--blueColor);
+      color: white;
     }
     &__verification{
       font-weight: 400;
@@ -278,14 +288,12 @@ export default {
 
   @media (max-width: 1280px) {
     .page{
-      //min-width: 1280px;
       &__img-wrp{
         max-width: 737px;
       }
       &__text{
         margin-right: 109px;
         margin-left: 109px;
-        //margin-top: 73px;
       }
     }
   }
@@ -301,9 +309,4 @@ export default {
     }
   }
 
-  @media (max-width: 375px) {
-    .page{
-      //min-width: 375px;
-    }
-  }
 </style>

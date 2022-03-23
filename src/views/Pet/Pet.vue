@@ -24,7 +24,7 @@ export default {
     &__pet-card{
       margin-top: 50px;
       margin-bottom: 124px;
-      padding-right: 30px;
+      /*padding-right: 30px;*/
       //min-width: 1702px;
     }
   }
@@ -41,10 +41,10 @@ export default {
   @media (max-width: 1280px) {
     .pet{
       &__pet-card{
-        padding-right: 25px;
+        padding-right: 0;
         box-sizing: border-box;
         margin-bottom: 160px;
-        min-width: 1130px;
+        /*min-width: 1130px;*/
       }
     }
   }

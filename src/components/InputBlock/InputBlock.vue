@@ -4,9 +4,6 @@
       <input class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="inputValue"/>
       <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':inputValue.length}">
         <slot/>
-        <!--      <div :class="{'transparent': auth}">-->
-        <!--        <slot/>-->
-        <!--      </div>-->
       </label>
       <EyeClose v-if="type==='password'" class="input-block__svg" @click="changeType()"/>
       <EyeOpen v-if="placeholder==='Пароль' && type==='text'" class="input-block__svg input-block__svg-open" @click="changeType()"/>
@@ -123,11 +120,14 @@ export default {
     }
     &__input-error{
       color: #F16063;
+      border-bottom: 1px solid #F16063;
+    }
+    &__label-error{
+      color: #F16063;
     }
     &__wrp-input{
       width: 100%;
       position: relative;
-      /*display: flex;*/
     }
     &__svg{
       width: 20px;
@@ -145,11 +145,5 @@ export default {
       fill: var(--color-pet-type);
     }
   }
-  //input::placeholder{
-  //  font-weight: 400;
-  //  font-size: 14px;
-  //  line-height: 21px;
-  //  color: var(--color-pet-typet);
-  //}
 
 </style>

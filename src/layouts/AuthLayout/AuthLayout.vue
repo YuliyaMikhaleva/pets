@@ -1,18 +1,19 @@
 <template>
   <div class="auth-main">
-    <Loader v-if="getShowloader"/>
+    <Header style="display: none"/>
+
       <router-view  class="router-view" style=""/>
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+  import Header from "@/components/Header/Header";
+
 
 export default {
   name: "AuthLayout",
-  computed: {
-    ...mapGetters('showloaderModule', ['getShowloader']),
-  }
+  components:{Header}
+
 }
 </script>
 

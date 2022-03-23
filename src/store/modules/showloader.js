@@ -24,17 +24,17 @@ export const showloaderModule = {
         /**
          * Выключить шоу-лоадер
          * @param state
-         */
+           */
         turnOfShowloader(state){
             state.showloader = false
         },
     },
     actions:{
-        // addShowloader({commit}){
-        //     commit('turnOnShowloader')
-        // },
-        // deleteShowloader({commit}){
-        //     commit('turnOfShowloader')
-        // },
+        addShowloader({commit}){
+            commit('turnOnShowloader')
+        },
+        deleteShowloader({commit}){
+            commit('turnOfShowloader')
+        },
     }
 }
