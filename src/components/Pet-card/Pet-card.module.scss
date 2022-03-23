@@ -116,10 +116,15 @@
     margin: 0;
     white-space: nowrap;
     max-width: 100%;
+    white-space: break-spaces;
   }
   &__country{
     color: var(--color-title);
     margin-left: 9px;
+  }
+  &__kinds{
+    display: flex;
+    flex-wrap: wrap;
   }
   &__kind{
     font-family: Rubik;
@@ -340,6 +345,17 @@
   }
 }
 
+//@media (max-width: 1500px) {
+//  .pet-card{
+//    grid-template-columns: repeat(10, 1fr);
+//    grid-template-areas: "slider slider slider slider slider slider txt txt txt txt";
+//    grid-column-gap: 20px;
+//  }
+//  .pet-card__kind{
+//    display: flex;
+//    flex-direction: column;
+//  }
+//}
 @media (max-width: 1280px) {
   .pet-card{
     grid-template-columns: repeat(10, 1fr);
@@ -350,7 +366,7 @@
       height: 760px;
     }
     &__slider{
-      min-width: 627px;
+      min-width: 670px;
       height: 760px;
     }
     &__title{

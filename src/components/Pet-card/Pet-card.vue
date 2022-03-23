@@ -19,7 +19,7 @@
       <h1 class="pet-card__title">{{info.name}},
         <Gps class="pet-card__gps-icon"/>
         <span class="pet-card__country">{{info.location.split(',')[0]}}</span></h1>
-      <span class="pet-card__kind">{{info.breed}}</span><span class="pet-card__type">{{ info.type }}</span>
+      <span class="pet-card__kind">{{info.breed}} <span class="pet-card__type">{{ info.type }}</span></span>
       <div class="pet-card__data">
         <span class="pet-card__likes">{{info.likes}} {{likeWord}}</span>
         <span class="pet-card__price" v-if="info.price">{{info.price}} ₽</span>
@@ -36,7 +36,7 @@
       </div>
       <div class="pet-card__txt">
         <h3 class="pet-card__txt-title">Описание</h3>
-        <vue-custom-scrollbar v-if="actualWidth>768" class="scroll-area"  :settings="settings" @ps-scroll-y="scrollHanle">
+        <vue-custom-scrollbar v-if="actualWidth>768" class="scroll-area"  :settings="settings">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
           <Button class="pet-card__button">{{info.button}}</Button>
         </vue-custom-scrollbar>
@@ -75,7 +75,7 @@ export default {
   data(){
     return{
       swiperOption: {
-        slidesPerView: 1,
+        slidesPerView: 'auto',
         spaceBetween: 49,
         centeredSlides:true,
         // watchOverflow: true,
@@ -108,7 +108,7 @@ export default {
         },
         768: {
           slidesPerView: 'auto',
-          spaceBetween: 23,
+          spaceBetween: 21,
         },
         1280:{
           slidesPerView: 'auto',
@@ -123,9 +123,6 @@ export default {
     age(){
       this.ageNow = moment.duration(moment().diff(this.info.age)).locale('ru').humanize()
     },
-    scrollHanle(evt) {
-      console.log(evt)
-    }
   },
   computed: {
     ...mapGetters('filtersModule', ['getCatalog','getInfo']),
@@ -175,7 +172,6 @@ export default {
     if (!this.info.images){
       let element = document.querySelector('.pet-card__photo-wrp');
       element.classList.add('pet-card__photo-wrp1')
-      console.log('element', element)
     }
   },
 

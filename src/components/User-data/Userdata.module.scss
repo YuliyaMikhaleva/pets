@@ -108,6 +108,9 @@
     &__hello{
       min-width: 0;
     }
+    &__progress{
+      min-height: 398px;
+    }
   }
 }
 
@@ -117,15 +120,16 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 430px) {
   .user-data{
+    &__wrp{
+      width: 100%;
+    }
     &__picture{
       display: none;
     }
     &__hello{
       min-height: 167px;
-      margin-left: 24px;
-      margin-right: 24px;
     }
     &__title{
       font-size: 18px;
@@ -134,6 +138,9 @@
     }
     &__text{
       margin: 21px 0 14px 0;
+      font-size: 14px;
+      line-height: 130%;
+
     }
     &__text:nth-of-type(2){
       margin: 0;
@@ -145,7 +152,22 @@
       display: none;
     }
     &__slide{
+      width: 90%;
+    }
+    &__progress{
+      min-height: 183px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .user-data{
+    &__slide{
       width: 325px;
+    }
+    &__hello{
+      margin-left: 24px;
+      margin-right: 24px;
     }
   }
 }

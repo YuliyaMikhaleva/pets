@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
-  name: "AuthLayout"
+  name: "AuthLayout",
+  computed: {
+    ...mapGetters('showloaderModule', ['getShowloader']),
+  }
 }
 </script>
 

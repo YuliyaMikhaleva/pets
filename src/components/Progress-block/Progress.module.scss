@@ -95,6 +95,27 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .progress-block{
+    padding: 38px;
+    justify-content: space-between;
+    &__item{
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__title{
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__diagram{
+      display: block;
+    }
+  }
+  .progress-block__item::before{
+    margin-top: 6px;
+  }
+
+}
 @media (max-width: 375px) {
   .progress-block{
     height: 183px;

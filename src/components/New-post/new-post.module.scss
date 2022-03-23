@@ -77,8 +77,9 @@
   .new-post{
     padding: 30px 25px;
     &__wrp{
-      display: flex;
-      flex-wrap: wrap;
+      //display: flex;
+      //flex-wrap: wrap;
+      grid-template-columns: repeat(3, 1fr);
       justify-content: space-between;
       grid-row-gap: 50px;
     }
@@ -88,10 +89,20 @@
   }
 }
 
+@media (max-width: 590px) {
+  .new-post__item{
+    margin: 0 auto;
+  }
+  .new-post__add{
+    margin: 0 auto;
+  }
+}
 @media (max-width: 375px) {
   .new-post{
     padding: 30px 27.5px;
     &__wrp{
+      display: flex;
+      flex-wrap: wrap;
       grid-column-gap: 10px;
       grid-row-gap: 35px;
       justify-content: center;

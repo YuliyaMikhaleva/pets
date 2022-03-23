@@ -83,12 +83,9 @@ export default {
                                 author: this.getUser.name,
                                 textMessage: text,
                         };
-                        console.log(id)
-
                         this.user.textMessage = '';
                         setTimeout(() => {
                                 let elem = this.articles.find((el) => el.id == id);
-                                console.log(elem)
                                 elem.comments.push(element)
                                 this.func()
                         },100);

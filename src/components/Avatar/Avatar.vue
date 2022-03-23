@@ -8,7 +8,8 @@ export default {
   props:{
     name:{
       type:String,
-      required:true
+      required:true,
+      default:""
     },
     bgColor:{
       type:String,
@@ -17,8 +18,11 @@ export default {
   },
   computed:{
     names(){
-      let names = this.name.match(/\b(\w)/g);
-      return names.join('').substr(0,2)
+      if (this.name){
+        let nameUser = this.name.split(' ', 2)
+        let newname = nameUser.map((el) => el[0])
+        return newname.join('')
+      } else return ""
     },
   }
 }

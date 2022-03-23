@@ -26,10 +26,6 @@ export default {
             return this.getFilterItems
         },
     },
-  mounted() {
-    console.log(this.$route)
-    console.log(this.$router)
-  }
     }
 </script>
 

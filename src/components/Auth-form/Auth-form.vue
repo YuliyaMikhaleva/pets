@@ -124,9 +124,24 @@ export default {
     ...mapActions('profileModule',['signUp', 'signIn']),
     checkForm(e){
       this.errors = [];
-      // if(!this.user.name) this.errors.push("Заполните имя пользователя");
-      if(!this.user.email) this.errors.push("Заполните адрес эл. почты");
-      if(!this.user.password) this.errors.push("Заполните пароль");
+      if(!this.user.name && this.$route.path=='/signUp'){
+        document.querySelector('input[type="text"]').classList.add('input-block__input-error')
+        document.querySelector('input[type="text"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+        this.errors.push("Заполните имя пользователя");
+      }
+
+      if(!this.user.email){
+        document.querySelector('input[type="email"]').classList.add('input-block__input-error')
+        document.querySelector('input[type="email"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+
+        this.errors.push("Заполните адрес эл. почты");
+      }
+      if(!this.user.password){
+        document.querySelector('input[type="password"]').classList.add('input-block__input-error')
+        document.querySelector('input[type="password"]').parentElement.querySelector('label').classList.add('input-block__input-error')
+
+        this.errors.push("Заполните пароль");
+      }
       e.preventDefault();
       if (!this.errors.length){
         if (this.$route.path=="/signUp"){

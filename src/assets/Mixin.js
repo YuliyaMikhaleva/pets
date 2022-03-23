@@ -8,7 +8,6 @@ export const Mixin = {
         updateWidth() {
             this.width = document.body.clientWidth;
             // this.width = window.innerWidth;
-            console.log(window.innerWidth)
         },
     },
     created() {

@@ -16,12 +16,6 @@ export default {
     name:String,
     id:Number
   },
-  mounted() {
-    console.log('props', this.props)
-    console.log('img', this.img)
-    console.log(this.$route)
-    console.log(this.$router)
-  }
 }
 </script>
 
@@ -31,9 +25,18 @@ export default {
       margin-top: 50px;
       margin-bottom: 124px;
       padding-right: 30px;
-      min-width: 1702px;
+      //min-width: 1702px;
     }
   }
+
+
+  //@media (max-width: 1702px) {
+  //  .pet{
+  //    &__pet-card{
+  //      min-width: 1364px;
+  //    }
+  //  }
+  //}
 
   @media (max-width: 1280px) {
     .pet{
