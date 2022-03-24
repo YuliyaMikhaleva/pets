@@ -1,0 +1,15 @@
+.blog{
+  margin: 151px auto auto auto;
+  max-width: 1160px;
+  display: flex;
+  grid-gap: 40px;
+  &__item{
+    height: 1%;
+  }
+}
+@media (max-width: 1280px) {
+  .blog{
+    flex-direction: column;
+    max-width: 90%;
+  }
+}

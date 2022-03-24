@@ -2,7 +2,7 @@
   <section class="user-data">
     <article class="user-data__hello">
       <div class="user-data__wrp">
-        <h1 class="user-data__title">С возвращением, Владимир</h1>
+        <h1 class="user-data__title">С возвращением, {{ getUser.name || 'пользователь' }}</h1>
         <p class="user-data__text">Не забудь покормить своего питомца</p>
         <p class="user-data__text">Хорошего дня!</p>
         <img class="user-data__picture" src="images/poligons.svg" alt="photo">
@@ -37,6 +37,7 @@ import moment from "moment"
 import TimeDate from "../Time-date/Time-date";
 import ProgressBlock from "@/components/Progress-block/Progress-block";
 import { Mixin } from "@/assets/Mixin";
+import {mapGetters} from "vuex";
 export default {
   name: "UserData",
   components: {ProgressBlock, TimeDate, Swiper, SwiperSlide},
@@ -68,6 +69,9 @@ export default {
       this.dateNow = moment().locale('ru').format('DD.MM.YYYY')
       setTimeout(self.date, 1000)
     },
+  },
+  computed:{
+    ...mapGetters('profileModule',['getUser']),
   },
 
   mounted: function() {

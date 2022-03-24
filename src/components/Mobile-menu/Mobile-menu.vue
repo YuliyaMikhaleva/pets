@@ -26,8 +26,9 @@
             <span class="mobile-menu__link">Logout</span>
           </router-link>
         </li>
+        <div v-if="isActive == true" class="mobile-menu__line-bottom"></div>
       </ul>
-      <div v-if="isActive == true" class="mobile-menu__line-bottom"></div>
+
     </nav>
 </template>
 

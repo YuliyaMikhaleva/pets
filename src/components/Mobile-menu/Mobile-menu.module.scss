@@ -1,8 +1,8 @@
 @import "./src/assets/variables";
 .mobile-menu{
   &__icon{
-    width: 46px;
-    height: 46px;
+    width: 47px;
+    height: 47px;
     border-radius: 7px;
     background-color: #4C6FFF;
     display: flex;
@@ -74,7 +74,8 @@
     transition: all 0.3s;
   }
   &__list{
-    position: absolute;
+    width: 100%;
+    position: fixed;
     top: 111px;
     left: 31.82px;
     z-index: var(--zIndex3);
@@ -83,8 +84,10 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 598px;
+    justify-content: flex-start;
+    height: 80%;
+    transition: all 0.5s;
+
   }
   &__item{
     margin-bottom: 40px;
@@ -96,6 +99,7 @@
     display: flex;
     position: relative;
     cursor: pointer;
+    margin-top: auto;
   }
   &__item-active{
     margin-left: 21px;
@@ -124,9 +128,7 @@
     background-color: #F6FBFD;
     border-radius: 100px;
     margin: 0 25%;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+    transform: translateX(-17%);
     z-index: var(--zIndex3);
   }
 }

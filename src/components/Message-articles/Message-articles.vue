@@ -82,11 +82,6 @@ export default {
           slidesPerView:1.67,
           spaceBetween: 30
         },
-        // // when window width is >= 376px
-        // 1130: {
-        //   slidesPerView:1.67,
-        //   spaceBetween: 30
-        // },
         // when window width is >= 1281px
         1281: {
           slidesPerView: 4,

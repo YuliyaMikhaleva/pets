@@ -19,7 +19,7 @@
         </div>
         <div class="blog-post__data">
             <div>
-                <Like />
+                <Like :class="{'blog-post__active-like':isActive}" class="blog-post__like" @click="changeNumber" />
                 <span class="blog-post__like-word">{{item.likesCount}} лайков</span>
             </div>
             <div style="display:flex;">
@@ -54,14 +54,24 @@
         },
         data(){
           return{
-                textMessage:""
+            textMessage:"",
+            isActive:false
           }
         },
         methods:{
             func(){
                 this.$emit('add', this.textMessage);
                 this.textMessage = ""
+            },
+          changeNumber(){
+            if (this.isActive){
+              this.isActive = !this.isActive;
+              this.item.likesCount--
+            } else {
+              this.isActive = !this.isActive;
+              this.item.likesCount++
             }
+          }
         },
         computed:{
             ...mapGetters('profileModule',['getUser']),
@@ -69,154 +79,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    .blog-post{
-        background-color: var(--color-article) ;
-        border-radius: 16px;
-        padding: 30px;
-        box-sizing: border-box;
-        font-family: Rubik;
-        color: #FFFFFF;
-        &__header{
-            display: flex;
-        }
-        &__avatar{
-            width: 48px;
-            height: 48px;
-            margin-right: 17px;
-        }
-        &__wrp-header{
-            display: flex;
-            justify-content: space-between;
-            width: calc(100% - 48px - 17px);
-            font-size: 14px;
-            line-height: 17px;
-            font-style: normal;
-            font-weight: normal;
-            color: #96A7AF;
-        }
-        &__author{
-            font-weight: bold;
-            font-size: 16px;
-            line-height: 19px;
-            color: var(--color-logo);
-            margin-bottom: 5px;
-        }
-        &__right-header{
-            text-align: end;
-            display: flex;
-            flex-direction: column;
-            grid-row-gap: 10px;
-        }
-        &__text{
-            font-weight: 400;
-            font-style: normal;
-            font-size: 14px;
-            line-height: 22px;
-            color: var(--color-logo);
-            margin-bottom: 15px;
-        }
-        &__images{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(2, 1fr);
-            grid-gap: 15px;
-            grid-template-areas:
-                    "photo1 photo2"
-                    "photo1 photo3";
+<style lang="scss" scoped src="./Blog-post.scss">
 
-        }
-        &__photo{
-            border-radius: 13px;
-        }
-        &__photo:nth-child(1){
-            grid-area: photo1;
-        }
-        &__photo:nth-child(2){
-            grid-area: photo2;
-        }
-        &__photo:nth-child(3){
-            grid-area: photo3;
-        }
-        /*&__image1{*/
-        /*    grid-area: photo1;*/
-        /*}*/
-        /*&__image2{*/
-        /*    grid-area: photo2;*/
-        /*}*/
-        /*&__image3{*/
-        /*    grid-area: photo3;*/
-        /*}*/
-        &__data{
-            margin-top: 18.5px;
-            display: flex;
-            grid-gap: 77px;
-            padding-bottom: 18.5px;
-            box-sizing: border-box;
-            border-bottom: 1px solid #334155;
-            margin-bottom: 15px;
-        }
-        &__like-word{
-            margin-left: 11px;
-            color: var(--color-logo);
-        }
-        &__comments{
-            position: relative;
-            cursor: pointer;
-            color: var(--color-logo);
-            margin-left: 10px;
-        }
-        &__comments-icon{
-            fill: var(--color-title);
-        }
-        &__comment{
-            display: flex;
-        }
-        &__input{
-
-        }
-        &__textarea{
-            width: calc(100% - 48px - 17px);
-            background: none;
-            border: none;
-            border-bottom: 1px solid var(--color-title);
-            resize: none;
-            overflow: hidden;
-            color: var(--color-pet-type);
-            padding: 8px;
-            box-sizing: border-box;
-            font-family: Rubik;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 12px;
-            line-height: 18px;
-            height: 37px;
-
-        }
-        &__hidden-block{
-            display: none;
-            border-bottom: 1px solid #334155;
-            margin-bottom: 15px;
-        }
-        &__show-block{
-            display: block;
-        }
-        &__hidden-text{
-            width: calc(100% - 48px - 17px);
-            margin: 0;
-            color: var(--color-title);
-        }
-        textarea::placeholder{
-            font-family: Rubik;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 21px;
-            color: var(--color-pet-type);
-        }
-    }
-    .comment{
-        display: flex;
-        margin-bottom: 15px;
-    }
 </style>

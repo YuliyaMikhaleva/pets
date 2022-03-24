@@ -77,7 +77,6 @@ export default {
         slidesPerView: 'auto',
         spaceBetween: 49,
         centeredSlides:true,
-        // watchOverflow: true,
         pagination: {
           el: ".swiper-pagination",
           dynamicBullets: true,

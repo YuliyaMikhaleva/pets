@@ -1,8 +1,10 @@
 <template>
   <article class="card">
-    <div class="card__img-container"  :style="`height: ${imgHeight}px;`">
-      <img class="card__img"  :src="img" alt="photo">
-    </div>
+    <router-link :to="{name:'Pets\\', params:{ name:this.name, id:this.id}}">
+      <div class="card__img-container"  :style="`height: ${imgHeight}px;`">
+        <img class="card__img"  :src="img" alt="photo">
+      </div>
+    </router-link>
     <span class="card__title">{{ name }}</span>
     <div class="card__text">
       <div class="card__tag" :style="'background-color:'+ bg">{{ tag }}</div>
@@ -43,6 +45,10 @@ export default {
       type:Number,
       required:false
     },
+    id:{
+      type:Number,
+      default:0
+    }
   },
   data(){
     return{

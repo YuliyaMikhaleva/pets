@@ -19,46 +19,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .pet{
-    &__pet-card{
-      margin-top: 50px;
-      margin-bottom: 124px;
-      /*padding-right: 30px;*/
-      //min-width: 1702px;
-    }
-  }
+<style lang="scss" src="./Pet.scss" scoped>
 
-
-  //@media (max-width: 1702px) {
-  //  .pet{
-  //    &__pet-card{
-  //      min-width: 1364px;
-  //    }
-  //  }
-  //}
-
-  @media (max-width: 1280px) {
-    .pet{
-      &__pet-card{
-        padding-right: 0;
-        box-sizing: border-box;
-        margin-bottom: 160px;
-        /*min-width: 1130px;*/
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .pet{
-      &__pet-card{
-        padding-right: 24px;
-        min-width: 0;
-        margin-top: 430px;
-        padding-left: 24px;
-        box-sizing: border-box;
-        margin-bottom: 8px;
-      }
-    }
-  }
 </style>

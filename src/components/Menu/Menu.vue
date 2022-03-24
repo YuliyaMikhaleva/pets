@@ -2,7 +2,6 @@
   <nav class="menu">
     <router-link to="/">
       <LogoIcon class="menu__logo"/>
-<!--      <Logo class="menu__logo"/>-->
     </router-link>
     <ul class="menu__list">
       <div class="menu__wrp">
@@ -32,7 +31,6 @@
 </template>
 
 <script>
-// import Logo from "@/components/Logo/Logo";
 import HomeIcon from "@/../public/images/homeIcon.svg?inline";
 import PetsIcon from "@/../public/images/petsIcon.svg?inline";
 import BlogIcon from "@/../public/images/blogIcon.svg?inline";

@@ -1,0 +1,82 @@
+.input-block{
+  display: flex;
+  flex-direction: column;
+  color: var(--color-pet-type);
+
+  &::placeholder{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  &__label{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    padding-top: 3px;
+    padding-left: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: 0.3s;
+  }
+  &__label-fixed{
+    top: -20px;
+    font-size: 10px;
+    line-height: 15px;
+    transition: 0.3s;
+  }
+  &__input{
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--color-pet-type);
+    padding: 8px 0 8px 8px;
+    color: var(--color-pet-type);
+    width: 100%;
+    outline: none;
+  }
+  &__input:focus  ~.input-block__label{
+    top: -20px;
+    font-size: 10px;
+    line-height: 15px;
+    transition: 0.3s;
+  }
+  &__div{
+    height: 17.99px;
+  }
+  &__error{
+    text-align: end;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8px;
+    line-height: 12px;
+    margin: 0;
+    color: #F16063;
+  }
+  &__input-error{
+    color: #F16063;
+    border-bottom: 1px solid #F16063;
+  }
+  &__label-error{
+    color: #F16063;
+  }
+  &__wrp-input{
+    width: 100%;
+    position: relative;
+  }
+  &__svg{
+    width: 20px;
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    height: auto;
+    cursor: pointer;
+  }
+  &__svg-open{
+    top: 30%;
+  }
+  &__svg-path{
+    fill: var(--color-pet-type);
+  }
+}

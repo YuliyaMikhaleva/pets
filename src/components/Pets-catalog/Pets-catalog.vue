@@ -9,13 +9,6 @@
           class="item"
           :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
       >
-        <router-link
-            :to="{name:'Pets\\',
-            params:{
-              name:item.name,
-              id:item.id
-            }}"
-            class="pets-catalog__link">
           <Card
               :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
               :name="item.name"
@@ -23,9 +16,9 @@
               :likes="item.likes"
               :img="item.img"
               :bg="item.bgColor"
+              :id="item.id"
               style="height: 100%"
               :imgHeight="(index % 2 === 0)  ? 181 : 250"/>
-        </router-link>
       </div>
     </template>
   </masonry-wall>
@@ -76,7 +69,7 @@ export default {
       } else {
         return 325
       }
-    }
+    },
   },
 }
 </script>

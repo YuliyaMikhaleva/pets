@@ -81,6 +81,21 @@
 
 }
 
+@media (max-width: 1130px) {
+  .progress-block{
+    &__item{
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__title{
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+  .progress-block::v-deep .chart__item{
+    width: 50%;
+  }
+}
 @media (max-width: 1280px) {
   .progress-block{
     &__diagram{
@@ -114,8 +129,12 @@
   .progress-block__item::before{
     margin-top: 6px;
   }
+  .progress-block::v-deep .chart__item{
+    width: 80%;
+  }
 
 }
+
 @media (max-width: 375px) {
   .progress-block{
     height: 183px;

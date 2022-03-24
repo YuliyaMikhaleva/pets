@@ -19,13 +19,11 @@ export default {
     }
   },
   mounted() {
-    // document.querySelector(".checkbox__input").checked = true
     let bodyElement = document.body;
     bodyElement.classList.add("app-background");
 
      if (localStorage.theme === 'light'){
       this.darkMode = true;
-      // document.querySelector(".checkbox__input").checked = true
     }
   },
   watch: {

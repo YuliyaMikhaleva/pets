@@ -97,16 +97,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-        .blog{
-                margin-top: 151px;
-                display: flex;
-                grid-gap: 40px;
-                margin-left: 300px;
-                margin-right: 300px;
-                &__item{
+<style lang="scss" scoped src="./Blog.scss">
 
-                        height: 1%;
-                }
-        }
 </style>

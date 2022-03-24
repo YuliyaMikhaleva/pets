@@ -1,0 +1,133 @@
+.page{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  font-family: Rubik;
+  align-items: center;
+  &__text{
+    margin-left: 250px;
+    margin-right: 250px;
+    width: 325px;
+    min-width: 325px;
+  }
+  &__mobile-line{
+    width: 148px;
+    height: 5px;
+    border-radius: 100px;
+    background-color: var(--color-mobile-line);
+    margin: 0 auto 8px auto;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__img-wrp{
+    max-width: 855px;
+    height: 100%;
+  }
+  &__img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  &__error{
+    color: var(--color-auth-text);
+
+  }
+  &__logo{
+    width: 102.4px;
+    height: 90.87px;
+  }
+  &__title{
+    margin: 32px auto 10px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: var(--color-pet-type);
+  }
+  &__txt{
+    margin: 0 0 20px 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-pet-type);
+  }
+  &__input-block{
+    margin-bottom: 20px;
+  }
+  &__button{
+    padding: 13.5px 0 13.5px 0;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: var(--color-auth-button);
+    font-size: 18px;
+  }
+  &__button:hover{
+    background-color: var(--blueColor);
+    color: white;
+  }
+  &__verification{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    font-style: normal;
+    text-align: center;
+    color: var(--color-pet-type);
+    margin: 0;
+  }
+  &__link{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-pet-type);
+    transition: opacity 0.3s;
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
+  }
+  &__change-password{
+    text-align: end;
+    color: var(--color-pet-type);
+    cursor: pointer;
+    transition: opacity 0.3s;
+    &:hover{
+      opacity: 50%;
+      transition: opacity 0.3s;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .page{
+    &__img-wrp{
+      max-width: 737px;
+    }
+    &__text{
+      margin-right: 109px;
+      margin-left: 109px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .page{
+    &__img-wrp{
+      display: none;
+    }
+    &__text{
+      margin: auto;
+    }
+  }
+}

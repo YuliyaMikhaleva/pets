@@ -9,7 +9,7 @@ export default {
     name:{
       type:String,
       required:true,
-      default:""
+      default:"Пользователь"
     },
     bgColor:{
       type:String,
