@@ -1,21 +1,26 @@
 <template>
         <div class="blog">
-          <form class="blog__new-post">
+          <div class="blog__new-post">
             <div class="blog__new-post-data">
-              <div class="">
+              <Avatar class="blog__avatar" :name="this.getUser.name" bg-color="rgb(76, 111, 255)"/>
 
-              </div>
-              <div>
+              <textarea class="blog__write-input" type="text" placeholder="Что у вас нового?" v-model="post.text"/>
+
+              <div class="blog__add-photo">
                 <div id="img-preview" class="blog__new-post-img"></div>
-                <input type="file" name="avatar" id="input" @change="getImgData" multiple>
+                <label for="input" class="blog__new-post-label">
+                  <PhotoIcon class="blog__icon"/>
+                </label>
+                <input class="blog__new-post-input" type="file" name="avatar" id="input" @change="getImgData" multiple>
                 <div id="preview" class="blog__photo-preview"></div>
                 <div id="preview" class="blog__photo-preview"></div>
                 <div id="preview" class="blog__photo-preview"></div>
+                <button  @click="addPost">Отправить</button>
               </div>
 
 
             </div>
-          </form>
+          </div>
 
 <!--          <div class="blog__new-post">-->
 
@@ -35,12 +40,15 @@
 </template>
 
 <script>
-
+import PhotoIcon from "@/../public/images/photo-icon.svg?inline";
 import BlogPost from "../../components/Blog-post/Blog-post";
+import Avatar from "@/components/Avatar/Avatar";
+
+
 import {mapGetters} from "vuex";
 export default {
         name: "Blog",
-        components: {BlogPost},
+        components: {BlogPost, PhotoIcon, Avatar},
         data(){
            return{
                articles:[
@@ -83,6 +91,20 @@ export default {
                   author:"",
                   textMessage: ""
                },
+              post:{
+                 text:"",
+                 photos:[
+                   {path:""},
+                   {path:""},
+                   {path:""},
+                 ],
+                 // photo1:{},
+                 // photo2:{},
+                 // photo3:{}
+              }.photos,
+             photo1:"",
+             photo2:"",
+             photo3:""
            }
         },
         methods:{
@@ -109,7 +131,6 @@ export default {
                         setTimeout(() => {
                                 let elem = this.articles.find((el) => el.id == id);
                                 elem.comments.push(element)
-                                this.func()
                         },100);
                 },
                 getImgData() {
@@ -130,15 +151,54 @@ export default {
                     preview.appendChild(img); // Предполагается, что "preview" это div, в котором будет отображаться содержимое.
 
                     let reader = new FileReader();
-                    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+                    reader.onload = (function(aImg) {
+                      return function(e) {
+                        aImg.src = e.target.result;
+                        // this.post.photos.push(e.target.result)
+                      };
+                    })(img);
                     reader.readAsDataURL(file);
                   }
+
+                  let photos = document.getElementById("preview").children
+
+                  // let photos = document.querySelectorAll('img.blog__photo-preview');
+                  this.photo1 = [...photos][0].currentSrc;
+                  this.photo2 = [...photos][1].currentSrc;
+                  this.photo3 = [...photos][2].currentSrc;
+                  // console.log('photos', [...photos][0].src )
+                },
+                addPost(){
+                  event.preventDefault()
+                    const post = {
+                        author:this.getUser.name,
+                        comments:[],
+                        date:"25 марта",
+                        id:3,
+                        images:[
+                          // {path:""}
+                        ],
+                        likesCount:0,
+                        status:"",
+                        text:this.post.text,
+                        time:""
+                    };
+                    this.post.text="";
+                    setTimeout(() => {
+                      this.articles.push(post);
+                      this.func()
+                    }, 1000)
                 }
 
 
         },
         computed:{
                 ...mapGetters('profileModule',['getUser']),
+          // photo1(){
+          //         let photo1 = document.querySelectorAll('img.blog__photo-preview')
+          //         console.log('photo1', photo1)
+          //   return 1
+          // }
         },
 
 }

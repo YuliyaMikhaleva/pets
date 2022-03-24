@@ -7,7 +7,7 @@
 
 export default {
   name: "Logo",
-  // components:{LogoIcon}
+  // components:{LogoIcion}
 }
 </script>
 

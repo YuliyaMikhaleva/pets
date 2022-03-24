@@ -93,7 +93,7 @@
     color: var(--color-pet-type);
     transition: opacity 0.3s;
     &:hover{
-      opacity: 50%;
+      opacity: 0.5;
       transition: opacity 0.3s;
     }
   }
@@ -103,7 +103,7 @@
     cursor: pointer;
     transition: opacity 0.3s;
     &:hover{
-      opacity: 50%;
+      opacity: 0.5;
       transition: opacity 0.3s;
     }
   }

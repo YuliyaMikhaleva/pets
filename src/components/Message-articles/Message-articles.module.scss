@@ -36,7 +36,7 @@
     transition: opacity 0.3s;
     pointer-events: all;
     &:hover{
-      opacity: 50%;
+      opacity: 0.5;
       transition: opacity 0.3s;
     }
   }
@@ -51,7 +51,7 @@
     z-index: var(--zIndex2);
     pointer-events: all;
     &:hover{
-      opacity: 50%;
+      opacity: 0.5;
       transition: opacity 0.3s;
     }
   }
