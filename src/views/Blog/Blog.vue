@@ -1,14 +1,36 @@
 <template>
         <div class="blog">
-                <BlogPost
-                        class="blog__item"
-                        v-for="article of articles"
-                        :item="article"
-                        :key="article.id"
-                        @add="addComment(article.id, $event)"
-                        @on-change="func()"
-                        @show="showBlock(article.id)"
-                />
+          <form class="blog__new-post">
+            <div class="blog__new-post-data">
+              <div class="">
+
+              </div>
+              <div>
+                <div id="img-preview" class="blog__new-post-img"></div>
+                <input type="file" name="avatar" id="input" @change="getImgData" multiple>
+                <div id="preview" class="blog__photo-preview"></div>
+                <div id="preview" class="blog__photo-preview"></div>
+                <div id="preview" class="blog__photo-preview"></div>
+              </div>
+
+
+            </div>
+          </form>
+
+<!--          <div class="blog__new-post">-->
+
+          <div class="blog__posts">
+            <BlogPost
+                class="blog__item"
+                v-for="article of articles"
+                :item="article"
+                :key="article.id"
+                @add="addComment(article.id, $event)"
+                @on-change="func()"
+                @show="showBlock(article.id)"
+            />
+          </div>
+
         </div>
 </template>
 
@@ -89,14 +111,39 @@ export default {
                                 elem.comments.push(element)
                                 this.func()
                         },100);
+                },
+                getImgData() {
+                  // let inputBlock = document.querySelector('input')
+                  let files = document.getElementById('input').files
+                  console.log(files)
+                  // console.log('input.value', document.getElementById('input').files)
+                  let preview = document.getElementById('preview')
+
+                  for (let i = 0; i < files.length; i++) {
+                    let file = files[i];
+
+                    if (!file.type.startsWith('image/')){ continue }
+
+                    let img = document.createElement("img");
+                    img.classList.add("blog__photo-preview");
+                    img.file = file;
+                    preview.appendChild(img); // Предполагается, что "preview" это div, в котором будет отображаться содержимое.
+
+                    let reader = new FileReader();
+                    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+                    reader.readAsDataURL(file);
+                  }
                 }
+
+
         },
         computed:{
                 ...mapGetters('profileModule',['getUser']),
-        }
+        },
+
 }
 </script>
 
-<style lang="scss" scoped src="./Blog.scss">
+<style lang="scss" src="./Blog.scss">
 
 </style>
