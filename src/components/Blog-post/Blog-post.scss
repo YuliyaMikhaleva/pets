@@ -69,12 +69,18 @@
   }
   &__photo:nth-child(1){
     grid-area: photo1;
+    max-width: 380px;
+    height: 100%;
   }
   &__photo:nth-child(2){
     grid-area: photo2;
+    width: 254px;
+    height: 100%;
   }
   &__photo:nth-child(3){
     grid-area: photo3;
+    width: 254px;
+    height: 100%;
   }
   &__data{
     margin-top: 18.5px;
@@ -117,6 +123,7 @@
     font-size: 12px;
     line-height: 18px;
     height: 37px;
+    outline: none;
 
   }
   &__hidden-block{

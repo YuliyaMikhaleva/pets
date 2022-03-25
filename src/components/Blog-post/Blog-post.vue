@@ -1,7 +1,7 @@
 <template>
-    <div class="blog-post" :id="'post' + item.id">
+    <div class="blog-post" :id="'post' + item.id" :style="item.images.length === 1 ? 'max-width:410px' : 'max-width:710px'">
         <div class="blog-post__header">
-            <Avatar class="blog-post__avatar" :name="item.author" bg-color="linear-gradient(224.47deg, #FF92AE 8.18%, #FF3D9A 95.84%)"/>
+            <Avatar class="blog-post__avatar" :name="item.author" :bg-color="item.bgColor"/>
             <div class="blog-post__wrp-header">
                 <div class="blog-post__left-header">
                     <div class="blog-post__author">{{item.author}}</div>
@@ -14,8 +14,8 @@
             </div>
         </div>
         <p class="blog-post__text">{{item.text}}</p>
-        <div class="blog-post__images" >
-            <img v-for="image of item.images" :key="image.path" class="blog-post__photo" :src="image.path" alt="photo">
+        <div class="blog-post__images">
+            <img v-for="(image, index) of item.images" :key="index" class="blog-post__photo" :src="image.path" alt="photo" :style="item.images.length === 1 && 'width:350px'">
         </div>
         <div class="blog-post__data">
             <div>
@@ -37,7 +37,7 @@
         </div>
         <div class="blog-post__comment">
             <Avatar class="blog-post__avatar" :name="this.getUser.name" bg-color="rgb(76, 111, 255)"/>
-            <textarea @keyup.enter="func()" id="text" class="blog-post__textarea" placeholder="Написать комментарий..." @input="$emit('on-change')" v-model="textMessage"></textarea>
+            <textarea @keyup.enter="func()"  id="text" class="blog-post__textarea" placeholder="Написать комментарий..." @input="$emit('on-change')" v-model="textMessage"></textarea>
         </div>
     </div>
 </template>
@@ -71,9 +71,9 @@
               this.isActive = !this.isActive;
               this.item.likesCount++
             }
-          }
+          },
         },
-        computed:{
+      computed:{
             ...mapGetters('profileModule',['getUser']),
         }
     }

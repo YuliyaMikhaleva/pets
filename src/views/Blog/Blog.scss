@@ -14,18 +14,25 @@
     border: none;
     padding: 10px 8px;
     box-sizing: border-box;
-    color: white;
+    color: var(--color-logo);
     resize: none;
+    overflow: hidden;
+    width: calc(100% - 48px - 18px - 83px);
+    height: 32px;
   }
   &__write-input::placeholder{
-    color: white;
+    color: var(--color-logo);
     font-size: 12px;
     line-height: 150%;
     font-family: Rubik;
   }
   &__icon{
-    //height: 32px;
-    margin-top: 8px;
+    margin-top: 4px;
+    transition: 0.3s;
+  }
+  &__icon:hover{
+    opacity: 0.8;
+    transition: 0.3s;
   }
   &__add-photo{
     margin-left: auto;
@@ -36,7 +43,6 @@
   }
   &__new-post{
     width: 410px;
-    //min-height: 52px;
     background-color: var(--color-article);
     border-radius: 16px;
     margin-bottom: 18px;
@@ -45,9 +51,6 @@
   }
   &__new-post-data{
     display: flex;
-    //display: grid;
-    //grid-template-columns: 1fr 1fr;
-    //grid-gap: 10px;
   }
   &__new-post-data .avatar{
     line-height: 32px;
@@ -60,41 +63,56 @@
     display: none;
   }
   &__photo-icon{
-    fill: white;
+    fill: var(--color-logo);
   }
-  //&__new-post-input{
-  //  overflow: hidden;
-  //  width: 0;
-  //  height: 0;
-  //}
-  //&__new-post-label{
-  //  cursor: pointer;
-  //
-  //}
-  //img{
-  //  width: 100%;
-  //  height: auto;
-  //  display: block;
-  //  object-fit: cover;
-  //}
 
   &__posts{
-    //display: flex;
-    display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100%;
     grid-gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
   }
   &__item{
     height: 100%;
   }
+  &__photo-preview-wrp{
+    width: 50px;
+    height: 40px;
+    border: 1px dashed var(--color-logo);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    line-height: inherit;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
   &__photo-preview{
     width: 50px;
     height: 40px;
-    border: 1px dashed white;
     border-radius: 10px;
-    //display: none;
   }
+  &__photo-hidden{
+    display: none;
+  }
+  &__plus{
+    cursor: pointer;
+    position: relative;
+    display: none;
+  }
+  &__plus-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    line-height: 40px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    width: 100%;
+  }
+
 }
 @media (max-width: 1280px) {
   .blog{
