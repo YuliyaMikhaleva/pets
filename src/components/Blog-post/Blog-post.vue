@@ -1,6 +1,7 @@
 <template>
-    <div class="blog-post" :id="'post' + item.id" :style="item.images.length === 1 ? 'max-width:410px' : 'max-width:710px'">
-        <div class="blog-post__header">
+<!--    <div class="blog-post" :id="'post' + item.id" :style="item.images.length === 1 ? 'max-width:410px' : 'max-width:710px'">-->
+  <div class="blog-post" :id="'post' + item.id">
+    <div class="blog-post__header">
             <Avatar class="blog-post__avatar" :name="item.author" :bg-color="item.bgColor"/>
             <div class="blog-post__wrp-header">
                 <div class="blog-post__left-header">

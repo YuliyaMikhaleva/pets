@@ -35,17 +35,45 @@
             </div>
           </div>
 
-          <div class="blog__posts">
-            <BlogPost
-                class="blog__item"
-                v-for="article of articles"
-                :item="article"
-                :key="article.id"
-                @add="addComment(article.id, $event)"
-                @on-change="func()"
-                @show="showBlock(article.id)"
-            />
-          </div>
+<!--          <div class="blog__posts">-->
+            <masonry-wall
+                :items="articles"
+                :gap="20"
+            >
+
+              <template #default="{ item, index }">
+                <div
+                    class="item"
+                    :class="{ secondary: (item.images.length <= 1 && !item.img), accent: (item.images.length > 1)}"
+
+                >
+                  <BlogPost
+                      :class="{ secondary: (item.images.length <= 1 && !item.img ), accent: (item.images.length > 1)}"
+                      class="blog__item"
+                      :item="item"
+                      :key="index"
+                      @add="addComment(item.id, $event)"
+                      @on-change="func()"
+                      @show="showBlock(item.id)"
+                  />
+
+                </div>
+              </template>
+            </masonry-wall>
+<!--          </div>-->
+
+
+<!--          <div class="blog__posts">-->
+<!--            <BlogPost-->
+<!--                class="blog__item"-->
+<!--                v-for="article of articles"-->
+<!--                :item="article"-->
+<!--                :key="article.id"-->
+<!--                @add="addComment(article.id, $event)"-->
+<!--                @on-change="func()"-->
+<!--                @show="showBlock(article.id)"-->
+<!--            />-->
+<!--          </div>-->
 
         </div>
 </template>
