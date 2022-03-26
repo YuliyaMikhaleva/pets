@@ -42,9 +42,12 @@
         </vue-custom-scrollbar>
         <div v-if="actualWidth<=768" class="pet-card__text-wrp">
           <p class="pet-card__txt-paragraph">{{info.about}}</p>
+          <Button class="pet-card__button">{{info.button}}</Button>
+
           <div class="pet-card__mobile-line">
-            <div class="pet-card__mobile-line"></div>
+            <div class="pet-card__line"></div>
           </div>
+
         </div>
       </div>
 
@@ -99,6 +102,11 @@ export default {
       },
       parametrs:['Возраст', 'Вес', 'Пол'],
       breakpoints: {
+        300: {
+          slidesPerView: 1,
+          spaceBetween: 23,
+          centeredSlides:true,
+        },
         375: {
           slidesPerView: 1,
           spaceBetween: 23,

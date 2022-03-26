@@ -114,9 +114,47 @@
   }
 
 }
+
+.blog .masonry-wall{
+  display: grid;
+  grid-template-columns: 710px 410px;
+  grid-template-areas: 'accent secondary';
+}
+.blog .masonry-column:first-child {
+  max-width: 710px;
+}
+
+.blog .masonry-column:last-child {
+  max-width: 410px;
+}
+.blog .accent{
+  max-width: 710px;
+}
+.blog .secondary{
+  max-width: 410px;
+}
+
 @media (max-width: 1280px) {
+  .blog .masonry-wall{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
   .blog{
-    flex-direction: column;
-    max-width: 90%;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .blog__new-post{
+    width: 100%;
+  }
+  .blog .accent{
+    max-width: 100%;
+  }
+  .blog .secondary{
+    max-width: 100%;
+  }
+  .blog .masonry-column:last-child {
+    max-width: 100%
   }
 }

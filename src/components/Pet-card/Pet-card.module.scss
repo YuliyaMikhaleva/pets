@@ -106,6 +106,7 @@
     grid-area: txt;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-dark);
   }
   &__title{
     font-family: Rubik;
@@ -249,6 +250,7 @@
   }
   &__button{
     padding: 14px 104px;
+    box-sizing: border-box;
     font-size: 24px;
     line-height: 28px;
     margin-top: auto;
@@ -377,7 +379,7 @@
       height: 760px;
     }
     &__slider{
-      min-width: 670px;
+      min-width: inherit;
       height: 760px;
     }
     &__title{
@@ -487,27 +489,45 @@
       line-height: 28px;
     }
     &__button{
-      margin: 17px auto 21px;
-      width: 100%;
-      align-items: flex-end;
-      margin-top: auto;
+      position: fixed;
+      bottom: 21px;
+      width: 97%;
+      right: 10px;
+      left: 2px;
+      margin-bottom: 10px;
     }
     &__mobile-line{
+      width: 100%;
+      padding: 21px 0 8px;
+      box-sizing: border-box;
+      background-color: var(--bg-dark);
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    &__line{
       width: 148px;
       height: 5px;
       background-color: #F6FBFD;
       border-radius: 100px;
-      margin: auto auto 0 auto;
+
+      margin: 0 auto;
     }
     &__photo{
       border-radius: 0 0 20px 20px;
       object-position: 0% 25%;
     }
     &__text-wrp{
-      //min-height: 265px;
       display: flex;
       flex-direction: column;
       height: 100%;
+    }
+    &__description{
+      height: auto;
+    }
+    &__txt{
+      height: auto;
     }
     &__params{
       font-size: 20px;
@@ -614,6 +634,7 @@
     }
     &__mobile-line-wrp{
       padding: 21px 0 8px 0;
+      box-sizing: border-box;
       position: fixed;
       bottom: 0;
       background-color: var(--bg-dark);
@@ -625,6 +646,5 @@
     &__description{
       height: auto;
     }
-
   }
 }

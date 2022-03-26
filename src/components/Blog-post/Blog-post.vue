@@ -15,8 +15,8 @@
             </div>
         </div>
         <p class="blog-post__text">{{item.text}}</p>
-        <div class="blog-post__images">
-            <img v-for="(image, index) of item.images" :key="index" class="blog-post__photo" :src="image.path" alt="photo" :style="item.images.length === 1 && 'width:350px'">
+        <div :class="{'blog-post__images':item.images.length > 1}">
+            <img v-for="(image, index) of item.images" :key="index" class="blog-post__photo" :src="image.path" alt="photo">
         </div>
         <div class="blog-post__data">
             <div>

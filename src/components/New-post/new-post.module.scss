@@ -77,9 +77,8 @@
   .new-post{
     padding: 30px 25px;
     &__wrp{
-      //display: flex;
-      //flex-wrap: wrap;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       grid-row-gap: 50px;
     }

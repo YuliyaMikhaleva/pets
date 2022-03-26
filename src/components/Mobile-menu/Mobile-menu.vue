@@ -21,7 +21,7 @@
         </div>
 
         <li class="mobile-menu__item">
-          <router-link to="/logout" class="mobile-menu__link-svg" href="#" exact-active-class="mobile-menu__item-active">
+          <router-link to="/signIn" class="mobile-menu__link-svg" href="#" exact-active-class="mobile-menu__item-active">
             <LogoutIcon/>
             <span class="mobile-menu__link">Logout</span>
           </router-link>

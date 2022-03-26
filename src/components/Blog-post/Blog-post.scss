@@ -69,17 +69,17 @@
   }
   &__photo:nth-child(1){
     grid-area: photo1;
-    max-width: 380px;
+    width: 100%;
     height: 100%;
   }
   &__photo:nth-child(2){
     grid-area: photo2;
-    width: 254px;
+    width: 100%;
     height: 100%;
   }
   &__photo:nth-child(3){
     grid-area: photo3;
-    width: 254px;
+    width: 100%;
     height: 100%;
   }
   &__data{
@@ -160,8 +160,13 @@
   }
 }
 
-@media (max-width: 375px) {
-  .blog-post__photo{
-    width: 100%;
+@media (max-width: 480px) {
+  .blog-post{
+    &__like-word{
+      font-size: 13px;
+    }
+    &__comments{
+      font-size: 13px;
+    }
   }
 }
