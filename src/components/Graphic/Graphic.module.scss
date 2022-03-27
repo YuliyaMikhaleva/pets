@@ -10,7 +10,10 @@
 }
 @media (max-width: 768px) {
   .graphic__block{
-    grid-column-gap: 42.1px
+    //grid-column-gap: 42.1px
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 @media (max-width: 375px) {

@@ -16,6 +16,12 @@ export default {
     name:String,
     id:Number
   },
+  mounted() {
+    if (this.$route.matched[0].path=='/pets/:name'){
+      document.querySelector('body').style.minWidth = '375px';
+    }
+  }
+
 }
 </script>
 

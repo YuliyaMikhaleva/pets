@@ -26,7 +26,7 @@
         <li class="statistic__dates statistic__date-numbers" v-for="item of weekDays" :key="item">{{ item }}</li>
       </ul>
       <ul class="statistic__dates statistic__date-days">
-        <li class="statistic__dates statistic__date-days" v-for="day of namesOfDays" :key="day">{{ day }}</li>
+        <li class="statistic__dates statistic__date-days" v-for="(day, index) of namesOfDays" :key="day+index">{{ day }}</li>
       </ul>
     </div>
   </article>

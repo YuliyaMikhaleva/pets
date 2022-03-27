@@ -145,16 +145,22 @@
 
 @media (max-width: 768px) {
   .statistic{
+    &__diagram{
+      width: 100%;
+    }
     &__block{
       width: 100%;
       margin-right: 0;
     }
     &__img{
       margin: 0 auto;
-      width: 360px;
+      //width: 360px;
     }
     &__dates{
-      grid-column-gap: 44.6px;
+      //grid-column-gap: 44.6px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
     }
     &__graphic{
       margin-right: 6.98px;

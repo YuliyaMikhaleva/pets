@@ -66,29 +66,6 @@
     grid-area: date;
   }
 }
-
-@media (max-width: 1130px) {
-  .user-data__progress{
-    min-height: 330px;
-  }
-}
-@media (max-width: 768px) {
-  .user-data{
-    &__hello{
-      min-width: 0;
-    }
-    &__progress{
-      min-height: 398px;
-    }
-  }
-}
-
-@media (max-width: 670px) {
-  .user-data__photo{
-    display: none;
-  }
-}
-
 @media (max-width: 1130px) {
   .user-data{
     &__wrp{
@@ -98,7 +75,7 @@
       display: none;
     }
     &__hello{
-      min-height: 167px;
+      min-width: auto;
     }
     &__title{
       font-size: 18px;
@@ -117,9 +94,9 @@
     &__slider{
       width: 100%;
     }
-    &__photo{
-      display: none;
-    }
+    //&__photo{
+    //  display: none;
+    //}
     &__slide{
       width: 90%;
     }
@@ -128,6 +105,33 @@
     }
   }
 }
+
+//@media (max-width: 1130px) {
+//  .user-data__progress{
+//    min-height: 330px;
+//  }
+//}
+@media (max-width: 768px) {
+  .user-data{
+    //&__hello{
+    //  min-width: 0;
+    //}
+    &__progress{
+      min-height: 398px;
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .user-data__photo{
+    display: none;
+  }
+  .user-data__hello{
+    min-height: 167px;
+  }
+
+}
+
 
 @media (max-width: 375px) {
   .user-data{

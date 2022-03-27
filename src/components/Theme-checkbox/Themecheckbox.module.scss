@@ -62,7 +62,7 @@
   transform: translateX(-100%);
   background-image: url("../../../public/images/lightTheme.svg");
 }
-@media (max-width: 375px) {
+@media (max-width: 500px) {
   .checkbox{
     &__label{
       width: 77px;

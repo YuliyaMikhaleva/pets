@@ -2,7 +2,7 @@
   <div class="main">
     <Loader v-if="getShowloader"/>
     <Menu v-if="actualWidth>768" class="main__menu" :class="{'hidden':this.block}"/>
-    <MobileMenu v-if="actualWidth<=768 && show" class="main__mobile-menu"/>
+    <MobileMenu v-if="actualWidth<=768 && show && $route.matched[0].path!=='/pets/:name'" class="main__mobile-menu"/>
     <div class="main__wrp">
       <Header class="main__header" :class="{'hidden':this.block}" v-if="$route.matched[0].path!=='/pets/:name'"/>
       <Header v-if="$route.matched[0].path=='/pets/:name'" class="main__header2"/>

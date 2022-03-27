@@ -4,7 +4,7 @@
 body{
   margin: 0;
   padding: 0;
-  min-width: 375px;
+  min-width: 626px;
 }
 
 .block-scroll{
@@ -201,11 +201,12 @@ body{
       justify-content: center;
     }
     &__user-data{
-      display: grid;
+      //display: grid;
+      display: flex;
       grid-template-rows: repeat(2, 1fr);
-      grid-template-areas:
-              "hello hello hello hello hello hello hello hello hello hello"
-              "chart chart chart chart chart chart chart chart chart chart";
+      //grid-template-areas:
+      //        "hello hello hello hello hello hello hello hello hello hello"
+      //        "chart chart chart chart chart chart chart chart chart chart";
       margin-top: 114px;
       margin-left: 24px;
       margin-right: 24px;
@@ -236,6 +237,19 @@ body{
 
 }
 
+@media (max-width: 500px) {
+  .main{
+    //&__user-data{
+    //  display: flex;
+    //}
+    &__header{
+      padding: 20px 25px 20px 0;
+      justify-content: flex-end;
+      grid-gap: 0;
+    }
+  }
+}
+
 @media (max-width: 590px) {
   .main__statistic-wrp{
     grid-template-areas:
@@ -246,17 +260,21 @@ body{
 }
 
 @media (max-width: 375px) {
+  body{
+    min-width: 375px;
+  }
+
   .container{
     margin: 0 24px;
   }
   .main{
-    &__header{
-      padding: 20px 25px 20px 0;
-      justify-content: flex-end;
-      grid-gap: 0;
-    }
+    //&__header{
+    //  padding: 20px 25px 20px 0;
+    //  justify-content: flex-end;
+    //  grid-gap: 0;
+    //}
     &__user-data{
-      display: flex;
+      //display: flex;
       flex-direction: column;
       grid-gap: 25px;
       margin: 92px 0 25px 0;

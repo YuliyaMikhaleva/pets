@@ -3,7 +3,7 @@
     <div class="pet-card__slider">
       <swiper class="swiper pet-card__wrp" :options="swiperOption" :effect="'cards'">
         <swiper-slide  class="pet-card__photo-wrp" v-for="picture of pictures" :key="picture">
-            <img class="pet-card__photo" :src="'/'+picture" alt="photo">
+            <img class="pet-card__photo" :src="'../'+picture" alt="photo">
         </swiper-slide>
           <div v-if="actualWidth>768" class="swiper-button-next pet-card__arrow-next" slot="button-next"></div>
           <div v-if="actualWidth>768" class="swiper-button-prev pet-card__arrow-prev" slot="button-prev"></div>

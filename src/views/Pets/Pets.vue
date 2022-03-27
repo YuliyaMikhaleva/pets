@@ -26,6 +26,11 @@ export default {
             return this.getFilterItems
         },
     },
+    // mounted() {
+    //     if (this.$route.matched[0].path=='/pets'){
+    //         document.querySelector('body').style.minWidth = 'auto';
+    //     }
+    // }
     }
 </script>
 

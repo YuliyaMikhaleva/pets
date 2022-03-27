@@ -70,8 +70,10 @@
         mounted() {
             this.time();
             this.date();
+            // if (this.$route.matched[0].path==='/'){
+            //     document.querySelector('body').style.minWidth = '626px';
+            // }
         }
-
     }
 </script>
 
