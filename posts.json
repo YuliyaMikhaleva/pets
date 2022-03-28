@@ -1,0 +1,106 @@
+{
+  "animals" : {
+    "-JHEDHWHEDJWbBYo5Hqw": {
+      "about" : "qwe",
+      "age" : "1211-12-12",
+      "groupID" : 3,
+      "img" : "images/petBob.png",
+      "likes" : 326,
+      "location" : "Германия, Гамбург",
+      "name" : "Bob",
+      "sex" : true,
+      "type" : "Котенок",
+      "weight" : "12",
+      "bgColor": "#4C6FFF"
+    },
+    "-AMSAQMDMDDMy3Vas": {
+      "about" : "qwe",
+      "age" : "1211-12-12",
+      "groupID" : 3,
+      "img" : "images/petLoki.png",
+      "likes" : 11,
+      "location" : "Германия, Гамбург",
+      "name" : "Loki",
+      "sex" : true,
+      "type" : "Кот",
+      "weight" : "12",
+      "bgColor": "#FCC064"
+    },
+    "-MZRJNWOFGNQaAUo3Lwi" : {
+      "about" : "qwe",
+      "age" : "1211-12-12",
+      "groupD" : 3,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2F2.jpg?alt=media&token=4942a283-0bc7-4cfa-98fa-8471ecdfa95f",
+      "likes" : 3,
+      "location" : "Германия, Гамбург",
+      "name" : "test",
+      "sex" : true,
+      "type" : "qwe",
+      "weight" : "12",
+      "bgColor": "#66CB9F"
+    },
+    "-MbHbGSKEqCohGc2DxuV" : {
+      "about" : "варан",
+      "age" : "2021-05-06",
+      "groupID" : 2,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2FXz-mqhy2GYg.jpg?alt=media&token=364a0cc1-710f-4214-b7d6-6946f5d8520b",
+      "likes" : 321,
+      "location" : "Американское Самоа, Паго-Паго",
+      "name" : "Собака",
+      "sex" : true,
+      "type" : "Сказочное существо",
+      "users" : {
+        "-MbHb_2qRjYE4uN24F92" : "OY39ceDpzFYbbWOycpMd6R98qHz1"
+      },
+      "weight" : "44",
+      "bgColor": "purple"
+    },
+    "-MbHdFVybFafcm3LwF38" : {
+      "about" : "Варан",
+      "age" : "2021-05-06",
+      "groupID" : 2,
+      "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2FRO_u3JhY0AU.jpg?alt=media&token=32394fd8-8faf-4fa3-8f9e-1a9bbbe32376",
+      "likes" : 2,
+      "location" : "Австралия, Агню",
+      "name" : "qwe",
+      "sex" : true,
+      "type" : "Сказочный персонаж",
+      "weight" : "12",
+      "bgColor": "darkblue"
+    },
+    "0ed45997-a013-00ca-6e9f-243228216256" : {
+      "about" : "Любит спать, кушать и вставать в всратые позы",
+      "age" : "2019-02-13",
+
+      "img" : "https://firebasestorage.googleapis.com/v0/b/vue-app-pets.appspot.com/o/images%2Fphoto_2021-01-28_17-26-17.jpg?alt=media&token=a96303d9-aaba-4d5f-b3b7-f58c99b41306",
+      "likes" : 999,
+      "location" : "Россия, Пермь",
+      "name" : "БОБ",
+      "sex" : false,
+      "type" : "Шотландский вислоухий",
+      "users" : {
+        "-MZHSV0AiF2eUTY2nYpf" : "Z4lQmm35C3fnmwXGWa2LXDatxGA2",
+        "-MZREBf5qCP7kRLSThpm" : "aQVpizsR2RbJEMLIKi8Ygsd9vDL2"
+      },
+      "weight" : 3,
+      "bgColor": "#F16063"
+    },
+    "44687922-b26f-1427-a5f3-15c2e55eea73" : {
+      "about" : "The Nora is a bright, sensitive dog who enjoys play with his human family\n        and responds well to training. As herders bred to move cattle, they are fearless\n        and independent. They are vigilant watchdogs, with acute senses and a “big dog” bark.\n        Families who can meet their bold but kindly Pembroke’s need for activity and togetherness\n        will never have a more loyal, loving pet.",
+      "age" : "2014-11-23",
+      "groupID" : 1,
+      "img" : "https://a.radikal.ru/a29/1808/ba/05e0baeeb709.jpg",
+      "likes" : 11,
+      "location" : "110 N 3th St, Brooklyn, NY, USA",
+      "name" : "Lucifer",
+      "sex" : false,
+      "type" : "Swissy",
+      "users" : {
+        "-MZHSUHYGSdvHvPa2Tmo" : "Z4lQmm35C3fnmwXGWa2LXDatxGA2",
+        "-MZR8BqBcgPiIh2jy3Ch" : "aQVpizsR2RbJEMLIKi8Ygsd9vDL2"
+      },
+      "weight" : "2",
+      "bgColor": "green"
+    }
+  }
+}
