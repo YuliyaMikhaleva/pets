@@ -1,4 +1,3 @@
-// import store from '@/store';
 import router from "../../router";
 export const profileModule = {
     namespaced: true,
@@ -12,6 +11,7 @@ export const profileModule = {
             }
         ],
         authorization:false,//авторизован ли пользователь
+        location:""
     },
     getters:{
         getUser(state){
@@ -35,12 +35,13 @@ export const profileModule = {
             } else {
                 return false
             }
-        }
+        },
     },
     mutations:{
         setUser(state, payload){state.user = payload},
         setUsers(state, payload){state.users.push(payload)},
         setAuthorization(state, payload){state.authorization = payload},
+        // setLocation(state, payload){state.location = payload},
     },
     actions:{
         //Зарегистрироваться
@@ -60,6 +61,6 @@ export const profileModule = {
         signOut({commit}){
             commit('setAuthorization', false)
             commit('setUser', "");
-        }
+        },
     }
 }

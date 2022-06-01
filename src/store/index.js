@@ -6,6 +6,7 @@ import {cardsModule} from "@/store/modules/cardsModule";
 import {showloaderModule} from "@/store/modules/showloader";
 import {statisticsModule} from "./modules/statisticsModule";
 import {profileModule} from "./modules/profileModule";
+import {locationsModule} from "@/store/modules/locationsModule";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -22,6 +23,7 @@ export default new Vuex.Store({
         cardsModule,
         showloaderModule,
         statisticsModule,
-        profileModule
+        profileModule,
+        locationsModule
     },
 });

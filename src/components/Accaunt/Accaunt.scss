@@ -1,0 +1,33 @@
+.accaunt{
+  &__title{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin:0;
+    &--second{
+      margin-bottom: 30px;
+    }
+  }
+  &__button-add{
+    background-color: var(--blueColor);
+    border: none;
+    border-radius: 100px;
+    width: 72px;
+    height: 72px;
+    cursor: pointer;
+    margin: 28px 0 28px 0;
+  }
+  &__form{
+    display: grid;
+    grid-template-columns: calc(50% - 20px) calc(50% - 20px);
+    grid-column-gap: 40px;
+    grid-row-gap: 28px;
+    margin-bottom: 34px;
+  }
+  &__location{
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-column-gap: 10px;
+  }
+
+}

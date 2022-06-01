@@ -11,6 +11,7 @@
 
   }
   &__item{
+    cursor: pointer;
     width: 100%;
     min-height: 72px;
     padding: 20px;
@@ -20,6 +21,12 @@
     margin-bottom: 15px;
     display: flex;
     align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    &--active{
+      background-color: var(--blueColor);
+    }
     &:last-child{
       margin-bottom: 0;
     }
@@ -27,11 +34,16 @@
       width: 100%;
     }
   }
-
+  &__item-wrp{
+    display: grid;
+    grid-template-columns: 32px auto;
+    grid-column-gap: 20px;
+  }
   &__details{
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     padding: 30px;
     box-sizing: border-box;
+    max-width: 710px;
   }
 }

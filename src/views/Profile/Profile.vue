@@ -1,15 +1,14 @@
 <template>
         <div class="profile">
-          Профиль
           <tabs>
-            <tab name="Аккаунт" :selected="true">
-              <span>What we do</span>
+            <tab name="Аккаунт" img="icons/icon-account.svg" :selected="true">
+              <AccountInfo/>
             </tab>
-            <tab name="Настройки">
-              <span>How much we do it for</span>
+            <tab name="Настройки" img="icons/icon-settings.svg">
+              <span>Настройки</span>
             </tab>
-            <tab name="Ваши питомцы">
-              <span>Why we do it</span>
+            <tab name="Ваши питомцы" img="icons/icon-pets.svg">
+              <span>Ваши питомцы</span>
             </tab>
           </tabs>
         </div>
@@ -18,10 +17,11 @@
 <script>
 import Tabs from "@/components/Tabs/Tabs";
 import Tab from "@/components/Tabs/Tab/Tab";
+import AccountInfo from "@/components/Accaunt/Accaunt";
 
 export default {
         name: "Profile",
-        components: {Tabs, Tab},
+        components: {AccountInfo, Tabs, Tab},
 }
 </script>
 
@@ -29,5 +29,6 @@ export default {
   .profile{
     margin-top: 156px;
     color: white;
+    font-family: Rubik;
   }
 </style>

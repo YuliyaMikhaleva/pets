@@ -1,8 +1,9 @@
 <template>
   <div class="input-block">
     <div class="input-block__wrp-input">
-      <input class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="inputValue"/>
-      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':inputValue.length}">
+      <masked-input class="input-block__input" v-if="type ==='dateBirdth'" v-model="actualValue" mask="11 / 11 / 1111"  @input="$emit('input', $event.target.value)" />
+      <input v-if="type !=='dateBirdth'" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue"/>
+      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length}">
         <slot/>
       </label>
       <EyeClose v-if="type==='password'" class="input-block__svg" @click="changeType()"/>
@@ -15,18 +16,23 @@
 </template>
 
 <script>
+import MaskedInput from 'vue-masked-input'
   import EyeClose from "@/../public/images/eye-close.svg?inline"
   import EyeOpen from "@/../public/images/eye-open.svg?inline"
+
 export default {
   name: "InputBlock",
-  components:{EyeClose, EyeOpen},
+  components:{EyeClose, EyeOpen,MaskedInput },
   data(){
     return{
       inputValue:""
     }
   },
   props:{
-    placeholder:{type:String},
+    placeholder:{
+      type:String,
+      required: false
+    },
     type:{type:String},
     word:{type:String},
     errors:{
@@ -34,6 +40,9 @@ export default {
       required: true,
       default: () => [],
     },
+    value:{
+      type:String
+    }
   },
   methods:{
     changeType(){
@@ -42,6 +51,13 @@ export default {
   },
 
   computed:{
+    actualValue(){
+      if (this.value){
+        return this.value
+      } else {
+        return this.inputValue
+      }
+    },
     auth(){
       if (this.$route.path=='/signIn'){
         return true
@@ -57,7 +73,7 @@ export default {
       } else {
         return this.errors.find((error) => error === "Заполните пароль")
       }
-    }
+    },
   }
 }
 </script>

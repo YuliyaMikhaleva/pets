@@ -1,0 +1,16 @@
+.select-block{
+  border: 0;
+  border-bottom: 1px solid white;
+  color: white;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  &__item{
+    background: none;
+  }
+  option{
+    color:#fff;
+    background:var(--color-border);
+    border: 0;
+  }
+}

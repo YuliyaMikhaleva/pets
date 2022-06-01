@@ -2,8 +2,9 @@
   <div class="tabs">
     <div class="tabs__links">
       <ul>
-        <a v-for="tab in tabs" :href="tab.href" @click="selectTab(tab)" :key="tab" class="tabs__item">
-          <li  :class="{ 'is-active': tab.isActive }">
+        <a v-for="tab in tabs" :href="tab.href" @click="selectTab(tab)" :key="tab" class="tabs__item"   :class="{ 'tabs__item--active': tab.isActive }">
+          <li class="tabs__item-wrp">
+            <img :src="tab.img" alt="">
             {{ tab.name }}
           </li>
         </a>

@@ -12,6 +12,10 @@ export default {
       type:String,
       required:true
     },
+    img:{
+      type:String,
+      required:false
+    },
     selected:{
       type:Boolean,
       default: false
