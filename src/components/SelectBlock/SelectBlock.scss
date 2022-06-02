@@ -1,15 +1,54 @@
 .select-block{
-  border: 0;
-  border-bottom: 1px solid white;
-  color: white;
-  background: none;
-  outline: none;
-  cursor: pointer;
+  position: relative;
+  &__arrow{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    pointer-events: none;
+    path{
+      stroke: var(--color-pet-type);
+    }
+  }
+  &__placeholder{
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 8px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  &__select{
+    border: 0;
+    border-bottom: 1px solid var(--color-pet-type);
+    color: var(--color-pet-type);
+    background: none;
+    outline: none;
+    cursor: pointer;
+    appearance: none;//убрать стрелку
+    -webkit-appearance: none;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    &:focus{
+      border-color: var(--blueColor);
+      & + .select-block__arrow{
+        transform: rotate(180deg);
+      }
+    }
+    & > .select-block__arrow:focus{
+
+    }
+  }
+  &:focus {
+    border-color: red;
+    .select-block__arrow{
+      transform: rotate(180deg);
+    }
+  }
   &__item{
     background: none;
   }
   option{
-    color:#fff;
+    color: var(--color-pet-type);
     background:var(--color-border);
     border: 0;
   }

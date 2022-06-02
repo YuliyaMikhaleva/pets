@@ -1,4 +1,19 @@
 .accaunt{
+  &__label-add-avatar{
+    display: block;
+    width: 72px;
+    height: 72px;
+    margin: 28px 0 28px 0;
+    cursor: pointer;
+    button{
+      pointer-events: none;
+      cursor: pointer;
+    }
+
+  }
+  &__add-avatar{
+    display: none;
+  }
   &__title{
     font-weight: 700;
     font-size: 18px;
@@ -15,7 +30,7 @@
     width: 72px;
     height: 72px;
     cursor: pointer;
-    margin: 28px 0 28px 0;
+
   }
   &__form{
     display: grid;

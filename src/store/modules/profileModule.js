@@ -62,5 +62,8 @@ export const profileModule = {
             commit('setAuthorization', false)
             commit('setUser', "");
         },
+        changeProfile({commit}, userData){
+            commit('setUser', userData)
+        }
     }
 }

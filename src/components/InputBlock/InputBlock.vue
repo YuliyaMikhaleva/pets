@@ -1,8 +1,8 @@
 <template>
   <div class="input-block">
     <div class="input-block__wrp-input">
-      <masked-input class="input-block__input" v-if="type ==='dateBirdth'" v-model="actualValue" mask="11 / 11 / 1111"  @input="$emit('input', $event.target.value)" />
-      <input v-if="type !=='dateBirdth'" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue"/>
+<!--      <masked-input class="input-block__input" v-if="type ==='dateBirdth'" v-model="actualValue" mask="11 / 11 / 1111"  @input="$emit('input', $event.target.value)" />-->
+      <input class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue"/>
       <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length}">
         <slot/>
       </label>
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import MaskedInput from 'vue-masked-input'
+// import MaskedInput from 'vue-masked-input'
   import EyeClose from "@/../public/images/eye-close.svg?inline"
   import EyeOpen from "@/../public/images/eye-open.svg?inline"
 
 export default {
   name: "InputBlock",
-  components:{EyeClose, EyeOpen,MaskedInput },
+  components:{EyeClose, EyeOpen },
   data(){
     return{
       inputValue:""
@@ -37,7 +37,6 @@ export default {
     word:{type:String},
     errors:{
       type:Array,
-      required: true,
       default: () => [],
     },
     value:{
