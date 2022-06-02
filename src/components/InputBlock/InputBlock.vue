@@ -1,8 +1,10 @@
 <template>
   <div class="input-block">
     <div class="input-block__wrp-input">
-<!--      <masked-input class="input-block__input" v-if="type ==='dateBirdth'" v-model="actualValue" mask="11 / 11 / 1111"  @input="$emit('input', $event.target.value)" />-->
-      <input class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue"/>
+        <input maxlength="10" v-if="date === true" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue" v-mask="'##/##/####'" />
+
+        <!--      <masked-input class="input-block__input" v-if="type ==='dateBirdth'" v-model="actualValue" mask="11 / 11 / 1111"  @input="$emit('input', $event.target.value)" />-->
+      <input  v-if="date !== true" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue"/>
       <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length}">
         <slot/>
       </label>
@@ -41,6 +43,10 @@ export default {
     },
     value:{
       type:String
+    },
+    date:{
+      type:Boolean,
+      default: false
     }
   },
   methods:{

@@ -4,18 +4,18 @@
 
     <label for="avatar" class="accaunt__label-add-avatar">
       <button class="accaunt__button-add">
-        <img src="icons/icon-image.svg" alt="add image">
+        <img src="icons/icon-image.svg" alt="add image" class="accaunt__button-add--without-photo">
       </button>
     </label>
     <input type="file" id="avatar" @change="addNewAvatar" multiple class="accaunt__add-avatar">
 
     <div class="accaunt__form">
       <input-block v-model="information.name" :value="information.name">Имя</input-block>
-      <input-block type="text" v-model="information.dateBirdth" :value="information.dateBirdth">Дата рождения</input-block>
+      <input-block type="text" :date="true" v-model="information.dateBirdth" :value="information.dateBirdth">Дата рождения</input-block>
       <input-block type="text" v-model="information.status" :value="information.status">Статус</input-block>
       <div class="accaunt__location">
-        <select-block :array="getCountries"/>
-        <select-block :array="getCities"/>
+        <select-block :array="getCountries" @selectBlock="setSelectCountry"/>
+        <select-block :array="getCities" @selectBlock="setSelectCity"/>
       </div>
 
     </div>
@@ -57,8 +57,12 @@ export default {
   },
 
   mounted() {
-      this.loadCountries;
-      this.loadCities;
+      if (!this.getCountries.length){
+        this.loadCountries();
+      }
+      if (!this.getCities.length){
+        this.loadCities();
+      }
       this.setName();
       this.setPassword();
 
@@ -90,9 +94,36 @@ export default {
         email: this.getUser.email,
         avatar: this.information.avatar
       })
+      setTimeout(() => {
+        document.querySelector('.button--save').textContent = "Сохранено"
+      },500)
+    },
+    setSelectCountry(country){
+      this.information.country = country
+    },
+    setSelectCity(city){
+      this.information.city = city
     },
     addNewAvatar(){
+      let file = document.querySelector('.accaunt__add-avatar').files[0]
+      let button = document.querySelector('.accaunt__button-add')
+      console.log('file',file)
 
+      let img = document.createElement("img");
+      img.classList.add('accaunt__button-new')
+      let oldAvatar = document.querySelector('.accaunt__button-add--without-photo')
+      oldAvatar.classList.add('hidden')
+      img.file = file;
+      button.appendChild(img); // Предполагается, что "preview" это div, в котором будет отображаться содержимое.
+
+
+      let reader = new FileReader();
+      reader.onload = (function(aImg) {
+        return function(e) {
+          aImg.src = e.target.result;
+        };
+      })(img);
+      reader.readAsDataURL(file);
     }
   }
 }
