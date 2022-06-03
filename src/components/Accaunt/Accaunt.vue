@@ -3,9 +3,9 @@
     <h3 class="accaunt__title">Информация</h3>
 
     <label for="avatar" class="accaunt__label-add-avatar">
-      <button class="accaunt__button-add">
-        <img src="icons/icon-image.svg" alt="add image" class="accaunt__button-add--without-photo">
-      </button>
+      <div class="accaunt__button-add">
+        <img src="icons/icon-image.svg" alt="add image" class="accaunt__without-photo">
+      </div>
     </label>
     <input type="file" id="avatar" @change="addNewAvatar" multiple class="accaunt__add-avatar">
 
@@ -110,8 +110,8 @@ export default {
       console.log('file',file)
 
       let img = document.createElement("img");
-      img.classList.add('accaunt__button-new')
-      let oldAvatar = document.querySelector('.accaunt__button-add--without-photo')
+      img.classList.add('accaunt__with-photo')
+      let oldAvatar = document.querySelector('.accaunt__without-photo')
       oldAvatar.classList.add('hidden')
       img.file = file;
       button.appendChild(img); // Предполагается, что "preview" это div, в котором будет отображаться содержимое.
