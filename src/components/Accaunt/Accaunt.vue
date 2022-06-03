@@ -4,10 +4,12 @@
 
     <label for="avatar" class="accaunt__label-add-avatar">
       <div class="accaunt__button-add">
-        <img src="icons/icon-image.svg" alt="add image" class="accaunt__without-photo">
+        <img v-if="newFile" :src="newFile" alt="add image" class="accaunt__button-with-photo">
+        <img v-else src="icons/icon-image.svg" alt="add image" class="accaunt__button-without-photo">
+
       </div>
     </label>
-    <input type="file" id="avatar" @change="addNewAvatar" multiple class="accaunt__add-avatar">
+    <input ref="fileInput" type="file" id="avatar" @change="addNewAvatar" multiple class="accaunt__add-avatar">
 
     <div class="accaunt__form">
       <input-block v-model="information.name" :value="information.name">Имя</input-block>
@@ -52,7 +54,8 @@ export default {
         oldPassword:"",
         newPassword:"",
         avatar:""
-      }
+      },
+      newFile:""
     }
   },
 
@@ -105,25 +108,8 @@ export default {
       this.information.city = city
     },
     addNewAvatar(){
-      let file = document.querySelector('.accaunt__add-avatar').files[0]
-      let button = document.querySelector('.accaunt__button-add')
-      console.log('file',file)
-
-      let img = document.createElement("img");
-      img.classList.add('accaunt__with-photo')
-      let oldAvatar = document.querySelector('.accaunt__without-photo')
-      oldAvatar.classList.add('hidden')
-      img.file = file;
-      button.appendChild(img); // Предполагается, что "preview" это div, в котором будет отображаться содержимое.
-
-
-      let reader = new FileReader();
-      reader.onload = (function(aImg) {
-        return function(e) {
-          aImg.src = e.target.result;
-        };
-      })(img);
-      reader.readAsDataURL(file);
+      let file = this.$refs.fileInput.files[0];
+      this.newFile = URL.createObjectURL(file);
     }
   }
 }
