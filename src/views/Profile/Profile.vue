@@ -5,10 +5,10 @@
               <AccountInfo/>
             </tab>
             <tab name="Настройки" img="icons/icon-settings.svg">
-              <span>Настройки</span>
+              <Settings/>
             </tab>
             <tab name="Ваши питомцы" img="icons/icon-pets.svg">
-              <span>Ваши питомцы</span>
+              <AboutPet/>
             </tab>
           </tabs>
         </div>
@@ -18,10 +18,12 @@
 import Tabs from "@/components/Tabs/Tabs";
 import Tab from "@/components/Tabs/Tab/Tab";
 import AccountInfo from "@/components/Accaunt/Accaunt";
+import Settings from "@/components/Settings/Settings";
+import AboutPet from "@/components/AboutPet/AboutPet";
 
 export default {
         name: "Profile",
-        components: {AccountInfo, Tabs, Tab},
+        components: {AboutPet, Settings, AccountInfo, Tabs, Tab},
 }
 </script>
 

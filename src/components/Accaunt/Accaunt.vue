@@ -4,7 +4,7 @@
 
     <label for="avatar" class="accaunt__label-add-avatar">
       <div class="accaunt__button-add">
-        <img v-if="newFile" :src="newFile" alt="add image" class="accaunt__button-with-photo">
+        <img v-if="information.avatar" :src="information.avatar" alt="add image" class="accaunt__button-with-photo">
         <img v-else src="icons/icon-image.svg" alt="add image" class="accaunt__button-without-photo">
 
       </div>
@@ -55,7 +55,6 @@ export default {
         newPassword:"",
         avatar:""
       },
-      newFile:""
     }
   },
 
@@ -109,7 +108,7 @@ export default {
     },
     addNewAvatar(){
       let file = this.$refs.fileInput.files[0];
-      this.newFile = URL.createObjectURL(file);
+      this.information.avatar = URL.createObjectURL(file);
     }
   }
 }

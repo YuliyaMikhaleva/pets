@@ -1,8 +1,10 @@
 <template>
-  <div class="avatar" :style="'background:'+ bgColor">{{names}}</div>
+  <div class="avatar" :style="this.getUser.avatar ? `background-image:url(${this.getUser.avatar})` : 'background:'+ bgColor">{{names}}</div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Avatar",
   props:{
@@ -17,6 +19,7 @@ export default {
     }
   },
   computed:{
+    ...mapGetters('profileModule',['getUser']),
     names(){
       if (this.name){
         let nameUser = this.name.split(' ', 2)

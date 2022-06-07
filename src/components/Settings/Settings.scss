@@ -1,0 +1,19 @@
+.settings{
+  &__item{
+    margin-bottom: 15px;
+  }
+  &__title{
+    font-weight: 700;
+    font-family: Rubik;
+    font-size: 18px;
+    line-height: 21.33px;
+    margin:0;
+  }
+  &__group-title{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 25px 0 20px 0;
+  }
+}

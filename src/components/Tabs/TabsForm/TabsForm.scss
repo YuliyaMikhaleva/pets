@@ -1,0 +1,48 @@
+.tabs-form{
+    &__links{
+      display: flex;
+      list-style: none;
+      padding: 0;
+      gap: 36px;
+
+    }
+    &__item{
+      width: 100%;
+      max-width: 168px;
+      font-family: Rubik;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      color: black;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+  &__item-wrp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: #EDF2F7;
+    border-radius: 105px;
+    &--active{
+      background: #4C6FFF;
+      color: white;
+    }
+  }
+  &__item-scrollbar{
+    width: 98px;
+    height: 6px;
+    background: #EDF2F7;
+    border-radius: 40px;
+    margin-left: 36px;
+    &--active{
+      height: 100%;
+      width: 50%;
+      background: #4C6FFF;
+      border-radius: 40px;
+    }
+  }
+}

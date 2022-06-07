@@ -21,7 +21,6 @@ export default {
   mounted() {
     let bodyElement = document.body;
     bodyElement.classList.add("app-background");
-
      if (localStorage.theme === 'light'){
       this.darkMode = true;
     }

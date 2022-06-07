@@ -11,7 +11,14 @@ export const profileModule = {
             }
         ],
         authorization:false,//авторизован ли пользователь
-        location:""
+        location:"",
+        settings:{
+            enableNotifications: false,//включить уведомления
+            getNews: false,//Получать новостную рассылку
+            turnOnNightTheme: false,//Включить ночной режим
+            getNewsWithSound: false,//Получать уведомления со звуком
+            enableBrouserNotifications: false//Браузерные уведомления
+        }
     },
     getters:{
         getUser(state){
@@ -36,11 +43,15 @@ export const profileModule = {
                 return false
             }
         },
+        getUserSettings(state){
+            return state.settings;
+        }
     },
     mutations:{
         setUser(state, payload){state.user = payload},
         setUsers(state, payload){state.users.push(payload)},
         setAuthorization(state, payload){state.authorization = payload},
+        setUserSettings(state, payload){state.settings = payload},
         // setLocation(state, payload){state.location = payload},
     },
     actions:{
@@ -64,6 +75,9 @@ export const profileModule = {
         },
         changeProfile({commit}, userData){
             commit('setUser', userData)
+        },
+        changeSettings({commit}, settings){
+            commit('setUserSettings', settings)
         }
     }
 }

@@ -10,7 +10,6 @@
         </a>
       </ul>
     </div>
-
     <div class="tabs__details">
       <slot></slot>
     </div>
