@@ -8,7 +8,7 @@
               <Settings/>
             </tab>
             <tab name="Ваши питомцы" img="icons/icon-pets.svg">
-              <AboutPet/>
+              <AboutPetForm/>
             </tab>
           </tabs>
         </div>
@@ -19,11 +19,11 @@ import Tabs from "@/components/Tabs/Tabs";
 import Tab from "@/components/Tabs/Tab/Tab";
 import AccountInfo from "@/components/Accaunt/Accaunt";
 import Settings from "@/components/Settings/Settings";
-import AboutPet from "@/components/AboutPet/AboutPet";
+import AboutPetForm from "@/components/AboutPetForm/AboutPetForm";
 
 export default {
         name: "Profile",
-        components: {AboutPet, Settings, AccountInfo, Tabs, Tab},
+        components: {AboutPetForm, Settings, AccountInfo, Tabs, Tab},
 }
 </script>
 

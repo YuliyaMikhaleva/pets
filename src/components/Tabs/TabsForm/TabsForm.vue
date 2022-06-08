@@ -1,6 +1,6 @@
 <template>
   <div class="tabs-form">
-    <div >
+    <div>
       <ul class="tabs-form__links">
         <a v-for="(tab, index) in tabs" :href="tab.href" @click="selectTab(tab)" :key="tab+index" class="tabs-form__item">
           <li class="tabs-form__item-wrp" :class="{'tabs-form__item-wrp--active': tab.isActive }" >
@@ -14,17 +14,20 @@
       </ul>
     </div>
     <div class="tabs-form__details">
-      <slot></slot>
+      <slot/>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "TabsForm",
+
   data() {
     return {
-      tabs: []
+      tabs: [],
+      tabActive:"1"
     };
   },
   created() {
@@ -34,9 +37,21 @@ export default {
     selectTab(selectedTab) {
       this.tabs.forEach(tab => {
         tab.isActive = (tab.name == selectedTab.name);
+        this.tabActive = selectedTab.name
+      });
+    },
+    goNextTab(){
+      let nextTab = String(Number(this.tabActive) + 1);
+      let maxTab = this.tabs.length
+      this.tabs.forEach(tab => {
+        if (Number(nextTab) <= maxTab ){
+          tab.isActive = (tab.name == nextTab);
+          this.tabActive = nextTab
+        }
       });
     }
-  }
+
+  },
 }
 </script>
 
