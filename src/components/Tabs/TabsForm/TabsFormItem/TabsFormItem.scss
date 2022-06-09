@@ -1,5 +1,16 @@
 .tabs-form-item{
-  &__button{
-    margin: 104px 0 0 auto;
+  height: 100%;
+  display: flex;
+
+  &__btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    &--one{
+      margin-left: auto;
+    }
   }
+  //&__button{
+  //  margin-left: auto;
+  //}
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="switch-block" @change="$emit('change')">
+  <div class="switch-block">
     <SwitchItem @change="$emit('change')" :value="value"/>
     <div class="switch-block__title"><slot/></div>
   </div>

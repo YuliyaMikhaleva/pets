@@ -1,7 +1,11 @@
 <template>
-  <div v-show="isActive">
+  <div v-show="isActive" style="height: 100%; display: flex; flex-direction: column">
     <slot></slot>
-    <Button class="button button--save tabs-form-item__button" @click="$parent.goNextTab">{{titleBtn}}</Button>
+    <div class="tabs-form-item__btns" :class="{'tabs-form-item__btns--one': (Number(name) == 1) }">
+      <Button v-if="Number(name) != 1" class="button button--save tabs-form-item__button" @click="$parent.goPrevTab">Назад</Button>
+      <Button v-if="Number(name) != tabsLength" class="button button--save tabs-form-item__button" @click="$parent.goNextTab">Дальше</Button>
+    </div>
+
   </div>
 </template>
 
@@ -23,21 +27,19 @@ export default {
       type:Boolean,
       default: false
     },
-    titleBtn:{
-      type:String,
-      required:false
-    }
   },
   data(){
     return {
-      isActive: false
+      isActive: false,
+      tabsLength: 1
     };
   },
   computed:{
 
   },
   mounted() {
-    this.isActive = this.selected
+    this.isActive = this.selected;
+    this.tabsLength = this.$parent.$children.length
   }
 }
 </script>

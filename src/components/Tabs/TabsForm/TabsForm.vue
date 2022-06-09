@@ -3,11 +3,12 @@
     <div>
       <ul class="tabs-form__links">
         <a v-for="(tab, index) in tabs" :href="tab.href" @click="selectTab(tab)" :key="tab+index" class="tabs-form__item">
-          <li class="tabs-form__item-wrp" :class="{'tabs-form__item-wrp--active': tab.isActive }" >
+          <li class="tabs-form__item-wrp" :class="{'tabs-form__item-wrp--active': (Number(tab.name) <= Number(tabActive)) }" >
               {{ tab.name }}
           </li>
           <div v-if="index < (tabs.length-1)" class="tabs-form__item-scrollbar">
-            <div :class="{'tabs-form__item-scrollbar--active': tab.isActive }"></div>
+            <div v-if="tab.isActive" :class="{'tabs-form__item-scrollbar--active': (Number(tab.name) <= Number(tabActive)) }"></div>
+            <div v-else :class="{'tabs-form__item-scrollbar--not-active': (Number(tab.name) <= Number(tabActive)) }"></div>
           </div>
         </a>
 
@@ -27,7 +28,7 @@ export default {
   data() {
     return {
       tabs: [],
-      tabActive:"1"
+      tabActive:"1",
     };
   },
   created() {
@@ -35,10 +36,13 @@ export default {
   },
   methods:{
     selectTab(selectedTab) {
-      this.tabs.forEach(tab => {
-        tab.isActive = (tab.name == selectedTab.name);
-        this.tabActive = selectedTab.name
-      });
+      if (Number(selectedTab.name) <= (Number(this.tabActive)+1)){
+        this.tabs.forEach(tab => {
+          tab.isActive = (tab.name == selectedTab.name);
+          this.tabActive = selectedTab.name
+        });
+      }
+
     },
     goNextTab(){
       let nextTab = String(Number(this.tabActive) + 1);
@@ -46,12 +50,22 @@ export default {
       this.tabs.forEach(tab => {
         if (Number(nextTab) <= maxTab ){
           tab.isActive = (tab.name == nextTab);
-          this.tabActive = nextTab
+          this.tabActive = nextTab;
+        }
+      });
+    },
+    goPrevTab(){
+      let prevTab = String(Number(this.tabActive) - 1);//предыдущий этап
+      this.tabs.forEach(tab => {
+        if (Number(prevTab) >= 1 ){
+          tab.isActive = (tab.name == prevTab);
+          this.tabActive = prevTab;
         }
       });
     }
 
   },
+
 }
 </script>
 

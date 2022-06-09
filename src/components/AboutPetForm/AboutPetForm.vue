@@ -1,17 +1,15 @@
 <template>
   <section class="about-pet">
-    <div class="about-pet__steps">
       <TabsForm>
-        <TabsFormItem name="1" :selected="true" title-btn="Дальше">
+        <TabsFormItem name="1" :selected="true">
           <PetForm/>
         </TabsFormItem>
-        <TabsFormItem name="2" title-btn="Дальше">
+        <TabsFormItem name="2">
           <FileInput :formats="['image/jpg', 'image/jpeg', 'image/png']"/>
         </TabsFormItem>
-        <TabsFormItem name="3" title-btn="Дальше">этап 3</TabsFormItem>
-        <TabsFormItem name="4" title-btn="Отправить">этап 4</TabsFormItem>
+        <TabsFormItem name="3">этап 3</TabsFormItem>
+        <TabsFormItem name="4">этап 4</TabsFormItem>
       </TabsForm>
-    </div>
 
   </section>
 
