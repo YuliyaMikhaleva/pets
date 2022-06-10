@@ -3,6 +3,7 @@
   flex-direction: column;
   color: var(--color-pet-type);
 
+
   &::placeholder{
     font-weight: 400;
     font-size: 14px;
@@ -21,6 +22,13 @@
     transition: 0.3s;
     font-size: 14px;
     line-height: 21px;
+    &--valid{
+      color: green;
+    }
+    &--error{
+      color: red;
+    }
+
   }
   &__label-fixed{
     top: -5px;
@@ -46,6 +54,14 @@
     outline: none;
     font-size: 14px;
     line-height: 21px;
+    &--error{
+      border-color: red;
+      color: red;
+    }
+    &--valid{
+      border-color: green;
+      color: green;
+    }
   }
   &__input:focus  ~.input-block__label{
     top: -5px;

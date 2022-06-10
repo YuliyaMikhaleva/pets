@@ -18,6 +18,12 @@ export const profileModule = {
             turnOnNightTheme: false,//Включить ночной режим
             getNewsWithSound: false,//Получать уведомления со звуком
             enableBrouserNotifications: false//Браузерные уведомления
+        },
+        petsInfo:{
+            name:"",
+            sex:"M",
+            text:"",
+            mission:"",
         }
     },
     getters:{
@@ -45,6 +51,9 @@ export const profileModule = {
         },
         getUserSettings(state){
             return state.settings;
+        },
+        getPetsInfo(state){
+            return state.petsInfo
         }
     },
     mutations:{
@@ -52,6 +61,7 @@ export const profileModule = {
         setUsers(state, payload){state.users.push(payload)},
         setAuthorization(state, payload){state.authorization = payload},
         setUserSettings(state, payload){state.settings = payload},
+        setPetsInfo(state, payload){state.petsInfo = payload}
         // setLocation(state, payload){state.location = payload},
     },
     actions:{
@@ -78,6 +88,9 @@ export const profileModule = {
         },
         changeSettings({commit}, settings){
             commit('setUserSettings', settings)
+        },
+        changePetsInfo({commit}, petsInfo){
+            commit('setPetsInfo', petsInfo)
         }
     }
 }
