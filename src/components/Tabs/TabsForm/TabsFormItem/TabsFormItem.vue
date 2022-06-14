@@ -3,7 +3,7 @@
     <slot></slot>
     <div class="tabs-form-item__btns" :class="{'tabs-form-item__btns--one': (Number(name) == 1) }">
       <Button v-if="Number(name) != 1" class="button button--save tabs-form-item__button" @click="$parent.goPrevTab">Назад</Button>
-      <Button v-if="Number(name) != tabsLength" class="button button--save tabs-form-item__button" @click="$parent.goNextTab">Дальше</Button>
+      <Button v-if="Number(name) != tabsLength" class="button button--save tabs-form-item__button" @click="goNext">Дальше</Button>
     </div>
 
   </div>
@@ -11,6 +11,7 @@
 
 <script>
 import Button from "@/components/Button/Button";
+import {mapActions} from "vuex";
 export default {
   name: "TabsFormItem",
   components:{Button},
@@ -31,15 +32,29 @@ export default {
   data(){
     return {
       isActive: false,
-      tabsLength: 1
+      tabsLength: 1,
+      error:false
     };
   },
   computed:{
+    ...mapActions('profileModule',['addErrors']),
 
   },
   mounted() {
     this.isActive = this.selected;
     this.tabsLength = this.$parent.$children.length
+  },
+  methods:{
+    changeError(errorBool){
+      this.error = errorBool
+    },
+    goNext(){
+      if (this.error === false){
+        this.$parent.goNextTab();
+      }
+
+
+    }
   }
 }
 </script>

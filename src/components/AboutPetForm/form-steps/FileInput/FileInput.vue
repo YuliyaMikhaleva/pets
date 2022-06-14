@@ -1,8 +1,8 @@
 <template>
   <div @dragover.prevent @drop.prevent="dropFiles">
     <h3 class="file__title">Загрузите пару изображений питомца</h3>
-    <div class="file__comment" v-if="files.length<15">Вы можете загрузить не более 15 изображений</div>
-    <label class="file__label" v-if="files.length == 0">
+    <div class="file__comment" v-if="fileLength<15">Вы можете загрузить не более 15 изображений</div>
+    <label class="file__label" v-if="fileLength == 0">
       <span class="file__label-title">Выберите файлы или перетащите их сюда</span>
       <input
           @change="handleFileUpload"
@@ -12,7 +12,7 @@
           multiple
           :accept="formats">
     </label>
-    <div v-if="files.length>0" class="file__list" ref="fileList" >
+    <div v-if="fileLength>0" class="file__list" ref="fileList" >
 
         <div v-for="(file, index) of filesURLS"
              ref="image"
@@ -31,7 +31,7 @@
         </div>
 
 
-      <label class="file__preview-label" v-if="files.length <15">
+      <label class="file__preview-label" v-if="fileLength <15">
         <div class="file__preview-plus">+</div>
         <input
             @change="handleFileUpload"
@@ -50,6 +50,7 @@
 
 <script>
 import FileListMutator from "@/assets/heplers/FileListMutator";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "FileInput",
@@ -74,7 +75,15 @@ export default {
     }
   },
   computed: {
-
+    ...mapGetters('profileModule',['getPetsInfo']),
+    fileLength(){
+      if (this.filesURLS.length === 0){
+        this.$parent.changeError(true)
+      } else if (this.filesURLS.length > 0) {
+        this.$parent.changeError(false)
+      }
+      return this.files.length
+    }
   },
   watch:{
     over(){
@@ -88,10 +97,10 @@ export default {
           }
         })
       }
-
-    }
+    },
   },
   methods:{
+    ...mapActions('profileModule',['addPhotos', 'addErrors']),
     handleFileUpload() {
       this.files = FileListMutator.mergeFileLists(this.files, this.$refs.file.files)
       this.files.objs = [...this.files]

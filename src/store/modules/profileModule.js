@@ -24,7 +24,9 @@ export const profileModule = {
             sex:"M",
             text:"",
             mission:"",
-        }
+            photos:[]
+        },
+        errors:false,
     },
     getters:{
         getUser(state){
@@ -54,15 +56,19 @@ export const profileModule = {
         },
         getPetsInfo(state){
             return state.petsInfo
-        }
+        },
+        getErrors(state){
+            return state.errors
+        },
     },
     mutations:{
         setUser(state, payload){state.user = payload},
         setUsers(state, payload){state.users.push(payload)},
         setAuthorization(state, payload){state.authorization = payload},
         setUserSettings(state, payload){state.settings = payload},
-        setPetsInfo(state, payload){state.petsInfo = payload}
-        // setLocation(state, payload){state.location = payload},
+        setPetsInfo(state, payload){state.petsInfo = payload},
+        setErrors(state, payload){state.errors = payload},
+        setPhotos(state, payload){state.petsInfo.photos = [...payload]}
     },
     actions:{
         //Зарегистрироваться
@@ -91,6 +97,12 @@ export const profileModule = {
         },
         changePetsInfo({commit}, petsInfo){
             commit('setPetsInfo', petsInfo)
-        }
+        },
+        addErrors({commit}, error){
+            commit('setErrors', error)
+        },
+        addPhotos({commit}, photos){
+            commit('setPhotos', photos)
+        },
     }
 }

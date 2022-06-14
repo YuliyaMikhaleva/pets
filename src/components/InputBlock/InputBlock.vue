@@ -1,15 +1,15 @@
 <template>
   <div class="input-block">
     <div class="input-block__wrp-input">
-        <input maxlength="10" v-if="date === true" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue" v-mask="'##/##/####'" />
+      <input maxlength="10" v-if="date === true" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue" v-mask="'##/##/####'" />
 
       <input  v-if="date !== true" class="input-block__input"
               :class="{'input-block__input--error': isError, 'input-block__input--valid': isValid }"
               :type="type" :id="'data'+type"
               @input="$emit('input', $event.target.value)"
-              v-model="actualValue"/>
+              />
 
-      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length, 'input-block__label--valid': isValid, 'input-block__label--error': isError}">
+      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length>0, 'input-block__label--valid': isValid, 'input-block__label--error': isError}">
         <slot/>
       </label>
       <EyeClose v-if="type==='password'" class="input-block__svg" @click="changeType()"/>
@@ -24,6 +24,7 @@
 <script>
   import EyeClose from "@/../public/images/eye-close.svg?inline"
   import EyeOpen from "@/../public/images/eye-open.svg?inline"
+  import {mapActions} from "vuex";
 
 export default {
   name: "InputBlock",
@@ -61,12 +62,15 @@ export default {
     }
   },
   methods:{
+    ...mapActions('profileModule',['addErrors']),
     changeType(){
       this.type = this.type === "password" ? "text" : "password";
     }
   },
 
   computed:{
+
+
     actualValue(){
       if (this.value){
         return this.value

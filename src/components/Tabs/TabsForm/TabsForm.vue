@@ -22,6 +22,8 @@
 
 <script>
 
+import {mapActions, mapGetters} from "vuex";
+
 export default {
   name: "TabsForm",
 
@@ -34,7 +36,11 @@ export default {
   created() {
     this.tabs = this.$children;
   },
+  computed:{
+    ...mapGetters('profileModule',['getPetsInfo', 'getErrors']),
+  },
   methods:{
+    ...mapActions('profileModule',['addErrors']),
     selectTab(selectedTab) {
       if (Number(selectedTab.name) <= (Number(this.tabActive)+1)){
         this.tabs.forEach(tab => {
@@ -46,7 +52,7 @@ export default {
     },
     goNextTab(){
       let nextTab = String(Number(this.tabActive) + 1);
-      let maxTab = this.tabs.length
+      let maxTab = this.tabs.length;
       this.tabs.forEach(tab => {
         if (Number(nextTab) <= maxTab ){
           tab.isActive = (tab.name == nextTab);
@@ -62,8 +68,7 @@ export default {
           this.tabActive = prevTab;
         }
       });
-    }
-
+    },
   },
 
 }
