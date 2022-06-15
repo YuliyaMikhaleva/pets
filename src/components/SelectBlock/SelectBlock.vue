@@ -1,9 +1,12 @@
 <template>
   <div class="select-block">
     <div v-if="selectedName === ''" class="select-block__placeholder">{{ placeholder }}</div>
-    <select v-model="selectedName" class="select-block__select">
-      <option class="select-block__item" v-for="item of array" :value="item.text" :key="item.value">{{item.text}}</option>
-    </select>
+<!--    <vue-custom-scrollbar>-->
+      <select v-model="selectedName" class="select-block__select">
+          <option class="select-block__item" v-for="item of array" :value="item.text" :key="item.value">{{item.text}}</option>
+      </select>
+<!--    </vue-custom-scrollbar>-->
+
     <IconArrow class="select-block__arrow"/>
   </div>
 
@@ -11,6 +14,7 @@
 
 <script>
 import IconArrow from "@/../public/icons/icon-arrow.svg?inline";
+
 export default {
   name: "SelectBlock",
   components:{IconArrow},

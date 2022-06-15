@@ -51,5 +51,42 @@
     color: var(--color-pet-type);
     background:var(--color-border);
     border: 0;
+    outline: none;
   }
 }
+
+//чтобы убрать скролл во всех браузерах
+//select::-webkit-scrollbar {display:none;}
+//select::-moz-scrollbar {display:none;}
+//select::-o-scrollbar {display:none;}
+//select::-google-ms-scrollbar {display:none;}
+//select::-khtml-scrollbar {display:none;}
+
+select::-webkit-scrollbar {
+  width: 3px;
+  border: none;
+
+  background: var(--color-border);
+}
+select::-webkit-scrollbar-track {
+  background-color: transparent;
+  //background-color: lightsteelblue;
+  border-radius: 4px;
+}
+select::-webkit-scrollbar-thumb {
+  background-color: blue;
+  //box-shadow: inset 0 0 6px rgba(0, 49, 138, 1);
+  border-radius: 2px;
+}
+select:after{
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url("/put_k_strelke");
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+
