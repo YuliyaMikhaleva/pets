@@ -1,10 +1,10 @@
 <template>
     <div class="select">
       <label class="select__label">
-      <input-block class="select__input"><slot/></input-block>
-<!--        <input-block class="select__input type="text" :date="true">Дата рождения</input-block>-->
-<!--        <input class="select__input" @click="func" v-model="value" ref="input">-->
-        <IconArrow class="select__input-arrow" ref="arrow"/>
+        <input-block class="select__input" @focus="func" ref="inputBlock" v-model="value"><slot/></input-block>
+  <!--        <input-block class="select__input type="text" :date="true">Дата рождения</input-block>-->
+  <!--        <input class="select__input" @click="func" v-model="value" ref="input">-->
+          <IconArrow class="select__input-arrow" ref="arrow"/>
       </label>
       <vue-custom-scrollbar class="scroll-area" :settings="settings">
       <ul class="select__list" ref="list">
@@ -45,27 +45,50 @@ export default {
         return this.array.filter(el => el.text.includes(this.value))
       }
   },
+  watch:{
+    value(){
+      this.$emit('input', this.value)
+    }
+  },
   methods:{
     func(){
-      console.log(this.$refs.list)
       let list = this.$refs.list
-      list.classList.toggle('active');
-      this.$refs.arrow.classList.toggle('select__input-arrow--opened')
-      this.$refs.input.classList.toggle('active')
+      list.classList.add('active');
+      this.$refs.arrow.classList.add('select__input-arrow--opened')
+      this.$refs.inputBlock.$refs.input.classList.add('active')
+      console.log('11111111111',this.$refs.inputBlock.$refs.input)
       if (list.style.display === "flex"){
-        console.log(1)
+
         list.style.display = "none";
       } else {
-        console.log(2)
-        console.log(list)
+
+
         list.style.display = "flex";
-        console.log(list)
+        console.log('1',list)
       }
     },
+    blurFunc(){
+
+
+        console.log('Событие расфокусировки')
+        if (this.$refs.inputBlock.$refs.input.classList.contains('active')){
+          this.$refs.inputBlock.$refs.input.classList.remove('active')
+        }
+        let list = this.$refs.list
+        list.style.display = "none";
+
+
+    },
     changeValue(e){
-      this.value = e.target.textContent;
-      this.$refs.list.style.display = "none";
-      this.$refs.arrow.classList.toggle('select__input-arrow--opened');
+      if (e.target.classList.contains('select__list-item')){
+        this.value = e.target.textContent;
+        this.$refs.list.style.display = "none";
+        this.$refs.arrow.classList.toggle('select__input-arrow--opened');
+      } else {
+        this.$refs.list.style.display = "none";
+      }
+      console.log('e1', e)
+
     }
   }
 }
@@ -75,11 +98,12 @@ export default {
   .select{
     position: relative;
     &__label{
-      position: relative;
+      position: unset;
     }
     &__input-arrow{
+      cursor: pointer;
       position: absolute;
-      top: 8.5px;
+      top: 50%;
       right: 8px;
       z-index: -1;
       path{
@@ -106,6 +130,7 @@ export default {
       box-sizing: border-box;
     }
     &__list{
+      z-index: 2;
       list-style: none;
       margin: 0;
       display: none;

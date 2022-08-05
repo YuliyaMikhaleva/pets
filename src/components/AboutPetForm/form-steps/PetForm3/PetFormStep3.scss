@@ -1,4 +1,9 @@
 .pet-form-step3{
+  &__inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+  }
   &__title{
     margin: 0 0 50px 0;
     font-weight: 400;
@@ -27,13 +32,21 @@
     //justify-content: space-between;
     //gap: 30px;
   }
+  &__inputs{
+    margin-top: 30px;
+  }
   &__select{
     width: 100%;
+    &--bottom{
+      margin-bottom: 0;
+      margin-top: 30px;
+    }
     //height: 100%;
     //max-height: 100px;
     //overflow: hidden;
     //height: 100%;
     //max-height: 379px;
   }
+  //.input-block__
 
 }

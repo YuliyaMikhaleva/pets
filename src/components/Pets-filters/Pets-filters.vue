@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FilterBlock v-for="(item,index) in pets"
+    <FilterBlock v-for="(item,index) in array"
                  :key="index"
                  :item="item.name"
                  @add="addFilter(item)"
@@ -16,12 +16,15 @@ import FilterBlock from "@/components/Filter-block/Filter-block";
 import {mapActions, mapGetters} from "vuex";
 export default {
   name: "Pets-filters",
+  props:{
+    array:{
+      type:Array,
+      required: false
+    },
+  },
   components: {FilterBlock},
   computed: {
-    ...mapGetters('filtersModule', ['getFilterItems','getFilteredPets']),
-    pets() {
-      return this.getFilterItems
-    },
+    ...mapGetters('filtersModule', ['getFilteredPets']),
   },
   methods:{
     ...mapActions('filtersModule', ['addFilter','removeFilter']),

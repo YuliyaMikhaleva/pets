@@ -25,6 +25,7 @@
 
   &__input{
     width: 0;
+    //display: none;
     &:checked + .switch-item-img__slider{
       background-color: #4C6FFF;
 

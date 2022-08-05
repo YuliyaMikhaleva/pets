@@ -37,8 +37,43 @@ export const filtersModule = {
         filteredPets: [],//фильтрованные животные
         filters:[],//отмеченные параметры фильтрации с id
         catalog:[],//каталог всех постов
+        kindsPets:[
+            {
+                id:1,
+                name:'Кот',
+                img:'images/Filter-cats.svg'
+            },
+            {
+                id: 2,
+                name:'Собака',
+                img:'images/Filter-dogs.svg'
+            },
+            {
+                id:3,
+                name:'Птица',
+                img:'images/Filter-birds.svg'
+            },
+            {
+                id:4,
+                name:'Заяц',
+                img:'images/Filter-hares.svg'
+            },
+            {
+                id:5,
+                name:'Мышь',
+                img:'images/Filter-mouses.svg'
+            },
+            {
+                id:6,
+                name:'Другой',
+                img:'images/Filter-others.svg'
+            },
+        ]
     },
     getters:{
+        getKindsPets(state){
+            return state.kindsPets
+        },
         getFilterItems(state){
             return state.filterItems;
         },

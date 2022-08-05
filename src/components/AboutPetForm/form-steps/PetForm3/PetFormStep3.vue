@@ -3,13 +3,15 @@
     <h3 class="pet-form-step3__title">Давайте узнаем больше о вашем питомце</h3>
     <div class="pet-form-step3__title-word">Ваш питомец...</div>
     <div class="pet-form-step3__wrp">
-      <PetsFilters class="pet-form-step3__filters"/>
+      <PetsFilters class="pet-form-step3__filters" :array="pets"/>
       <div>
         <Select class="pet-form-step3__select" :array="arrayKinds">Порода</Select>
-        <input-block type="text" :date="true">Дата рождения</input-block>
-        <input-block type="text" :date="true">Вес, кг</input-block>
-        <Select class="pet-form-step3__select" :array="getCountries"/>
-        <Select class="pet-form-step3__select" :array="getCities"/>
+        <div class="pet-form-step3__inputs">
+          <input-block type="text" :date="true" v-model="formObj.date" >Дата рождения</input-block>
+          <input-block type="text" v-model="formObj.mass">Вес, кг</input-block>
+          <Select class="pet-form-step3__select pet-form-step3__select--bottom" :array="getCountries" v-model="formObj.country">Страна</Select>
+          <Select class="pet-form-step3__select pet-form-step3__select--bottom" :array="getCities" v-model="formObj.city">Город</Select>
+        </div>
       </div>
     </div>
   </div>
@@ -67,16 +69,49 @@ export default {
           id:4,
           text:'Мегачел'
         },
-      ]
+      ],
+      formObj:{
+        date:"",
+        mass:"",
+        country:"111",
+        city:"",
+        kindOfPet:""
+      },
     }
   },
   computed:{
     ...mapGetters('locationsModule',['getCities', 'getCountries']),
+    ...mapGetters('filtersModule', ['getKindsPets', 'getFilters']),
+    pets(){
+      return this.getKindsPets
+    },
+    // kind(){
+    //   return this.getFilters[0]
+    // }
+  },
+  watch:{
+    getFilters(){
+      this.addKind()
+    }
   },
 
   methods:{
+    addKind(){
+      if (this.getFilters.length){
+        this.formObj.kindOfPet = this.getFilters[0].name
+      }
+    },
     closePopup(e){
-      console.log(e)
+      console.log('1', e)
+      if (!e.target.classList.contains('select__list') && !e.target.classList.contains('input-block__input')){
+        let selectList = document.querySelector('.select__list')
+        if (selectList.classList.contains('active')){
+          selectList.classList.remove('active');
+          selectList.style.display = "none";
+        }
+      }
+
+
       // document.querySelectorAll('.select__input').forEach(el => {
       //   if (e.target !== el){
       //     let selectLists = document.querySelectorAll('.select__list');
@@ -91,6 +126,9 @@ export default {
 
 
     }
+  },
+  mounted() {
+    this.addKind();
   }
 }
 </script>

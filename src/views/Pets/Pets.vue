@@ -1,7 +1,7 @@
 <template>
         <div class="pets pets__wrp">
           <div class="pets__filter-wrp">
-            <PetsFilters class="pets__filters pets__container"/>
+            <PetsFilters class="pets__filters pets__container" :array="pets"/>
           </div>
           <PetsCatalog class="pets__container"/>
           <div class="pets__footer"></div>

@@ -1,15 +1,30 @@
 <template>
   <div class="input-block">
     <div class="input-block__wrp-input">
-      <input maxlength="10" v-if="date === true" class="input-block__input" :type="type" :id="'data'+type" @input="$emit('input', $event.target.value)" v-model="actualValue" v-mask="'##/##/####'" />
+      <input maxlength="10"
+             v-if="date === true"
+             class="input-block__input"
+             :type="type"
+             :id="'data'+type"
+             @input="$emit('input', $event.target.value)"
+             :value="value"
+             v-mask="'##/##/####'"
+             autocomplete="off"
+      />
 
-      <input  v-if="date !== true" class="input-block__input"
+      <input @focus="$emit('focus')"
+             @blur="$emit('blur')"
+             v-if="date !== true"
+             class="input-block__input"
               :class="{'input-block__input--error': isError, 'input-block__input--valid': isValid }"
               :type="type" :id="'data'+type"
               @input="$emit('input', $event.target.value)"
+              ref="input"
+              autocomplete="off"
+              :value="value"
               />
 
-      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':actualValue.length>0, 'input-block__label--valid': isValid, 'input-block__label--error': isError}">
+      <label  class="input-block__label" :for="'data'+type" :class="{'input-block__label-fixed':value.length>0, 'input-block__label--valid': isValid, 'input-block__label--error': isError}">
         <slot/>
       </label>
       <EyeClose v-if="type==='password'" class="input-block__svg" @click="changeType()"/>
@@ -31,7 +46,7 @@ export default {
   components:{EyeClose, EyeOpen },
   data(){
     return{
-      inputValue:""
+      inputValue:"",
     }
   },
   props:{
@@ -54,12 +69,13 @@ export default {
       required: false
     },
     value:{
-      type:String
+      type:String,
+      default:''
     },
     date:{
       type:Boolean,
       default: false
-    }
+    },
   },
   methods:{
     ...mapActions('profileModule',['addErrors']),
@@ -69,15 +85,6 @@ export default {
   },
 
   computed:{
-
-
-    actualValue(){
-      if (this.value){
-        return this.value
-      } else {
-        return this.inputValue
-      }
-    },
     auth(){
       if (this.$route.path=='/signIn'){
         return true
