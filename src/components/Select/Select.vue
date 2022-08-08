@@ -56,7 +56,6 @@ export default {
       list.classList.add('active');
       this.$refs.arrow.classList.add('select__input-arrow--opened')
       this.$refs.inputBlock.$refs.input.classList.add('active')
-      console.log('11111111111',this.$refs.inputBlock.$refs.input)
       if (list.style.display === "flex"){
 
         list.style.display = "none";
@@ -64,20 +63,7 @@ export default {
 
 
         list.style.display = "flex";
-        console.log('1',list)
       }
-    },
-    blurFunc(){
-
-
-        console.log('Событие расфокусировки')
-        if (this.$refs.inputBlock.$refs.input.classList.contains('active')){
-          this.$refs.inputBlock.$refs.input.classList.remove('active')
-        }
-        let list = this.$refs.list
-        list.style.display = "none";
-
-
     },
     changeValue(e){
       if (e.target.classList.contains('select__list-item')){
@@ -87,8 +73,6 @@ export default {
       } else {
         this.$refs.list.style.display = "none";
       }
-      console.log('e1', e)
-
     }
   }
 }

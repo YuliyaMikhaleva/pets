@@ -109,7 +109,10 @@ export const filtersModule = {
          * @param state
          * @param payload
          */
-        addFilterParams(state, payload){state.filters = [...state.filters, payload]},
+        addFilterParams(state, payload){
+            state.filters = [...state.filters, payload]
+        },
+
         /**
          * Удаление отмеченных животных в общее хранилище
          * @param state
@@ -128,6 +131,9 @@ export const filtersModule = {
         setFilteredPets(state, payload ){
             state.filteredPets.push(...payload)
         },
+        removeAllParams(state){
+            state.filters = []
+        }
 
     },
     actions:{
@@ -146,6 +152,9 @@ export const filtersModule = {
          */
         removeFilter({commit}, payload) {
             commit('removeFilterParams', payload);
+        },
+        removeAllFilters({commit}){
+            commit('removeAllParams')
         },
 
         /**

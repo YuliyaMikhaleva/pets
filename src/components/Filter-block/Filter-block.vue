@@ -18,6 +18,8 @@
   </div>
 </template>
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Filter-block",
   props:{
@@ -29,8 +31,12 @@ export default {
   },
   data(){
     return{
-      active: false
+      active: false,
+      active1:false
     }
+  },
+  computed: {
+    ...mapGetters('filtersModule', ['getFilteredPets','getFilters']),
   },
   methods:{
     func(){
@@ -38,6 +44,16 @@ export default {
       this.active ? this.$emit('add', this.item) : this.$emit('remove', this.item)
     },
   },
+  watch:{
+    getFilters(){
+      let actualFilter = this.getFilters.filter(el => el.name === this.item)
+      if (actualFilter.length){
+        this.active = true
+      } else {
+        this.active = false
+      }
+    }
+  }
 }
 </script>
 

@@ -3,7 +3,7 @@
     <FilterBlock v-for="(item,index) in array"
                  :key="index"
                  :item="item.name"
-                 @add="addFilter(item)"
+                 @add="addFilterFunc(item)"
                  @remove="removeFilter(item)"
     >
       <img :src="item.img" alt="photo">
@@ -21,13 +21,24 @@ export default {
       type:Array,
       required: false
     },
+    quantity:{
+      type:Number,
+    },
   },
   components: {FilterBlock},
   computed: {
-    ...mapGetters('filtersModule', ['getFilteredPets']),
+    ...mapGetters('filtersModule', ['getFilteredPets','getFilters']),
   },
   methods:{
-    ...mapActions('filtersModule', ['addFilter','removeFilter']),
+    ...mapActions('filtersModule', ['addFilter','removeFilter', 'removeAllFilters']),
+    addFilterFunc(item){
+      if (this.quantity){
+        this.removeAllFilters();
+        this.addFilter(item)
+      } else {
+        this.addFilter(item)
+      }
+    }
   }
 
 }

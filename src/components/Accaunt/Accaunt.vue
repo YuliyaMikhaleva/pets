@@ -84,7 +84,6 @@ export default {
       this.information.oldPassword = this.getUser.password
     },
     saveData(e){
-      console.log('Отправка формы')
       e.preventDefault();
       this.changeProfile({
         name: this.information.name,

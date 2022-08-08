@@ -10,7 +10,9 @@
         <TabsFormItem name="3">
           <PetForm3/>
         </TabsFormItem>
-        <TabsFormItem name="4">этап 4</TabsFormItem>
+        <TabsFormItem name="4">
+          <PetForm4/>
+        </TabsFormItem>
       </TabsForm>
 
   </section>
@@ -23,9 +25,11 @@ import TabsFormItem from "@/components/Tabs/TabsForm/TabsFormItem/TabsFormItem";
 import PetForm from "@/components/AboutPetForm/form-steps/PetForm/PetForm";
 import FileInput from "@/components/AboutPetForm/form-steps/FileInput/FileInput";
 import PetForm3 from "@/components/AboutPetForm/form-steps/PetForm3/PetFormStep3";
+import PetForm4 from "@/components/AboutPetForm/form-steps/PetForm4/PetFormStep4";
+
 export default {
   name: "AboutPetForm",
-  components: {FileInput, PetForm, TabsFormItem, TabsForm, PetForm3}
+  components: {FileInput, PetForm, TabsFormItem, TabsForm, PetForm3, PetForm4}
 }
 </script>
 
