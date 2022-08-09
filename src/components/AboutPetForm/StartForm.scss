@@ -1,0 +1,17 @@
+.start-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__title{
+    font-family: 'Rubik';
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-notice);
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+}

@@ -16,7 +16,7 @@
     min-height: 72px;
     padding: 20px;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-button);
     border-radius: 16px;
     margin-bottom: 15px;
     display: flex;
@@ -24,8 +24,15 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 27px;
+    color: var(--color-notice);
     &--active{
       background-color: var(--blueColor);
+      color: white;
+      .tabs__item-wrp{
+        path{
+          fill: white;
+        }
+      }
     }
     &:last-child{
       margin-bottom: 0;
@@ -38,13 +45,17 @@
     display: grid;
     grid-template-columns: 32px auto;
     grid-column-gap: 20px;
+    path{
+      fill: var(--color-notice);
+    }
   }
   &__details{
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-button);
     border-radius: 16px;
     padding: 30px;
     box-sizing: border-box;
     max-width: 710px;
     min-height: 660px;
+    color: var(--color-notice);
   }
 }

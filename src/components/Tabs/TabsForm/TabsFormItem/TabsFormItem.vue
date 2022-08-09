@@ -2,8 +2,9 @@
   <div v-show="isActive" style="height: 100%; display: flex; flex-direction: column">
     <slot></slot>
     <div class="tabs-form-item__btns" :class="{'tabs-form-item__btns--one': (Number(name) == 1) }">
-      <Button v-if="Number(name) != 1" class="button button--save tabs-form-item__button" @click="$parent.goPrevTab">Назад</Button>
+      <Button v-if="Number(name) != 1 && Number(name) != tabsLength" class="button button--save tabs-form-item__button" @click="$parent.goPrevTab">Назад</Button>
       <Button v-if="Number(name) != tabsLength" class="button button--save tabs-form-item__button" @click="goNext">Дальше</Button>
+      <Button v-if="Number(name) === tabsLength" class="button button--save tabs-form-item__button tabs-form-item__button--finish">Завершить</Button>
     </div>
 
   </div>

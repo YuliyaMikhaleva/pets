@@ -26,6 +26,7 @@
   --zIndex2:50;
   --zIndex3:100;
   --zIndex4:1000;
+  --switch-color:rgba(255, 255, 255, 0.05);
 }
 //светлая тема
 [theme="light"]{
@@ -50,4 +51,5 @@
   --color-error-text:rgba(40, 68, 149, 0.69);
   --color-arrow-slider:#4C6FFF;
   --color-graphic-block:#EDF2F7;
+  --switch-color:#EDF2F7;
 }

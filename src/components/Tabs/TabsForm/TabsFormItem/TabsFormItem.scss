@@ -10,7 +10,10 @@
       margin-left: auto;
     }
   }
-  //&__button{
-  //  margin-left: auto;
-  //}
+  &__button{
+    //margin-left: auto;
+    &--finish{
+      margin: 0 auto;
+    }
+  }
 }

@@ -76,6 +76,7 @@ export default {
   },
   computed: {
     ...mapGetters('profileModule',['getPetsInfo']),
+
     fileLength(){
       if (this.filesURLS.length === 0){
         this.$parent.changeError(true)
@@ -86,6 +87,14 @@ export default {
     }
   },
   watch:{
+    filesURLS(){
+      let info = this.getPetsInfo;
+      info.photos = this.filesURLS;
+      if (info.photos){
+        this.changePetsInfo(info)
+      }
+
+    },
     over(){
       if (this.over === {}){
         this.$refs.image.forEach(el => {
@@ -101,6 +110,7 @@ export default {
   },
   methods:{
     ...mapActions('profileModule',['addPhotos', 'addErrors']),
+    ...mapActions('profileModule',['changePetsInfo']),
     handleFileUpload() {
       this.files = FileListMutator.mergeFileLists(this.files, this.$refs.file.files)
       this.files.objs = [...this.files]

@@ -22,7 +22,7 @@
 import InputBlock from "@/components/InputBlock/InputBlock";
 import PetsFilters from "@/components/Pets-filters/Pets-filters";
 import Select from "@/components/Select/Select";
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: "PetFormStep3",
   components: {Select, PetsFilters, InputBlock},
@@ -82,17 +82,37 @@ export default {
   computed:{
     ...mapGetters('locationsModule',['getCities', 'getCountries']),
     ...mapGetters('filtersModule', ['getKindsPets', 'getFilters']),
+    ...mapGetters('profileModule',['getPetsInfo']),
     pets(){
       return this.getKindsPets
     },
+    objectValues(){
+      return Object.values(this.formObj)
+    }
+
+
   },
   watch:{
     getFilters(){
       this.addKind()
+    },
+    objectValues(){
+      let info = this.getPetsInfo;
+      info.date = this.formObj.date;
+      info.weight = this.formObj.weight;
+      info.country = this.formObj.country;
+      info.city = this.formObj.city;
+      info.kindOfPet = this.formObj.kindOfPet
+      console.log('info', info)
+      if (info){
+        this.changePetsInfo(info)
+
+      }
     }
   },
 
   methods:{
+    ...mapActions('profileModule',['changePetsInfo']),
     addKind(){
       if (this.getFilters.length){
         this.formObj.kindOfPet = this.getFilters[0].name

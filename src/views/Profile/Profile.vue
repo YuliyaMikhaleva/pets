@@ -8,7 +8,8 @@
               <Settings/>
             </tab>
             <tab name="Ваши питомцы" img="icons/icon-pets.svg">
-              <AboutPetForm/>
+              <StartForm @addPet="addPet" ref="startform"/>
+              <AboutPetForm class="profile__hidden-item" ref="form"/>
             </tab>
           </tabs>
         </div>
@@ -19,11 +20,18 @@ import Tabs from "@/components/Tabs/Tabs";
 import Tab from "@/components/Tabs/Tab/Tab";
 import AccountInfo from "@/components/Accaunt/Accaunt";
 import Settings from "@/components/Settings/Settings";
+import StartForm from "@/components/AboutPetForm/StartForm";
 import AboutPetForm from "@/components/AboutPetForm/AboutPetForm";
 
 export default {
         name: "Profile",
-        components: {AboutPetForm, Settings, AccountInfo, Tabs, Tab},
+        components: {AboutPetForm ,StartForm, Settings, AccountInfo, Tabs, Tab},
+        methods:{
+          addPet(){
+            this.$refs.form.$el.classList.remove('profile__hidden-item');
+            this.$refs.startform.$el.classList.add('profile__hidden-item');
+          }
+        }
 }
 </script>
 
@@ -32,5 +40,8 @@ export default {
     margin-top: 156px;
     color: white;
     font-family: Rubik;
+    &__hidden-item{
+      display: none;
+    }
   }
 </style>

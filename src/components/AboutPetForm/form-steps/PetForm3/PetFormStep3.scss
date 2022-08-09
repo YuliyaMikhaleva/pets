@@ -1,4 +1,5 @@
 .pet-form-step3{
+
   &__inputs{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,6 +17,9 @@
     //width: 50%;
     gap: 20px;
     margin-bottom: auto;
+    .filter-block__filter{
+      background: var(--switch-color);
+    }
   }
   &__title-word{
     font-weight: 400;

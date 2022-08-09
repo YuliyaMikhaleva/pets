@@ -4,7 +4,9 @@
       <ul>
         <a v-for="(tab, index) in tabs" :href="tab.href" @click="selectTab(tab)" :key="tab+index" class="tabs__item"   :class="{ 'tabs__item--active': tab.isActive }">
           <li class="tabs__item-wrp">
-            <img :src="tab.img" alt="">
+            <Component
+                :is="require(`@/../public/${tab.img}?inline`)"
+            />
             {{ tab.name }}
           </li>
         </a>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Tabs",
   data() {
@@ -26,6 +29,11 @@ export default {
   },
   created() {
     this.tabs = this.$children;
+  },
+  computed:{
+    img(image){
+      return `@/../public/${image}?inline`
+    }
   },
   methods:{
     selectTab(selectedTab) {

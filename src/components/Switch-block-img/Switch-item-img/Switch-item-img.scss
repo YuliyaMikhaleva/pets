@@ -4,7 +4,7 @@
   cursor: pointer;
   width: 80px;
   height: 37px;
-  background-color: #334155;
+  background-color: var(--switch-color);
   border-radius: 20px;
 
   &__icon{
@@ -16,11 +16,17 @@
     position: absolute;
     top: 25%;
     left: 17%;
+    path{
+      fill: var(--color-notice);
+    }
   }
   &__iconRight{
     position: absolute;
     top: 25%;
     right: 17%;
+    path{
+      fill: var(--color-notice);
+    }
   }
 
   &__input{
@@ -35,6 +41,11 @@
     }
     &:checked + .switch-item-img__slider{
       transform: translate(90%, -50%);
+    }
+    &:checked + .switch-item-img__iconLeft{
+      path{
+        fill: white;
+      }
     }
   }
   &__slider{

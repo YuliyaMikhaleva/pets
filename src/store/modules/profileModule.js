@@ -24,7 +24,12 @@ export const profileModule = {
             sex:"M",
             text:"",
             mission:"",
-            photos:[]
+            photos:[],
+            date:"",
+            weight:"",
+            country:"",
+            city:"",
+            kindOfPet:""
         },
         errors:false,
     },
