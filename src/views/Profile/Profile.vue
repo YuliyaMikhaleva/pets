@@ -9,7 +9,8 @@
             </tab>
             <tab name="Ваши питомцы" img="icons/icon-pets.svg">
               <StartForm @addPet="addPet" ref="startform"/>
-              <AboutPetForm class="profile__hidden-item" ref="form"/>
+              <AboutPetForm class="profile__hidden-item" ref="form" @finish="goToPet"/>
+              <FinishForm class="profile__hidden-item" ref="finishForm"/>
             </tab>
           </tabs>
         </div>
@@ -22,14 +23,19 @@ import AccountInfo from "@/components/Accaunt/Accaunt";
 import Settings from "@/components/Settings/Settings";
 import StartForm from "@/components/AboutPetForm/StartForm";
 import AboutPetForm from "@/components/AboutPetForm/AboutPetForm";
+import FinishForm from "@/components/AboutPetForm/FinishForm";
 
 export default {
         name: "Profile",
-        components: {AboutPetForm ,StartForm, Settings, AccountInfo, Tabs, Tab},
+        components: {FinishForm, AboutPetForm ,StartForm, Settings, AccountInfo, Tabs, Tab},
         methods:{
           addPet(){
             this.$refs.form.$el.classList.remove('profile__hidden-item');
             this.$refs.startform.$el.classList.add('profile__hidden-item');
+          },
+          goToPet(){
+            this.$refs.form.$el.classList.add('profile__hidden-item');
+            this.$refs.finishForm.$el.classList.remove('profile__hidden-item')
           }
         }
 }

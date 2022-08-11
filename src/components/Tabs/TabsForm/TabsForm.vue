@@ -48,7 +48,6 @@ export default {
           this.tabActive = selectedTab.name
         });
       }
-
     },
     goNextTab(){
       let nextTab = String(Number(this.tabActive) + 1);
@@ -69,6 +68,9 @@ export default {
         }
       });
     },
+    goToPet() {
+
+    }
   },
 
 }

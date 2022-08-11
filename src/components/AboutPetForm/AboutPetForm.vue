@@ -10,7 +10,7 @@
         <TabsFormItem name="3">
           <PetForm3/>
         </TabsFormItem>
-        <TabsFormItem name="4">
+        <TabsFormItem name="4" @finish2="func">
           <PetForm4/>
         </TabsFormItem>
       </TabsForm>
@@ -29,7 +29,12 @@ import PetForm4 from "@/components/AboutPetForm/form-steps/PetForm4/PetFormStep4
 
 export default {
   name: "AboutPetForm",
-  components: {FileInput, PetForm, TabsFormItem, TabsForm, PetForm3, PetForm4}
+  components: {FileInput, PetForm, TabsFormItem, TabsForm, PetForm3, PetForm4},
+  methods:{
+    func(){
+      this.$emit('finish')
+    }
+  }
 }
 </script>
 

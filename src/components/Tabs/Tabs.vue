@@ -31,11 +31,12 @@ export default {
     this.tabs = this.$children;
   },
   computed:{
-    img(image){
-      return `@/../public/${image}?inline`
-    }
+
   },
   methods:{
+    img(image){
+      return `require('@/../public/${image}?inline')`
+    },
     selectTab(selectedTab) {
       this.tabs.forEach(tab => {
         tab.isActive = (tab.name == selectedTab.name);
