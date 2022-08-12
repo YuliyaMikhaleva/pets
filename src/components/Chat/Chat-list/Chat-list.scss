@@ -1,0 +1,43 @@
+.chat-list{
+  &__top{
+    display: grid;
+    grid-template-columns: auto 40px;
+    grid-column-gap: 15px;
+  }
+  &__main{
+    margin-top: 15px;
+  }
+  &__search{
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 13px 8px 44.06px;
+    border: none;
+    color:#D5D5DC;
+    font-size: 16px;
+    line-height: 24px;
+    &::placeholder{
+      color:#D5D5DC;
+    }
+  }
+  &__search-component{
+    position: relative;
+    height: 40px ;
+  }
+  &__search-label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 13px;
+  }
+  &__search-button{
+    background: #4C6FFF;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border: none;
+    outline: none;
+  }
+}

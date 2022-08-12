@@ -23,6 +23,7 @@ import InputBlock from "@/components/InputBlock/InputBlock";
 import PetsFilters from "@/components/Pets-filters/Pets-filters";
 import Select from "@/components/Select/Select";
 import {mapActions, mapGetters} from "vuex";
+import moment from "moment";
 export default {
   name: "PetFormStep3",
   components: {Select, PetsFilters, InputBlock},
@@ -77,18 +78,26 @@ export default {
         city:"",
         kindOfPet:""
       },
+      ageNow: null
     }
   },
   computed:{
     ...mapGetters('locationsModule',['getCities', 'getCountries']),
     ...mapGetters('filtersModule', ['getKindsPets', 'getFilters']),
     ...mapGetters('profileModule',['getPetsInfo']),
+
     pets(){
       return this.getKindsPets
     },
     objectValues(){
       return Object.values(this.formObj)
-    }
+    },
+    formatAge(){
+      return moment(this.formObj.date).format('YYYY-DD-MM')
+    },
+    age(){
+      return moment.duration(moment().diff(this.formatAge)).locale('ru').humanize();
+    },
 
 
   },
@@ -98,12 +107,11 @@ export default {
     },
     objectValues(){
       let info = this.getPetsInfo;
-      info.date = this.formObj.date;
+      info.date = this.age;
       info.weight = this.formObj.weight;
       info.country = this.formObj.country;
       info.city = this.formObj.city;
       info.kindOfPet = this.formObj.kindOfPet
-      console.log('info', info)
       if (info){
         this.changePetsInfo(info)
 
@@ -113,6 +121,7 @@ export default {
 
   methods:{
     ...mapActions('profileModule',['changePetsInfo']),
+
     addKind(){
       if (this.getFilters.length){
         this.formObj.kindOfPet = this.getFilters[0].name
