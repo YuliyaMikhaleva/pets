@@ -20,6 +20,22 @@ export default {
       type:Boolean,
       default: false
     },
+    type:{
+      type:String,
+      required: false
+    },
+    color:{
+      type:String,
+      default: 'green'
+    },
+    time:{
+      type:String,
+      required: false
+    },
+    message:{
+      type:String,
+      required:false
+    }
   },
   data(){
     return {

@@ -45,9 +45,19 @@
     display: grid;
     grid-template-columns: 32px auto;
     grid-column-gap: 20px;
+    width: 100%;
+    grid-template-areas: "avatar top"
+                          "text text";
     path{
       fill: var(--color-notice);
     }
+  }
+  &__item-wrp-top{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item-wrp-main{
+    grid-area: text;
   }
   &__details{
     background: var(--bg-button);
