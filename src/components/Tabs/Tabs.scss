@@ -7,8 +7,10 @@
     list-style: none;
     margin: 0;
   }
-  &__links{
-
+  &__item-avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
   }
   &__item{
     cursor: pointer;
@@ -34,6 +36,7 @@
         }
       }
     }
+
     &:last-child{
       margin-bottom: 0;
     }
@@ -51,6 +54,22 @@
     path{
       fill: var(--color-notice);
     }
+    &--chat-list{
+      grid-template-columns: 48px auto;
+      grid-column-gap: 17px;
+      font-family: Rubik,sans-serif;
+
+    }
+  }
+  &__item-name{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &__item-time{
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-diagram-part);
   }
   &__item-wrp-top{
     display: flex;

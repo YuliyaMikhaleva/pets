@@ -20,18 +20,19 @@
             />
             {{ tab.name }}
           </li>
-          <li v-if="tab.type" class="tabs__item-wrp">
-            <Avatar :name="tab.name" :bg-color="tab.color"/>
-<!--            <div class="avatar" :style='`background:${tab.color}`'>{{names}}</div>-->
-<!--            <div class="avatar" :style="this.getUser.avatar ? `background-image:url(${this.getUser.avatar})` : 'background:'+ tab.color">{{names}}</div>-->
+          <li v-if="tab.type" class="tabs__item-wrp tabs__item-wrp--chat-list">
+            <div class="tabs__item-avatar" :style='`background:${tab.color}`'>{{names}}</div>
 
-            <div class="tabs__item-wrp-top">
-              <div>{{tab.name}}</div>
-              <div>{{tab.time}}</div>
+            <div>
+              <div class="tabs__item-wrp-top">
+                <div class="tabs__item-name">{{tab.name}}</div>
+                <div class="tabs__item-time">{{tab.time}}</div>
+              </div>
+              <div class="tabs__item-wrp-main">
+                {{tab.message}}
+              </div>
             </div>
-            <div class="tabs__item-wrp-main">
-              {{tab.message}}
-            </div>
+
 
           </li>
 <!--          <li v-if="tab.type === 'chat-list-item' " class="tabs__item-wrp">-->
