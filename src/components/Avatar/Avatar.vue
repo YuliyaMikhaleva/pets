@@ -1,5 +1,5 @@
 <template>
-  <div class="avatar" :style="this.getUser.avatar ? `background-image:url(${this.getUser.avatar})` : 'background:'+ bgColor">{{names}}</div>
+  <div class="avatar" :style="(this.getUser.avatar || bgImage) ? `background-image:url(${this.getUser.avatar || bgImage})` : 'background:'+ bgColor">{{names}}</div>
 </template>
 
 <script>
@@ -16,6 +16,10 @@ export default {
     bgColor:{
       type:String,
       required:true
+    },
+    bgImage:{
+      type:String,
+      required: false
     }
   },
   computed:{

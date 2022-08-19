@@ -1,6 +1,7 @@
 .chat-window{
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 13px;
+  height: 100%;
+  font-family: 'Rubik';
   &__hello-block{
     color: #FFFFFF;
     display: flex;
@@ -15,10 +16,71 @@
       margin-left: 5px;
     }
     div{
-      width: 256px;
       text-align: center;
       margin-top: 15px;
     }
+  }
+  &__dialog-header{
+    background-color: #4C6FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 15.5px 30px;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__dialog-container{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__text-area{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    padding-left: 31.09px;
+    padding-right: 30px;
+
+    textarea{
+      width: 100%;
+      background: no-repeat;
+      outline: none;
+      border: none;
+      padding: 14.5px;
+      max-width: 674px;
+      margin: 0 auto;
+      display: block;
+      resize: none;
+      color: white;
+      font-family: 'Rubik';
+      height: 50px;
+      &::placeholder{
+        color: #D5D5DC;
+        font-size: 14px;
+        line-height: 150%;
+        font-family: 'Rubik';
+      }
+
+    }
+  }
+  &__send-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 0;
   }
 
 

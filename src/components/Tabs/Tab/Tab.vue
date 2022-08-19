@@ -35,6 +35,10 @@ export default {
     message:{
       type:String,
       required:false
+    },
+    bgImage:{
+      type:String,
+      required:false
     }
   },
   data(){

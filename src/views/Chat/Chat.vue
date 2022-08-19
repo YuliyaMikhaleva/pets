@@ -2,47 +2,64 @@
         <div class="chat">
             <tabs type="chat">
                 <tab type="chat"
-                     name="1111"
-                     color="blue"
+                     name="Ynfan"
+                     color="linear-gradient(224.47deg, #FF92AE 8.18%, #FF3D9A 95.84%);"
                      time="17:20"
                      message="Пельмень с мясом был вкусный, сытный, а..."
-                     :selected="true">
-                    <div>1111</div>
+                >
+                    <ChatWindow author="Ynfan" title="Пельмень с мясом был вкусный, сытный, а..."/>
                 </tab>
                 <tab type="chat"
-                     name="2222"
-                     color="blue"
-                     time="17:20"
-                     message="Пельмень с мясом был вкусный, сытный, а..."
-
+                     name="Gaming"
+                     bgImage="'images/avatar1.png'"
+                     time="13:15"
+                     message="Олег: Го катку ребят"
                 >
-                    <div>2222</div>
+                    <ChatWindow author="Gaming" title="Олег: Го катку ребят"/>
+
                 </tab>
                 <tab type="chat"
-                     name="3333"
-                     color="blue"
-                     time="17:20"
-                     message="Пельмень с мясом был вкусный, сытный, а..."
+                     name="Raven"
+                     color="linear-gradient(225deg, #FFEF5E 0%, #F7936F 100%);"
+                     time="вчера"
+                     message="День прошел супер."
 
                 >
-                    <div>3333</div>
+                    <ChatWindow author="Raven" title="День прошел супер."/>
                 </tab>
+                <tab type="chat"
+                     name="Qulliman"
+                     color="linear-gradient(225deg, #FFC656 0%, #F16063 100%);"
+                     time="16 янв"
+                     message="Изображение."
+
+                >
+                  <ChatWindow author="Qulliman" title="Изображение."/>
+                </tab>
+                <tab type="chat"
+                     name="Food"
+                     bgImage="'images/avatar2.png'"
+                     time="5 ноя 2021"
+                     message="Вы: Жареная кортошка топ!!!"
+
+                >
+                  <ChatWindow author="Food" title="Вы: Жареная кортошка топ!!!"/>
+                </tab>
+
             </tabs>
-<!--          <ChatList/>-->
-<!--          <ChatWindow/>-->
+
         </div>
 </template>
 
 <script>
 
-// import ChatList from "@/components/Chat/Chat-list/Chat-list";
-// // import ChatWindow from "@/components/Chat/Chat-window/Chat-window";
 import Tabs from "../../components/Tabs/Tabs";
 import Tab from "../../components/Tabs/Tab/Tab";
+import ChatWindow from "@/components/Chat/Chat-window/Chat-window";
 export default {
         name: "Chat",
-    components: {Tabs, Tab},
-    // components: {ChatWindow, ChatList},
+    components: {ChatWindow, Tabs, Tab},
+
 }
 </script>
 
@@ -51,9 +68,6 @@ export default {
     padding-top: 156px;
     padding-bottom: 25px;
     color: white;
-    /*display: grid;*/
-    /*grid-template-columns: 410px auto;*/
-    /*grid-gap: 40px;*/
-    /*height: 100%;*/
+    height: 100%;
   }
 </style>

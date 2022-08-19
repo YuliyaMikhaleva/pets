@@ -1,7 +1,7 @@
 <template>
         <div class="profile">
           <tabs>
-            <tab name="Аккаунт" img="icons/icon-account.svg" :selected="true">
+            <tab name="Аккаунт" img="icons/icon-account.svg">
               <AccountInfo/>
             </tab>
             <tab name="Настройки" img="icons/icon-settings.svg">

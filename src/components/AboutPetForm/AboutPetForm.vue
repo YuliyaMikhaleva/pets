@@ -1,7 +1,7 @@
 <template>
   <section class="about-pet">
       <TabsForm>
-        <TabsFormItem name="1" :selected="true">
+        <TabsFormItem name="1">
           <PetForm/>
         </TabsFormItem>
         <TabsFormItem name="2">
