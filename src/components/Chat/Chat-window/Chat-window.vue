@@ -6,13 +6,16 @@
         <BasketIcon/>
       </div>
       <div class="chat-window__dialog-container">
-        <div>{{title}}</div>
-        <div>{{sendMessage}}</div>
+        <div class="chat-window__other-message">{{title}}</div>
+        <div v-for="(message, index) of arrayMessages" :key="message+index" class="chat-window__your-message">
+          <div  class="chat-window__your-message-text">{{message.message}}</div>
+          <div class="chat-window__your-message-time">{{message.time}}</div>
+        </div>
         <div class="chat-window__text-area">
           <InputLogo/>
           <textarea @keyup.enter="send" name="" id="" placeholder="Написать сообщение..." v-model="message"></textarea>
           <CatIcon/>
-          <button class="chat-window__send-btn">
+          <button class="chat-window__send-btn" @click="send">
             <SendIcon/>
           </button>
         </div>
@@ -32,6 +35,7 @@ import CatIcon from "@/../public/images/catIcon.svg?inline";
 import InputLogo from "@/../public/images/chat-textarea-logo.svg?inline";
 import BasketIcon from "@/../public/images/basketIcon.svg?inline";
 import ChatsIcon from "@/../public/images/chatsIcon.svg?inline";
+import moment from "moment";
 
 export default {
   name: "ChatWindow",
@@ -55,15 +59,27 @@ export default {
   data(){
     return{
       message:"",
-      sendMessage:""
+      arrayMessages:[],
+      timeNow:"",
     }
   },
   methods:{
-    send(){
-      this.sendMessage = this.message ;
-      this.message = ""
-      console.log('отправление сообщения')
+    moment,
+    time() {
+      let self = this
+      this.timeNow = moment().locale('ru').format('LT');
+      setTimeout(self.time, 1000)
     },
+    send(){
+      this.arrayMessages.push({
+        message:this.message,
+        time:this.timeNow
+      })
+      this.message = ""
+    },
+  },
+  mounted() {
+    this.time();
   }
 }
 </script>
