@@ -54,6 +54,7 @@
     padding-right: 30px;
 
     textarea{
+      overflow: hidden;
       width: 100%;
       background: no-repeat;
       outline: none;
@@ -75,6 +76,9 @@
 
     }
   }
+  &__message{
+    display: flex;
+  }
   &__send-btn{
     background: none;
     border: none;
@@ -83,19 +87,28 @@
     padding: 0;
   }
   &__other-message{
-    border-radius: 13px 13px 13px 0px;
-    border: 2px solid #4C6FFF;
+
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 130%;
     color: #EDF2F7;
-    padding: 12px;
+
     box-sizing: border-box;
     display: inline-block;
     margin-right: auto;
     margin-bottom: 10px;
+  }
+  &__other-message-text{
+    border-radius: 13px 13px 13px 0px;
+    border: 2px solid #4C6FFF;
+    padding: 12px;
+  }
+  &__other-message-time{
+    font-size: 10px;
+    line-height: 130%;
+    text-align: start;
   }
   &__your-message{
     margin-bottom: 10px;

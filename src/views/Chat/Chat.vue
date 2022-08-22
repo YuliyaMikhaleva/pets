@@ -7,7 +7,7 @@
                      time="17:20"
                      message="Пельмень с мясом был вкусный, сытный, а..."
                 >
-                    <ChatWindow author="Ynfan" title="Пельмень с мясом был вкусный, сытный, а..."/>
+                    <ChatWindow author="Ynfan" textMessage="Пельмень с мясом был вкусный, сытный, а..." timeMessage="17:20"/>
                 </tab>
                 <tab type="chat"
                      name="Gaming"
@@ -15,7 +15,7 @@
                      time="13:15"
                      message="Олег: Го катку ребят"
                 >
-                    <ChatWindow author="Gaming" title="Олег: Го катку ребят"/>
+                    <ChatWindow author="Gaming" textMessage="Олег: Го катку ребят" timeMessage="13:15"/>
 
                 </tab>
                 <tab type="chat"
@@ -25,7 +25,7 @@
                      message="День прошел супер."
 
                 >
-                    <ChatWindow author="Raven" title="День прошел супер."/>
+                    <ChatWindow author="Raven" textMessage="День прошел супер." timeMessage="вчера"/>
                 </tab>
                 <tab type="chat"
                      name="Qulliman"
@@ -34,7 +34,7 @@
                      message="Изображение."
 
                 >
-                  <ChatWindow author="Qulliman" title="Изображение."/>
+                  <ChatWindow author="Qulliman" textMessage="Изображение." timeMessage="16 янв"/>
                 </tab>
                 <tab type="chat"
                      name="Food"
@@ -43,7 +43,7 @@
                      message="Вы: Жареная кортошка топ!!!"
 
                 >
-                  <ChatWindow author="Food" title="Вы: Жареная кортошка топ!!!"/>
+                  <ChatWindow author="Food" textMessage="Вы: Жареная кортошка топ!!!" timeMessage="5 ноя 2021"/>
                 </tab>
 
             </tabs>
