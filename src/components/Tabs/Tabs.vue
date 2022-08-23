@@ -52,9 +52,16 @@ import SearchButton from "@/../public/images/search-button.svg?inline";
 import SearchIcon from "@/../public/images/search-Icon.svg?inline";
 import Avatar from "../Avatar/Avatar";
 import {mapGetters} from "vuex";
+import Vue from "vue";
 export default {
   name: "Tabs",
   components: {Avatar, SearchButton, SearchIcon, ChatWindow},
+  props:{
+    array:{
+      type:Array,
+      required:false
+    },
+  },
   data() {
     return {
       searchValue:"",
@@ -69,9 +76,19 @@ export default {
     if (this.$route.path === "/chat"){
       this.tabs.type = "chat"
     }
+    console.log('!', this.$slots.default)
     this.tabs.tabs = this.$slots.default.map(slot => slot.componentInstance)
   },
+  watch:{
+    array(){
+      this.nextTick(() => {
+        console.log(this.$slots)
+      })
+      this.tabs.tabs = this.$slots.default
+      // this.tabs.tabs = this.$slots.default.map(slot => slot.componentInstance)
+    },
 
+  },
   computed:{
     ...mapGetters('profileModule',['getUser']),
     names(){
