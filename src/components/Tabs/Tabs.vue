@@ -1,5 +1,6 @@
 <template>
   <div class="tabs">
+    <ChatPopup placeholder="Название беседы" ref="chatPopup" @method="addRoom">Создать</ChatPopup>
     <div class="tabs__links">
       <div class="chat-list__top" v-if="tabs.type === 'chat'" >
         <div class="chat-list__search-component">
@@ -8,7 +9,7 @@
           </label>
           <input class="chat-list__search" type="text" placeholder="Поиск..." id="chat-search" ref="input" v-model="searchValue">
         </div>
-        <button class="chat-list__search-button">
+        <button @click="addPopup" class="chat-list__search-button" title="Создать новую беседу">
           <SearchButton/>
         </button>
       </div>
@@ -52,10 +53,11 @@ import SearchButton from "@/../public/images/search-button.svg?inline";
 import SearchIcon from "@/../public/images/search-Icon.svg?inline";
 import Avatar from "../Avatar/Avatar";
 import {mapGetters} from "vuex";
-import Vue from "vue";
+import Tab from "@/components/Tabs/Tab/Tab";
+import ChatPopup from "@/components/Chat/Chat-popup/Chat-popup";
 export default {
   name: "Tabs",
-  components: {Avatar, SearchButton, SearchIcon, ChatWindow},
+  components: {ChatPopup, Avatar, SearchButton, SearchIcon, ChatWindow, Tab},
   props:{
     array:{
       type:Array,
@@ -69,24 +71,31 @@ export default {
       tabs:{
         type:"",
         tabs:[]
-      }
+      },
+      nameRoom:""
     };
   },
   mounted() {
     if (this.$route.path === "/chat"){
       this.tabs.type = "chat"
     }
-    console.log('!', this.$slots.default)
     this.tabs.tabs = this.$slots.default.map(slot => slot.componentInstance)
   },
   watch:{
     array(){
-      this.nextTick(() => {
-        console.log(this.$slots)
-      })
-      this.tabs.tabs = this.$slots.default
-      // this.tabs.tabs = this.$slots.default.map(slot => slot.componentInstance)
+      setTimeout(() => {
+        this.tabs.tabs = this.$slots?.default?.map(slot => slot.componentInstance) || []
+
+      },100)
     },
+    ['tabs.tabs'](){
+      if (this.tabs.tabs.length === 0){
+        this.activeTabIndex = -1
+      }
+      if (this.tabs.tabs === []){
+        this.activeTabIndex = -1
+      }
+    }
 
   },
   computed:{
@@ -112,6 +121,15 @@ export default {
         tab.isActive = (tab.name == selectedTab.name);
       });
     },
+    addPopup(){
+      console.log('добавление попапа');
+      this.$refs.chatPopup.$el.style.display = "block"
+    },
+    addRoom(name){
+      console.log('!', name)
+      this.$emit('addRoom',name);
+      this.$refs.chatPopup.$el.style.display = "none"
+    }
   }
 }
 </script>

@@ -1,17 +1,26 @@
 <template>
   <div class="chat-window" @click="deleteContextmenu">
-    <div v-if="textMessage" class="chat-window__text-dialog">
-      <div class="chat-window__dialog-header">
-        <div>{{author}}</div>
-        <div class="chat-window__delete-icon" @click="$emit('deleteChat')">
-          <BasketIcon/>
+    <div v-if="author" class="chat-window__text-dialog">
+      <div class="chat-window__dialog-header" >
+        <div @contextmenu="e => addContextMenu(e)">
+          <div class="chat-window__context-menu chat-window__context-menu--name-room" ref="edit">
+            <ul>
+              <li @click="e => addEditForm(e)">редактировать название беседы</li>
+            </ul>
+          </div>
+          <div class="author-js">{{author}}</div>
         </div>
+        <div class="chat-window__buttons">
+          <div class="chat-window__delete-icon" @click="$emit('deleteChat')" title="Удалить беседу">
+            <BasketIcon/>
+          </div>
+          <div class="chat-window__delete-history-icon" title="Удалить историю сообщений" @click="deleteHistory">
+            x
+          </div>
+        </div>
+
       </div>
       <div class="chat-window__dialog-container">
-        <div class="chat-window__other-message">
-          <div class="chat-window__other-message-text">{{textMessage}}</div>
-          <div class="chat-window__other-message-time">{{timeMessage}}</div>
-        </div>
         <div v-for="(message, index) of arrayMessages" :key="message+index" class="chat-window__message" >
           <div v-if="message.author === 'you'" class="chat-window__your-message" @contextmenu="e => addContextMenu(e)" :id="message.id">
             <div class="chat-window__context-menu" ref="edit">
@@ -91,7 +100,7 @@ export default {
       arrayMessages:[],
       timeNow:"",
       botMessage:"",
-      editString:"такой вот текст",
+      editString:"",
       editMessageId:""
     }
   },
@@ -128,21 +137,30 @@ export default {
       e.target.parentElement.querySelector('.chat-window__context-menu').style.display = "block";
     },
     deleteContextmenu(){
+      console.log('this.$refs.edit',this.$refs.edit)
       if (this.$refs.edit){
-        this.$refs.edit.forEach(el => {
+        // this.$refs.edit.style.display = "none"
+        [this.$refs.edit].forEach(el => {
           el.style.display = "none"
         })
       }
     },
-    addEditForm(e){
-      this.$refs["edit-popup"].style.display = "block";
-      this.editString = e.target.closest('.chat-window__your-message').querySelector('.chat-window__your-message-text').outerText;
-      this.editMessageId = e.target.closest('.chat-window__your-message').getAttribute('id')
+    addEditForm(e, nameRoom=""){
+
+      console.log('e.target', e.target)
+      if (nameRoom === ""){
+        this.$refs["edit-popup"].style.display = "block";
+        this.editString = e.target.closest('.chat-window__your-message')?.querySelector('.chat-window__your-message-text').outerText;
+        this.editMessageId = e.target.closest('.chat-window__your-message')?.getAttribute('id')
+      } else {
+        this.editString = e.target.querySelector('.author-js').outerText;
+
+      }
     },
     editMessage(e){
       e.preventDefault()
       this.$refs["edit-popup"].style.display = "none";
-      this.arrayMessages.forEach(el => {
+      this.arrayMessages.map(el => {
         if (el.id === Number(this.editMessageId)){
           el.message = this.editString
         }
@@ -150,15 +168,25 @@ export default {
     },
     deleteMessage(e){
       this.editMessageId = e.target.closest('.chat-window__your-message').getAttribute('id')
-      this.arrayMessages.splice(this.editMessageId-1, 1)
+      this.arrayMessages.splice(this.editMessageId-1, 1);
+      this.arrayMessages.forEach((el, index) => el.id = index + 1)
     },
+    deleteHistory(){
+      this.arrayMessages = []
+    }
   },
   watch:{
     arrayMessages(){}
   },
   mounted() {
     this.time();
-  }
+    this.arrayMessages.push({
+      id:0,
+      author: this.author ,
+      message:this.textMessage,
+      time:this.timeMessage
+    })
+  },
 }
 </script>
 

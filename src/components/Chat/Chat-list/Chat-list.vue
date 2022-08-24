@@ -18,7 +18,7 @@
         </label>
         <input class="chat-list__search" type="text" placeholder="Поиск..." id="chat-search">
       </div>
-      <button class="chat-list__search-button">
+      <button class="chat-list__search-button" title="Создать новую беседу">
         <SearchButton/>
       </button>
     </div>
