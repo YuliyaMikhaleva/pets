@@ -2,35 +2,37 @@
         <div class="chat">
             <tabs type="chat" :array="chats" @addRoom="addRoom">
                 <tab v-for="(chat, index) in chats"
-                      :key="index"
-                      :type="chat.type"
-                      :name="chat.name"
-                      :color="chat.color"
-                      :time="chat.time"
-                      :message="chat.message"
-                      :id="chat.id"
-                      :bgImage="chat.bgImage"
+                     :key="index"
+                     :type="chat.type"
+                     :name="chat.name"
+                     :color="chat.color"
+                     :time="chat.time"
+                     :message="chat.message"
+                     :id="chat.id"
+                     :bgImage="chat.bgImage"
                 >
                   <ChatWindow
-                    :author="chat.name"
-                    :text-message="chat.message"
-                    :time-message="chat.time"
-                    @deleteChat="deleteChat(index)"
+                      :id="chat.id"
+                      :author="chat.name"
+                      :text-message="chat.message"
+                      :time-message="chat.time"
+                      @deleteChat="deleteChat(index)"
+                      @changeNameRoom="changeNameRoom"
                   />
                 </tab>
+
             </tabs>
 
         </div>
 </template>
 
 <script>
-
 import Tabs from "../../components/Tabs/Tabs";
 import Tab from "../../components/Tabs/Tab/Tab";
 import ChatWindow from "@/components/Chat/Chat-window/Chat-window";
 export default {
   name: "Chat",
-  components: {ChatWindow, Tabs, Tab},
+  components: {ChatWindow, Tabs, Tab },
   data(){
     return {
       chats:[
@@ -94,6 +96,15 @@ export default {
         id:this.chats.length+1,
       })
     },
+    changeNameRoom(id,newName){
+      this.chats.map((el) => {
+        if (el.id === id){
+          el.name = newName
+        }
+        return el
+      })
+    },
+
   }
 
 }

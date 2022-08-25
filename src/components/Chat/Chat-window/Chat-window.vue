@@ -2,13 +2,13 @@
   <div class="chat-window" @click="deleteContextmenu">
     <div v-if="author" class="chat-window__text-dialog">
       <div class="chat-window__dialog-header" >
-        <div @contextmenu="e => addContextMenu(e)">
+        <div class="chat-window__container" @contextmenu="e => addContextMenu(e)">
           <div class="chat-window__context-menu chat-window__context-menu--name-room" ref="edit">
             <ul>
-              <li @click="e => addEditForm(e)">редактировать название беседы</li>
+              <li @click="e => addEditForm(e, 11)">редактировать название беседы</li>
             </ul>
           </div>
-          <div class="author-js">{{author}}</div>
+          <div class="author-js" title="Название беседы">{{author}}</div>
         </div>
         <div class="chat-window__buttons">
           <div class="chat-window__delete-icon" @click="$emit('deleteChat')" title="Удалить беседу">
@@ -53,7 +53,7 @@
       <ChatsIcon/>
       <div>Выберите чат<br/> или <b>создайте новую беседу</b></div>
     </div>
-    <form class="chat-window__edit-popup" ref="edit-popup" @submit="e => editMessage(e)">
+    <form class="chat-window__edit-popup" ref="edit-popup" @submit="e => submitFunc(e)">
       <input type="text" class="chat-window__edit-string" v-model="editString" @keyup.enter="editMessage">
       <Button class="button button--save" type="submit">Редактировать</Button>
     </form>
@@ -84,6 +84,10 @@ export default {
     timeMessage:{
       type:String,
       required:false
+    },
+    id:{
+      type:Number,
+      required: false
     }
   },
   components:{
@@ -105,6 +109,13 @@ export default {
     }
   },
   methods:{
+    submitFunc(e){
+      if (this.editMessageId){
+        this.editMessage(e)
+      } else {
+        this.editNameRoom(e)
+      }
+    },
     moment,
     time() {
       let self = this
@@ -137,34 +148,44 @@ export default {
       e.target.parentElement.querySelector('.chat-window__context-menu').style.display = "block";
     },
     deleteContextmenu(){
-      console.log('this.$refs.edit',this.$refs.edit)
-      if (this.$refs.edit){
-        // this.$refs.edit.style.display = "none"
-        [this.$refs.edit].forEach(el => {
-          el.style.display = "none"
-        })
+      console.log('Удаление')
+      console.log(typeof this.$refs.edit)
+      console.log(this.$refs.edit[0])
+      if (this.$refs.edit.style){
+        this.$refs.edit.style.display = "none"
+      } else {
+        this.$refs.edit[0].style.display = "none"
       }
+      document.querySelector('.chat-window__context-menu').style.display = "none";
     },
     addEditForm(e, nameRoom=""){
-
-      console.log('e.target', e.target)
       if (nameRoom === ""){
         this.$refs["edit-popup"].style.display = "block";
         this.editString = e.target.closest('.chat-window__your-message')?.querySelector('.chat-window__your-message-text').outerText;
         this.editMessageId = e.target.closest('.chat-window__your-message')?.getAttribute('id')
       } else {
-        this.editString = e.target.querySelector('.author-js').outerText;
-
+        this.$refs["edit-popup"].style.display = "block";
+        this.editString = e.target.closest('.chat-window__container').querySelector('.author-js')?.outerText;
       }
+      // this.deleteContextmenu()
     },
     editMessage(e){
       e.preventDefault()
       this.$refs["edit-popup"].style.display = "none";
       this.arrayMessages.map(el => {
         if (el.id === Number(this.editMessageId)){
-          el.message = this.editString
+          el.message = this.editString;
         }
       })
+      this.editString = "";
+      this.editMessageId = ""
+    },
+    editNameRoom(e){
+      e.preventDefault();
+      this.$refs["edit-popup"].style.display = "none";
+      this.$emit('changeNameRoom', this.id, this.editString)
+      this.editString = ""
+
     },
     deleteMessage(e){
       this.editMessageId = e.target.closest('.chat-window__your-message').getAttribute('id')

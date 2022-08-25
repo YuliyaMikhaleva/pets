@@ -126,7 +126,6 @@ export default {
       this.$refs.chatPopup.$el.style.display = "block"
     },
     addRoom(name){
-      console.log('!', name)
       this.$emit('addRoom',name);
       this.$refs.chatPopup.$el.style.display = "none"
     }
