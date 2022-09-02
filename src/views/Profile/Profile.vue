@@ -1,7 +1,7 @@
 <template>
         <div class="profile">
-          <tabs>
-            <tab name="Аккаунт" img="icons/icon-account.svg">
+          <tabs class="profile__tabs">
+            <tab name="Аккаунт" img="icons/icon-account.svg" selected>
               <AccountInfo/>
             </tab>
             <tab name="Настройки" img="icons/icon-settings.svg">
@@ -49,5 +49,28 @@ export default {
     &__hidden-item{
       display: none;
     }
+
   }
+  @media (max-width: 1200px) {
+    .profile{
+      margin-top: 0;
+      //padding: 0 24px;
+      &__tabs{
+        grid-template-columns: 1fr;
+        grid-row-gap: 25px;
+        & >.tabs__details{
+          max-width: 100%;
+        }
+      }
+      & >.tabs__details{
+        max-width: 100%;
+        margin: 0 24px;
+      }
+      .tabs__links > ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
 </style>

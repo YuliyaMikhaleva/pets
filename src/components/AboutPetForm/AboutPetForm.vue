@@ -1,7 +1,7 @@
 <template>
   <section class="about-pet">
       <TabsForm>
-        <TabsFormItem name="1">
+        <TabsFormItem name="1" selected>
           <PetForm/>
         </TabsFormItem>
         <TabsFormItem name="2">

@@ -4,7 +4,9 @@
 body{
   margin: 0;
   padding: 0;
-  min-width: 626px;
+  //min-width: 626px;
+  min-width: 375px;
+  overflow-x: hidden;
 }
 
 .block-scroll{
@@ -161,7 +163,7 @@ body{
   .main{
     grid-template-columns: 100%;
     grid-gap: 0;
-    height: 100%;
+    height: auto;
     &__wrp{
       max-width: initial;
       width: 100%;

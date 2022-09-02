@@ -83,14 +83,16 @@
     height: 800px;
     grid-area: slider;
     position: relative;
-    min-width: 710px;
+    //min-width: 710px;
   }
   &__photo-wrp{
-    width: 606px;
+    //width: 606px;
+    width: 80%;
     height: 800px;
   }
   &__photo-wrp1{
-    width: 710px;
+    //width: 710px;
+    width: 100%;
     height: 800px;
   }
   &__photo{
