@@ -3,7 +3,7 @@
   height: 100%;
   font-family: 'Rubik';
   &__hello-block{
-    color: #FFFFFF;
+    color: var(--color-notice);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,6 +18,9 @@
     div{
       text-align: center;
       margin-top: 15px;
+    }
+    path{
+      fill: black;
     }
   }
   &__dialog-header{
@@ -35,6 +38,7 @@
     line-height: 19px;
     display: flex;
     justify-content: space-between;
+    color: white;
   }
   &__dialog-container{
     margin-top: 35px;
@@ -47,11 +51,14 @@
     bottom: 0;
     width: 100%;
     left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--colorLine);
     display: flex;
     align-items: center;
     padding-left: 31.09px;
     padding-right: 30px;
+    path{
+      fill: var(--color-notice);
+    }
 
     textarea{
       overflow: hidden;
@@ -64,11 +71,12 @@
       margin: 0 auto;
       display: block;
       resize: none;
-      color: white;
+      color: var(--color-notice);
       font-family: 'Rubik';
       height: 50px;
       &::placeholder{
-        color: #D5D5DC;
+        color: var(--color-notice);
+
         font-size: 14px;
         line-height: 150%;
         font-family: 'Rubik';
@@ -85,6 +93,10 @@
     cursor: pointer;
     margin-left: 10px;
     padding: 0;
+    path{
+      stroke: var(--color-notice);
+      fill: none;
+    }
   }
   &__other-message{
 
@@ -105,11 +117,13 @@
     border-radius: 13px 13px 13px 0px;
     border: 2px solid #4C6FFF;
     padding: 12px;
+    color: var(--color-notice);
   }
   &__other-message-time{
     font-size: 10px;
     line-height: 130%;
     text-align: start;
+    color: var(--color-notice);
   }
   &__your-message{
     margin-bottom: 10px;
@@ -124,7 +138,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 130%;
-    color: #EDF2F7;
+    color: white;
     padding: 12px;
     box-sizing: border-box;
     border-radius: 13px 13px 0px 13px;
@@ -214,6 +228,7 @@
     font-family: Rubik;
     cursor: pointer;
     transition: opacity 0.3s;
+    color: white;
     &:hover{
       opacity: 0.7;
     }

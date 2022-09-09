@@ -61,3 +61,16 @@
   }
 
 }
+
+@media (max-width: 660px) {
+  .accaunt{
+    &__form, &__location{
+      grid-template-columns: 1fr;
+    }
+    &__location{
+      grid-row-gap: 40px;
+      margin-top: 10px;
+    }
+
+  }
+}

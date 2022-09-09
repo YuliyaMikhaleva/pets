@@ -96,10 +96,13 @@
     position: relative;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1320px) {
   .tabs{
     &__links{
       margin-top: 116px;
+      &--chat{
+        margin-top: 0;
+      }
     }
     &__links > ul{
       display: grid;

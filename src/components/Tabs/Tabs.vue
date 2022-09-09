@@ -1,7 +1,7 @@
 <template>
   <div class="tabs">
     <ChatPopup placeholder="Название беседы" ref="chatPopup" @method="addRoom">Создать</ChatPopup>
-    <div class="tabs__links">
+    <div class="tabs__links" :class="{'tabs__links--chat':tabs.type === 'chat'}">
       <div class="chat-list__top" v-if="tabs.type === 'chat'" >
         <div class="chat-list__search-component">
           <label for="chat-search" class="chat-list__search-label">
@@ -136,4 +136,5 @@ export default {
 <style scoped lang="scss" >
 @import "Tabs";
 @import "../Chat/Chat-list/Chat-list.scss";
+;
 </style>

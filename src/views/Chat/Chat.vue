@@ -110,11 +110,27 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .chat{
     padding-top: 156px;
     padding-bottom: 25px;
     color: white;
     height: 100%;
+    .tabs{
+      width: 100%;
+      overflow-x: scroll;
+      overflow-y: hidden;;
+    }
   }
+  @media(max-width: 1000px){
+    .chat{
+
+      .tabs{
+        grid-template-columns: 100% 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+    }
+  }
+
 </style>

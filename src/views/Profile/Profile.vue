@@ -51,7 +51,7 @@ export default {
     }
 
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1320px) {
     .profile{
       margin-top: 0;
       //padding: 0 24px;
