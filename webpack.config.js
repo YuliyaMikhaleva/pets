@@ -1,26 +1,26 @@
 module.exports = {
     module: {
-        // rules: [
-        //     {
-        //         test: /\.svg$/,
-        //         oneOf: [
-        //             {
-        //                 resourceQuery: /inline/,
-        //                 use: [
-        //                     'babel-loader',
-        //                     'vue-svg-loader',
-        //                 ],
-        //             },
-        //             {
-        //                 loader: 'file-loader',
-        //                 query: {
-        //                     name: 'assets/[name].[hash:8].[ext]',
-        //                 },
-        //             },
-        //         ],
-        //     },
-        //
-        // ],
+        rules: [
+            {
+                test: /\.svg$/,
+                oneOf: [
+                    {
+                        resourceQuery: /inline/,
+                        use: [
+                            'babel-loader',
+                            'vue-svg-loader',
+                        ],
+                    },
+                    {
+                        loader: 'file-loader',
+                        query: {
+                            name: 'assets/[name].[hash:8].[ext]',
+                        },
+                    },
+                ],
+            },
+
+        ],
         loaders: [
             {
                 test: /\.vue$/,
@@ -30,16 +30,7 @@ module.exports = {
                 test: /\.s[a|c]ss$/,
                 loader: 'style!css!sass'
             },
-            {
-                test: /\.vue$/,
-                include: /src/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        js: 'awesome-typescript-loader?silent=true'
-                    }
-                }
-            }
+
             // {
             //     test: /\.(png|jpg|gif|svg)$/,
             //     loader: 'url',
