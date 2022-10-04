@@ -19,6 +19,7 @@ module.exports = {
                     },
                 ],
             },
+
         ],
         loaders: [
             {
@@ -29,6 +30,16 @@ module.exports = {
                 test: /\.s[a|c]ss$/,
                 loader: 'style!css!sass'
             },
+            {
+                test: /\.vue$/,
+                include: /src/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        js: 'awesome-typescript-loader?silent=true'
+                    }
+                }
+            }
             // {
             //     test: /\.(png|jpg|gif|svg)$/,
             //     loader: 'url',
